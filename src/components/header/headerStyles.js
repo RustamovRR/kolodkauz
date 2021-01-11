@@ -1,0 +1,60 @@
+import { makeStyles } from "@material-ui/core/styles";
+
+const primaryColor = "rgba(2, 23, 78, 1)"
+const searchColor = "rgba(255, 255, 255, 0.15)"
+
+const primaryText = "rgba(255, 255, 255, 1)"
+const linkText = "rgba(58, 78, 133, 1)"
+const searchText = "rgba(110, 131, 186, 1)"
+
+export const useHeaderStyles = makeStyles({
+    header_root: {
+        width: '100vw',
+    },
+
+    nav: {
+        height: 48,
+        padding: '0 10px',
+        display: 'flex',
+        alignItems: 'center',
+        backgroundColor: primaryColor
+    },
+
+    services: {
+        marginLeft: 60,
+        '& > *': {
+            textDecoration: 'none',
+            color: linkText,
+            fontWeight: 500,
+            fontSize: 14,
+            marginLeft: 30
+        }
+    },
+
+    function_box: {
+        height: 96,
+        display: 'flex',
+        paddingLeft: 100,
+        alignItems: 'center',
+        backgroundColor: primaryColor
+    },
+
+    function_items: {
+        display: 'flex',
+    },
+
+    link: {
+        marginLeft: 40,
+        display: 'flex',
+        color: primaryText,
+        textDecoration: 'none',
+        flexDirection: 'column',
+        '& > img': {
+            objectFit: 'contain'
+        },
+        '& > p': {
+            fontSize: 14,
+            marginTop: 5
+        }
+    }
+});

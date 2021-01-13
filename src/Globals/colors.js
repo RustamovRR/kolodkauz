@@ -1,7 +1,9 @@
 export const clr = {
     primary: `rgba(2, 23, 78, 1)`,
     search: `rgba(255, 255, 255, 0.15)`,
-    divider: `rgba(232, 233, 234, 1)`
+    divider: `rgba(232, 233, 234, 1)`,
+    tab: `rgba(18, 115, 235, 1)`,
+    imageBackground:`rgba(237, 243, 252, 1)`
 }
 
 export const text = {

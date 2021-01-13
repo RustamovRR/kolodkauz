@@ -1,9 +1,12 @@
 import React from 'react'
 import image from '../../images/brands/chevrolet.png'
+import { useCarBrandStyles } from './carBrandStyles'
 
 export default function CarBrand() {
+    const classes = useCarBrandStyles()
+
     return (
-        <div>
+        <div className={classes.carBrand_root}>
             <img src={image} alt="" />
         </div>
     )

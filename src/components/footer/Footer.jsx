@@ -32,7 +32,7 @@ export default function Footer() {
     return (
         <div className={classes.footer_root}>
             <div className={classes.footer}>
-                <Grid>
+                <Grid className={classes.left_box}>
                     {/* Domain informations///////////////////////////////////////////// */}
                     <div className={classes.zap_box}>
                         <h4>

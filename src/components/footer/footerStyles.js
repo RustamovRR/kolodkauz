@@ -3,15 +3,20 @@ import { clr, text } from '../../Globals/colors'
 
 export const useFooterStyles = makeStyles({
     footer_root: {
-        width: '100vw',
-        height: '100vh',
+        width: '100%',
+        height: 570,
         backgroundColor: clr.primary,
         color: text.white
     },
 
     footer: {
-        padding: '64px 50px',
+        padding: '64px 30px',
         display: 'flex',
+        justifyContent: 'space-between'
+    },
+
+    left_box: {
+        width: 368,
     },
 
     zap_box: {
@@ -31,7 +36,6 @@ export const useFooterStyles = makeStyles({
     },
 
     phone_box: {
-        width: '60%',
         marginTop: 70,
         '& > h4': {
             fontWeight: 600,
@@ -66,7 +70,6 @@ export const useFooterStyles = makeStyles({
     },
 
     information_box: {
-        marginRight: 30,
         '& > h4': {
             fontSize: 18
         }
@@ -82,7 +85,7 @@ export const useFooterStyles = makeStyles({
     },
 
     divider: {
-        width: '100vw',
+        width: '100%',
         backgroundColor: text.footerPrimary
     },
 

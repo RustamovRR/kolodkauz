@@ -9,19 +9,19 @@ const searchText = "rgba(110, 131, 186, 1)"
 
 export const useHeaderStyles = makeStyles({
     header_root: {
-        width: '100vw',
+        width: '100%'
     },
 
     nav: {
         height: 48,
-        padding: '0 10px',
+        padding: '0 30px',
         display: 'flex',
         alignItems: 'center',
         backgroundColor: primaryColor
     },
 
     services: {
-        marginLeft: 60,
+        marginLeft: 14,
         '& > *': {
             textDecoration: 'none',
             color: linkText,
@@ -34,9 +34,10 @@ export const useHeaderStyles = makeStyles({
     function_box: {
         height: 96,
         display: 'flex',
-        paddingLeft: 100,
+        padding: '0 30px',
         alignItems: 'center',
-        backgroundColor: primaryColor
+        justifyContent: 'flex-end',
+        backgroundColor: primaryColor,
     },
 
     function_items: {

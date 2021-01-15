@@ -26,16 +26,16 @@ export default function Header() {
                 <Currency />
 
                 <div className={classes.services}>
-                    <Link to="#">
+                    <Link to="/info">
                         Скидки
                     </Link>
-                    <Link to="#">
+                    <Link to="/info">
                         Доставка
                     </Link>
-                    <Link to="#">
+                    <Link to="/info">
                         Услуга мастера
                     </Link>
-                    <Link to="#">
+                    <Link to="/info">
                         Гарантия
                     </Link>
                 </div>

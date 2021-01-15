@@ -15,5 +15,6 @@ export const text = {
     headerSearch: `rgba(110, 131, 186, 1)`,
     productPrimary: `rgba(95, 100, 106, 1)`,
     productSecondary: `rgba(141, 144, 148, 1)`,
+    infoText: `rgba(100, 108, 129, 1)`,
     footerPrimary: `rgba(154, 162, 184, 1)`
 }

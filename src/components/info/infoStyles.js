@@ -5,7 +5,7 @@ import { clr, text } from "../../Globals/colors";
 export const useInfoStyles = makeStyles({
     info_root: {
         display: 'flex',
-        justifyContent: 'space-between'
+        // justifyContent: 'space-between'
     },
 
     left_panel: {
@@ -23,29 +23,17 @@ export const useInfoStyles = makeStyles({
     },
 
     divider: {
-        minHeight: '50vw',
         width: 2,
+        minHeight: '50vw',
+        marginLeft: 60,
+        marginRight: 30,
         backgroundColor: clr.divider
     },
 
     info_panel: {
         width: '70%',
         marginTop: 48,
-        marginBottom: 128,
-        '& > h1': {
-            fontSize: 32,
-            fontWeight: 700
-        }
-    },
-
-    text_box: {
-        marginTop: 32,
-        '& > h4': {
-            marginBottom: 8,
-            fontWeight: 700
-        },
-        '& > p': {
-            lineHeight: 1.5
-        }
+        marginBottom: 128
     }
+
 });

@@ -47,7 +47,7 @@ export default function Header() {
                     <div className={classes.function_items}>
                         {
                             functions.map(item => (
-                                <Link to='#' className={classes.link} key={item.text}>
+                                <Link to='/favorite' className={classes.link} key={item.text}>
                                     <img src={item.icon} alt="" />
                                     <p>{item.text}</p>
                                 </Link>

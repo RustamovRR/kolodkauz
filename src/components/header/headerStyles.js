@@ -50,6 +50,7 @@ export const useHeaderStyles = makeStyles({
         color: primaryText,
         textDecoration: 'none',
         flexDirection: 'column',
+        alignItems:'center',
         '& > img': {
             objectFit: 'contain'
         },

@@ -25,23 +25,23 @@ export default function FavoritePage() {
 
 
             <div className={classes.favorite_box}>
-                <Breadcrumbs aria-label="breadcrumb">
-                    <Link color="inherit" to="/" onClick={handleClick}>
+                <Breadcrumbs className={classes.navigation}>
+                    <Link to="#" className={classes.link}>
                         Главная
                     </Link>
-                    <Link color="inherit" to="/getting-started/installation/" onClick={handleClick}>
+                    <p >
                         Избранные
-                    </Link>
+                    </p>
                 </Breadcrumbs>
 
                 <h1>Избранные</h1>
 
                 <div className={classes.product_box}>
-                    <Product />
-                    <Product />
-                    <Product />
-                    <Product />
-                    <Product />
+                    <Product favorite={true} />
+                    <Product favorite={true} />
+                    <Product favorite={true} />
+                    <Product favorite={true} />
+                    <Product favorite={true} />
                 </div>
             </div>
 

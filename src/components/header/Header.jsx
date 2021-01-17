@@ -8,6 +8,7 @@ import person from '../../images/icons/person.png'
 import like from '../../images/icons/icon.png'
 import rate from '../../images/icons/rate.png'
 import basket from '../../images/icons/basket.png'
+import { Badge } from '@material-ui/core'
 
 export default function Header() {
     const classes = useHeaderStyles()
@@ -45,14 +46,24 @@ export default function Header() {
                 <Search />
                 <div className={classes.functions}>
                     <div className={classes.function_items}>
-                        {
-                            functions.map(item => (
-                                <Link to='/favorite' className={classes.link} key={item.text}>
-                                    <img src={item.icon} alt="" />
-                                    <p>{item.text}</p>
-                                </Link>
-                            ))
-                        }
+                        <Link to='/favorite' className={classes.link}>
+                            <img src={person} alt="kolodka kirish" />
+                            <p>Войти</p>
+                        </Link>
+                        <Link to='/favorite' className={classes.link}>
+                            <Badge badgeContent={4} color="primary" >
+                                <img src={like} alt="tanlanganlar" />
+                            </Badge>
+                            <p>Избранные</p>
+                        </Link>
+                        <Link to='/compare' className={classes.link}>
+                            <img src={rate} alt="Taqqoslash" />
+                            <p>Сравнение</p>
+                        </Link>
+                        <Link to='/favorite' className={classes.link}>
+                            <img src={basket} alt="Savat" />
+                            <p>Корзина</p>
+                        </Link>
                     </div>
                 </div>
             </div>

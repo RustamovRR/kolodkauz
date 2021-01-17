@@ -11,7 +11,6 @@ export const useComparePageStyles = makeStyles({
     compare_box: {
         padding: paddingRoot,
         paddingTop: 48,
-        paddingBottom: 100,
         '& > h1': {
             margin: '32px 0',
             fontSize: 40,
@@ -43,6 +42,33 @@ export const useComparePageStyles = makeStyles({
             fontSize: 18,
             fontWeight: 400
         }
+    },
+
+    compare_info_box: {
+        width: '100%',
+        padding: paddingRoot,
+        paddingTop: 20
+    },
+
+    info: {
+        height: 64,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        '& > *': {
+            width: '18%',
+            fontSize: 16
+        }
+    },
+
+    title: {
+        width: '100%',
+        fontSize: 24,
+        fontWeight: 600
+    },
+
+    footer_box: {
+        marginTop: 128
     }
 
 })

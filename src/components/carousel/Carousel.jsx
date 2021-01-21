@@ -37,8 +37,6 @@ export default function Carousel() {
     return (
         <div className={classes.carousel_root}>
             <SwipeableViews
-                // className={classes.carousel_root}
-                // enableMouseEvents
                 index={activeStep}
             >
                 {

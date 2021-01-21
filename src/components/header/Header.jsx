@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Currency from '../currency/Currency'
 import Language from '../language/Language'
@@ -9,9 +9,17 @@ import like from '../../images/icons/icon.png'
 import rate from '../../images/icons/rate.png'
 import basket from '../../images/icons/basket.png'
 import { Badge } from '@material-ui/core'
+import { BasketContext } from '../../contexts/BasketContext'
+import Basket from '../basket/Basket'
 
 export default function Header() {
     const classes = useHeaderStyles()
+    const { open, setOpen } = useContext(BasketContext)
+
+    const handleOpen = () => {
+        setOpen(true);
+    };
+
 
     const functions = [
         { icon: person, text: `Войти` },
@@ -60,10 +68,19 @@ export default function Header() {
                             <img src={rate} alt="Taqqoslash" />
                             <p>Сравнение</p>
                         </Link>
-                        <Link to='/favorite' className={classes.link}>
+                        <Link
+                            to='/'
+                            className={classes.link}
+                            onMouseEnter={() => {
+                                setTimeout(() => {
+                                    handleOpen()
+                                }, 200)
+                            }}
+                        >
                             <img src={basket} alt="Savat" />
                             <p>Корзина</p>
                         </Link>
+                        <Basket />
                     </div>
                 </div>
             </div>

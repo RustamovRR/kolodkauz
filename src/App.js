@@ -9,13 +9,16 @@ import TabMenu from "./components/tabmenu/TabMenu";
 import HomePage from "./pages/Home/HomePage";
 import "./App.css";
 import Pages from "./pages/Pages";
+import BasketProvider from "./contexts/BasketContext";
 
 function App() {
   return (
     <BrowserRouter>
-      <div className="App" >
-        <Pages />
-      </div>
+      <BasketProvider>
+        <div className="App" >
+          <Pages />
+        </div>
+      </BasketProvider>
     </BrowserRouter>
   );
 }

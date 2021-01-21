@@ -17,7 +17,6 @@
     "react-slick": "^0.27.14",
     "react-swipeable-views": "^0.13.9",
     "react-swipeable-views-utils": "^0.14.0-alpha.0",
-    "swiper": "^6.4.5",
     "web-vitals": "^0.2.4"
   },
   "scripts": {

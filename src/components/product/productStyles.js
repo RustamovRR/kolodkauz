@@ -55,7 +55,12 @@ export const useProductStyles = makeStyles({
         borderRadius: 4,
         fontWeight: 600,
         textTransform: 'none',
-        border: `2px solid ${clr.tab}`
+        transition: '0.3s ease',
+        border: `2px solid ${clr.tab}`,
+        '&:hover': {
+            color: text.white,
+            backgroundColor: clr.tab
+        }
     },
 
     delete_button: {
@@ -65,5 +70,10 @@ export const useProductStyles = makeStyles({
         fontSize: 15,
         color: text.red,
         textTransform: 'none',
+        transition: '0.3s ease',
+        '&:hover': {
+            color: text.white,
+            backgroundColor: text.red
+        }
     }
 });

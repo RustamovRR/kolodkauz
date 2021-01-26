@@ -1,3 +1,30 @@
+export const productCompare2 = [
+    {
+        title: `Основные`,
+        fields: [{
+            title: 'Товар',
+            name: 'product',
+            type: 'text'
+        }, {
+            title: 'Цена',
+            name: 'price',
+            type: 'price'
+        }, {
+            title: 'Рейтинг',
+            name: 'rating',
+            type: 'rating'
+        }, {
+            title: 'Гарантия',
+            name: 'garranty',
+            type: 'text',
+        }, {
+            title: 'Фирма',
+            name: 'firm',
+            type: 'text'
+        }],
+    }
+]
+
 export const productCompare = [
     {
         title: `Основные`

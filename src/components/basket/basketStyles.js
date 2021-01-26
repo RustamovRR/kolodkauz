@@ -9,7 +9,7 @@ export const useBasketStyles = makeStyles({
 
     dialog: {
         width: 516,
-        height: 600,
+        minHeight: 600,
         position: 'absolute',
         right: 0,
         top: 110,
@@ -49,5 +49,35 @@ export const useBasketStyles = makeStyles({
     icon: {
         position: 'absolute',
         right: 0
+    },
+
+    price_box: {
+        display: 'flex',
+        justifyContent: 'space-between',
+        marginTop: 24,
+        '& > h4': {
+            fontSize: 16,
+            fontWeight: 400,
+        },
+        '& > p': {
+            fontSize: 20,
+            fontWeight: 500
+        }
+    },
+
+    button: {
+        height: 48,
+        marginTop: 48,
+        fontWeight: 600,
+        borderRadius: 4,
+        textTransform: 'none',
+        color: text.white,
+        backgroundColor: clr.tab,
+        transition: `0.3s`,
+        '&:hover': {
+            color: clr.tab,
+            backgroundColor: text.white,
+            border: `1px solid ${clr.tab}`
+        }
     }
 });

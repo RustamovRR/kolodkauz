@@ -1,5 +1,6 @@
 import React from 'react'
 import { Route, Switch } from 'react-router-dom'
+import BasketPage from './Basket/BasketPage'
 import ComparePage from './Compare/ComparePage'
 import FavoritePage from './Favorite/FavoritePage'
 import HomePage from './Home/HomePage'
@@ -13,6 +14,7 @@ export default function Pages() {
                 <Route path="/info" component={InformationPage} />
                 <Route path="/favorite" component={FavoritePage} />
                 <Route path="/compare" component={ComparePage} />
+                <Route path="/basket" component={BasketPage} />
             </Switch>
         </div>
     )

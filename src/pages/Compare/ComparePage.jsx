@@ -13,6 +13,45 @@ import { clr } from '../../Globals/colors'
 export default function ComparePage() {
     const classes = useComparePageStyles()
 
+    const products = [
+        {
+            id: 1,
+            name: 'Product1',
+            price: 123123123,
+        },
+        {
+            id: 2,
+            name: 'Product2',
+            price: 123123123,
+        },
+        {
+            id: 3,
+            name: 'Product3',
+            price: 123123123,
+        },
+    ]
+
+    const sections = [
+        {
+            title: "Main Info",
+            fields: [
+                {
+                    title: "Name",
+                    name: 'name'
+                },
+                {
+                    title: "Price",
+                    name: "price"
+                },
+                {
+                    title: "Garranty",
+                    name: "garranty"
+                }
+            ]
+        }
+    ]
+
+
     return (
         <div>
             <div className={classes.header_box}>
@@ -45,6 +84,8 @@ export default function ComparePage() {
             </div>
 
             <div className={classes.compare_info_box}>
+
+
                 {
                     productCompare.map((item, index) => (
                         <div

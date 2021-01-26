@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { BasketContext } from '../../contexts/BasketContext'
 import {
+    Button,
     Dialog,
     Divider,
     IconButton,
@@ -45,7 +46,7 @@ export default function Basket() {
             >
                 <div className={classes.title}>
                     <h1>Корзинка</h1>
-                    <Link className={classes.link}>Посмотреть сумку</Link>
+                    <Link className={classes.link} to="/basket">Посмотреть сумку</Link>
                     <IconButton className={classes.close} onClick={handleClose}>
                         <img src={close} alt="" />
                     </IconButton>
@@ -79,6 +80,19 @@ export default function Basket() {
                         ))
                     }
                 </List>
+
+                <div className={classes.price_box}>
+                    <h4>Итого:</h4>
+                    <p>21,678,400 сум</p>
+                </div>
+
+                <Button
+                    disableElevation
+                    variant="contained"
+                    className={classes.button}
+                >
+                    Войти
+                </Button>
             </Dialog>
         </div>
     )

@@ -6,7 +6,7 @@ export default function ButtonComponent() {
     const classes = useButtonComponentStyles()
 
     return (
-        <div>
+        <div className={classes.root}>
             <Button
                 disableElevation
                 variant="contained"

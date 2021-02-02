@@ -8,8 +8,6 @@ export const useBasketPayStyles = makeStyles({
         width: 345,
         height: 332,
         padding: 24,
-        position: 'sticky',
-        top: 0
     },
 
     product: {

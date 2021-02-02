@@ -7,9 +7,14 @@ import { Link } from 'react-router-dom'
 import { Breadcrumbs } from '@material-ui/core'
 import BasketList from '../../components/basketList/BasketList'
 import BasketPay from '../../components/basketPay/BasketPay'
+import InputBasket from '../../components/input/InputBasket'
 
 export default function BasketPage() {
     const classes = useBasketPageStyles()
+
+    const labels = [
+        `Контактный телефон`, `Ф.И.О`, `Область`, `Город / Район`, `Адрес`, `Индекс`
+    ]
 
     return (
         <div className={classes.root}>
@@ -41,6 +46,25 @@ export default function BasketPage() {
                 <div className={classes.modal_box}>
                     <BasketPay />
                 </div>
+            </section>
+
+            <section className={classes.billing_box}>
+                <h1>Информация биллинга</h1>
+                <p>
+                    Для заказа товаров требуется регистрация.Если вы уже зарегистрированы, войдите в свою учетную запись
+                </p>
+                <section className={classes.input_box}>
+                    {
+                        labels.map((label, index) => (
+                            <div className={classes.input_label} key={label}>
+                                <label htmlFor={label}>{label}</label>
+                                <div className={classes.input}>
+                                    <InputBasket id={label} index={index} />
+                                </div>
+                            </div>
+                        ))
+                    }
+                </section>
             </section>
 
             <section className={classes.footer_box}>

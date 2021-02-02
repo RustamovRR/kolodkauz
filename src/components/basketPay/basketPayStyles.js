@@ -53,7 +53,6 @@ export const useBasketPayStyles = makeStyles({
         },
         '& h4': {
             fontSize: 20,
-            fontWeight: 500
         }
     },
 

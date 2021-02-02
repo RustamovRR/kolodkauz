@@ -20,10 +20,7 @@ export default function BasketPay() {
             </section>
 
             <section className={classes.rule}>
-                <Checkbox
-                    disableRipple
-                    inputProps={{ 'aria-label': 'decorative checkbox' }}
-                />
+                <Checkbox disableRipple inputProps={{ 'aria-label': 'decorative checkbox' }} />
                 <p>Согласен с условиями Правил пользования торговой площадкой и правилами возврата</p>
             </section>
 

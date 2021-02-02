@@ -15,16 +15,16 @@ export default function FavoritePage() {
 
     return (
         <div className={classes.root}>
-            <div className={classes.header_box}>
+            <section className={classes.header_box}>
                 <Header />
-            </div>
+            </section>
 
-            <div className={classes.tabs_box}>
+            <section className={classes.tabs_box}>
                 <TabMenu />
-            </div>
+            </section>
 
 
-            <div className={classes.favorite_box}>
+            <section className={classes.favorite_box}>
                 <Breadcrumbs className={classes.navigation}>
                     <Link to="#" className={classes.link}>
                         Главная
@@ -43,7 +43,7 @@ export default function FavoritePage() {
                     <Product favorite={true} />
                     <Product favorite={true} />
                 </div>
-            </div>
+            </section>
 
         </div>
     )

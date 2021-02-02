@@ -51,20 +51,20 @@ export default function Carousel() {
                 }
             </SwipeableViews>
 
-            <div className={classes.arrows}>
+            <section className={classes.arrows}>
                 <div className={classes.left_arrow} onClick={handleBack}>
                     <img src={leftArrow} alt="" />
                 </div>
                 <div className={classes.right_arrow} onClick={handleNext}>
                     <img src={rightArrow} alt="" />
                 </div>
-            </div>
+            </section>
 
-            <div className={classes.content}>
+            <section className={classes.content}>
                 <h1>ГОНКА БЕЗ ФИНИША</h1>
-            </div>
+            </section>
 
-            <div className={classes.navigation}>
+            <section className={classes.navigation}>
                 {
                     backgrounds.map((item, index) => (
                         <div
@@ -78,7 +78,7 @@ export default function Carousel() {
                         />
                     ))
                 }
-            </div>
+            </section>
         </div>
     )
 }

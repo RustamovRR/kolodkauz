@@ -8,7 +8,7 @@ export default function InfoService() {
         <div className={classes.service_root}>
             <h1>Автосервис - Услуги</h1>
 
-            <div className={classes.text_box}>
+            <section className={classes.text_box}>
                 <h4 className={classes.title}>
                     Диагностика ходовой части
                 </h4>
@@ -34,9 +34,9 @@ export default function InfoService() {
                     </p>
                     <span>15,000 сум</span>
                 </div>
-            </div>
+            </section>
 
-            <div className={classes.text_box}>
+            <section className={classes.text_box}>
                 <h4 className={classes.title}>
                     Диагностика ходовой части
                 </h4>
@@ -60,9 +60,9 @@ export default function InfoService() {
                     <p>Предпокупочная диагностика автомобиля</p>
                     <span>15,000 сум</span>
                 </div>
-            </div>
+            </section>
 
-            <div className={classes.text_box}>
+            <section className={classes.text_box}>
                 <h4 className={classes.title}>
                     Замена техжидкости и фильтров
                 </h4>
@@ -90,9 +90,9 @@ export default function InfoService() {
                     <p>Замена тормозных дисков с колодками (пара) спортивная тормозная система</p>
                     <span>15,000 сум</span>
                 </div>
-            </div>
+            </section>
 
-            <div className={classes.text_box}>
+            <section className={classes.text_box}>
                 <h4 className={classes.title}>
                     Замена техжидкости и фильтров
                 </h4>
@@ -120,7 +120,7 @@ export default function InfoService() {
                     <p>Замена тормозных дисков с колодками (пара) спортивная тормозная система</p>
                     <span>15,000 сум</span>
                 </div>
-            </div>
+            </section>
 
         </div>
     )

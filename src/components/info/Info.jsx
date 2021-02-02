@@ -19,20 +19,20 @@ export default function Info() {
 
     return (
         <div className={classes.info_root}>
-            <div className={classes.left_panel}>
+            <section className={classes.left_panel}>
                 {
                     navs.map(item => (
                         <p key={item} >{item}</p>
                     ))
                 }
-            </div>
+            </section>
 
             <div className={classes.divider} />
 
-            <div className={classes.info_panel}>
+            <section className={classes.info_panel}>
                 {/* <InfoDelivery /> */}
                 <InfoService />
-            </div>
+            </section>
         </div>
     )
 }

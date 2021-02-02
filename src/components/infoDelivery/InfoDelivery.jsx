@@ -8,7 +8,7 @@ export default function InfoDelivery() {
         <div className={classes.delivery_root}>
             <h1>Информация о доставке</h1>
 
-            <div className={classes.text_box}>
+            <section className={classes.text_box}>
                 <h4 className={classes.title}>
                     Доставка до квартиры
                 </h4>
@@ -33,9 +33,9 @@ export default function InfoDelivery() {
                 <p>
                     7. Если заказ оформлен после 17.00, доставка может быть осуществлена на следующий день.
                 </p>
-            </div>
+            </section>
 
-            <div className={classes.text_box}>
+            <section className={classes.text_box}>
                 <h4>Доставка до квартиры</h4>
                 <p>
                     Подъём на этаж и занос в квартиру: малогабаритной техники – бесплатно.
@@ -43,9 +43,9 @@ export default function InfoDelivery() {
                 <p>
                     крупногабаритной техники (холодильник, стиральная машина, газовая плита и т.д.) – 15 тысяч сум каждый этаж.
                 </p>
-            </div>
+            </section>
 
-            <div className={classes.text_box}>
+            <section className={classes.text_box}>
                 <h4>Приём/передача товара</h4>
                 <p>
                     1. При получении товара Покупатель обязан внимательно проверить его в присутствии курьера и только после этого произвести оплату наличными или по терминалу.
@@ -53,9 +53,9 @@ export default function InfoDelivery() {
                 <p>
                     2. Покупатель при приёме товара обязан проверить наличие гарантийного талона на товар.
                 </p>
-            </div>
+            </section>
 
-            <div className={classes.text_box}>
+            <section className={classes.text_box}>
                 <h4>Приём/передача товара</h4>
                 <p>
                     1. При получении товара Покупатель обязан внимательно проверить его в присутствии курьера и только после этого произвести оплату наличными или по терминалу.
@@ -63,7 +63,7 @@ export default function InfoDelivery() {
                 <p>
                     2. Покупатель при приёме товара обязан проверить наличие гарантийного талона на товар.
                 </p>
-            </div>
+            </section>
         </div>
     )
 }

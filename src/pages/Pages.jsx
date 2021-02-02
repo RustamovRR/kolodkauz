@@ -5,6 +5,7 @@ import ComparePage from './Compare/ComparePage'
 import FavoritePage from './Favorite/FavoritePage'
 import HomePage from './Home/HomePage'
 import InformationPage from './Information/InformationPage'
+import ProductsPage from './Product/ProductsPage'
 
 export default function Pages() {
     return (
@@ -15,6 +16,7 @@ export default function Pages() {
                 <Route path="/favorite" component={FavoritePage} />
                 <Route path="/compare" component={ComparePage} />
                 <Route path="/basket" component={BasketPage} />
+                <Route path="/products" component={ProductsPage} />
             </Switch>
         </div>
     )

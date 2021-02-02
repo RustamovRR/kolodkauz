@@ -16,28 +16,28 @@ export default function HomePage() {
 
     return (
         <div className={classes.home_root}>
-            <div className={classes.header_box}>
+            <section className={classes.header_box}>
                 <Header />
-            </div>
+            </section>
 
-            <div className={classes.tabs_box}>
+            <section className={classes.tabs_box}>
                 <TabMenu />
-            </div>
+            </section>
 
-            <div className={classes.carousel_box}>
+            <section className={classes.carousel_box}>
                 <Carousel />
-            </div>
+            </section>
 
-            <div className={classes.carBrand_box}>
+            <section className={classes.carBrand_box}>
                 <CarBrand />
                 <CarBrand />
                 <CarBrand />
                 <CarBrand />
                 <CarBrand />
-            </div>
+            </section>
 
             <h1 className={classes.bestSeller_title}>Хиты продаж</h1>
-            <div className={classes.bestSeller_box}>
+            <section className={classes.bestSeller_box}>
                 <Product />
                 <Product />
                 <Product />
@@ -48,20 +48,14 @@ export default function HomePage() {
                 <Product />
                 <Product />
                 <Product />
-            </div>
+            </section>
 
-            <div className={classes.ads_box}>
+            <section className={classes.ads_box}>
                 <Ads />
-            </div>
+            </section>
 
-            <div className={classes.product_box}>
+            <section className={classes.product_box}>
                 <Product />
-                <Product />
-                <Product />
-                <Product />
-                <Product />
-                <Product />
-
                 <Product />
                 <Product />
                 <Product />
@@ -78,17 +72,23 @@ export default function HomePage() {
                 <Product />
                 <Product />
                 <Product />
-            </div>
+                <Product />
 
-            <div className={classes.seeAll_box}>
+                <Product />
+                <Product />
+                <Product />
+                <Product />
+            </section>
+
+            <section className={classes.seeAll_box}>
                 <div className={classes.button}>
                     <span>Смотреть все</span>
                     <img src={downArrow} alt="" />
                 </div>
-            </div>
+            </section>
 
             <h1 className={classes.bestSeller_title}>Популярные бренды</h1>
-            <div className={classes.productBrand_box}>
+            <section className={classes.productBrand_box}>
                 <ProductBrand />
                 <ProductBrand />
                 <ProductBrand />
@@ -107,11 +107,11 @@ export default function HomePage() {
                 <ProductBrand />
                 <ProductBrand />
                 <ProductBrand />
-            </div>
+            </section>
 
-            <div className={classes.footer_box}>
+            <section className={classes.footer_box}>
                 <Footer />
-            </div>
+            </section>
         </div >
     )
 }

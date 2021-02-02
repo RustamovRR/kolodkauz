@@ -2,13 +2,10 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: gilroy;
 }
 
 @font-face {
   src: url("./fonts/Gilroy-FREE/Gilroy-Light.otf");
-  font-family: gilroy;
-}
-
-body {
   font-family: gilroy;
 }

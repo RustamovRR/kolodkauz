@@ -50,7 +50,7 @@ export default function Header() {
                 </div>
             </nav>
 
-            <div class={classes.function_box}>
+            <section class={classes.function_box}>
                 <Search />
                 <div className={classes.functions}>
                     <div className={classes.function_items}>
@@ -83,7 +83,7 @@ export default function Header() {
                         <Basket />
                     </div>
                 </div>
-            </div>
+            </section>
         </div>
     )
 }

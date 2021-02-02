@@ -10,21 +10,21 @@ export default function InformationPage() {
 
     return (
         <div>
-            <div className={classes.header_box}>
+            <section className={classes.header_box}>
                 <Header />
-            </div>
+            </section>
 
             {/* <div className={classes.tabs_box}>
                 <TabMenu />
             </div> */}
 
-            <div className={classes.info_box}>
+            <section className={classes.info_box}>
                 <Info />
-            </div>
+            </section>
 
-            <div className={classes.footer_box}>
+            <section className={classes.footer_box}>
                 <Footer />
-            </div>
+            </section>
         </div>
     )
 }

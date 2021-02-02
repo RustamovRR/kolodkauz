@@ -9,34 +9,34 @@ export default function BasketPay() {
 
     return (
         <Paper className={classes.paper} elevation={2}>
-            <div className={classes.product}>
+            <section className={classes.product}>
                 <p>Товары</p>
                 <p>7,850,000 сум</p>
-            </div>
+            </section>
 
-            <div className={classes.product}>
+            <section className={classes.product}>
                 <p>Мастер</p>
                 <p>68,000 сум</p>
-            </div>
+            </section>
 
-            <div className={classes.rule}>
+            <section className={classes.rule}>
                 <Checkbox
                     disableRipple
                     inputProps={{ 'aria-label': 'decorative checkbox' }}
                 />
                 <p>Согласен с условиями Правил пользования торговой площадкой и правилами возврата</p>
-            </div>
+            </section>
 
             <Divider className={classes.divider} />
 
-            <div className={classes.total}>
+            <section className={classes.total}>
                 <p>Итого:</p>
                 <h4>8,678,400 сум</h4>
-            </div>
+            </section>
 
-            <div className={classes.button}>
+            <section className={classes.button}>
                 <ButtonComponent />
-            </div>
+            </section>
         </Paper>
     )
 }

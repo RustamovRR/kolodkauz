@@ -13,15 +13,15 @@ export default function BasketPage() {
 
     return (
         <div className={classes.root}>
-            <div className={classes.header_box}>
+            <section className={classes.header_box}>
                 <Header />
-            </div>
+            </section>
 
-            <div className={classes.tabs_box}>
+            <section className={classes.tabs_box}>
                 <TabMenu />
-            </div>
+            </section>
 
-            <div className={classes.basket_box}>
+            <section className={classes.basket_box}>
                 <div className={classes.left_box}>
                     <Breadcrumbs className={classes.navigation}>
                         <Link to="/" className={classes.link}>
@@ -41,11 +41,11 @@ export default function BasketPage() {
                 <div className={classes.modal_box}>
                     <BasketPay />
                 </div>
-            </div>
+            </section>
 
-            <div className={classes.footer_box}>
+            <section className={classes.footer_box}>
                 <Footer />
-            </div>
+            </section>
 
         </div>
     )

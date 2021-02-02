@@ -44,13 +44,13 @@ export default function Basket() {
                     paper: classes.dialog
                 }}
             >
-                <div className={classes.title}>
+                <section className={classes.title}>
                     <h1>Корзинка</h1>
                     <Link className={classes.link} to="/basket">Посмотреть сумку</Link>
                     <IconButton className={classes.close} onClick={handleClose}>
                         <img src={close} alt="" />
                     </IconButton>
-                </div>
+                </section>
 
                 <List className={classes.list}>
                     {
@@ -81,10 +81,10 @@ export default function Basket() {
                     }
                 </List>
 
-                <div className={classes.price_box}>
+                <section className={classes.price_box}>
                     <h4>Итого:</h4>
                     <p>21,678,400 сум</p>
-                </div>
+                </section>
 
                 <Button
                     disableElevation

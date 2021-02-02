@@ -10,9 +10,9 @@ export default function Product({ favorite, compare }) {
 
     return (
         <div className={classes.product_root}>
-            <div className={classes.card}>
+            <section className={classes.card}>
                 <img src={image1} alt="kolodka rasm" />
-            </div>
+            </section>
             {
                 favorite
                     ? <IconButton
@@ -28,16 +28,16 @@ export default function Product({ favorite, compare }) {
 
             {
                 compare
-                    ? <div className={classes.compare_box}>
+                    ? <section className={classes.compare_box}>
                         <Button className={classes.signin_button} variant="outlined">
                             Войти
                         </Button>
                         <Button className={classes.delete_button}>
                             Удалить
                         </Button>
-                    </div>
+                    </section>
 
-                    : <div>
+                    : <section>
                         <div className={classes.price}>
                             <h3>4,677,000 сум</h3>
                             <p>6,610,000 сум</p>
@@ -46,7 +46,7 @@ export default function Product({ favorite, compare }) {
                         <div className={classes.brand}>
                             <p>Mercedes-Benz / Автомобильный </p>
                         </div>
-                    </div>
+                    </section>
             }
         </div>
     );

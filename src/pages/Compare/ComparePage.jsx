@@ -54,15 +54,15 @@ export default function ComparePage() {
 
     return (
         <div>
-            <div className={classes.header_box}>
+            <section className={classes.header_box}>
                 <Header />
-            </div>
+            </section>
 
-            <div className={classes.tabs_box}>
+            <section className={classes.tabs_box}>
                 <TabMenu />
-            </div>
+            </section>
 
-            <div className={classes.compare_box}>
+            <section className={classes.compare_box}>
                 <Breadcrumbs className={classes.navigation}>
                     <Link to="#" className={classes.link}>
                         Главная
@@ -81,11 +81,10 @@ export default function ComparePage() {
                     <Product compare={true} />
                     <Product compare={true} />
                 </div>
-            </div>
-
-            <div className={classes.compare_info_box}>
+            </section>
 
 
+            <section className={classes.compare_info_box}>
                 {
                     productCompare.map((item, index) => (
                         <div
@@ -130,11 +129,11 @@ export default function ComparePage() {
                         </div>
                     ))
                 }
-            </div>
+            </section>
 
-            <div className={classes.footer_box}>
+            <section className={classes.footer_box}>
                 <Footer />
-            </div>
+            </section>
         </div >
     )
 }

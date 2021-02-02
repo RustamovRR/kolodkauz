@@ -34,22 +34,22 @@ export default function Footer() {
             <div className={classes.footer}>
                 <Grid className={classes.left_box}>
                     {/* Domain informations///////////////////////////////////////////// */}
-                    <div className={classes.zap_box}>
+                    <section className={classes.zap_box}>
                         <h4>
                             ZAP.UZ - {''}
                             <span className={classes.zap_span}>Интернет магазин автозапчастей.</span>
                         </h4>
                         <p>Доставка по всему Узбекистану</p>
-                    </div>
+                    </section>
 
                     {/* Phone box///////////////////////////////////////////////////////// */}
-                    <div className={classes.phone_box}>
+                    <section className={classes.phone_box}>
                         <h4>+998 90 678 65 57</h4>
                         <p>для звонков по всему миру, стоимость звонка - по тарифам вашего</p>
-                    </div>
+                    </section>
 
                     {/* Work box//////////////////////////////////////////////////////// */}
-                    <div className={classes.work_box}>
+                    <section className={classes.work_box}>
                         <p>Время работа</p>
                         <div>
                             <h4>
@@ -63,11 +63,11 @@ export default function Footer() {
                     <span>9:00 - 15:00</span>
                             </h4>
                         </div>
-                    </div>
+                    </section>
                 </Grid>
 
                 {/* Information box///////////////////////////////////////////////// */}
-                <div className={classes.information_box}>
+                <section className={classes.information_box}>
                     <h4>Информация</h4>
                     {
                         informations.map((item) => (
@@ -79,8 +79,9 @@ export default function Footer() {
                             </Link>
                         ))
                     }
-                </div>
-                <div className={classes.information_box}>
+                </section>
+
+                <section className={classes.information_box}>
                     <h4>Партнерам</h4>
                     {
                         partners.map((item) => (
@@ -92,8 +93,9 @@ export default function Footer() {
                             </Link>
                         ))
                     }
-                </div>
-                <div className={classes.information_box}>
+                </section>
+
+                <section className={classes.information_box}>
                     <h4>Мы в соцсетях</h4>
                     {
                         socials.map((item) => (
@@ -105,19 +107,19 @@ export default function Footer() {
                             </Link>
                         ))
                     }
-                </div>
+                </section>
             </div>
 
             {/* Divider////////////////////////////////////////////// */}
             <Divider className={classes.divider} />
 
-            <div className={classes.license_box}>
+            <section className={classes.license_box}>
                 <p>2016-2020 © ZAP. Все права защищены.</p>
                 <div className={classes.pay_box}>
                     <img src={clickImg} alt="click" className={classes.click} />
                     <img src={paymeImg} alt="payme" />
                 </div>
-            </div>
+            </section>
         </div>
     )
 }

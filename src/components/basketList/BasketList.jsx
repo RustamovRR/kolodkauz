@@ -25,7 +25,7 @@ export default function BasketList() {
     return (
         <div>
             <List className={classes.list}>
-                <div >
+                <section >
                     <ListItem className={classes.list_item}>
                         <ListItemAvatar className={classes.avatar}>
                             <img src={sidina} alt="" />
@@ -44,7 +44,7 @@ export default function BasketList() {
 
                         <ListItemSecondaryAction className={classes.action_box}>
 
-                            <div className={classes.count}>
+                            <section className={classes.count}>
                                 <div
                                     className={classes.add}
                                     onClick={() => {
@@ -63,12 +63,12 @@ export default function BasketList() {
                                 >
                                     <img src={plusImg} alt="" />
                                 </div>
-                            </div>
+                            </section>
 
-                            <div className={classes.price}>
+                            <section className={classes.price}>
                                 <h3>7,850,000 сум</h3>
                                 <p>9,876,000 uzs</p>
-                            </div>
+                            </section>
 
                             <IconButton className={classes.icon}>
                                 <Close fontSize="small" />
@@ -76,7 +76,7 @@ export default function BasketList() {
                         </ListItemSecondaryAction>
                     </ListItem>
                     <Divider />
-                </div>
+                </section>
             </List>
         </div>
     )

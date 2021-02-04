@@ -1,14 +1,21 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Typography from '@material-ui/core/Typography';
 import { useTabMenuStyles, AntTabs, AntTab } from './tabMenuStyles'
+import TabList from '../tabList/TabList';
+import { TabListContext } from '../../contexts/TabListContext';
 
 export default function useHeaderStyles() {
     const classes = useTabMenuStyles();
     const [value, setValue] = React.useState(0);
+    const { open, setOpen } = useContext(TabListContext)
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
+
+    const handleOpen = () => {
+        setOpen(true)
+    }
 
     const links = [
         `Марки автомобилей`,
@@ -28,11 +35,11 @@ export default function useHeaderStyles() {
                 <AntTabs value={value} onChange={handleChange} aria-label="ant example">
                     {
                         links.map(item => (
-                            <AntTab label={item} />
+                            <AntTab label={item} onClick={handleOpen} />
                         ))
                     }
                 </AntTabs>
-                <Typography className={classes.padding} />
+                <TabList />
             </div>
         </div>
     );

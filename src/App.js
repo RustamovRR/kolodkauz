@@ -10,14 +10,17 @@ import HomePage from "./pages/Home/HomePage";
 import "./App.css";
 import Pages from "./pages/Pages";
 import BasketProvider from "./contexts/BasketContext";
+import TabListProvider from "./contexts/TabListContext";
 
 function App() {
   return (
     <BrowserRouter>
       <BasketProvider>
-        <div className="App" >
-          <Pages />
-        </div>
+        <TabListProvider>
+          <div className="App" >
+            <Pages />
+          </div>
+        </TabListProvider>
       </BasketProvider>
     </BrowserRouter>
   );

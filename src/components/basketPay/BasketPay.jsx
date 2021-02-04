@@ -25,7 +25,7 @@ export default function BasketPay() {
             </section>
 
             <Divider className={classes.divider} />
-
+         
             <section className={classes.total}>
                 <p>Итого:</p>
                 <h4>8,678,400 сум</h4>

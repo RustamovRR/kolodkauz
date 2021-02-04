@@ -1,12 +1,9 @@
-import React from 'react'
-import { useTabMenuStyles } from './tabMenuStyles'
-import balonImg from '../../images/products/balon.png'
-import close from '../../images/icons/close.png'
-import { IconButton } from '@material-ui/core';
-import { Link } from 'react-router-dom';
+import React from 'react';
+import Typography from '@material-ui/core/Typography';
+import { useTabMenuStyles, AntTabs, AntTab } from './tabMenuStyles'
 
-export default function TabMenu() {
-    const classes = useTabMenuStyles()
+export default function useHeaderStyles() {
+    const classes = useTabMenuStyles();
     const [value, setValue] = React.useState(0);
 
     const handleChange = (event, newValue) => {
@@ -25,63 +22,18 @@ export default function TabMenu() {
         `Автотовары`,
     ]
 
-    const tabsPrimary = [
-        `Тормозная система`,
-        `Система сцепления`,
-        `Шрусы (Гранаты)`,
-        `Топливная система`,
-        `Рулевые тяги и наконечники`,
-        `Пружины`
-    ]
-
-    const tabsCenter = [
-        `Тормозные колодки дисковые`,
-        `Тормозные колодки барабанные`,
-        `Бачок тормозной жидкости`,
-        `Главный тормозной цилиндр`,
-        `Рабочий тормозной цилиндр`,
-        `Тормозной барабан`,
-        `Тормозные дики`,
-        `Тормозные шланги`
-    ]
-
     return (
         <div className={classes.root}>
-            <div className={classes.tabs}>
-                {
-                    links.map(item => (
-                        <p key={item}>{item}</p>
-                    ))
-                }
+            <div className={classes.demo1}>
+                <AntTabs value={value} onChange={handleChange} aria-label="ant example">
+                    {
+                        links.map(item => (
+                            <AntTab label={item} />
+                        ))
+                    }
+                </AntTabs>
+                <Typography className={classes.padding} />
             </div>
-
-            {/* <div className={classes.tabPanel}>
-                <div className={classes.left_panel}>
-                    {
-                        tabsPrimary.map(item => (
-                            <Link key={item}>{item}</Link>
-                        ))
-                    }
-                </div>
-
-                <div className={classes.center_panel}>
-                    {
-                        tabsCenter.map(item => (
-                            <Link to="#" key={item}>{item}</Link>
-                        ))
-                    }
-                </div>
-
-                <div className={classes.image_panel}>
-                    <img src={balonImg} alt="" />
-                </div>
-
-                <div className={classes.close_panel}>
-                    <IconButton>
-                        <img src={close} alt="" />
-                    </IconButton>
-                </div>
-            </div> */}
-        </div >
-    )
+        </div>
+    );
 }

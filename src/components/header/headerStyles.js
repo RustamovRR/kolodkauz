@@ -27,8 +27,12 @@ export const useHeaderStyles = makeStyles({
             color: linkText,
             fontWeight: 500,
             fontSize: 14,
-            marginLeft: 30
-        }
+            marginLeft: 30,
+            transition:'0.3s',
+            '&:hover': {
+                color: 'white'
+            }
+        },
     },
 
     function_box: {
@@ -50,7 +54,7 @@ export const useHeaderStyles = makeStyles({
         color: primaryText,
         textDecoration: 'none',
         flexDirection: 'column',
-        alignItems:'center',
+        alignItems: 'center',
         '& > img': {
             objectFit: 'contain'
         },

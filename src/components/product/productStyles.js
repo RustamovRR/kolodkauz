@@ -72,8 +72,7 @@ export const useProductStyles = makeStyles({
         textTransform: 'none',
         transition: '0.3s ease',
         '&:hover': {
-            color: text.white,
-            backgroundColor: text.red
+            textDecoration: 'underline'
         }
     }
 });

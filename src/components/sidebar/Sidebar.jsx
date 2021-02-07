@@ -1,16 +1,22 @@
 import React, { useState } from 'react'
-import { Checkbox, FormControlLabel, Slider } from '@material-ui/core'
-import checkIcon from '../../images/icons/check.png'
+import { FormControl, FormControlLabel, Radio, RadioGroup, Slider } from '@material-ui/core'
 import CheckboxComp from '../checkBox/Checkbox'
+import radioImg from '../../images/icons/radio.png'
 import { useSidebarStyles } from './sidebarStyles'
 
 export default function Sidebar() {
     const classes = useSidebarStyles()
 
     const [value, setValue] = useState([1000, 10000]);
+    const [radio, setRadio] = React.useState('female');
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
+    };
+
+
+    const radioChange = (event) => {
+        setRadio(event.target.value);
     };
 
     const num1 = String(value[0]).replace(/(?<!\..*)(\d)(?=(?:\d{3})+(?:\.|$))/g, '$1,')
@@ -22,6 +28,13 @@ export default function Sidebar() {
 
     const models = [
         `Viatti`, `Nexia`, `Lacetti`, `Damas`, `Cobalt`
+    ]
+
+    const radios = [
+        { title: `от 10% и выше`, value: 10 },
+        { title: `от 30% и выше`, value: 30 },
+        { title: `от 50% и выше`, value: 50 },
+        { title: `от 70% и выше`, value: 70 }
     ]
 
     return (
@@ -57,12 +70,41 @@ export default function Sidebar() {
                     min={100000}
                     max={10000000}
                     step={10000}
+                    classes={{
+                        track: classes.thumb,
+                        thumb: classes.thumb
+                    }}
                 />
                 <div className={classes.amount}>
                     <p>от <span>{num1}</span></p>
                     <p>до <span>{num2}</span></p>
                 </div>
             </section>
+
+            <section className={classes.discount_box}>
+                <h4>Скидка</h4>
+                <FormControl component="fieldset">
+                    <RadioGroup value={radio} onChange={radioChange}>
+                        {
+                            radios.map((item) => (
+                                <FormControlLabel
+                                    value={item.title}
+                                    control={
+                                        <Radio icon={<RadioFunc />} />
+                                    }
+                                    label={item.title}
+                                />
+                            ))
+                        }
+                    </RadioGroup>
+                </FormControl>
+            </section>
         </div >
+    )
+}
+
+const RadioFunc = () => {
+    return (
+        <img src={radioImg} />
     )
 }

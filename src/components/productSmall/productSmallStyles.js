@@ -43,7 +43,7 @@ export const useProductSmallStyles = makeStyles({
     },
 
     action_box: {
-        width: 216
+        width: 160
     },
 
     buttons: {

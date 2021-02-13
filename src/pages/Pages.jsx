@@ -8,6 +8,7 @@ import FavoritePage from './Favorite/FavoritePage'
 import HomePage from './Home/HomePage'
 import InformationPage from './Information/InformationPage'
 import ProductsPage from './Product/ProductsPage'
+import ProductInfoPage from './ProductInfo/ProductInfoPage'
 
 export default function Pages() {
     return (
@@ -25,6 +26,7 @@ export default function Pages() {
                 <Route path="/products/small">
                     <ProductsPage small />
                 </Route>
+                <Route path="/product_info" component={ProductInfoPage} />
             </Switch>
         </div>
     )

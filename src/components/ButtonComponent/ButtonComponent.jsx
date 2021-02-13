@@ -2,7 +2,7 @@ import { Button } from '@material-ui/core'
 import React from 'react'
 import { useButtonComponentStyles } from './buttonComponentStyles'
 
-export default function ButtonComponent() {
+export default function ButtonComponent({ title, outlined, slim }) {
     const classes = useButtonComponentStyles()
 
     return (
@@ -10,10 +10,11 @@ export default function ButtonComponent() {
             <Button
                 disableElevation
                 variant="contained"
-                className={classes.button}
+                className={outlined ? classes.outlined_button : classes.button}
+                style={slim ? { height: 36 } : { height: 48 }}
             >
-                Войти
-                </Button>
+                {title}
+            </Button>
         </div>
     )
 }

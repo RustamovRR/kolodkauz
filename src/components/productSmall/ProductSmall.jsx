@@ -22,7 +22,7 @@ export default function ProductSmall() {
 
                 <section className={classes.text_box}>
                     <h1>Мойка высокого давления K5 Compact</h1>
-                    <Rating defaultValue={4} />
+                    <Rating defaultValue={4} size="small"/>
                     <div className={classes.price_box}>
                         <p>7,850,000 сум</p>
                         <span>9,876,000 uzs</span>

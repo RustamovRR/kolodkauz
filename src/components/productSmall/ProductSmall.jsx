@@ -1,73 +1,52 @@
-import { Button, Divider, IconButton } from '@material-ui/core'
 import React from 'react'
-import ButtonComponent from '../ButtonComponent/ButtonComponent'
-import image1 from "../../images/products/Rectangle 14.png";
 import { Rating } from '@material-ui/lab';
+import Quantity from '../quantity/Quantity'
+import ButtonComponent from '../ButtonComponent/ButtonComponent';
+import { Button, Divider, IconButton } from '@material-ui/core';
 
-import favoriteImg from '../../images/icons/heart_outline.png'
-import rateCard from '../../images/icons/rate_grey.png'
-import { Link } from 'react-router-dom';
 import { useProductSmallStyles } from './productSmallStyles';
+import karcher from "../../images/products/karcher.png";
+import favoriteImg from '../../images/icons/heart_blue.png'
+import rateImg from '../../images/icons/rate_blue.png'
 
-export default function ProductMedium() {
+export default function ProductSmall() {
     const classes = useProductSmallStyles()
 
     return (
-        <div className={classes.root}>
-            <section className={classes.card}>
-                <img src={image1} alt="kolodka rasm" />
-            </section>
+        <>
+            <div className={classes.root}>
 
-            <section className={classes.text_box}>
-                <h4>Мойка высокого давления </h4>
-                <Rating defaultValue={4} />
-                <section className={classes.info}>
-                    <div className={classes.left_text}>
-                        <p>Материал поршней</p>
-                        <p>Материал корпуса насоса</p>
-                        <p>Система привода мойки</p>
-                        <p>Вес с упаковкой (кг)</p>
-                        <p>Давление максимальное</p>
-                    </div>
-                    <div className={classes.right_text}>
-                        <p>нержавеющая сталь</p>
-                        <p>алюминий; пластик</p>
-                        <p>аксиальный</p>
-                        <p>15.08 кг</p>
-                        <p>145 бар</p>
+                <section className={classes.image_box}>
+                    <img src={karcher} alt="" width={110} height={110} />
+                </section>
+
+                <section className={classes.text_box}>
+                    <h1>Мойка высокого давления K5 Compact</h1>
+                    <Rating defaultValue={4} />
+                    <div className={classes.price_box}>
+                        <p>7,850,000 сум</p>
+                        <span>9,876,000 uzs</span>
                     </div>
                 </section>
-                <div className={classes.expand}>
-                    <Link to="#" >Развернуть</Link>
-                </div>
-            </section>
 
-            <section className={classes.action_box}>
-                <Divider orientation="vertical" className={classes.divider} />
-                <div className={classes.price_box}>
-                    <div className={classes.price}>
-                        <h1>8,980,000 сум</h1>
-                        <h6>9,876,000 uzs</h6>
-                    </div>
-                    <div className={classes.action}>
-                        <IconButton size="small">
+                <section className={classes.count_box}>
+                    <Quantity />
+                </section>
+
+                <section className={classes.action_box}>
+                    <ButtonComponent title="Быстрый заказ" />
+                    <div className={classes.buttons}>
+                        <Button className={classes.basket}>Корзинка</Button>
+                        <IconButton>
                             <img src={favoriteImg} alt="" />
                         </IconButton>
-                        <IconButton size="small">
-                            <img src={rateCard} alt="" />
+                        <IconButton>
+                            <img src={rateImg} alt="" />
                         </IconButton>
                     </div>
-                </div>
-
-                <div className={classes.button}>
-                    <ButtonComponent text="Быстрый заказ" />
-
-                    <Button className={classes.basket_button}>
-                        Корзинка
-                    </Button>
-                </div>
-            </section>
-
-        </div>
+                </section>
+            </div>
+            <Divider />
+        </>
     )
 }

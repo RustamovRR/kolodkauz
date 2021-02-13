@@ -26,7 +26,7 @@ export default function FavoritePage() {
 
             <section className={classes.favorite_box}>
                 <Breadcrumbs className={classes.navigation}>
-                    <Link to="#" className={classes.link}>
+                    <Link to="/" className={classes.link}>
                         Главная
                     </Link>
                     <p >

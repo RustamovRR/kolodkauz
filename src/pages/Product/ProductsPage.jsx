@@ -23,7 +23,7 @@ export default function ProductsPage({ medium, small }) {
 
 
     return (
-        <div>
+        <div className={classes.root}>
             <section className={classes.header_box}>
                 <Header />
             </section>
@@ -54,8 +54,10 @@ export default function ProductsPage({ medium, small }) {
                 </div>
 
                 <div className={classes.sort}>
-                    <SortNavigation />
-                    <div className={medium ? classes.product_box : classes.product}>
+                    <div className={classes.sort_navigation}>
+                        <SortNavigation />
+                    </div>
+                    <div className={classes.product_box}>
                         {
                             arrays.map((item, index) => {
                                 if (medium) {
@@ -74,7 +76,11 @@ export default function ProductsPage({ medium, small }) {
                                     )
                                 }
                                 else {
-                                    return <Product hovered index={index} />
+                                    return (
+                                        <div className={classes.product}>
+                                            <Product hovered index={index} />
+                                        </div>
+                                    )
                                 }
                             })
                         }

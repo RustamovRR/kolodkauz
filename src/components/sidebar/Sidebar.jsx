@@ -83,21 +83,21 @@ export default function Sidebar() {
 
             <section className={classes.discount_box}>
                 <h4>Скидка</h4>
-                <FormControl component="fieldset">
-                    <RadioGroup value={radio} onChange={radioChange}>
-                        {
-                            radios.map((item) => (
-                                <FormControlLabel
-                                    value={item.title}
-                                    control={
-                                        <Radio icon={<RadioFunc />} />
-                                    }
-                                    label={item.title}
-                                />
-                            ))
-                        }
-                    </RadioGroup>
-                </FormControl>
+                {/* <FormControl component="fieldset"> */}
+                <RadioGroup value={radio} onChange={radioChange}>
+                    {
+                        radios.map((item) => (
+                            <FormControlLabel
+                                value={item.title}
+                                control={
+                                    <Radio />
+                                }
+                                label={item.title}
+                            />
+                        ))
+                    }
+                </RadioGroup>
+                {/* </FormControl> */}
             </section>
         </div >
     )

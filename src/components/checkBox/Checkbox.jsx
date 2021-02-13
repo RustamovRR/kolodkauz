@@ -8,7 +8,7 @@ export default function CheckboxComp({ label }) {
             <FormControlLabel
                 label={label}
                 control={
-                    <Checkbox name="checkedC" icon={<CheckIcon />} />
+                    <Checkbox name="checkedC" color="primary" />
                 }
             />
         </div>

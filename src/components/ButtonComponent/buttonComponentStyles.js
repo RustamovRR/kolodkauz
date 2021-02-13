@@ -12,10 +12,10 @@ export const useButtonComponentStyles = makeStyles({
         color: text.white,
         backgroundColor: clr.tab,
         transition: `0.5s ease`,
+        border: `1px solid ${clr.tab}`,
         '&:hover': {
             color: clr.tab,
             backgroundColor: text.white,
-            border: `1px solid ${clr.tab}`
         }
     }
 });

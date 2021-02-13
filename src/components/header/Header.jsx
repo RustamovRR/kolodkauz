@@ -35,7 +35,7 @@ export default function Header() {
                 <Currency />
 
                 <div className={classes.services}>
-                    <Link to="/info">
+                    <Link to="/products">
                         Скидки
                     </Link>
                     <Link to="/info">
@@ -69,7 +69,7 @@ export default function Header() {
                             <p>Сравнение</p>
                         </Link>
                         <Link
-                            to='/'
+                            to='/basket'
                             className={classes.link}
                             onMouseEnter={() => {
                                 setTimeout(() => {

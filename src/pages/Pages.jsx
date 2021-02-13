@@ -1,5 +1,7 @@
 import React from 'react'
 import { Route, Switch } from 'react-router-dom'
+import ProductMedium from '../components/productMedium/ProductMedium'
+import ProductSmall from '../components/productSmall/ProductSmall'
 import BasketPage from './Basket/BasketPage'
 import ComparePage from './Compare/ComparePage'
 import FavoritePage from './Favorite/FavoritePage'
@@ -16,7 +18,13 @@ export default function Pages() {
                 <Route path="/favorite" component={FavoritePage} />
                 <Route path="/compare" component={ComparePage} />
                 <Route path="/basket" component={BasketPage} />
-                <Route path="/products" component={ProductsPage} />
+                <Route exact path="/products" component={ProductsPage} />
+                <Route path="/products/medium">
+                    <ProductsPage medium />
+                </Route>
+                <Route path="/products/small">
+                    <ProductsPage small />
+                </Route>
             </Switch>
         </div>
     )

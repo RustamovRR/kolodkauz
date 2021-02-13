@@ -64,7 +64,7 @@ export default function ComparePage() {
 
             <section className={classes.compare_box}>
                 <Breadcrumbs className={classes.navigation}>
-                    <Link to="#" className={classes.link}>
+                    <Link to="/" className={classes.link}>
                         Главная
                     </Link>
                     <p >

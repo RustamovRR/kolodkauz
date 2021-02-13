@@ -4,16 +4,17 @@ import { clr, text } from "../../Globals/colors";
 
 export const useProductMediumStyles = makeStyles({
     root: {
-        width: '100%',
+        // width: '85%',
         display: 'flex',
         padding: '32px 0',
-        justifyContent: 'space-around',
+        justifyContent: 'space-between',
     },
 
     card: {
         margin: '0 auto',
         width: 264,
         height: 264,
+        backgroundColor: 'green',
         "& > img": {
             width: "100%",
             height: "100%",
@@ -85,7 +86,7 @@ export const useProductMediumStyles = makeStyles({
     price: {
         '& h1': {
             fontSize: 24,
-            fontWeight: 500,
+            fontWeight: 'bold',
             color: text.red,
         },
         '& h6': {

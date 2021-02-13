@@ -4,6 +4,7 @@ import { clr, text } from '../../Globals/colors'
 const paddingRoot = '0 30px'
 
 export const useProductPageStyles = makeStyles({
+
     tabs_box: {
         padding: paddingRoot
     },
@@ -36,16 +37,19 @@ export const useProductPageStyles = makeStyles({
     products_box: {
         padding: paddingRoot,
         display: 'flex',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
     },
 
     sidebar: {
-        width: '19%',
+        width: '19vw !important',
     },
 
     sort: {
-        width: '79%',
+        width: '80vw',
         marginLeft: 60,
+    },
+
+    sort_navigation: {
     },
 
     product_box: {
@@ -53,22 +57,24 @@ export const useProductPageStyles = makeStyles({
         display: 'flex',
         flexWrap: 'wrap',
         justifyContent: 'space-between',
-        // '& div': {
-        //     width: '23%',
-        // }
     },
 
     product: {
         marginTop: 24,
+        width: '23%',
         display: 'flex',
         flexWrap: 'wrap',
         justifyContent: 'space-between',
         '& div': {
-            width: '23%',
+            width: '100%',
         }
     },
 
     product_medium: {
-        width: '100%'
+        // marginLeft: '20%',
+        width: '80%',
+    },
+
+    product_small: {
     }
 })

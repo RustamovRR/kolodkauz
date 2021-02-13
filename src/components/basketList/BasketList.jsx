@@ -14,12 +14,11 @@ import { Close } from '@material-ui/icons'
 import { Rating } from '@material-ui/lab'
 import close from '../../images/icons/close.png'
 import sidina from '../../images/products/Rectangle 14.png'
-import minusImg from '../../images/icons/minus.png'
-import plusImg from '../../images/icons/plus.png'
 import { useBasketListStyles } from './basketListStyles'
+import Quantity from '../quantity/Quantity'
 
 export default function BasketList() {
-    const [quantity, setQuantity] = useState(1)
+    
     const classes = useBasketListStyles()
 
     return (
@@ -45,24 +44,7 @@ export default function BasketList() {
                         <ListItemSecondaryAction className={classes.action_box}>
 
                             <section className={classes.count}>
-                                <div
-                                    className={classes.add}
-                                    onClick={() => {
-                                        if (quantity >= 2)
-                                            setQuantity(quantity - 1)
-                                    }}
-                                >
-                                    <img src={minusImg} alt="" />
-                                </div>
-
-                                <p className={classes.count_text}>{quantity}</p>
-
-                                <div
-                                    className={classes.add}
-                                    onClick={() => setQuantity(quantity + 1)}
-                                >
-                                    <img src={plusImg} alt="" />
-                                </div>
+                                <Quantity />
                             </section>
 
                             <section className={classes.price}>

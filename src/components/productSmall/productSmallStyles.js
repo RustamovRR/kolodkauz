@@ -4,116 +4,58 @@ import { clr, text } from "../../Globals/colors";
 
 export const useProductSmallStyles = makeStyles({
     root: {
+        height: 176,
         width: '100%',
         display: 'flex',
-        padding: '32px 0',
-        justifyContent: 'space-around',
-    },
-
-    card: {
-        margin: '0 auto',
-        width: 264,
-        height: 264,
-        "& > img": {
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
-        },
+        alignItems: 'center',
+        justifyContent: 'space-between',
     },
 
     text_box: {
-        width: 424,
         marginLeft: 32,
-        color: text.primary,
-        '& h4': {
+        marginBottom: 8,
+        '& h1': {
             fontSize: 24,
-            fontWeight: 600,
+            whiteSpace: 'nowrap',
             marginBottom: 8
         }
     },
 
-    info: {
-        marginTop: 4,
-        display: 'flex',
-    },
-
-    left_text: {
-        '& p': {
-            fontSize: 14,
-            marginTop: 12,
-            fontWeight: 400,
-            color: text.productSecondary
-        },
-    },
-
-    right_text: {
-        '& p': {
-            fontSize: 14,
-            marginTop: 12,
-            marginLeft: 64,
-            fontWeight: 400,
-            color: text.primary
-        },
-    },
-
-    expand: {
-        marginTop: 16,
-        '& *': {
-            color: clr.tab,
-            fontWeight: 500,
-            fontSize: 14
-        }
-    },
-
-    action_box: {
-        width: 258,
-        marginLeft: 64,
-        position: 'relative'
-    },
-
-    divider: {
-        height: 264,
-        left: '-32px',
-        position: 'absolute',
-    },
-
     price_box: {
+        marginTop: 8,
         display: 'flex',
-        justifyContent: 'space-between'
-    },
-
-    price: {
-        '& h1': {
-            fontSize: 24,
-            fontWeight: 500,
+        alignItems: 'center',
+        '& p': {
+            fontSize: 20,
             color: text.red,
+            fontWeight: 'bolder'
         },
-        '& h6': {
-            fontSize: 14,
-            fontWeight: 500,
-            color: text.productSecondary,
+        '& span': {
+            marginLeft: 8,
+            marginTop: 3,
+            color: text.productPrimary,
             textDecoration: 'line-through',
         }
     },
 
-    button: {
-        width: 258,
-        marginTop: 64,
-        margin: '0 auto'
+    count_box: {
+        marginLeft: 90
     },
 
-    basket_button: {
-        width: 258,
-        height: 48,
-        marginTop: 12,
-        borderRadius: 4,
-        backgroundColor: clr.basketBackground,
-        '& *': {
-            fontSize: 15,
-            fontWeight: 600,
-            textTransform: 'none',
-            color: text.productPrimary,
-        }
-    }
+    action_box: {
+        width: 216
+    },
 
+    buttons: {
+        display: 'flex',
+        paddingTop: 5,
+        paddingLeft: 20
+    },
+
+    basket: {
+        color: clr.tab,
+        textTransform: 'none',
+        fontSize: 15,
+        fontWeight: 'bold'
+    }
 });

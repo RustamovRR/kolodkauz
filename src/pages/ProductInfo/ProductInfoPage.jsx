@@ -1,5 +1,5 @@
 import React from 'react'
-import { IconButton } from '@material-ui/core'
+import { Button, IconButton } from '@material-ui/core'
 import Header from '../../components/header/Header'
 import RatingComp from '../../components/rating/RatingComp'
 import CheckboxComp from '../../components/checkBox/Checkbox'
@@ -15,6 +15,7 @@ import rateImg from '../../images/icons/rate_black.png'
 import castrolImg from '../../images/icons/castrol.png'
 import Description from '../../components/description/Description'
 import SImilarProduct from '../../components/similarProduct/SImilarProduct'
+import { Link } from 'react-router-dom'
 
 export default function ProductInfoPage() {
     const classes = useProductInfoPageStyles()
@@ -95,6 +96,37 @@ export default function ProductInfoPage() {
                     <h1>Комментарий</h1>
                     <div className={classes.sign_button}>
                         <ButtonComponent title="Войти" />
+                    </div>
+
+                    <div className={classes.navigation}>
+                        <p>Сортировать по: </p>
+                        {
+                            [`Популярности`, `Рейтингу`, `Название (А-Я)`].map(item => (
+                                <Link className={classes.links}>
+                                    <Button>
+                                        {item}
+                                    </Button>
+                                </Link>
+                            ))
+                        }
+                    </div>
+
+                    <div className={classes.comments}>
+                        {
+                            [1, 2, 3, 4, 5].map(item => (
+                                <div className={classes.users}>
+                                    <p className={classes.comment_name}>Абдусаттор</p>
+                                    <RatingComp value={4} />
+                                    <p className={classes.comment_text}>
+                                        Добрый день! Благодарим Вас за отзыв. Приятного пользования и удачных покупок в дальнейшем. С уважением, Служба поддержки Black+Decker
+                                    </p>
+                                    <p className={classes.comment_date}>4 Дек, 2020</p>
+                                </div>
+                            ))
+                        }
+                    </div>
+                    <div className={classes.expand}>
+                        <Link>Развернуть</Link>
                     </div>
                 </section>
 

@@ -126,5 +126,60 @@ export const useProductInfoPageStyles = makeStyles({
 
     footer_box: {
         marginTop: 144
+    },
+
+    navigation: {
+        marginTop: 32,
+        display: 'flex',
+        alignItems: 'center',
+        '& p': {
+            color: text.productSecondary
+        }
+    },
+
+    links: {
+        textDecoration: 'none',
+        marginLeft: 16,
+        '& *': {
+            textTransform: 'none',
+            fontWeight: 'bold'
+        }
+    },
+
+    comments: {
+        width: 705,
+        marginTop: 16
+    },
+
+    users: {
+        marginTop: 24
+    },
+
+    comment_name: {
+        fontSize: 16,
+        fontWeight: 'bold',
+        marginBottom: 4
+    },
+
+    comment_text: {
+        marginTop: 8,
+        fontSize: 16,
+        lineHeight: '22px'
+    },
+
+    comment_date: {
+        marginTop: 8,
+        fontSize: 12,
+        fontWeight: 'bold',
+        color: text.productSecondary
+    },
+
+    expand: {
+        marginTop: 32,
+        '& *': {
+            fontSize: 16,
+            color: clr.tab,
+            fontWeight: 'bold'
+        }
     }
 })

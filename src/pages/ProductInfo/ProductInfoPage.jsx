@@ -3,6 +3,7 @@ import { IconButton } from '@material-ui/core'
 import Header from '../../components/header/Header'
 import RatingComp from '../../components/rating/RatingComp'
 import CheckboxComp from '../../components/checkBox/Checkbox'
+import Footer from '../../components/footer/Footer'
 import ButtonComponent from '../../components/ButtonComponent/ButtonComponent'
 import { useProductInfoPageStyles } from './productInfoStyles'
 
@@ -12,6 +13,8 @@ import leftArrow from '../../images/icons/left-arrow.png'
 import heartImg from '../../images/icons/heart_black.png'
 import rateImg from '../../images/icons/rate_black.png'
 import castrolImg from '../../images/icons/castrol.png'
+import Description from '../../components/description/Description'
+import SImilarProduct from '../../components/similarProduct/SImilarProduct'
 
 export default function ProductInfoPage() {
     const classes = useProductInfoPageStyles()
@@ -76,9 +79,30 @@ export default function ProductInfoPage() {
                         <p className={classes.text}>Обратитесь к мастеру службы</p>
                         <img src={castrolImg} alt="" className={classes.photo} />
                     </section>
-
                 </section>
+
+                <section className={classes.description_box}>
+                    <h1>Описание</h1>
+                    <Description />
+                </section>
+
+                <section className={classes.similar_box}>
+                    <h1>Похожие товары</h1>
+                    <SImilarProduct />
+                </section>
+
+                <section className={classes.comment_box}>
+                    <h1>Комментарий</h1>
+                    <div className={classes.sign_button}>
+                        <ButtonComponent title="Войти" />
+                    </div>
+                </section>
+
             </div>
+
+            <section className={classes.footer_box}>
+                <Footer />
+            </section>
         </>
     )
 }

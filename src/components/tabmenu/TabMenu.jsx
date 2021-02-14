@@ -1,12 +1,11 @@
-import React, { useContext } from 'react';
-import Typography from '@material-ui/core/Typography';
-import { useTabMenuStyles, AntTabs, AntTab } from './tabMenuStyles'
+import React, { useContext, useState } from 'react';
 import TabList from '../tabList/TabList';
+import { useTabMenuStyles, AntTabs, AntTab } from './tabMenuStyles'
 import { TabListContext } from '../../contexts/TabListContext';
 
 export default function useHeaderStyles() {
     const classes = useTabMenuStyles();
-    const [value, setValue] = React.useState(0);
+    const [value, setValue] = useState(0);
     const { open, setOpen } = useContext(TabListContext)
 
     const handleChange = (event, newValue) => {

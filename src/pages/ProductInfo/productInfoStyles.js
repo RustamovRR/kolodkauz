@@ -53,7 +53,7 @@ export const useProductInfoPageStyles = makeStyles({
         marginTop: 24,
         display: 'flex',
         alignItems: 'center',
-        '& 2': {
+        '& h2': {
             fontSize: 32,
             fontWeight: 'bold'
         },
@@ -93,5 +93,38 @@ export const useProductInfoPageStyles = makeStyles({
         height: 32,
         marginTop: 24,
         objectFit: 'cover'
+    },
+
+    description_box: {
+        marginTop: 96,
+        '& h1': {
+            fontSize: 40,
+            color: text.primary
+        }
+    },
+
+    similar_box: {
+        marginTop: 96,
+        '& h1': {
+            fontSize: 40,
+        }
+    },
+
+    comment_box: {
+        marginTop: 96,
+        '& h1': {
+            fontSize: 40,
+            color: text.primary
+        }
+    },
+
+    sign_button: {
+        width: 160,
+        height: 40,
+        marginTop: 32
+    },
+
+    footer_box: {
+        marginTop: 144
     }
 })

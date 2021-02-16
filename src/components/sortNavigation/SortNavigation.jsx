@@ -1,16 +1,22 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Button, IconButton } from '@material-ui/core'
 import { useSortNavigationStyles } from './sortNavigationStyles'
 import sortIcon1 from '../../images/icons/sort_icon1.png'
 import sortIcon2 from '../../images/icons/sort_icon2.png'
 import sortIcon3 from '../../images/icons/sort_icon3.png'
 import { Link } from 'react-router-dom'
+import { TranslateContext } from '../../contexts/TranslateContext'
 
 export default function SortNavigation() {
     const classes = useSortNavigationStyles()
+    const { trans, setTrans } = useContext(TranslateContext)
 
-    const buttons = [
+    const buttonsRu = [
         `Популярности`, `Рейтингу`, `Скидке`, `Обновлению`, `Название (А-Я)`
+    ]
+
+    const buttonsUz = [
+        `Ommaboplik`, `Reyting`, `Скидке`, `Chegirma`, `Nom (А-Z)`
     ]
 
     const icons = [
@@ -22,10 +28,12 @@ export default function SortNavigation() {
     return (
         <div className={classes.root}>
             <section className={classes.navigation}>
-                <p>Сортировать по:</p>
+                <p>
+                    {trans ? `Сортировать по:` : `Saralash:`}
+                </p>
                 <div className={classes.buttons}>
                     {
-                        buttons.map((item) => (
+                        (trans ? buttonsRu : buttonsUz).map((item) => (
                             <Button key={item}>{item}</Button>
                         ))
                     }

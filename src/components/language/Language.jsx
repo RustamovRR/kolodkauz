@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import { useLanguageStyles } from './languageStyles';
 import { ExpandMore } from '@material-ui/icons';
+import { TranslateContext } from '../../contexts/TranslateContext';
 
 export default function Language() {
     const [anchorEl, setAnchorEl] = React.useState(null)
+    const { trans, setTrans } = useContext(TranslateContext)
     const classes = useLanguageStyles()
 
     const handleClick = (event) => {
@@ -17,6 +19,14 @@ export default function Language() {
         setAnchorEl(null);
     }
 
+    const handleRu = () => {
+        setTrans(true)
+    }
+
+    const handleUz = () => {
+        setTrans(false)
+    }
+
     return (
         <div className={classes.language_root}>
             <Button onClick={handleClick}
@@ -24,7 +34,7 @@ export default function Language() {
                 size="small"
                 endIcon={<ExpandMore />}
             >
-                RUS
+                {trans ? ` RUS` : `UZ`}
             </Button>
             <Menu
                 className={classes.menu}
@@ -33,8 +43,24 @@ export default function Language() {
                 onClose={handleClose}
                 disableAutoFocusItem
             >
-                <MenuItem className={classes.menu_item} onClick={handleClose}>UZ</MenuItem>
-                <MenuItem className={classes.menu_item} onClick={handleClose}>RUS</MenuItem>
+                <MenuItem
+                    className={classes.menu_item}
+                    onClick={() => {
+                        handleUz()
+                        handleClose()
+                    }}
+                >
+                    UZ
+                 </MenuItem>
+                <MenuItem
+                    className={classes.menu_item}
+                    onClick={() => {
+                        handleRu()
+                        handleClose()
+                    }}
+                >
+                    RUS
+                      </MenuItem>
             </Menu>
         </div>
     );

@@ -11,17 +11,20 @@ import "./App.css";
 import Pages from "./pages/Pages";
 import BasketProvider from "./contexts/BasketContext";
 import TabListProvider from "./contexts/TabListContext";
+import TranslateProvider from "./contexts/TranslateContext";
 
 function App() {
   return (
     <BrowserRouter>
-      <BasketProvider>
-        <TabListProvider>
-          <div className="App" >
-            <Pages />
-          </div>
-        </TabListProvider>
-      </BasketProvider>
+      <TranslateProvider>
+        <BasketProvider>
+          <TabListProvider>
+            <div className="App" >
+              <Pages />
+            </div>
+          </TabListProvider>
+        </BasketProvider>
+      </TranslateProvider>
     </BrowserRouter>
   );
 }

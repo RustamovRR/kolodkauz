@@ -1,13 +1,16 @@
 import { Breadcrumbs, Typography } from '@material-ui/core'
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import Header from '../../components/header/Header'
 import TabMenu from '../../components/tabmenu/TabMenu'
 import Product from '../../components/product/Product'
 import { useFavoriteStyles } from './FavoriteStyles'
+import { TranslateContext } from '../../contexts/TranslateContext'
 
 export default function FavoritePage() {
     const classes = useFavoriteStyles()
+    const { trans, setTrans } = useContext(TranslateContext)
+
     function handleClick(event) {
         event.preventDefault();
         console.info('You clicked a breadcrumb.');
@@ -27,14 +30,16 @@ export default function FavoritePage() {
             <section className={classes.favorite_box}>
                 <Breadcrumbs className={classes.navigation}>
                     <Link to="/" className={classes.link}>
-                        Главная
+                        {trans ? `Главная` : `Asosiy`}
                     </Link>
                     <p >
-                        Избранные
+                        {trans ? `Избранные` : `Sevimlilar`}
                     </p>
                 </Breadcrumbs>
 
-                <h1>Избранные</h1>
+                <h1>
+                    {trans ? `Избранные` : `Sevimlilar`}
+                </h1>
 
                 <div className={classes.product_box}>
                     <Product favorite={true} />

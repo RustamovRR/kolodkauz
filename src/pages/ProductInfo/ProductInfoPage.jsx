@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Button, IconButton } from '@material-ui/core'
 import Header from '../../components/header/Header'
 import RatingComp from '../../components/rating/RatingComp'
@@ -16,9 +16,19 @@ import castrolImg from '../../images/icons/castrol.png'
 import Description from '../../components/description/Description'
 import SImilarProduct from '../../components/similarProduct/SImilarProduct'
 import { Link } from 'react-router-dom'
+import { TranslateContext } from '../../contexts/TranslateContext'
 
 export default function ProductInfoPage() {
     const classes = useProductInfoPageStyles()
+    const { trans, setTrans } = useContext(TranslateContext)
+
+    const sortRu = [
+        `Популярности`, `Рейтингу`, `Название (А-Я)`
+    ]
+
+    const sortUz = [
+        `Ommaboplik`, `Reyting`, `Nom (A-Z)`
+    ]
 
     return (
         <>
@@ -83,25 +93,33 @@ export default function ProductInfoPage() {
                 </section>
 
                 <section className={classes.description_box}>
-                    <h1>Описание</h1>
+                    <h1>
+                        {trans ? `Описание` : `Tavsif`}
+                    </h1>
                     <Description />
                 </section>
 
                 <section className={classes.similar_box}>
-                    <h1>Похожие товары</h1>
+                    <h1>
+                        {trans ? `Похожие товары` : `O'xshash mahsulotlar`}
+                    </h1>
                     <SImilarProduct />
                 </section>
 
                 <section className={classes.comment_box}>
-                    <h1>Комментарий</h1>
+                    <h1>
+                        {trans ? `Комментарий` : `Izoh`}
+                    </h1>
                     <div className={classes.sign_button}>
-                        <ButtonComponent title="Войти" />
+                        <ButtonComponent title={trans ? `Войти` : `Kirish`} />
                     </div>
 
                     <div className={classes.navigation}>
-                        <p>Сортировать по: </p>
+                        <p>
+                            {trans ? `Сортировать по:` : `Saralash turi:`}
+                        </p>
                         {
-                            [`Популярности`, `Рейтингу`, `Название (А-Я)`].map(item => (
+                            trans ? sortRu : sortUz.map(item => (
                                 <Link className={classes.links}>
                                     <Button>
                                         {item}
@@ -126,7 +144,9 @@ export default function ProductInfoPage() {
                         }
                     </div>
                     <div className={classes.expand}>
-                        <Link>Развернуть</Link>
+                        <Link>
+                            {trans ? `Развернуть` : `Kengaytirish`}
+                        </Link>
                     </div>
                 </section>
 

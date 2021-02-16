@@ -1,28 +1,40 @@
 import { Divider } from '@material-ui/core'
-import React from 'react'
+import React, { useContext } from 'react'
+import { TranslateContext } from '../../contexts/TranslateContext'
 import InfoDelivery from '../infoDelivery/InfoDelivery'
 import InfoService from '../infoService/InfoService'
 import { useInfoStyles } from './infoStyles'
 
 export default function Info() {
     const classes = useInfoStyles()
-    const navs = [
+    const { trans, setTrans } = useContext(TranslateContext)
+
+    const navsRu = [
         `Как сделать заказ`,
         `Информация о доставке`,
         `Доставка до квартиры`,
         `Услуга мастера`,
         `Гарантия`,
         `Возврат и обмен`,
-        `Пользовательское соглашение`,
-        `Возврат и обмен`
+        `Пользовательское соглашение`
+    ]
+
+    const navsUz = [
+        `Qanday buyurtma qilinadi`,
+        `Yetkazish va to'lov`,
+        `Uygacha yetkazib berish`,
+        `Usta xizmati`,
+        `Kafolat`,
+        `Qaytarish va almashtirish`,
+        `Foydalanish shartlari`
     ]
 
     return (
         <div className={classes.info_root}>
             <section className={classes.left_panel}>
                 {
-                    navs.map(item => (
-                        <p key={item} >{item}</p>
+                    trans ? navsRu : navsUz.map(item => (
+                        <p key={item}>{item}</p>
                     ))
                 }
             </section>

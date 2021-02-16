@@ -14,9 +14,11 @@ import rectangle from '../../images/products/Rectangle 14.png'
 import rol from '../../images/products/rol.png'
 import ProductMedium from '../../components/productMedium/ProductMedium'
 import ProductSmall from '../../components/productSmall/ProductSmall'
+import { TranslateContext } from '../../contexts/TranslateContext'
 
 export default function ProductsPage({ medium, small }) {
     const classes = useProductPageStyles()
+    const { trans, setTrans } = useContext(TranslateContext)
 
     // const arrays = [balon]
     const arrays = [balon, bolgarka, rectangle, rol, balon, bolgarka, rectangle, rol]
@@ -35,17 +37,19 @@ export default function ProductsPage({ medium, small }) {
             <section className={classes.title_box}>
                 <Breadcrumbs className={classes.navigation}>
                     <Link to="/" className={classes.link}>
-                        Главная
+                        {trans ? `Главная` : `Asosiy`}
                     </Link>
                     <Link to="/" className={classes.link}>
-                        Автотовары
+                        {trans ? `Автотовары` : `Avtotovarlar`}
                     </Link>
                     <p >
-                        Шины и Диски
+                        {trans ? `Шины и Диски` : `Shinalar va disklar`}
                     </p>
                 </Breadcrumbs>
 
-                <h1>Шины и Диски</h1>
+                <h1>
+                    {trans ? `Шины и Диски` : `Shinalar va disklar`}
+                </h1>
             </section>
 
             <section className={classes.products_box} >

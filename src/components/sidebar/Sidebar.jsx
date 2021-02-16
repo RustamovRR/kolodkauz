@@ -1,11 +1,13 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { FormControl, FormControlLabel, Radio, RadioGroup, Slider } from '@material-ui/core'
 import CheckboxComp from '../checkBox/Checkbox'
 import radioImg from '../../images/icons/radio.png'
 import { useSidebarStyles } from './sidebarStyles'
+import { TranslateContext } from '../../contexts/TranslateContext'
 
 export default function Sidebar() {
     const classes = useSidebarStyles()
+    const { trans, setTrans } = useContext(TranslateContext)
 
     const [value, setValue] = useState([1000, 10000]);
     const [radio, setRadio] = React.useState('female');
@@ -30,18 +32,29 @@ export default function Sidebar() {
         `Viatti`, `Nexia`, `Lacetti`, `Damas`, `Cobalt`
     ]
 
-    const radios = [
+    const radiosRu = [
         { title: `от 10% и выше`, value: 10 },
         { title: `от 30% и выше`, value: 30 },
         { title: `от 50% и выше`, value: 50 },
         { title: `от 70% и выше`, value: 70 }
     ]
 
+    const radiosUz = [
+        { title: `10% va undan yuqori`, value: 10 },
+        { title: `30% va undan yuqori`, value: 30 },
+        { title: `50% va undan yuqori`, value: 50 },
+        { title: `70% va undan yuqori`, value: 70 }
+    ]
+
     return (
         <div className={classes.root}>
-            <p className={classes.filter}>Филтер</p>
+            <p className={classes.filter}>
+                {trans ? `Филтер` : `Filtr`}
+            </p>
             <section className={classes.brands_box}>
-                <h4>Бренд</h4>
+                <h4>
+                    {trans ? `Бренд` : `Brend`}
+                </h4>
                 {
                     brands.map(brand => (
                         <div>
@@ -52,7 +65,9 @@ export default function Sidebar() {
             </section>
 
             <section className={classes.models_box}>
-                <h4>Марка / модель машины</h4>
+                <h4>
+                    {trans ? `Марка / модель машины` : `Marka / mashina modeli`}
+                </h4>
                 {
                     models.map(brand => (
                         <div>
@@ -63,7 +78,10 @@ export default function Sidebar() {
             </section>
 
             <section className={classes.range_box}>
-                <h4>Цена <span>(сум)</span></h4>
+                <h4>
+                    {trans ? `Цена` : `Narx`} &nbsp;
+                    <span>{trans ? `(сум)` : `(so'm)`}</span>
+                </h4>
                 <Slider
                     value={value}
                     onChange={handleChange}
@@ -75,18 +93,31 @@ export default function Sidebar() {
                         thumb: classes.thumb
                     }}
                 />
-                <div className={classes.amount}>
-                    <p>от <span>{num1}</span></p>
-                    <p>до <span>{num2}</span></p>
-                </div>
+                {
+                    trans
+                        ? (
+                            <div className={classes.amount}>
+                                <p>от <span>{num1}</span></p>
+                                <p>до <span>{num2}</span></p>
+                            </div>
+                        )
+                        : (
+                            <div className={classes.amount}>
+                                <p><span>{num1}</span> dan</p>
+                                <p><span>{num2}</span> gacha</p>
+                            </div>
+                        )
+                }
             </section>
 
             <section className={classes.discount_box}>
-                <h4>Скидка</h4>
+                <h4>
+                    {trans ? `Скидка` : `Chegirma`}
+                </h4>
                 {/* <FormControl component="fieldset"> */}
                 <RadioGroup value={radio} onChange={radioChange}>
                     {
-                        radios.map((item) => (
+                        (trans ? radiosRu : radiosUz).map((item) => (
                             <FormControlLabel
                                 value={item.title}
                                 control={

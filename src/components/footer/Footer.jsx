@@ -1,14 +1,16 @@
 import { Divider, Grid } from '@material-ui/core'
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { useFooterStyles } from './footerStyles'
 import clickImg from '../../images/icons/click.png'
 import paymeImg from '../../images/icons/payme.png'
+import { TranslateContext } from '../../contexts/TranslateContext'
 
 export default function Footer() {
     const classes = useFooterStyles()
+    const { trans, setTrans } = useContext(TranslateContext)
 
-    const informations = [
+    const infoRu = [
         `Как сделать заказ`,
         `Доставка и оплата`,
         `Услуга мастера`,
@@ -17,10 +19,25 @@ export default function Footer() {
         `О компании`
     ]
 
-    const partners = [
+    const infoUz = [
+        `Qanday buyurtma qilinadi`,
+        `Yetkazish va to'lov`,
+        `Usta xizmati`,
+        `Qaytarish va almashtirish`,
+        `Foydalanish shartlari`,
+        `Kompaniya haqida`
+    ]
+
+    const partnersRu = [
         `Как стать поставщиком`,
         `Скидки оптовым клиентам`,
         `Реклама на сайте`
+    ]
+
+    const partnersUz = [
+        `Qanday qilib yetkazib beruvchiga aylanish mumkin`,
+        `Ulgurji xaridorlar uchun chegirmalar`,
+        `Saytda reklama`
     ]
 
     const socials = [
@@ -37,30 +54,41 @@ export default function Footer() {
                     <section className={classes.zap_box}>
                         <h4>
                             ZAP.UZ - {''}
-                            <span className={classes.zap_span}>Интернет магазин автозапчастей.</span>
+                            <span className={classes.zap_span}>
+                                {trans ? `Интернет магазин автозапчастей.` : `Avto ehtiyot qismlarning internet do'koni`}
+                            </span>
                         </h4>
-                        <p>Доставка по всему Узбекистану</p>
+                        <p>
+                            {trans ? `Доставка по всему Узбекистану` : `O'zbekiston bo'ylab yetkazib berish`}
+                        </p>
                     </section>
 
                     {/* Phone box///////////////////////////////////////////////////////// */}
                     <section className={classes.phone_box}>
                         <h4>+998 90 678 65 57</h4>
-                        <p>для звонков по всему миру, стоимость звонка - по тарифам вашего</p>
+                        <p>
+                            {trans ? `для звонков по всему миру, стоимость` : `butun dunyo bo'ylab qo'ng'iroqlar uchun `}
+                        </p>
+                        <p>
+                            {trans ? `звонка - по тарифам вашего` : `narx - sizning tariflaringiz bo'yicha`}
+                        </p>
                     </section>
 
                     {/* Work box//////////////////////////////////////////////////////// */}
                     <section className={classes.work_box}>
-                        <p>Время работа</p>
+                        <p>
+                            {trans ? `Время работа` : `Ish vaqti`}
+                        </p>
                         <div>
                             <h4>
-                                Пн-Пт &nbsp;&nbsp;
-                    <span>9:00 - 20:00</span>
+                                {trans ? `Пн-Пт` : `Du-Ju`} &nbsp;&nbsp;
+                                <span>9:00 - 20:00</span>
                             </h4>
                         </div>
                         <div>
                             <h4>
-                                Сб-Вс &nbsp;&nbsp;
-                    <span>9:00 - 15:00</span>
+                                {trans ? `Сб-Вс` : `Sha-Ya`} &nbsp;&nbsp;
+                                <span>9:00 - 15:00</span>
                             </h4>
                         </div>
                     </section>
@@ -68,9 +96,11 @@ export default function Footer() {
 
                 {/* Information box///////////////////////////////////////////////// */}
                 <section className={classes.information_box}>
-                    <h4>Информация</h4>
+                    <h4>
+                        {trans ? `Информация` : `Ma'lumot`}
+                    </h4>
                     {
-                        informations.map((item) => (
+                        trans ? infoRu : infoUz.map((item) => (
                             <Link to={item.href}
                                 key={item}
                                 className={classes.link}
@@ -82,9 +112,11 @@ export default function Footer() {
                 </section>
 
                 <section className={classes.information_box}>
-                    <h4>Партнерам</h4>
+                    <h4>
+                        {trans ? `Партнерам` : `Hamkorlar uchun`}
+                    </h4>
                     {
-                        partners.map((item) => (
+                        trans ? partnersRu : partnersUz.map((item) => (
                             <Link to={item.href}
                                 key={item}
                                 className={classes.link}
@@ -96,7 +128,9 @@ export default function Footer() {
                 </section>
 
                 <section className={classes.information_box}>
-                    <h4>Мы в соцсетях</h4>
+                    <h4>
+                        {trans ? `Мы в соцсетях` : `Biz ijtimoiy tarmoqlarda`}
+                    </h4>
                     {
                         socials.map((item) => (
                             <Link to={item.href}
@@ -114,7 +148,9 @@ export default function Footer() {
             <Divider className={classes.divider} />
 
             <section className={classes.license_box}>
-                <p>2016-2020 © ZAP. Все права защищены.</p>
+                <p>
+                    {trans ? `2016-2020 © ZAP. Все права защищены.` : `2016-2020 © ZAP. Barcha huquqlar himoyalangan.`}
+                </p>
                 <div className={classes.pay_box}>
                     <img src={clickImg} alt="click" className={classes.click} />
                     <img src={paymeImg} alt="payme" />

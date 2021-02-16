@@ -67,6 +67,8 @@ export const useHomePageStyles = makeStyles({
 
     seeAll_box: {
         marginTop: 144,
+        width: 232,
+        margin:'0 auto'
     },
 
     button: {

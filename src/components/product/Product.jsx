@@ -1,12 +1,14 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import image1 from "../../images/products/Rectangle 14.png";
 import { useProductStyles } from "./productStyles";
 import favoriteImg from '../../images/icons/favorite.png'
 import { Button, IconButton } from "@material-ui/core";
+import { TranslateContext } from "../../contexts/TranslateContext";
 
 export default function Product({ favorite, compare }) {
     const classes = useProductStyles();
     const [showIcon, setShowIcon] = useState(true)
+    const { trans, setTrans } = useContext(TranslateContext)
 
     return (
         <div className={classes.product_root}>
@@ -30,10 +32,10 @@ export default function Product({ favorite, compare }) {
                 compare
                     ? <section className={classes.compare_box}>
                         <Button className={classes.signin_button} variant="outlined">
-                            Войти
+                            {trans ? `Войти` : `Kirish`}
                         </Button>
                         <Button className={classes.delete_button}>
-                            Удалить
+                            {trans ? `Удалить` : `O'chirish`}
                         </Button>
                     </section>
 

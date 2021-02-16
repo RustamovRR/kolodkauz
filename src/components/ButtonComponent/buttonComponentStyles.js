@@ -27,9 +27,14 @@ export const useButtonComponentStyles = makeStyles({
         transition: `0.5s ease`,
         backgroundColor: text.white,
         border: `1px solid ${clr.tab}`,
+        paddingRight: 30,
         '&:hover': {
             color: text.white,
             backgroundColor: clr.tab,
+        },
+        '& .MuiButton-endIcon': {
+            position: 'absolute',
+            right: 20
         }
     }
 });

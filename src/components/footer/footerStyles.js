@@ -20,16 +20,19 @@ export const useFooterStyles = makeStyles({
     },
 
     zap_box: {
+        whiteSpace: 'nowrap',
+        lineHeight: '26px',
         '& > h4': {
             fontWeight: 600,
             fontSize: 18,
             ' & > span': {
+                fontSize: 16,
                 fontWeight: 400,
-                color: text.footerPrimary
+                color: text.footerPrimary,
             }
         },
         '& > p': {
-            fontSize: 18,
+            fontSize: 16,
             fontWeight: 400,
             color: text.footerPrimary
         }
@@ -37,6 +40,7 @@ export const useFooterStyles = makeStyles({
 
     phone_box: {
         marginTop: 70,
+        lineHeight: '22px',
         '& > h4': {
             fontWeight: 600,
             fontSize: 18
@@ -57,15 +61,16 @@ export const useFooterStyles = makeStyles({
             color: text.footerPrimary,
             marginBottom: 7
         },
-        '& > h4': {
-            fontWeight: 600,
-            fontSize: 18,
-            ' & > span': {
-                fontWeight: 400,
-            }
-        },
         '& > div': {
-            marginTop: 4
+            marginTop: 4,
+            lineHeight: '20px',
+            '& > h4': {
+                fontWeight: 'bold',
+                fontSize: 18,
+                ' & > span': {
+                    fontWeight: 'normal',
+                }
+            },
         }
     },
 

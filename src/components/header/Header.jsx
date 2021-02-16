@@ -10,23 +10,17 @@ import rate from '../../images/icons/rate.png'
 import basket from '../../images/icons/basket.png'
 import { Badge } from '@material-ui/core'
 import { BasketContext } from '../../contexts/BasketContext'
+import { TranslateContext } from '../../contexts/TranslateContext'
 import Basket from '../basket/Basket'
 
 export default function Header() {
     const classes = useHeaderStyles()
     const { open, setOpen } = useContext(BasketContext)
+    const {trans, setTrans} = useContext(TranslateContext)
 
     const handleOpen = () => {
         setOpen(true);
     };
-
-
-    const functions = [
-        { icon: person, text: `Войти` },
-        { icon: like, text: `Избранные` },
-        { icon: rate, text: `Сравнение` },
-        { icon: basket, text: `Корзина` },
-    ]
 
     return (
         <div className={classes.header_root}>
@@ -36,16 +30,16 @@ export default function Header() {
 
                 <div className={classes.services}>
                     <Link to="/products">
-                        Скидки
+                        {trans ? `Скидки` : `Chegirmalar`}
                     </Link>
                     <Link to="/info">
-                        Доставка
+                    {trans ? `Доставка` : `Yetkazib berish`}
                     </Link>
                     <Link to="/info">
-                        Услуга мастера
+                    {trans ? `Услуга мастера` : `Usta xizmati`}
                     </Link>
                     <Link to="/info">
-                        Гарантия
+                    {trans ? `Гарантия` : `Kafolat`}
                     </Link>
                 </div>
             </nav>
@@ -56,17 +50,23 @@ export default function Header() {
                     <div className={classes.function_items}>
                         <Link to='/favorite' className={classes.link}>
                             <img src={person} alt="kolodka kirish" />
-                            <p>Войти</p>
+                            <p>
+                                {trans ? `Войти` : `Kirish`}
+                            </p>
                         </Link>
                         <Link to='/favorite' className={classes.link}>
                             <Badge badgeContent={4} color="primary" >
                                 <img src={like} alt="tanlanganlar" />
                             </Badge>
-                            <p>Избранные</p>
+                            <p>
+                                {trans ? `Избранные` : `Sevimlilar`}
+                            </p>
                         </Link>
                         <Link to='/compare' className={classes.link}>
                             <img src={rate} alt="Taqqoslash" />
-                            <p>Сравнение</p>
+                            <p>
+                                {trans ? `Сравнение` : `Taqqoslash`}
+                            </p>
                         </Link>
                         <Link
                             to='/basket'
@@ -78,7 +78,9 @@ export default function Header() {
                             }}
                         >
                             <img src={basket} alt="Savat" />
-                            <p>Корзина</p>
+                            <p>
+                                {trans ? `Корзина` : `Xaridlar savati`}
+                            </p>
                         </Link>
                         <Basket />
                     </div>

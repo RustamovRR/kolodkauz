@@ -6,6 +6,7 @@ export default function CheckboxComp({ label }) {
     return (
         <div>
             <FormControlLabel
+                style={{ width: '120%' }}
                 label={label}
                 control={
                     <Checkbox name="checkedC" color="primary" />

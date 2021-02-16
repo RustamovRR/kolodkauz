@@ -11,8 +11,9 @@ export const useLanguageStyles = makeStyles({
     },
 
     menu: {
-        marginTop: 15,
-        padding: 0
+        marginTop: 25,
+        padding: 0,
+        width: 100
     },
 
     menu_item: {

@@ -1,5 +1,5 @@
 import { Breadcrumbs } from '@material-ui/core'
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import Header from '../../components/header/Header'
 import TabMenu from '../../components/tabmenu/TabMenu'
@@ -9,9 +9,11 @@ import { Rating } from '@material-ui/lab'
 import { useComparePageStyles } from './comparePageStyles'
 import { productCompare } from '../../Globals/productCompare'
 import { clr } from '../../Globals/colors'
+import { TranslateContext } from '../../contexts/TranslateContext'
 
 export default function ComparePage() {
     const classes = useComparePageStyles()
+    const { trans, setTrans } = useContext(TranslateContext)
 
     const products = [
         {
@@ -65,17 +67,21 @@ export default function ComparePage() {
             <section className={classes.compare_box}>
                 <Breadcrumbs className={classes.navigation}>
                     <Link to="/" className={classes.link}>
-                        Главная
+                        {trans ? `Главная` : `Asosiy`}
                     </Link>
                     <p >
-                        Сравнение
+                        {trans ? `Сравнение` : `Taqqoslash`}
                     </p>
                 </Breadcrumbs>
 
-                <h1>Сравнение</h1>
+                <h1>
+                    {trans ? `Сравнение` : `Taqqoslash`}
+                </h1>
 
                 <div className={classes.product_box}>
-                    <p>Изображение</p>
+                    <p>
+                        {trans ? `Изображение` : `Rasm`}
+                    </p>
                     <Product compare={true} />
                     <Product compare={true} />
                     <Product compare={true} />

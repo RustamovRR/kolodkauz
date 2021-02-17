@@ -1,5 +1,5 @@
 import { Button, Divider, IconButton } from '@material-ui/core'
-import React from 'react'
+import React, { useContext } from 'react'
 import ButtonComponent from '../ButtonComponent/ButtonComponent'
 import image1 from "../../images/products/Rectangle 14.png";
 import { useProductMediumStyles } from './productMediumStyles'
@@ -8,9 +8,11 @@ import { Rating } from '@material-ui/lab';
 import favoriteImg from '../../images/icons/heart_outline.png'
 import rateCard from '../../images/icons/rate_grey.png'
 import { Link } from 'react-router-dom';
+import { TranslateContext } from '../../contexts/TranslateContext';
 
 export default function ProductMedium() {
     const classes = useProductMediumStyles()
+    const { trans, sum } = useContext(TranslateContext)
 
     return (
         <div className={classes.root}>
@@ -46,8 +48,8 @@ export default function ProductMedium() {
                 <Divider orientation="vertical" className={classes.divider} />
                 <div className={classes.price_box}>
                     <div className={classes.price}>
-                        <h1>8,980,000 сум</h1>
-                        <h6>9,876,000 uzs</h6>
+                        <h1></h1>
+                        <h6>{`9,876,000 ${sum}`}</h6>
                     </div>
                     <div className={classes.action}>
                         <IconButton size="small">

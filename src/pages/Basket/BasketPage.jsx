@@ -12,7 +12,7 @@ import { TranslateContext } from '../../contexts/TranslateContext'
 
 export default function BasketPage() {
     const classes = useBasketPageStyles()
-    const { trans, setTrans } = useContext(TranslateContext)
+    const { trans } = useContext(TranslateContext)
 
     const labelsRu = [
         `Контактный телефон`, `Ф.И.О`, `Область`, `Город / Район`, `Адрес`, `Индекс`

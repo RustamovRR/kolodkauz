@@ -8,7 +8,7 @@ import CheckboxComp from '../checkBox/Checkbox'
 
 export default function BasketPay() {
     const classes = useBasketPayStyles()
-    const { trans, setTrans } = useContext(TranslateContext)
+    const { trans, sum } = useContext(TranslateContext)
 
     return (
         <Paper className={classes.paper} elevation={2}>
@@ -16,14 +16,14 @@ export default function BasketPay() {
                 <p>
                     {trans ? `Товары` : `Tovarlar`}
                 </p>
-                <p>7,850,000 сум</p>
+                <p>{`7,850,000 ${sum}`}</p>
             </section>
 
             <section className={classes.product}>
                 <p>
                     {trans ? `Мастер` : `Usta`}
                 </p>
-                <p>68,000 сум</p>
+                <p>{`68,000 ${sum}`}</p>
             </section>
 
             <section className={classes.rule}>
@@ -42,7 +42,7 @@ export default function BasketPay() {
                 <p>
                     {trans ? `Итого:` : `Jami:`}
                 </p>
-                <h4>8,678,400 сум</h4>
+                <h4>{`8,678,400 ${sum}`}</h4>
             </section>
 
             <section className={classes.button}>

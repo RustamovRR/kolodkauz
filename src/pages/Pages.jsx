@@ -7,6 +7,7 @@ import ComparePage from './Compare/ComparePage'
 import FavoritePage from './Favorite/FavoritePage'
 import HomePage from './Home/HomePage'
 import InformationPage from './Information/InformationPage'
+import LoginPage from './Login/LoginPage'
 import ProductsPage from './Product/ProductsPage'
 import ProductInfoPage from './ProductInfo/ProductInfoPage'
 
@@ -27,6 +28,7 @@ export default function Pages() {
                     <ProductsPage small />
                 </Route>
                 <Route path="/product_info" component={ProductInfoPage} />
+                <Route path="/login" component={LoginPage} />
             </Switch>
         </div>
     )

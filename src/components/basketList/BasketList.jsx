@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import {
     Button,
     Dialog,
@@ -12,14 +12,17 @@ import {
 } from '@material-ui/core'
 import { Close } from '@material-ui/icons'
 import { Rating } from '@material-ui/lab'
-import close from '../../images/icons/close.png'
-import sidina from '../../images/products/Rectangle 14.png'
-import { useBasketListStyles } from './basketListStyles'
 import Quantity from '../quantity/Quantity'
 
+import { useBasketListStyles } from './basketListStyles'
+import close from '../../images/icons/close.png'
+import sidina from '../../images/products/Rectangle 14.png'
+import { TranslateContext } from '../../contexts/TranslateContext'
+
 export default function BasketList() {
-    
+
     const classes = useBasketListStyles()
+    const { sum } = useContext(TranslateContext)
 
     return (
         <div>
@@ -48,8 +51,8 @@ export default function BasketList() {
                             </section>
 
                             <section className={classes.price}>
-                                <h3>7,850,000 сум</h3>
-                                <p>9,876,000 uzs</p>
+                                <h3>{`7,850,000 ${sum}`}</h3>
+                                <p>{`9,876,000 ${sum}`}</p>
                             </section>
 
                             <IconButton className={classes.icon}>

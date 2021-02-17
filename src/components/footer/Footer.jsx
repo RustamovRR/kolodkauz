@@ -100,7 +100,7 @@ export default function Footer() {
                         {trans ? `Информация` : `Ma'lumot`}
                     </h4>
                     {
-                        trans ? infoRu : infoUz.map((item) => (
+                        (trans ? infoRu : infoUz).map((item) => (
                             <Link to={item.href}
                                 key={item}
                                 className={classes.link}
@@ -116,7 +116,7 @@ export default function Footer() {
                         {trans ? `Партнерам` : `Hamkorlar uchun`}
                     </h4>
                     {
-                        trans ? partnersRu : partnersUz.map((item) => (
+                        (trans ? partnersRu : partnersUz).map((item) => (
                             <Link to={item.href}
                                 key={item}
                                 className={classes.link}

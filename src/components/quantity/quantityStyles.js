@@ -16,7 +16,8 @@ export const useQuantityStyles = makeStyles({
 
     count_text: {
         fontSize: 20,
-        fontWeight: 500
+        fontWeight: 500,
+        cursor: 'not-allowed'
     },
 
     add: {

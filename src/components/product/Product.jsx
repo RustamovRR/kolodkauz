@@ -8,7 +8,7 @@ import { TranslateContext } from "../../contexts/TranslateContext";
 export default function Product({ favorite, compare }) {
     const classes = useProductStyles();
     const [showIcon, setShowIcon] = useState(true)
-    const { trans, setTrans } = useContext(TranslateContext)
+    const { trans, sum } = useContext(TranslateContext)
 
     return (
         <div className={classes.product_root}>
@@ -41,8 +41,8 @@ export default function Product({ favorite, compare }) {
 
                     : <section>
                         <div className={classes.price}>
-                            <h3>4,677,000 сум</h3>
-                            <p>6,610,000 сум</p>
+                            <h3>{`4,677,000 ${sum}`}</h3>
+                            <p>{`6,610,000 ${sum}`}</p>
                         </div>
 
                         <div className={classes.brand}>

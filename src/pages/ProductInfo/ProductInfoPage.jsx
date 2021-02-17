@@ -20,7 +20,7 @@ import { TranslateContext } from '../../contexts/TranslateContext'
 
 export default function ProductInfoPage() {
     const classes = useProductInfoPageStyles()
-    const { trans, setTrans } = useContext(TranslateContext)
+    const { trans, sum } = useContext(TranslateContext)
 
     const sortRu = [
         `Популярности`, `Рейтингу`, `Название (А-Я)`
@@ -63,8 +63,8 @@ export default function ProductInfoPage() {
 
                         <section style={{ width: 308 }} >
                             <div className={classes.price_box}>
-                                <h2>7,850,000 сум </h2>
-                                <p>9,876,000 сум</p>
+                                <h2>{`7,850,000 ${sum}`}</h2>
+                                <p>{`9,876,000 ${sum}`}</p>
                             </div>
 
                             <div className={classes.checkbox}>

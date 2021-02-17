@@ -36,8 +36,8 @@ export const useBasketListStyles = makeStyles({
         marginRight: 40,
         '& > h3': {
             fontSize: 20,
-            fontWeight: 500,
             color: text.red,
+            fontWeight: 'bold',
         },
         '& > p': {
             marginTop: 4,

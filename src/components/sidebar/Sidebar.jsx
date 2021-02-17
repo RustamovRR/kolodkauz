@@ -7,7 +7,7 @@ import { TranslateContext } from '../../contexts/TranslateContext'
 
 export default function Sidebar() {
     const classes = useSidebarStyles()
-    const { trans, setTrans } = useContext(TranslateContext)
+    const { trans, sum } = useContext(TranslateContext)
 
     const [value, setValue] = useState([1000, 10000]);
     const [radio, setRadio] = React.useState('female');
@@ -80,7 +80,7 @@ export default function Sidebar() {
             <section className={classes.range_box}>
                 <h4>
                     {trans ? `Цена` : `Narx`} &nbsp;
-                    <span>{trans ? `(сум)` : `(so'm)`}</span>
+                    <span>{sum}</span>
                 </h4>
                 <Slider
                     value={value}

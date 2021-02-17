@@ -68,7 +68,7 @@ export default function TabList() {
         <div className={open ? classes.tabPanel : classes.hidden}>
             <div className={classes.left_panel}>
                 {
-                    trans ? tabsPrimaryRu : tabsPrimaryUz.map(item => (
+                    (trans ? tabsPrimaryRu : tabsPrimaryUz).map(item => (
                         <Link key={item}>{item}</Link>
                     ))
                 }
@@ -76,7 +76,7 @@ export default function TabList() {
 
             <div className={classes.center_panel}>
                 {
-                    trans ? tabsCenterRu : tabsCenterUz.map(item => (
+                    (trans ? tabsCenterRu : tabsCenterUz).map(item => (
                         <Link to="#" key={item}>{item}</Link>
                     ))
                 }

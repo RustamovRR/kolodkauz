@@ -2,6 +2,7 @@ import { Breadcrumbs, Divider } from '@material-ui/core'
 import React, { useContext, } from 'react'
 import { Link } from 'react-router-dom'
 import Header from '../../components/header/Header'
+import Footer from '../../components/footer/Footer'
 import Sidebar from '../../components/sidebar/Sidebar'
 import SortNavigation from '../../components/sortNavigation/SortNavigation'
 import TabMenu from '../../components/tabmenu/TabMenu'
@@ -90,6 +91,10 @@ export default function ProductsPage({ medium, small }) {
                         }
                     </div>
                 </div>
+            </section>
+
+            <section className={classes.footer_box}>
+                <Footer />
             </section>
 
         </div>

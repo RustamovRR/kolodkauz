@@ -1,11 +1,16 @@
 import { makeStyles } from "@material-ui/core/styles";
-import { clr } from "../../Globals/colors";
+import { clr, text } from "../../Globals/colors";
 
 const paddingRoot = '0 30px'
 
 export const useHomePageStyles = makeStyles({
     home_root: {
+        color: text.productPrimary,
+    },
 
+    container: {
+        maxWidth: 1440,
+        margin: 'auto'
     },
 
     tabs_box: {
@@ -26,49 +31,56 @@ export const useHomePageStyles = makeStyles({
 
     carBrand_box: {
         padding: paddingRoot,
-        marginTop: 96,
+        marginTop: 64,
         display: 'flex',
         justifyContent: 'space-between',
     },
 
     bestSeller_title: {
         fontSize: 40,
-        marginTop: 96,
-        fontWeight: 700,
+        marginTop: 64,
         padding: paddingRoot,
-        color: 'rgba(2, 23, 78, 1)'
     },
 
     bestSeller_box: {
         display: 'flex',
-        flexWrap: 'wrap',
+        flexFlow: 'row wrap',
         padding: paddingRoot,
         justifyContent: 'space-between',
+        position: 'relative',
         '& > *': {
-            marginTop: 48
+            marginTop: 32,
+            flex: '0 1 calc(100% * 1/6 - 10px)',
         }
     },
 
     ads_box: {
         padding: paddingRoot,
-        marginTop: 120
+        marginTop: 70
+    },
+
+    product_box_title: {
+        fontSize: 40,
+        marginTop: 64,
+        padding: paddingRoot,
     },
 
     product_box: {
-        marginTop: 48,
         display: 'flex',
-        flexWrap: 'wrap',
+        flexFlow: 'row wrap',
         padding: paddingRoot,
         justifyContent: 'space-between',
+        position: 'relative',
         '& > *': {
-            marginTop: 48
+            marginTop: 32,
+            flex: '0 1 calc(100% * 1/6 - 10px)',
         }
     },
 
     seeAll_box: {
         marginTop: 144,
         width: 232,
-        margin:'0 auto'
+        margin: '0 auto'
     },
 
     button: {

@@ -4,7 +4,7 @@ import { useSortNavigationStyles } from './sortNavigationStyles'
 import sortIcon1 from '../../images/icons/sort_icon1.png'
 import sortIcon2 from '../../images/icons/sort_icon2.png'
 import sortIcon3 from '../../images/icons/sort_icon3.png'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import { TranslateContext } from '../../contexts/TranslateContext'
 
 export default function SortNavigation() {
@@ -16,7 +16,7 @@ export default function SortNavigation() {
     ]
 
     const buttonsUz = [
-        `Ommaboplik`, `Reyting`, `Скидке`, `Chegirma`, `Nom (А-Z)`
+        `Ommaboplik`, `Reyting`, `Chegirma`, `So'nggi`, `Nom (А-Z)`
     ]
 
     const icons = [
@@ -33,10 +33,18 @@ export default function SortNavigation() {
                 </p>
                 <div className={classes.buttons}>
                     {
-                        (trans ? buttonsRu : buttonsUz).map((item) => (
-                            <Button key={item}>{item}</Button>
+                        (trans ? buttonsRu : buttonsUz).map((item, index) => (
+                            <NavLink
+                                key={item}
+                                to={`/products/${index}`}
+                                className={classes.navlink}
+                                activeClassName={classes.active_navlink}
+                            >
+                                <Button >{item}</Button>
+                            </NavLink>
                         ))
                     }
+
                 </div>
             </section>
 
@@ -51,6 +59,6 @@ export default function SortNavigation() {
                     ))
                 }
             </section>
-        </div>
+        </div >
     )
 }

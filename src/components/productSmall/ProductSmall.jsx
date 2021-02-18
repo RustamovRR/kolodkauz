@@ -9,6 +9,7 @@ import karcher from "../../images/products/karcher.png";
 import favoriteImg from '../../images/icons/heart_blue.png'
 import rateImg from '../../images/icons/rate_blue.png'
 import { TranslateContext } from '../../contexts/TranslateContext';
+import ButtonYellow from '../buttonYellow/ButtonYellow';
 
 export default function ProductSmall() {
     const classes = useProductSmallStyles()
@@ -36,11 +37,15 @@ export default function ProductSmall() {
                 </section>
 
                 <section className={classes.action_box}>
-                    <ButtonComponent title="Быстрый заказ" />
+                    <div className={classes.fast_order}>
+                        <ButtonYellow title="Быстрый заказ" />
+                    </div>
                     <div className={classes.buttons}>
-                        <Button className={classes.basket}>Корзинка</Button>
                         <IconButton>
                             <img src={favoriteImg} alt="" />
+                        </IconButton>
+                        <IconButton>
+                            <img src={rateImg} alt="" />
                         </IconButton>
                         <IconButton>
                             <img src={rateImg} alt="" />

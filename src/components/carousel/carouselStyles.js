@@ -13,7 +13,7 @@ export const useCarouselStyles = makeStyles({
 
     carousel: {
         width: '100%',
-        height: 512,
+        height: 400,
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover'
@@ -25,11 +25,6 @@ export const useCarouselStyles = makeStyles({
         width: 48,
         height: 48,
         top: '45%',
-        display: 'flex',
-        borderRadius: 4,
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: 'rgba(255, 255, 255, 0.7)',
         cursor: 'pointer'
     },
 
@@ -39,11 +34,6 @@ export const useCarouselStyles = makeStyles({
         width: 48,
         height: 48,
         top: '45%',
-        display: 'flex',
-        borderRadius: 4,
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: 'rgba(255, 255, 255, 0.7)',
         cursor: 'pointer'
     },
 
@@ -63,21 +53,5 @@ export const useCarouselStyles = makeStyles({
             fontWeight: 'bold',
 
         }
-    },
-
-    navigation: {
-        position: 'absolute',
-        width: 720,
-        left: '23%',
-        bottom: 24,
-        display: 'flex',
-        marginBottom: 20,
-        justifyContent: 'space-between',
-    },
-
-    dot: {
-        width: 120,
-        height: 2,
-        cursor: 'pointer',
     }
 });

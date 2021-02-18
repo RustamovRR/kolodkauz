@@ -80,7 +80,7 @@ export default function Sidebar() {
             <section className={classes.range_box}>
                 <h4>
                     {trans ? `Цена` : `Narx`} &nbsp;
-                    <span>{sum}</span>
+                    <span>({sum})</span>
                 </h4>
                 <Slider
                     value={value}

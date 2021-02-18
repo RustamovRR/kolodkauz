@@ -18,11 +18,31 @@ export const useSortNavigationStyles = makeStyles({
         }
     },
 
-    buttons: {
-        '& > *': {
+    navlink: {
+        marginLeft: 16,
+        textDecoration: 'none',
+        '& *': {
+            textTransform: 'none',
             textTransform: 'none',
             color: text.primary,
             fontWeight: 'bold'
         }
-    }
+    },
+
+    active_navlink: {
+        '& > *': {
+            backgroundColor: `rgba(18, 115, 235, 0.1)`,
+            '&:hover': {
+                backgroundColor: `rgba(18, 115, 235, 0.1)`,
+            },
+            '& *': {
+                color: clr.tab
+            }
+        }
+    },
+
+    buttons: {
+    },
+
+
 })

@@ -9,6 +9,7 @@ import back4 from '../../images/brands/back4.jpg'
 import back5 from '../../images/brands/back5.jpg'
 import leftArrow from '../../images/icons/left-arrow.png'
 import rightArrow from '../../images/icons/right-arrow.png'
+import { IconButton } from '@material-ui/core';
 
 
 export default function Carousel() {
@@ -52,32 +53,16 @@ export default function Carousel() {
             </SwipeableViews>
 
             <section className={classes.arrows}>
-                <div className={classes.left_arrow} onClick={handleBack}>
+                <IconButton className={classes.left_arrow} onClick={handleBack}>
                     <img src={leftArrow} alt="" />
-                </div>
-                <div className={classes.right_arrow} onClick={handleNext}>
+                </IconButton>
+                <IconButton className={classes.right_arrow} onClick={handleNext}>
                     <img src={rightArrow} alt="" />
-                </div>
+                </IconButton>
             </section>
 
             <section className={classes.content}>
                 <h1>ГОНКА БЕЗ ФИНИША</h1>
-            </section>
-
-            <section className={classes.navigation}>
-                {
-                    backgrounds.map((item, index) => (
-                        <div
-                            className={classes.dot}
-                            onClick={() => index = activeStep}
-                            style={
-                                activeStep == index
-                                    ? { backgroundColor: 'rgba(255, 255, 255, 1' }
-                                    : { backgroundColor: 'rgba(255, 255, 255, 0.25' }
-                            }
-                        />
-                    ))
-                }
             </section>
         </div>
     )

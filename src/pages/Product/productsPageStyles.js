@@ -76,5 +76,9 @@ export const useProductPageStyles = makeStyles({
     },
 
     product_small: {
+    },
+
+    footer_box: {
+        marginTop: 96
     }
 })

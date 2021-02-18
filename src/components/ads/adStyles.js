@@ -4,10 +4,15 @@ export const useAdStyles = makeStyles({
     ads_root: {
         display: 'flex',
         justifyContent: 'space-between',
-        '& > *': {
+        '& > div': {
             width: '49%',
-            height: 364,
-            backgroundColor: 'red'
+            height: 370,
+            backgroundColor: 'red',
+            '& img': {
+                width: '100%',
+                height: '100%',
+                objectFit:'cover'
+            }
         }
     }
 })

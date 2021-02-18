@@ -9,6 +9,12 @@ export const useFooterStyles = makeStyles({
         color: text.white
     },
 
+    container: {
+        maxWidth: 1440,
+        margin: 'auto'
+    },
+
+
     footer: {
         padding: '64px 30px',
         display: 'flex',
@@ -21,20 +27,11 @@ export const useFooterStyles = makeStyles({
 
     zap_box: {
         whiteSpace: 'nowrap',
-        lineHeight: '26px',
-        '& > h4': {
-            fontWeight: 600,
-            fontSize: 18,
-            ' & > span': {
-                fontSize: 16,
-                fontWeight: 400,
-                color: text.footerPrimary,
-            }
-        },
+        lineHeight: '22px',
         '& > p': {
-            fontSize: 16,
+            fontSize: 18,
             fontWeight: 400,
-            color: text.footerPrimary
+            color: text.white
         }
     },
 

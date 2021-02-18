@@ -1,9 +1,9 @@
 import React, { useContext, useState } from "react";
-import image1 from "../../images/products/Rectangle 14.png";
-import { useProductStyles } from "./productStyles";
-import favoriteImg from '../../images/icons/favorite.png'
-import { Button, IconButton } from "@material-ui/core";
 import { TranslateContext } from "../../contexts/TranslateContext";
+import ButtonYellow from "../buttonYellow/ButtonYellow";
+
+import image1 from "../../images/products/bagaj.png";
+import { useProductStyles } from "./productStyles";
 
 export default function Product({ favorite, compare }) {
     const classes = useProductStyles();
@@ -13,43 +13,23 @@ export default function Product({ favorite, compare }) {
     return (
         <div className={classes.product_root}>
             <section className={classes.card}>
-                <img src={image1} alt="kolodka rasm" />
+                <img src={image1} alt="" />
             </section>
-            {
-                favorite
-                    ? <IconButton
-                        className={classes.favorite}
-                        size="small"
-                        onClick={() => setShowIcon(false)}
-                        style={!showIcon ? { display: 'none' } : { display: 'block' }}
-                    >
-                        <img src={favoriteImg} alt="sevimli" />
-                    </IconButton>
-                    : ''
-            }
 
-            {
-                compare
-                    ? <section className={classes.compare_box}>
-                        <Button className={classes.signin_button} variant="outlined">
-                            {trans ? `Войти` : `Kirish`}
-                        </Button>
-                        <Button className={classes.delete_button}>
-                            {trans ? `Удалить` : `O'chirish`}
-                        </Button>
-                    </section>
+            <section className={classes.action_box}>
+                <div className={classes.price}>
+                    <h3>{`1,845,600 ${sum}`}</h3>
+                    <p>{`2,845,600 ${sum}`}</p>
+                </div>
 
-                    : <section>
-                        <div className={classes.price}>
-                            <h3>{`4,677,000 ${sum}`}</h3>
-                            <p>{`6,610,000 ${sum}`}</p>
-                        </div>
+                <div className={classes.text}>
+                    <p>Автомобильная шина Hankook Tire Ventus Prime</p>
+                </div>
 
-                        <div className={classes.brand}>
-                            <p>Mercedes-Benz / Автомобильный </p>
-                        </div>
-                    </section>
-            }
+                <div className={classes.button}>
+                    <ButtonYellow title="В корзину" />
+                </div>
+            </section>
         </div>
     );
 }

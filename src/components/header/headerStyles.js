@@ -9,7 +9,13 @@ const searchText = "rgba(110, 131, 186, 1)"
 
 export const useHeaderStyles = makeStyles({
     header_root: {
-        width: '100%'
+        width: '100%',
+        backgroundColor: primaryColor
+    },
+
+    container: {
+        maxWidth: 1440,
+        margin: 'auto'
     },
 
     nav: {
@@ -17,7 +23,6 @@ export const useHeaderStyles = makeStyles({
         padding: '0 30px',
         display: 'flex',
         alignItems: 'center',
-        backgroundColor: primaryColor
     },
 
     services: {
@@ -28,7 +33,7 @@ export const useHeaderStyles = makeStyles({
             fontWeight: 500,
             fontSize: 14,
             marginLeft: 30,
-            transition:'0.3s',
+            transition: '0.3s',
             '&:hover': {
                 color: 'white'
             }

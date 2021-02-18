@@ -4,75 +4,46 @@ import { clr, text } from "../../Globals/colors";
 
 export const useProductStyles = makeStyles({
     product_root: {
-        width: "19%",
+        width: 220,
         position: 'relative',
     },
 
     card: {
+        height: 220,
+        width: '100%',
         "& > img": {
             width: "100%",
+            height: '100%',
             objectFit: "cover",
         },
     },
 
-    favorite: {
-        position: 'absolute',
-        top: 20,
-        right: 0,
-    },
-
     price: {
-        display: "flex",
-        alignItems: "center",
-        marginTop: 16,
-        "& > h3": {
-            color: text.red,
+        marginTop: 12,
+        '& h3': {
             fontSize: 18,
-            fontWeight: 'bold'
-        },
-        '& > p': {
             color: text.productPrimary,
-            fontWeight: 500,
+        },
+        '& p': {
+            marginTop: 4,
+            fontSize: 13,
+            color: text.productSecondary,
+            textDecoration: 'line-through',
+        }
+    },
+
+    text: {
+        marginTop: 8,
+        '& p': {
             fontSize: 14,
-            marginLeft: 8,
-            textDecoration: 'line-through'
+            lineHeight: '17px',
+            color: text.productText
         }
     },
 
-    brand: {
-        color: text.productSecondary,
-        marginTop: 2,
-        fontSize: 14,
-        fontWeight: 400,
-        textAlign: 'left',
-    },
-
-    signin_button: {
-        height: 48,
-        width: '100%',
-        fontSize: 15,
-        color: clr.tab,
-        borderRadius: 4,
-        fontWeight: 600,
-        textTransform: 'none',
-        transition: '0.3s ease',
-        border: `2px solid ${clr.tab}`,
-        '&:hover': {
-            color: text.white,
-            backgroundColor: clr.tab
-        }
-    },
-
-    delete_button: {
-        height: 48,
-        width: '100%',
-        fontWeight: 600,
-        fontSize: 15,
-        color: text.red,
-        textTransform: 'none',
-        transition: '0.3s ease',
-        '&:hover': {
-            textDecoration: 'underline'
-        }
+    button: {
+        width: 90,
+        marginTop: 16
     }
+
 });

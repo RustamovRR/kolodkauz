@@ -39,17 +39,23 @@ export const useProductSmallStyles = makeStyles({
     },
 
     count_box: {
-        marginLeft: 90
+        marginLeft: 90,
+        marginBottom: 50
     },
 
     action_box: {
-        width: 160
+        width: 140
+    },
+
+    fast_order: {
+        '& *': {
+            height: 40
+        }
     },
 
     buttons: {
         display: 'flex',
         paddingTop: 5,
-        paddingLeft: 20
     },
 
     basket: {

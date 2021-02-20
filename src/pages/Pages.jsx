@@ -4,6 +4,7 @@ import ProductMedium from '../components/productMedium/ProductMedium'
 import ProductSmall from '../components/productSmall/ProductSmall'
 import BasketPage from './Basket/BasketPage'
 import ComparePage from './Compare/ComparePage'
+import FastDeliveryPage from './FastDelivery/FastDeliveryPage'
 import FavoritePage from './Favorite/FavoritePage'
 import HomePage from './Home/HomePage'
 import InformationPage from './Information/InformationPage'
@@ -29,6 +30,7 @@ export default function Pages() {
                 </Route>
                 <Route path="/product_info" component={ProductInfoPage} />
                 <Route path="/login" component={LoginPage} />
+                <Route path="/fast_delivery" component={FastDeliveryPage} />
             </Switch>
         </div>
     )

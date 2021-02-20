@@ -5,7 +5,7 @@ import { clr, text } from "../../Globals/colors";
 export const useButtonComponentStyles = makeStyles({
     button: {
         width: '100%',
-        fontWeight: 600,
+        fontWeight: 'bold',
         borderRadius: 4,
         color: text.white,
         textTransform: 'none',
@@ -20,8 +20,8 @@ export const useButtonComponentStyles = makeStyles({
 
     outlined_button: {
         width: '100%',
-        fontWeight: 600,
-        borderRadius: 0,
+        fontWeight: 'bold',
+        borderRadius: 4,
         color: clr.tab,
         textTransform: 'none',
         transition: `0.5s ease`,

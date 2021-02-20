@@ -2,8 +2,10 @@ import React, { useContext, useState } from "react";
 import { TranslateContext } from "../../contexts/TranslateContext";
 import ButtonYellow from "../buttonYellow/ButtonYellow";
 
-import image1 from "../../images/products/bagaj.png";
 import { useProductStyles } from "./productStyles";
+import image1 from "../../images/products/bagaj.png";
+import favoriteImg from '../../images/icons/favorite_product.png'
+import { IconButton } from "@material-ui/core";
 
 export default function Product({ favorite, compare }) {
     const classes = useProductStyles();
@@ -30,6 +32,17 @@ export default function Product({ favorite, compare }) {
                     <ButtonYellow title="В корзину" />
                 </div>
             </section>
+
+            {
+                favorite
+                    ? <section className={classes.icon_box}>
+                        <IconButton size="small">
+                            <img src={favoriteImg} alt="" />
+                        </IconButton>
+                    </section>
+                    : ""
+            }
+
         </div>
     );
 }

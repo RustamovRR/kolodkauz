@@ -5,7 +5,7 @@ import { clr, text } from "../../Globals/colors";
 export const useProductStyles = makeStyles({
     product_root: {
         width: 220,
-        position: 'relative',
+        position: 'relative'
     },
 
     card: {
@@ -42,8 +42,16 @@ export const useProductStyles = makeStyles({
     },
 
     button: {
-        width: 90,
-        marginTop: 16
+        marginTop: 16,
+        '& > *': {
+            width: 90,
+        }
+    },
+
+    icon_box: {
+        top: 8,
+        right: 8,
+        position: 'absolute'
     }
 
 });

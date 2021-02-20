@@ -13,9 +13,9 @@ export const useProductPageStyles = makeStyles({
         padding: paddingRoot,
         paddingTop: 48,
         '& > h1': {
+            fontSize: 32,
             margin: '32px 0',
-            fontSize: 40,
-            fontWeight: 700
+            color: text.productPrimary
         }
     },
 
@@ -35,18 +35,17 @@ export const useProductPageStyles = makeStyles({
     },
 
     products_box: {
-        padding: paddingRoot,
         display: 'flex',
+        padding: paddingRoot,
         justifyContent: 'space-between',
     },
 
     sidebar: {
-        width: '19vw !important',
+        width: '18.8% ',
     },
 
     sort: {
-        width: '80vw',
-        marginLeft: 60,
+        width: '79.4%',
     },
 
     sort_navigation: {
@@ -71,11 +70,11 @@ export const useProductPageStyles = makeStyles({
     },
 
     product_medium: {
-        // marginLeft: '20%',
-        width: '80%',
+        width: '100%'
     },
 
     product_small: {
+        width: '100%'
     },
 
     footer_box: {

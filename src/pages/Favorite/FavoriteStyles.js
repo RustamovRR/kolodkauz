@@ -26,7 +26,6 @@ export const useFavoriteStyles = makeStyles({
     favorite_box: {
         padding: paddingRoot,
         paddingTop: 48,
-        paddingBottom: 100,
         '& > h1': {
             margin: '32px 0',
             fontSize: 40,
@@ -38,6 +37,9 @@ export const useFavoriteStyles = makeStyles({
         display: 'flex',
         justifyContent: 'space-between',
         flexWrap: 'wrap'
-    }
+    },
 
+    footer_box: {
+        marginTop: 72
+    }
 })

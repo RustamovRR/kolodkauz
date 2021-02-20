@@ -1,11 +1,13 @@
-import { Breadcrumbs, Typography } from '@material-ui/core'
 import React, { useContext } from 'react'
+import { Breadcrumbs, Typography } from '@material-ui/core'
 import { Link } from 'react-router-dom'
 import Header from '../../components/header/Header'
 import TabMenu from '../../components/tabmenu/TabMenu'
 import Product from '../../components/product/Product'
-import { useFavoriteStyles } from './FavoriteStyles'
+import Footer from '../../components/footer/Footer'
 import { TranslateContext } from '../../contexts/TranslateContext'
+
+import { useFavoriteStyles } from './FavoriteStyles'
 
 export default function FavoritePage() {
     const classes = useFavoriteStyles()
@@ -48,6 +50,10 @@ export default function FavoritePage() {
                     <Product favorite={true} />
                     <Product favorite={true} />
                 </div>
+            </section>
+
+            <section className={classes.footer_box}>
+                <Footer />
             </section>
 
         </div>

@@ -9,7 +9,7 @@ export default function CheckboxComp({ label }) {
                 style={{ width: '120%' }}
                 label={label}
                 control={
-                    <Checkbox name="checkedC" color="primary" />
+                    <Checkbox name="checked" color="primary" />
                 }
             />
         </div>

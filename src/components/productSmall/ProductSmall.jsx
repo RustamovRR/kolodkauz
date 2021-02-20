@@ -53,7 +53,6 @@ export default function ProductSmall() {
                     </div>
                 </section>
             </div>
-            <Divider />
         </>
     )
 }

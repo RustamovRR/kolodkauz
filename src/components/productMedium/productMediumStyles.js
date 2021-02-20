@@ -4,17 +4,17 @@ import { clr, text } from "../../Globals/colors";
 
 export const useProductMediumStyles = makeStyles({
     root: {
-        // width: '85%',
+        width: '100%',
         display: 'flex',
-        padding: '32px 0',
+        padding: '24px',
+        paddingBottom: 36,
         justifyContent: 'space-between',
+        border: `1px solid ${text.productSecondary}`
     },
 
     card: {
-        margin: '0 auto',
-        width: 264,
-        height: 264,
-        backgroundColor: 'green',
+        width: 220,
+        height: 220,
         "& > img": {
             width: "100%",
             height: "100%",
@@ -23,9 +23,9 @@ export const useProductMediumStyles = makeStyles({
     },
 
     text_box: {
-        width: 424,
-        marginLeft: 32,
+        marginLeft: 24,
         color: text.primary,
+        whiteSpace: 'nowrap',
         '& h4': {
             fontSize: 24,
             fontWeight: 600,
@@ -41,46 +41,16 @@ export const useProductMediumStyles = makeStyles({
     left_text: {
         '& p': {
             fontSize: 14,
-            marginTop: 12,
-            fontWeight: 400,
-            color: text.productSecondary
+            marginTop: 8,
+            lineHeight: '17px',
+            color: text.productPrimary
         },
-    },
-
-    right_text: {
-        '& p': {
-            fontSize: 14,
-            marginTop: 12,
-            marginLeft: 64,
-            fontWeight: 400,
-            color: text.primary
-        },
-    },
-
-    expand: {
-        marginTop: 16,
-        '& *': {
-            color: clr.tab,
-            fontWeight: 500,
-            fontSize: 14
-        }
-    },
-
-    action_box: {
-        width: 258,
-        marginLeft: 64,
-        position: 'relative'
-    },
-
-    divider: {
-        height: 264,
-        left: '-32px',
-        position: 'absolute',
     },
 
     price_box: {
-        display: 'flex',
-        justifyContent: 'space-between'
+        width: 220,
+        marginLeft: 32,
+        paddingLeft: 24,
     },
 
     price: {
@@ -89,32 +59,25 @@ export const useProductMediumStyles = makeStyles({
             fontWeight: 'bold',
             color: text.red,
         },
-        '& h6': {
+        '& p': {
             fontSize: 14,
-            fontWeight: 500,
-            color: text.productSecondary,
+            marginTop: 4,
+            color: text.productMedium,
             textDecoration: 'line-through',
         }
     },
 
     button: {
-        width: 258,
-        marginTop: 64,
-        margin: '0 auto'
+        width: 139,
+        marginTop: 24,
     },
 
-    basket_button: {
-        width: 258,
-        height: 48,
-        marginTop: 12,
-        borderRadius: 4,
-        backgroundColor: clr.basketBackground,
-        '& *': {
-            fontSize: 15,
-            fontWeight: 600,
-            textTransform: 'none',
-            color: text.productPrimary,
-        }
+    action_box: {
+        height: 70,
+        marginLeft: 24,
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'space-between'
     }
 
 });

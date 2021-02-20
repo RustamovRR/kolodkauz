@@ -68,22 +68,21 @@ export default function ProductsPage({ medium, small }) {
                                 if (medium) {
                                     return (
                                         <div className={classes.product_medium}>
-                                            <ProductMedium hovered index={index} />
-                                            <Divider />
+                                            <ProductMedium index={index} />
                                         </div>
                                     )
                                 }
                                 else if (small) {
                                     return (
                                         <div className={classes.product_small}>
-                                            <ProductSmall hovered index={index} />
+                                            <ProductSmall index={index} />
                                         </div>
                                     )
                                 }
                                 else {
                                     return (
                                         <div className={classes.product}>
-                                            <Product hovered index={index} />
+                                            <Product favorite index={index} />
                                         </div>
                                     )
                                 }

@@ -4,15 +4,25 @@ import { clr, text } from "../../Globals/colors";
 
 export const useProductSmallStyles = makeStyles({
     root: {
-        height: 176,
+        padding: 24,
+        height: 160,
         width: '100%',
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'space-between',
+        border: `1px solid ${text.productSecondary}`
+    },
+
+    image_box: {
+        '& img': {
+            width: 112,
+            height: 112,
+            objectFit: 'cover'
+        }
     },
 
     text_box: {
-        marginLeft: 32,
+        width: 520,
+        marginLeft: 24,
         marginBottom: 8,
         '& h1': {
             fontSize: 24,
@@ -39,12 +49,14 @@ export const useProductSmallStyles = makeStyles({
     },
 
     count_box: {
-        marginLeft: 90,
-        marginBottom: 50
+        width: 128,
+        marginLeft: 24,
+        marginBottom: 50,
     },
 
     action_box: {
-        width: 140
+        width: 140,
+        marginLeft: 72,
     },
 
     fast_order: {

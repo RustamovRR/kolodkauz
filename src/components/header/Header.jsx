@@ -33,10 +33,10 @@ export default function Header() {
                         <Link to="/products">
                             {trans ? `Скидки` : `Chegirmalar`}
                         </Link>
-                        <Link to="/info">
+                        <Link to="/fast_delivery">
                             {trans ? `Доставка` : `Yetkazib berish`}
                         </Link>
-                        <Link to="/info">
+                        <Link to="/product_info">
                             {trans ? `Услуга мастера` : `Usta xizmati`}
                         </Link>
                         <Link to="/info">
@@ -49,7 +49,7 @@ export default function Header() {
                     <Search />
                     <div className={classes.functions}>
                         <div className={classes.function_items}>
-                            <Link to='/favorite' className={classes.link}>
+                            <Link to='/login' className={classes.link}>
                                 <img src={person} alt="kolodka kirish" />
                                 <p>
                                     {trans ? `Войти` : `Kirish`}

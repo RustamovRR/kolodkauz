@@ -1,15 +1,18 @@
-import { Breadcrumbs } from '@material-ui/core'
 import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
+import { Rating } from '@material-ui/lab'
+import { Breadcrumbs } from '@material-ui/core'
+import { productCompare } from '../../Globals/productCompare'
+import { TranslateContext } from '../../contexts/TranslateContext'
 import Header from '../../components/header/Header'
 import TabMenu from '../../components/tabmenu/TabMenu'
 import Product from '../../components/product/Product'
 import Footer from '../../components/footer/Footer'
-import { Rating } from '@material-ui/lab'
-import { useComparePageStyles } from './comparePageStyles'
-import { productCompare } from '../../Globals/productCompare'
+
 import { clr } from '../../Globals/colors'
-import { TranslateContext } from '../../contexts/TranslateContext'
+import { useComparePageStyles } from './comparePageStyles'
+import leftArrow from '../../images/icons/compare_left.svg'
+import rightArrow from '../../images/icons/compare_right.svg'
 
 export default function ComparePage() {
     const classes = useComparePageStyles()
@@ -69,8 +72,11 @@ export default function ComparePage() {
                     <Link to="/" className={classes.link}>
                         {trans ? `Главная` : `Asosiy`}
                     </Link>
+                    <Link to="/" className={classes.link}>
+                        {trans ? `Автотовары` : `Avtotovarlar`}
+                    </Link>
                     <p >
-                        {trans ? `Сравнение` : `Taqqoslash`}
+                        {trans ? `Шины и Диски` : `Shina va disklar`}
                     </p>
                 </Breadcrumbs>
 
@@ -79,13 +85,16 @@ export default function ComparePage() {
                 </h1>
 
                 <div className={classes.product_box}>
-                    <p>
-                        {trans ? `Изображение` : `Rasm`}
-                    </p>
                     <Product compare={true} />
                     <Product compare={true} />
                     <Product compare={true} />
                     <Product compare={true} />
+                    <Product compare={true} />
+                    <Product compare={true} />
+                    <div className={classes.arrows} >
+                        <img src={leftArrow} alt="" />
+                        <img src={rightArrow} alt="" />
+                    </div>
                 </div>
             </section>
 

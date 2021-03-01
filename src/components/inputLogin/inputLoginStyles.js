@@ -3,14 +3,14 @@ import { clr, text } from "../../Globals/colors";
 
 const paddingRoot = '0 30px'
 
-export const useInputBasketStyles = makeStyles({
+export const useInputLoginStyles = makeStyles({
     fieldset: {
         backgroundColor: "red",
         color: 'green'
     },
 
     textfield: {
-        width: 472,
+        width: 422,
         height: 48,
         '& .MuiOutlinedInput-root': {
             borderRadius: 0,

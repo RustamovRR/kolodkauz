@@ -52,6 +52,11 @@ export const useProductStyles = makeStyles({
         top: 8,
         right: 8,
         position: 'absolute'
+    },
+
+    checkbox: {
+        marginTop: 15,
+        marginLeft: 16
     }
 
 });

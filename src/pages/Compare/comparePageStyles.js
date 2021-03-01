@@ -27,7 +27,7 @@ export const useComparePageStyles = makeStyles({
 
     link: {
         textDecoration: 'none',
-        color: text.productPrimary,
+        color: text.productSecondary,
         '&:hover': {
             textDecoration: 'underline'
         }
@@ -35,12 +35,29 @@ export const useComparePageStyles = makeStyles({
 
     product_box: {
         display: 'flex',
+        flexFlow: 'row wrap',
         justifyContent: 'space-between',
-        flexWrap: 'wrap',
-        '& > P': {
-            width: '18%',
+        position: 'relative',
+        '& > *': {
+            flex: '0 1 calc(100% * 1/6 - 10px)',
+        },
+        '& > p': {
             fontSize: 18,
             fontWeight: 400
+        }
+    },
+
+    arrows: {
+        '& > *': {
+            position: 'absolute',
+            right: -25,
+            top: '40%',
+            cursor: 'pointer'
+        },
+        '& > img:first-child': {
+            left: -25,
+            top: '40%',
+            cursor: 'pointer'
         }
     },
 

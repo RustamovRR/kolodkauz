@@ -1,11 +1,12 @@
 import React, { useContext, useState } from "react";
 import { TranslateContext } from "../../contexts/TranslateContext";
+import { IconButton } from "@material-ui/core";
 import ButtonYellow from "../buttonYellow/ButtonYellow";
+import CheckBoxComp from '../checkBox/Checkbox'
 
 import { useProductStyles } from "./productStyles";
 import image1 from "../../images/products/bagaj.png";
 import favoriteImg from '../../images/icons/favorite_product.png'
-import { IconButton } from "@material-ui/core";
 
 export default function Product({ favorite, compare }) {
     const classes = useProductStyles();
@@ -28,8 +29,19 @@ export default function Product({ favorite, compare }) {
                     <p>Автомобильная шина Hankook Tire Ventus Prime</p>
                 </div>
 
-                <div className={classes.button}>
-                    <ButtonYellow title="В корзину" />
+                <div style={{ display: 'flex', alignItems: 'center' }}>
+                    <div className={classes.button}>
+                        <ButtonYellow title="В корзину" />
+                    </div>
+                    <div>
+                        {
+                            compare
+                                ? <div className={classes.checkbox}>
+                                    <CheckBoxComp />
+                                </div>
+                                : null
+                        }
+                    </div>
                 </div>
             </section>
 

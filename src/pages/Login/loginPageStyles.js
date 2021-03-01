@@ -14,5 +14,12 @@ export const useLoginStyles = makeStyles({
         '& h1': {
             fontSize: 32
         }
+    },
+
+    input: {
+        backgroundColor: 'red',
+        '&  *': {
+            width: '10%',
+        }
     }
 })

@@ -1,10 +1,10 @@
 import React from 'react'
 import { MenuItem, TextField } from '@material-ui/core'
 
-import { useInputBasketStyles } from './inputBasketStyles'
+import { useInputLoginStyles } from './inputLoginStyles'
 
-export default function InputBasket({ id, selected, index }) {
-    const classes = useInputBasketStyles()
+export default function InputLogin({ id, selected, index }) {
+    const classes = useInputLoginStyles()
     const menu = [
         `Контактный телефон`, `Ф.И.О`, `Область`, `Город / Район`, `Адрес`, `Индекс`
     ]
@@ -16,15 +16,6 @@ export default function InputBasket({ id, selected, index }) {
             variant="outlined"
             className={classes.textfield}
         >
-            {
-                (index == 2 || index == 3)
-                    ? menu.map((option) => (
-                        <MenuItem key={option} value={option}>
-                            {option}
-                        </MenuItem>
-                    ))
-                    : ""
-            }
         </TextField>
     )
 }

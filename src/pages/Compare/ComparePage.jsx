@@ -1,61 +1,25 @@
 import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { Rating } from '@material-ui/lab'
-import { Breadcrumbs } from '@material-ui/core'
+import { Breadcrumbs, TableContainer } from '@material-ui/core'
 import { productCompare } from '../../Globals/productCompare'
 import { TranslateContext } from '../../contexts/TranslateContext'
 import Header from '../../components/header/Header'
 import TabMenu from '../../components/tabmenu/TabMenu'
 import Product from '../../components/product/Product'
 import Footer from '../../components/footer/Footer'
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/swiper.min.css';
 
 import { clr } from '../../Globals/colors'
 import { useComparePageStyles } from './comparePageStyles'
 import leftArrow from '../../images/icons/compare_left.svg'
 import rightArrow from '../../images/icons/compare_right.svg'
+import ProductCompare from '../../components/productCompare/ProductCompare'
 
 export default function ComparePage() {
     const classes = useComparePageStyles()
     const { trans, setTrans } = useContext(TranslateContext)
-
-    const products = [
-        {
-            id: 1,
-            name: 'Product1',
-            price: 123123123,
-        },
-        {
-            id: 2,
-            name: 'Product2',
-            price: 123123123,
-        },
-        {
-            id: 3,
-            name: 'Product3',
-            price: 123123123,
-        },
-    ]
-
-    const sections = [
-        {
-            title: "Main Info",
-            fields: [
-                {
-                    title: "Name",
-                    name: 'name'
-                },
-                {
-                    title: "Price",
-                    name: "price"
-                },
-                {
-                    title: "Garranty",
-                    name: "garranty"
-                }
-            ]
-        }
-    ]
-
 
     return (
         <div>
@@ -84,66 +48,36 @@ export default function ComparePage() {
                     {trans ? `Сравнение` : `Taqqoslash`}
                 </h1>
 
-                <div className={classes.product_box}>
-                    <Product compare={true} />
-                    <Product compare={true} />
-                    <Product compare={true} />
-                    <Product compare={true} />
-                    <Product compare={true} />
-                    <Product compare={true} />
-                    <div className={classes.arrows} >
-                        <img src={leftArrow} alt="" />
-                        <img src={rightArrow} alt="" />
+                <Swiper slidesPerView={6} >
+                    <div className={classes.product_box}>
+                        <SwiperSlide >
+                            <ProductCompare />
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <ProductCompare />
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <ProductCompare />
+                        </SwiperSlide>
+                        <SwiperSlide >
+                            <ProductCompare />
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <ProductCompare />
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <ProductCompare />
+                        </SwiperSlide>
+                        <div className={classes.arrows} >
+                            <img src={leftArrow} alt="" />
+                            <img src={rightArrow} alt="" />
+                        </div>
                     </div>
-                </div>
+                </Swiper>
             </section>
 
 
             <section className={classes.compare_info_box}>
-                {
-                    productCompare.map((item, index) => (
-                        <div
-                            className={classes.info}
-                            style={
-                                index % 2 === 0 ? { backgroundColor: clr.divider } : { backgroundColor: '#fff' }}
-                        >
-                            <p
-                                className={
-                                    index == 0 ? classes.title : '' ||
-                                        index == 6 ? classes.title : '' ||
-                                            index == 11 ? classes.title : ''
-                                }
-                                style={{ paddingLeft: 15 }}
-                            >
-                                {item.title}
-                            </p>
-                            <p>
-                                {index === 3
-                                    ? <Rating defaultValue={item.name1} readOnly />
-                                    : item.name1
-                                }
-                            </p>
-                            <p>
-                                {index === 3
-                                    ? <Rating defaultValue={item.name2} readOnly />
-                                    : item.name2
-                                }
-                            </p>
-                            <p>
-                                {index === 3
-                                    ? <Rating defaultValue={item.name3} readOnly />
-                                    : item.name3
-                                }
-                            </p>
-                            <p>
-                                {index === 3
-                                    ? <Rating defaultValue={item.name4} readOnly />
-                                    : item.name4
-                                }
-                            </p>
-                        </div>
-                    ))
-                }
             </section>
 
             <section className={classes.footer_box}>

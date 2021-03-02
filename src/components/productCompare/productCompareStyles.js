@@ -6,7 +6,24 @@ const paddingRoot = '0 30px'
 export const useProductCompareStyles = makeStyles({
     table: {
         // minWidth: 650,
+        '& p, h1, header': {
+            color: text.primary
+        }
     },
+
+    tableBody: {
+        '& h1': {
+            fontSize: 24
+        },
+        '& header': {
+            fontSize: 14,
+            marginBottom: 8
+        },
+        '& p': {
+            fontSize: 16
+        }
+    },
+
     primary: {
         height: 142,
         display: 'flex',
@@ -16,6 +33,7 @@ export const useProductCompareStyles = makeStyles({
             position: 'absolute',
         }
     },
+
     sizeHeader: {
         height: 76,
         display: 'flex',
@@ -25,6 +43,7 @@ export const useProductCompareStyles = makeStyles({
             position: 'absolute',
         }
     },
+
     speedHeader: {
         height: 76,
         display: 'flex',
@@ -34,6 +53,7 @@ export const useProductCompareStyles = makeStyles({
             position: 'absolute',
         }
     },
+
     featuresHeader: {
         height: 76,
         display: 'flex',
@@ -42,5 +62,11 @@ export const useProductCompareStyles = makeStyles({
             whiteSpace: 'nowrap',
             position: 'absolute',
         }
+    },
+
+    price: {
+        fontSize: 16,
+        marginBottom: 6,
+        fontWeight: 'bold'
     }
 })

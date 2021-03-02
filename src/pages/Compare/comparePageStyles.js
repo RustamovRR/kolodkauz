@@ -34,9 +34,6 @@ export const useComparePageStyles = makeStyles({
     },
 
     product_box: {
-        display: 'flex',
-        flexFlow: 'row wrap',
-        justifyContent: 'space-between',
         position: 'relative',
         '& > *': {
             flex: '0 1 calc(100% * 1/6 - 10px)',
@@ -49,14 +46,15 @@ export const useComparePageStyles = makeStyles({
 
     arrows: {
         '& > *': {
+            zIndex: 100,
             position: 'absolute',
-            right: -25,
-            top: '40%',
+            right: -10,
+            top: '10%',
             cursor: 'pointer'
         },
         '& > img:first-child': {
-            left: -25,
-            top: '40%',
+            left: -10,
+            top: '10%',
             cursor: 'pointer'
         }
     },
@@ -85,7 +83,7 @@ export const useComparePageStyles = makeStyles({
     },
 
     footer_box: {
-        marginTop: 128
+        marginTop: 64
     }
 
 })

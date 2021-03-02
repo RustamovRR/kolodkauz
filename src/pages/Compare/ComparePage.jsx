@@ -20,6 +20,8 @@ import ProductCompare from '../../components/productCompare/ProductCompare'
 export default function ComparePage() {
     const classes = useComparePageStyles()
     const { trans, setTrans } = useContext(TranslateContext)
+    const navigationPrevRef = React.useRef(null)
+    const navigationNextRef = React.useRef(null)
 
     return (
         <div>
@@ -48,21 +50,26 @@ export default function ComparePage() {
                     {trans ? `Сравнение` : `Taqqoslash`}
                 </h1>
 
-                <Swiper slidesPerView={5} >
-                    <div className={classes.product_box}>
+                <div className={classes.product_box}>
+                    <Swiper
+                        slidesPerView={5}
+                        className={classes.swiper}
+                    >
                         {
-                            [1, 2, 3, 4, 5].map((item, index) => (
+                            [1, 2, 3, 4, 5, 6, 7, 8, 9].map((item, index) => (
                                 <SwiperSlide >
                                     <ProductCompare primary={index === 0 ? true : false} />
                                 </SwiperSlide>
                             ))
                         }
+                        <div className="prev" />
+                        <div className="next" />
                         <div className={classes.arrows} >
                             <img src={leftArrow} alt="" />
                             <img src={rightArrow} alt="" />
                         </div>
-                    </div>
-                </Swiper>
+                    </Swiper>
+                </div>
             </section>
 
 

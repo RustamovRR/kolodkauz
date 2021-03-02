@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Divider } from '@material-ui/core'
 import Product from '../product/Product'
 import Table from '@material-ui/core/Table';
@@ -8,36 +8,37 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import RatingComp from '../rating/RatingComp'
+import { TranslateContext } from '../../contexts/TranslateContext';
 
 import { useProductCompareStyles } from './productCompareStyles'
 
 export default function ProductCompare({ primary }) {
     const classes = useProductCompareStyles()
+    const { trans, sum } = useContext(TranslateContext)
 
     function createData(title, body) {
         return { title, body };
     }
 
     const sizes = [
-        createData(`ШИРИНА ПРОФИЛЯ`, `175, 185, 195, 205, 215, 225`),
-        createData(`ВЫСОТА ПРОФИЛЯ`, `45, 55, 60, 65, 70`),
-        createData(`ДИАМЕТР`, `13, 14, 15, 16, 17`)
+        createData(`Ширина профиля`, `175, 185, 195, 205, 215, 225`),
+        createData(`Высота Профиля`, `45, 55, 60, 65, 70`),
+        createData(`Диаметр`, `13, 14, 15, 16, 17`)
     ];
 
     const speeds = [
-        createData(`ИНДЕКС МАКСИМАЛЬНОЙ СКОРОСТИ`, `H (до 210 км/ч), T (до 190 км/ч), V (до 240 км/ч)`),
-        createData(`ИНДЕКС НАГРУЗКИ`, `82-95`)
+        createData(`Индекс максимальной скорости`, `H (до 210 км/ч), T (до 190 км/ч), V (до 240 км/ч)`),
+        createData(`Индекс нагрузки`, `82-95`)
     ]
 
     const features = [
-        createData(`ТЕХНОЛОГИЯ RUNFLAT`, `H (до 210 км/ч), T (до 190 км/ч), V (до 240 км/ч)`),
-        createData(`ТЕХНОЛОГИЯ RUNFLAT`, `Нет`),
-        createData(`ТИП РИСУНКА ПРОТЕКТОРА`, `нет данных`)
+        createData(`Технология runflat`, `H (до 210 км/ч), T (до 190 км/ч)`),
+        createData(`Технология runflat`, `Нет`),
+        createData(`Тип рисунка протектора`, `нет данных`)
     ]
 
     return (
         <div>
-
             <TableContainer >
                 <Table className={classes.table} aria-label="simple table" >
                     <TableHead>
@@ -46,11 +47,11 @@ export default function ProductCompare({ primary }) {
                         </TableRow>
                     </TableHead>
 
-                    <TableBody>
-                        <TableRow selected >
+                    <TableBody className={classes.tableBody}>
+                        <TableRow  >
                             <TableCell className={classes.primary}>
                                 <div style={{ marginBottom: 50 }} >
-                                    <p>7,500,000 сум</p>
+                                    <p className={classes.price} >7,500,000 {sum}</p>
                                     <RatingComp value={4} />
                                 </div>
                                 {primary
@@ -62,11 +63,11 @@ export default function ProductCompare({ primary }) {
                         </TableRow>
                         <TableRow >
                             <TableCell >
-                                <span>НАЗНАЧЕНИЕ</span>
+                                <header>Назначение</header>
                                 <p>для легкового автомобиля</p>
                             </TableCell>
                         </TableRow>
-                        <TableRow selected>
+                        <TableRow >
                             <TableCell className={classes.sizeHeader}>
                                 {primary
                                     ? <h1>Типоразмер</h1>
@@ -78,7 +79,7 @@ export default function ProductCompare({ primary }) {
                         {sizes.map((row) => (
                             <TableRow key={row.title}>
                                 <TableCell >
-                                    <span>{row.title}</span>
+                                    <header>{row.title}</header>
                                     <p>{row.body}</p>
                                 </TableCell>
                             </TableRow>
@@ -95,13 +96,13 @@ export default function ProductCompare({ primary }) {
                         {speeds.map((row) => (
                             <TableRow key={row.title}>
                                 <TableCell >
-                                    <span>{row.title}</span>
+                                    <header>{row.title}</header>
                                     <p>{row.body}</p>
                                 </TableCell>
                             </TableRow>
                         ))}
 
-                        <TableRow selected>
+                        <TableRow >
                             <TableCell className={classes.featuresHeader} >
                                 {primary
                                     ? <h1>Другие функции и особенности</h1>
@@ -112,7 +113,7 @@ export default function ProductCompare({ primary }) {
                         {features.map((row) => (
                             <TableRow key={row.title}>
                                 <TableCell >
-                                    <span>{row.title}</span>
+                                    <header>{row.title}</header>
                                     <p>{row.body}</p>
                                 </TableCell>
                             </TableRow>

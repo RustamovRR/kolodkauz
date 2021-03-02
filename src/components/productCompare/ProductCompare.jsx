@@ -11,7 +11,7 @@ import RatingComp from '../rating/RatingComp'
 
 import { useProductCompareStyles } from './productCompareStyles'
 
-export default function ProductCompare() {
+export default function ProductCompare({ primary }) {
     const classes = useProductCompareStyles()
 
     function createData(title, body) {
@@ -47,14 +47,32 @@ export default function ProductCompare() {
                     </TableHead>
 
                     <TableBody>
+                        <TableRow selected >
+                            <TableCell className={classes.primary}>
+                                <div style={{ marginBottom: 50 }} >
+                                    <p>7,500,000 сум</p>
+                                    <RatingComp value={4} />
+                                </div>
+                                {primary
+                                    ? <h1 >Общие характеристики</h1>
+                                    : ""
+                                }
+
+                            </TableCell>
+                        </TableRow>
                         <TableRow >
                             <TableCell >
                                 <span>НАЗНАЧЕНИЕ</span>
                                 <p>для легкового автомобиля</p>
                             </TableCell>
                         </TableRow>
-                        <TableRow>
-                            <TableCell><h1>Типоразмер</h1></TableCell>
+                        <TableRow selected>
+                            <TableCell className={classes.sizeHeader}>
+                                {primary
+                                    ? <h1>Типоразмер</h1>
+                                    : ""
+                                }
+                            </TableCell>
                         </TableRow>
 
                         {sizes.map((row) => (
@@ -66,8 +84,13 @@ export default function ProductCompare() {
                             </TableRow>
                         ))}
 
-                        <TableRow>
-                            <TableCell><h1>Индексы скорости и нагрузки</h1></TableCell>
+                        <TableRow >
+                            <TableCell className={classes.speedHeader} >
+                                {primary
+                                    ? <h1>Индексы скорости и нагрузки</h1>
+                                    : ""
+                                }
+                            </TableCell>
                         </TableRow>
                         {speeds.map((row) => (
                             <TableRow key={row.title}>
@@ -78,8 +101,13 @@ export default function ProductCompare() {
                             </TableRow>
                         ))}
 
-                        <TableRow>
-                            <TableCell><h1>Другие функции и особенности</h1></TableCell>
+                        <TableRow selected>
+                            <TableCell className={classes.featuresHeader} >
+                                {primary
+                                    ? <h1>Другие функции и особенности</h1>
+                                    : ""
+                                }
+                            </TableCell>
                         </TableRow>
                         {features.map((row) => (
                             <TableRow key={row.title}>

@@ -48,26 +48,15 @@ export default function ComparePage() {
                     {trans ? `Сравнение` : `Taqqoslash`}
                 </h1>
 
-                <Swiper slidesPerView={6} >
+                <Swiper slidesPerView={5} >
                     <div className={classes.product_box}>
-                        <SwiperSlide >
-                            <ProductCompare />
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <ProductCompare />
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <ProductCompare />
-                        </SwiperSlide>
-                        <SwiperSlide >
-                            <ProductCompare />
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <ProductCompare />
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <ProductCompare />
-                        </SwiperSlide>
+                        {
+                            [1, 2, 3, 4, 5].map((item, index) => (
+                                <SwiperSlide >
+                                    <ProductCompare primary={index === 0 ? true : false} />
+                                </SwiperSlide>
+                            ))
+                        }
                         <div className={classes.arrows} >
                             <img src={leftArrow} alt="" />
                             <img src={rightArrow} alt="" />

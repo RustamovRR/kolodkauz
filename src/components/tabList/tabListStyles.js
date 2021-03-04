@@ -25,10 +25,19 @@ export const useTabListStyles = makeStyles({
         fontSize: 32,
         fontWeight: 'bold',
         color: clr.primary,
-        padding: '32px 0 24px 0'
+        paddingTop: 32
+    },
+
+    content_box: {
+        display: 'flex',
+        flexFlow: 'row wrap',
+        '& > *': {
+            flex: '0 1 calc(100% * 1/4)'
+        }
     },
 
     title: {
+        marginTop: 24,
         marginBottom: 16
     },
 

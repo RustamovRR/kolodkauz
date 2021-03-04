@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { useTabListStyles } from './tabListStyles'
-import { IconButton } from '@material-ui/core'
+import { Grid, IconButton } from '@material-ui/core'
 
 import balonImg from '../../images/products/balon.png'
 import close from '../../images/icons/close.png'
@@ -68,32 +68,24 @@ export default function TabList() {
             <div className={open ? classes.tabPanel : classes.hidden}>
                 <header className={classes.header}>Ходовая часть</header>
 
-                <section className={classes.content}>
-                    <h3 className={classes.title} >Тормозная система</h3>
-                    <div>
-                        {
-                            tabsPrimaryRu.map((item) => (
-                                <div className={classes.link}>
-                                    <Link key={item}>{item}</Link>
+                <Grid className={classes.content_box}>
+                    {
+                        [1, 2, 3, 4, 5, 6].map((data) => (
+                            <section className={classes.content}>
+                                <h3 className={classes.title}>Тормозная система</h3>
+                                <div>
+                                    {
+                                        tabsPrimaryRu.map((item) => (
+                                            <div className={classes.link}>
+                                                <Link key={item}>{item}</Link>
+                                            </div>
+                                        ))
+                                    }
                                 </div>
-                            ))
-                        }
-                    </div>
-                </section>
-                {/* <div className={classes.left_panel}>
-                {
-                    (trans ? tabsPrimaryRu : tabsPrimaryUz).map(item => (
-                    ))
-                }
-            </div>
-
-            <div className={classes.center_panel}>
-                {
-                    (trans ? tabsCenterRu : tabsCenterUz).map(item => (
-                        <Link to="#" key={item}>{item}</Link>
-                    ))
-                }
-            </div> */}
+                            </section>
+                        ))
+                    }
+                </Grid>
             </div>
         </div>
     )

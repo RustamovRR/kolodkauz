@@ -7,7 +7,7 @@ export const useDescriptionStyles = makeStyles({
     root: {
         width: 588,
         marginTop: 32,
-        color: clr.primary,
+        color: clr.dark900,
         '& h2': {
             marginTop: 24,
             fontSize: 20
@@ -23,7 +23,7 @@ export const useDescriptionStyles = makeStyles({
         marginTop: 8,
         display: 'flex',
         '& p': {
-            color: clr.productPrimary,
+            color: clr.dark700,
             width: '90%',
         },
         '& span': {

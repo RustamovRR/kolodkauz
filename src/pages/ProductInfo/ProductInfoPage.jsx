@@ -15,7 +15,7 @@ import rateImg from '../../images/icons/rate_black.png'
 import castrolImg from '../../images/icons/castrol.png'
 import Description from '../../components/description/Description'
 import SImilarProduct from '../../components/similarProduct/SImilarProduct'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import { TranslateContext } from '../../contexts/TranslateContext'
 
 export default function ProductInfoPage() {
@@ -48,17 +48,17 @@ export default function ProductInfoPage() {
                         <div className={classes.secondary}>
                             <div>
                                 <p>Артикул:&nbsp;
-                                     <span style={{ color: clr.productSecondary }} >123277394</span>
+                                     <span style={{ color: clr.dark900 }} >123277394</span>
                                 </p>
 
                             </div>
                             <RatingComp value={4} />
                             <div>
                                 <p>
-                                    <span style={{ color: clr.productSecondary }} >2339</span>&nbsp;
+                                    <span style={{ color: clr.dark900 }} >2339</span>&nbsp;
                                      отзывов</p>
                             </div>
-                            <div><p>Купили более 100 000 раз</p></div>
+                            <div><p style={{ color: clr.dark900 }} >Купили более 100 000 раз</p></div>
                         </div>
 
                         <section style={{ width: 308 }} >

@@ -33,7 +33,7 @@ export default function Info() {
         <div className={classes.info_root}>
             <section className={classes.left_panel}>
                 {
-                    trans ? navsRu : navsUz.map(item => (
+                    (trans ? navsRu : navsUz).map(item => (
                         <p key={item}>{item}</p>
                     ))
                 }

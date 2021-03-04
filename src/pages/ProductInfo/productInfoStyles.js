@@ -7,7 +7,7 @@ export const useProductInfoPageStyles = makeStyles({
     root: {
         width: '100%',
         padding: paddingRoot,
-        color: clr.primaryBlue
+        color: clr.dark900
     },
 
     arrow: {
@@ -34,7 +34,7 @@ export const useProductInfoPageStyles = makeStyles({
         width: '49%',
         '& h1': {
             fontSize: 40,
-            color: clr.primaryBlue
+            color: clr.primaryDarkBlue
         }
     },
 
@@ -45,7 +45,7 @@ export const useProductInfoPageStyles = makeStyles({
             marginRight: 15,
         },
         '& p': {
-            color: clr.primaryBlue
+            color: clr.dark700
         }
     },
 
@@ -60,6 +60,7 @@ export const useProductInfoPageStyles = makeStyles({
         '& p': {
             fontSize: 14,
             marginLeft: 4,
+            color: clr.dark700,
             fontWeight: 'normal',
             textDecoration: 'line-through'
         }
@@ -99,7 +100,7 @@ export const useProductInfoPageStyles = makeStyles({
         marginTop: 96,
         '& h1': {
             fontSize: 40,
-            color: clr.primaryBlue
+            color: clr.primaryDarkBlue
         }
     },
 
@@ -107,6 +108,7 @@ export const useProductInfoPageStyles = makeStyles({
         marginTop: 96,
         '& h1': {
             fontSize: 40,
+            color: clr.primaryDarkBlue
         }
     },
 
@@ -114,7 +116,7 @@ export const useProductInfoPageStyles = makeStyles({
         marginTop: 96,
         '& h1': {
             fontSize: 40,
-            color: clr.primaryBlue
+            color: clr.primaryDarkBlue
         }
     },
 
@@ -133,7 +135,7 @@ export const useProductInfoPageStyles = makeStyles({
         display: 'flex',
         alignItems: 'center',
         '& p': {
-            color: clr.primaryDarkBlue
+            color: clr.dark500
         }
     },
 
@@ -141,6 +143,7 @@ export const useProductInfoPageStyles = makeStyles({
         textDecoration: 'none',
         marginLeft: 16,
         '& *': {
+            color: clr.dark900,
             textTransform: 'none',
             fontWeight: 'bold'
         }
@@ -170,16 +173,15 @@ export const useProductInfoPageStyles = makeStyles({
     comment_date: {
         marginTop: 8,
         fontSize: 12,
-        fontWeight: 'bold',
-        color: clr.productSecondary
+        color: clr.dark500
     },
 
     expand: {
         marginTop: 32,
         '& *': {
             fontSize: 16,
-            color: clr.tab,
-            fontWeight: 'bold'
+            fontWeight: 'bold',
+            color: clr.secondaryDarkBlue,
         }
     }
 })

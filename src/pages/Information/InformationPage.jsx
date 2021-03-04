@@ -14,9 +14,9 @@ export default function InformationPage() {
                 <Header />
             </section>
 
-            {/* <div className={classes.tabs_box}>
+            <div className={classes.tabs_box}>
                 <TabMenu />
-            </div> */}
+            </div>
 
             <section className={classes.info_box}>
                 <Info />

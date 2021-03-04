@@ -1,5 +1,5 @@
 import { makeStyles } from "@material-ui/core/styles";
-import { clr, text } from '../../Globals/colors'
+import { clr } from '../../Globals/colors'
 
 const paddingRoot = '0 30px'
 
@@ -13,7 +13,7 @@ export const useSortNavigationStyles = makeStyles({
         display: 'flex',
         alignItems: 'center',
         '& p': {
-            color: text.productPrimary,
+            color: clr.productPrimary,
             fontSize: 14
         }
     },
@@ -24,7 +24,7 @@ export const useSortNavigationStyles = makeStyles({
         '& *': {
             textTransform: 'none',
             textTransform: 'none',
-            color: text.primary,
+            color: clr.primary,
             fontWeight: 'bold'
         }
     },

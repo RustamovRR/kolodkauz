@@ -1,5 +1,5 @@
 import { makeStyles } from "@material-ui/core/styles";
-import { clr, text } from "../../Globals/colors";
+import { clr } from "../../Globals/colors";
 
 const paddingRoot = '0 30px'
 
@@ -16,11 +16,11 @@ export const useBasketPayStyles = makeStyles({
         '& p': {
             fontSize: 16,
             fontWeight: 400,
-            color: text.primary
+            color: clr.primary
         },
         '& p:first-child': {
             marginBottom: 12,
-            color: text.infoText,
+            color: clr.infoText,
         }
     },
 

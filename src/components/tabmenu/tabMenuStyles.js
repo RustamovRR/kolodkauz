@@ -1,35 +1,37 @@
 import { Tab, Tabs } from "@material-ui/core";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
-import { clr, text } from "../../Globals/colors";
+import { clr } from "../../Globals/colors";
 
 export const useTabMenuStyles = makeStyles({
 
 })
 
-
 export const AntTabs = withStyles({
     root: {
-        borderBottom: `1px solid ${clr.divider}`,
+        width: '100%',
+        padding:'0 30px',
+        margin: 'auto',
+        boxShadow: ` 0px 2px 3px rgba(0, 0, 0, 0.12)`,
     },
     indicator: {
-        backgroundColor: clr.tab,
+        backgroundColor: clr.primaryBlue,
     },
 })(Tabs);
 
 export const AntTab = withStyles((theme) => ({
     root: {
         textTransform: 'none',
-        padding: '24px 0',
+        padding: '16px 0',
         minWidth: 139,
         fontSize: 16,
         fontWeight: 500,
-        color: text.productSecondary,
+        color: clr.productSecondary,
         '&:hover': {
             color: '#40a9ff',
             opacity: 1,
         },
         '&$selected': {
-            color: text.primary,
+            color: clr.primaryBlue,
         }
     },
     selected: {},

@@ -1,11 +1,11 @@
 import { makeStyles } from "@material-ui/core/styles";
-import { clr, text } from "../../Globals/colors";
+import { clr } from "../../Globals/colors";
 
 const paddingRoot = '0 30px'
 
 export const useHomePageStyles = makeStyles({
     home_root: {
-        color: text.productPrimary,
+        color: clr.gray1,
     },
 
     container: {
@@ -14,7 +14,7 @@ export const useHomePageStyles = makeStyles({
     },
 
     tabs_box: {
-        padding: paddingRoot
+        // padding: paddingRoot
     },
 
     carousel_box: {
@@ -36,9 +36,20 @@ export const useHomePageStyles = makeStyles({
         justifyContent: 'space-between',
     },
 
+    bestSeller: {
+        marginTop: 64,
+        display: 'flex',
+        alignItems: 'center',
+        '& a': {
+            fontSize: 15,
+            fontWeight: 'bold',
+            textDecoration: 'none',
+            color: clr.primaryBlue
+        }
+    },
+
     bestSeller_title: {
         fontSize: 40,
-        marginTop: 64,
         padding: paddingRoot,
     },
 
@@ -77,37 +88,14 @@ export const useHomePageStyles = makeStyles({
         }
     },
 
-    seeAll_box: {
-        marginTop: 144,
-        width: 232,
-        margin: '0 auto'
-    },
-
-    button: {
-        width: 232,
-        height: 48,
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-evenly',
-        margin: '0 auto',
-        borderRadius: 4,
-        cursor: 'pointer',
-        border: `2px solid ${clr.tab}`,
-        '& > *': {
-            color: clr.tab,
-            fontWeight: 600,
-            fontSize: 15,
-            marginLeft: 30
-        }
-    },
-
     productBrand_box: {
         display: 'flex',
-        flexWrap: 'wrap',
+        flexFlow: 'row wrap',
         padding: paddingRoot,
         justifyContent: 'space-between',
         '& > * ': {
-            marginTop: 48
+            marginTop: 48,
+            flex: '0 1 calc(100% * 1/8 - 10px)',
         }
     },
 

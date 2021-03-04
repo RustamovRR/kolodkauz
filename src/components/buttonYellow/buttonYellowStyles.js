@@ -1,5 +1,5 @@
 import { makeStyles } from "@material-ui/core/styles";
-import { clr, text } from "../../Globals/colors";
+import { clr } from "../../Globals/colors";
 
 
 export const useButtonYellowStyles = makeStyles({
@@ -8,13 +8,13 @@ export const useButtonYellowStyles = makeStyles({
         fontSize: 14,
         width: '100%',
         borderRadius: 4,
-        color: text.white,
         fontWeight: 'bold',
+        padding: '8px 12px',
         textTransform: 'none',
-        backgroundColor: clr.buttonYellow,
-        border: `1px solid ${clr.buttonYellow}`,
+        color: clr.primaryWhite,
+        backgroundColor: clr.orange,
         '&:hover': {
-            color: clr.buttonYellow
+            backgroundColor: clr.orange400
         }
     }
 });

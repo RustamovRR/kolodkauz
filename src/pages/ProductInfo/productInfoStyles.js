@@ -1,5 +1,5 @@
 import { makeStyles } from "@material-ui/core/styles";
-import { clr, text } from '../../Globals/colors'
+import { clr } from '../../Globals/colors'
 
 const paddingRoot = '0 30px'
 
@@ -7,7 +7,7 @@ export const useProductInfoPageStyles = makeStyles({
     root: {
         width: '100%',
         padding: paddingRoot,
-        color: text.primary
+        color: clr.primaryBlue
     },
 
     arrow: {
@@ -34,7 +34,7 @@ export const useProductInfoPageStyles = makeStyles({
         width: '49%',
         '& h1': {
             fontSize: 40,
-            color: text.primary
+            color: clr.primaryBlue
         }
     },
 
@@ -45,7 +45,7 @@ export const useProductInfoPageStyles = makeStyles({
             marginRight: 15,
         },
         '& p': {
-            color: text.primary
+            color: clr.primaryBlue
         }
     },
 
@@ -99,7 +99,7 @@ export const useProductInfoPageStyles = makeStyles({
         marginTop: 96,
         '& h1': {
             fontSize: 40,
-            color: text.primary
+            color: clr.primaryBlue
         }
     },
 
@@ -114,7 +114,7 @@ export const useProductInfoPageStyles = makeStyles({
         marginTop: 96,
         '& h1': {
             fontSize: 40,
-            color: text.primary
+            color: clr.primaryBlue
         }
     },
 
@@ -133,7 +133,7 @@ export const useProductInfoPageStyles = makeStyles({
         display: 'flex',
         alignItems: 'center',
         '& p': {
-            color: text.productSecondary
+            color: clr.primaryDarkBlue
         }
     },
 
@@ -171,7 +171,7 @@ export const useProductInfoPageStyles = makeStyles({
         marginTop: 8,
         fontSize: 12,
         fontWeight: 'bold',
-        color: text.productSecondary
+        color: clr.productSecondary
     },
 
     expand: {

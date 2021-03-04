@@ -1,5 +1,5 @@
 import { makeStyles } from "@material-ui/core/styles";
-import { clr, text } from '../../Globals/colors'
+import { clr } from '../../Globals/colors'
 
 const paddingRoot = '0 30px'
 
@@ -28,7 +28,7 @@ export const useFastDeliveryStyles = makeStyles({
         marginTop: 8,
         display: 'flex',
         alignItems: 'center',
-        color: text.productSecondary
+        color: clr.productSecondary
     },
 
     close: {
@@ -75,12 +75,12 @@ export const useFastDeliveryStyles = makeStyles({
         whiteSpace: 'nowrap',
         '& h2': {
             fontSize: 32,
-            color: text.primary
+            color: clr.primary
         },
         '& p': {
             fontSize: 14,
             marginLeft: 8,
-            color: text.productMedium,
+            color: clr.productMedium,
             textDecoration: 'line-through'
         }
     },
@@ -106,7 +106,7 @@ export const useFastDeliveryStyles = makeStyles({
         fontSize: 16,
         marginTop: 16,
         fontWeight: 'bold',
-        color: text.primary
+        color: clr.primary
     },
 
     link: {

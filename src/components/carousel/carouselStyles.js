@@ -1,5 +1,5 @@
 import { makeStyles } from "@material-ui/core/styles";
-import { text } from "../../Globals/colors";
+import { clr } from "../../Globals/colors";
 
 
 export const useCarouselStyles = makeStyles({
@@ -47,7 +47,7 @@ export const useCarouselStyles = makeStyles({
         borderRadius: 0,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: `${text.white}`,
+        backgroundColor: clr.primaryWhite,
         '& > h1': {
             fontSize: 54,
             fontWeight: 'bold',

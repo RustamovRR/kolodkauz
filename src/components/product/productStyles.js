@@ -1,5 +1,5 @@
 import { makeStyles } from "@material-ui/core/styles";
-import { clr, text } from "../../Globals/colors";
+import { clr } from "../../Globals/colors";
 
 
 export const useProductStyles = makeStyles({
@@ -22,12 +22,12 @@ export const useProductStyles = makeStyles({
         marginTop: 12,
         '& h3': {
             fontSize: 18,
-            color: text.productPrimary,
+            color: clr.gray1,
         },
         '& p': {
             marginTop: 4,
             fontSize: 13,
-            color: text.productSecondary,
+            color: clr.gray3,
             textDecoration: 'line-through',
         }
     },
@@ -37,7 +37,7 @@ export const useProductStyles = makeStyles({
         '& p': {
             fontSize: 14,
             lineHeight: '17px',
-            color: text.productText
+            color: clr.gray2
         }
     },
 

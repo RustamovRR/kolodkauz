@@ -7,7 +7,7 @@ import Footer from '../../components/footer/Footer'
 import ButtonComponent from '../../components/ButtonComponent/ButtonComponent'
 import { useProductInfoPageStyles } from './productInfoStyles'
 
-import { clr, text } from '../../Globals/colors'
+import { clr } from '../../Globals/colors'
 import productImg from '../../images/products/oil.png'
 import leftArrow from '../../images/icons/left-arrow.png'
 import heartImg from '../../images/icons/heart_black.png'
@@ -48,14 +48,14 @@ export default function ProductInfoPage() {
                         <div className={classes.secondary}>
                             <div>
                                 <p>Артикул:&nbsp;
-                                     <span style={{ color: text.productSecondary }} >123277394</span>
+                                     <span style={{ color: clr.productSecondary }} >123277394</span>
                                 </p>
 
                             </div>
                             <RatingComp value={4} />
                             <div>
                                 <p>
-                                    <span style={{ color: text.productSecondary }} >2339</span>&nbsp;
+                                    <span style={{ color: clr.productSecondary }} >2339</span>&nbsp;
                                      отзывов</p>
                             </div>
                             <div><p>Купили более 100 000 раз</p></div>

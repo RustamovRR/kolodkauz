@@ -1,5 +1,5 @@
 import { makeStyles } from "@material-ui/core/styles";
-import { clr, text } from "../../Globals/colors";
+import { clr } from "../../Globals/colors";
 
 
 export const useBasketStyles = makeStyles({
@@ -71,12 +71,12 @@ export const useBasketStyles = makeStyles({
         fontWeight: 600,
         borderRadius: 4,
         textTransform: 'none',
-        color: text.white,
+        color: clr.white,
         backgroundColor: clr.tab,
         transition: `0.3s`,
         '&:hover': {
             color: clr.tab,
-            backgroundColor: text.white,
+            backgroundColor: clr.white,
             border: `1px solid ${clr.tab}`
         }
     }

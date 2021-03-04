@@ -1,5 +1,5 @@
 import { makeStyles } from "@material-ui/core/styles";
-import { clr, text } from "../../Globals/colors";
+import { clr } from "../../Globals/colors";
 
 
 export const useBasketListStyles = makeStyles({
@@ -36,7 +36,7 @@ export const useBasketListStyles = makeStyles({
         marginRight: 40,
         '& > h3': {
             fontSize: 20,
-            color: text.red,
+            color: clr.red,
             fontWeight: 'bold',
         },
         '& > p': {

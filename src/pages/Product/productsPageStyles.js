@@ -1,5 +1,5 @@
 import { makeStyles } from "@material-ui/core/styles";
-import { clr, text } from '../../Globals/colors'
+import { clr } from '../../Globals/colors'
 
 const paddingRoot = '0 30px'
 
@@ -15,20 +15,20 @@ export const useProductPageStyles = makeStyles({
         '& > h1': {
             fontSize: 32,
             margin: '32px 0',
-            color: text.productPrimary
+            color: clr.productPrimary
         }
     },
 
     navigation: {
         fontSize: 14,
         '& > *': {
-            color: text.primary
+            color: clr.primary
         }
     },
 
     link: {
         textDecoration: 'none',
-        color: text.productPrimary,
+        color: clr.productPrimary,
         '&:hover': {
             textDecoration: 'underline'
         }

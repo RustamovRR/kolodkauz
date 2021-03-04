@@ -1,5 +1,5 @@
 import { makeStyles } from "@material-ui/core/styles";
-import { clr, text } from "../../Globals/colors";
+import { clr } from "../../Globals/colors";
 
 
 export const useProductMediumStyles = makeStyles({
@@ -9,7 +9,7 @@ export const useProductMediumStyles = makeStyles({
         padding: '24px',
         paddingBottom: 36,
         justifyContent: 'space-between',
-        border: `1px solid ${text.productSecondary}`
+        border: `1px solid ${clr.productSecondary}`
     },
 
     card: {
@@ -24,7 +24,7 @@ export const useProductMediumStyles = makeStyles({
 
     text_box: {
         marginLeft: 24,
-        color: text.primary,
+        color: clr.primary,
         whiteSpace: 'nowrap',
         '& h4': {
             fontSize: 24,
@@ -43,7 +43,7 @@ export const useProductMediumStyles = makeStyles({
             fontSize: 14,
             marginTop: 8,
             lineHeight: '17px',
-            color: text.productPrimary
+            color: clr.productPrimary
         },
     },
 
@@ -57,12 +57,12 @@ export const useProductMediumStyles = makeStyles({
         '& h1': {
             fontSize: 24,
             fontWeight: 'bold',
-            color: text.red,
+            color: clr.red,
         },
         '& p': {
             fontSize: 14,
             marginTop: 4,
-            color: text.productMedium,
+            color: clr.productMedium,
             textDecoration: 'line-through',
         }
     },

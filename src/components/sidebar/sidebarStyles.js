@@ -1,17 +1,17 @@
 import { makeStyles } from "@material-ui/core/styles";
-import { clr, text } from '../../Globals/colors'
+import { clr } from '../../Globals/colors'
 
 const paddingRoot = '0 30px'
 
 export const useSidebarStyles = makeStyles({
     root: {
-        color: text.primary
+        color: clr.primary
     },
 
     filter: {
         fontSize: 14,
         fontWeight: 400,
-        color: text.productPrimary
+        color: clr.productPrimary
     },
 
     brands_box: {

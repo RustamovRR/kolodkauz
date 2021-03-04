@@ -1,5 +1,5 @@
 import { makeStyles } from "@material-ui/core/styles";
-import { clr, text } from '../../Globals/colors'
+import { clr } from '../../Globals/colors'
 
 const paddingRoot = '0 30px'
 
@@ -10,7 +10,7 @@ export const useLoginStyles = makeStyles({
         height: 588,
         padding: 48,
         border: '1px solid black',
-        color: text.primary,
+        color: clr.primary,
         '& h1': {
             fontSize: 32
         }

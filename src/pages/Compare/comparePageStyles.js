@@ -1,5 +1,5 @@
 import { makeStyles } from "@material-ui/core/styles";
-import { clr, text } from '../../Globals/colors'
+import { clr } from '../../Globals/colors'
 
 const paddingRoot = '0 30px'
 
@@ -21,13 +21,13 @@ export const useComparePageStyles = makeStyles({
     navigation: {
         fontSize: 14,
         '& > *': {
-            color: text.primary
+            color: clr.primary
         }
     },
 
     link: {
         textDecoration: 'none',
-        color: text.productSecondary,
+        color: clr.productSecondary,
         '&:hover': {
             textDecoration: 'underline'
         }

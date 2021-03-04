@@ -1,5 +1,5 @@
 import { makeStyles } from "@material-ui/core/styles";
-import { clr, text } from "../../Globals/colors";
+import { clr } from "../../Globals/colors";
 
 
 export const useInfoServiceStyles = makeStyles({
@@ -31,7 +31,7 @@ export const useInfoServiceStyles = makeStyles({
             marginTop: 24,
             width: '70%',
             fontSize: 17,
-            color: text.infoText
+            color: clr.infoText
         },
         '& > span': {
             fontSize: 18,

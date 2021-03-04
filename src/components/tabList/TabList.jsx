@@ -25,12 +25,11 @@ export default function TabList() {
     })
 
     const tabsPrimaryRu = [
-        `Тормозная система`,
-        `Система сцепления`,
-        `Шрусы (Гранаты)`,
-        `Топливная система`,
-        `Рулевые тяги и наконечники`,
-        `Пружины`
+        `Тормозные колодки дисковые`,
+        `Рабочий тормозной цилиндр`,
+        `Пользовательское соглашение`,
+        `Тормозные дики`,
+        `Тормозные шланги`
     ]
 
     const tabsPrimaryUz = [
@@ -65,11 +64,25 @@ export default function TabList() {
     ]
 
     return (
-        <div className={open ? classes.tabPanel : classes.hidden}>
-            <div className={classes.left_panel}>
+        <div className={classes.container} >
+            <div className={open ? classes.tabPanel : classes.hidden}>
+                <header className={classes.header}>Ходовая часть</header>
+
+                <section className={classes.content}>
+                    <h3 className={classes.title} >Тормозная система</h3>
+                    <div>
+                        {
+                            tabsPrimaryRu.map((item) => (
+                                <div className={classes.link}>
+                                    <Link key={item}>{item}</Link>
+                                </div>
+                            ))
+                        }
+                    </div>
+                </section>
+                {/* <div className={classes.left_panel}>
                 {
                     (trans ? tabsPrimaryRu : tabsPrimaryUz).map(item => (
-                        <Link key={item}>{item}</Link>
                     ))
                 }
             </div>
@@ -80,16 +93,7 @@ export default function TabList() {
                         <Link to="#" key={item}>{item}</Link>
                     ))
                 }
-            </div>
-
-            <div className={classes.image_panel}>
-                <img src={balonImg} alt="" />
-            </div>
-
-            <div className={classes.close_panel}>
-                <IconButton onClick={handleClose}>
-                    <img src={close} alt="" />
-                </IconButton>
+            </div> */}
             </div>
         </div>
     )

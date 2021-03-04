@@ -1,5 +1,5 @@
 import { makeStyles } from "@material-ui/core/styles";
-import { clr, text } from "../../Globals/colors";
+import { clr } from "../../Globals/colors";
 
 
 export const useInfoStyles = makeStyles({
@@ -17,7 +17,7 @@ export const useInfoStyles = makeStyles({
             cursor: 'pointer',
             transition: '0.2s ease',
             '&:hover': {
-                color: text.hover
+                color: clr.hover
             }
         }
     },

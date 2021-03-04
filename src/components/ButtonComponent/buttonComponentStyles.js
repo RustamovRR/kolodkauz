@@ -1,5 +1,5 @@
 import { makeStyles } from "@material-ui/core/styles";
-import { clr, text } from "../../Globals/colors";
+import { clr } from "../../Globals/colors";
 
 
 export const useButtonComponentStyles = makeStyles({
@@ -7,14 +7,14 @@ export const useButtonComponentStyles = makeStyles({
         width: '100%',
         fontWeight: 'bold',
         borderRadius: 4,
-        color: text.white,
+        color: clr.primaryWhite,
         textTransform: 'none',
-        backgroundColor: clr.tab,
+        backgroundColor: clr.orange,
         transition: `0.5s ease`,
         border: `1px solid ${clr.tab}`,
         '&:hover': {
             color: clr.tab,
-            backgroundColor: text.white,
+            backgroundColor: clr.orange400,
         }
     },
 
@@ -22,15 +22,15 @@ export const useButtonComponentStyles = makeStyles({
         width: '100%',
         fontWeight: 'bold',
         borderRadius: 4,
-        color: clr.tab,
+        color: clr.primaryWhite,
         textTransform: 'none',
         transition: `0.5s ease`,
-        backgroundColor: text.white,
-        border: `1px solid ${clr.tab}`,
+        backgroundColor: clr.orange,
+        border: `1px solid ${clr.orange}`,
         paddingRight: 30,
         '&:hover': {
-            color: text.white,
-            backgroundColor: clr.tab,
+            color: clr.white,
+            backgroundColor: clr.orange400,
         },
         '& .MuiButton-endIcon': {
             position: 'absolute',

@@ -1,5 +1,5 @@
 import { makeStyles } from "@material-ui/core/styles";
-import { clr, text } from "../../Globals/colors";
+import { clr } from "../../Globals/colors";
 
 const paddingRoot = '0 30px'
 
@@ -15,7 +15,7 @@ export const useInputLoginStyles = makeStyles({
         '& .MuiOutlinedInput-root': {
             borderRadius: 0,
             '& fieldset': {
-                border: `1px solid ${text.productPrimary}`
+                border: `1px solid ${clr.productPrimary}`
             },
             '&.Mui-focused fieldset': {
                 border: `1px solid ${clr.tab}`

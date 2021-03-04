@@ -1,16 +1,10 @@
 import { makeStyles } from "@material-ui/core/styles";
-
-const primaryColor = "rgba(2, 23, 78, 1)"
-const searchColor = "rgba(255, 255, 255, 0.15)"
-
-const primaryText = "rgba(255, 255, 255, 1)"
-const linkText = "rgba(58, 78, 133, 1)"
-const searchText = "rgba(110, 131, 186, 1)"
+import { clr } from "../../Globals/colors";
 
 export const useHeaderStyles = makeStyles({
     header_root: {
         width: '100%',
-        backgroundColor: primaryColor
+        backgroundColor: clr.primaryDarkBlue
     },
 
     container: {
@@ -29,7 +23,7 @@ export const useHeaderStyles = makeStyles({
         marginLeft: 14,
         '& > *': {
             textDecoration: 'none',
-            color: linkText,
+            color: `rgba(165, 190, 255, 1)`,
             fontWeight: 500,
             fontSize: 14,
             marginLeft: 30,
@@ -46,7 +40,7 @@ export const useHeaderStyles = makeStyles({
         padding: '0 30px',
         alignItems: 'center',
         justifyContent: 'flex-end',
-        backgroundColor: primaryColor,
+        backgroundColor: clr.primaryWhite,
     },
 
     function_items: {
@@ -56,7 +50,7 @@ export const useHeaderStyles = makeStyles({
     link: {
         marginLeft: 40,
         display: 'flex',
-        color: primaryText,
+        color: clr.text1,
         textDecoration: 'none',
         flexDirection: 'column',
         alignItems: 'center',
@@ -64,7 +58,7 @@ export const useHeaderStyles = makeStyles({
             objectFit: 'contain'
         },
         '& > p': {
-            fontSize: 14,
+            fontSize: 13,
             marginTop: 5
         }
     }

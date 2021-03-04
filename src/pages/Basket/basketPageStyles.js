@@ -1,5 +1,5 @@
 import { makeStyles } from "@material-ui/core/styles";
-import { clr, text } from "../../Globals/colors";
+import { clr } from "../../Globals/colors";
 
 const paddingRoot = '0 30px'
 
@@ -11,13 +11,13 @@ export const useBasketPageStyles = makeStyles({
     navigation: {
         fontSize: 14,
         '& > *': {
-            color: text.primary
+            color: clr.primary
         }
     },
 
     link: {
         textDecoration: 'none',
-        color: text.productPrimary,
+        color: clr.productPrimary,
         '&:hover': {
             textDecoration: 'underline'
         }
@@ -34,7 +34,7 @@ export const useBasketPageStyles = makeStyles({
         paddingTop: 48,
         marginRight: 60,
         paddingBottom: 100,
-        color: text.primary,
+        color: clr.primary,
         '& > h1': {
             margin: '32px 0',
             fontSize: 40,
@@ -48,7 +48,7 @@ export const useBasketPageStyles = makeStyles({
 
     billing_box: {
         padding: paddingRoot,
-        color: text.primary,
+        color: clr.primary,
         '& h1': {
             fontSize: 40,
             fontWeight: 700
@@ -57,7 +57,7 @@ export const useBasketPageStyles = makeStyles({
             fontSize: 14,
             marginTop: 16,
             fontWeight: 400,
-            color: text.productPrimary
+            color: clr.productPrimary
         }
     },
 

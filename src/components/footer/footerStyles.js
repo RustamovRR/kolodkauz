@@ -1,12 +1,12 @@
 import { makeStyles } from "@material-ui/core/styles";
-import { clr, text } from '../../Globals/colors'
+import { clr } from '../../Globals/colors'
 
 export const useFooterStyles = makeStyles({
     footer_root: {
         width: '100%',
         height: 570,
-        backgroundColor: clr.primary,
-        color: text.white
+        backgroundColor: clr.primaryDarkBlue,
+        color: clr.primaryWhite
     },
 
     container: {
@@ -30,8 +30,8 @@ export const useFooterStyles = makeStyles({
         lineHeight: '22px',
         '& > p': {
             fontSize: 18,
-            fontWeight: 400,
-            color: text.white
+            fontWeight: 'bold',
+            color: clr.white
         }
     },
 
@@ -43,7 +43,7 @@ export const useFooterStyles = makeStyles({
             fontSize: 18
         },
         '& > p': {
-            color: text.footerPrimary,
+            color: clr.footerPrimary,
             fontWeight: 400,
             fontSize: 16,
             marginTop: 2
@@ -55,7 +55,7 @@ export const useFooterStyles = makeStyles({
         '& > p': {
             fontSize: 18,
             fontWeight: 400,
-            color: text.footerPrimary,
+            color: clr.footerPrimary,
             marginBottom: 7
         },
         '& > div': {
@@ -73,7 +73,7 @@ export const useFooterStyles = makeStyles({
 
     information_box: {
         '& > h4': {
-            fontSize: 18
+            fontSize: 18,
         }
     },
 
@@ -83,12 +83,12 @@ export const useFooterStyles = makeStyles({
         fontWeight: 400,
         display: 'block',
         textDecoration: 'none',
-        color: text.footerPrimary,
+        color: clr.white200,
     },
 
     divider: {
         width: '100%',
-        backgroundColor: text.footerPrimary
+        backgroundColor: clr.footerPrimary
     },
 
     license_box: {
@@ -97,7 +97,7 @@ export const useFooterStyles = makeStyles({
         padding: '0 50px',
         justifyContent: 'space-between',
         '& > p': {
-            color: text.footerPrimary,
+            color: clr.footerPrimary,
             fontSize: 14,
             fontWeight: 400
         }

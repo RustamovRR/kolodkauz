@@ -1,19 +1,19 @@
 import React, { useContext } from 'react'
+import { Grid } from '@material-ui/core'
+import { Link } from 'react-router-dom'
 import Header from '../../components/header/Header'
 import TabMenu from '../../components/tabmenu/TabMenu'
 import Carousel from '../../components/carousel/Carousel'
-import { useHomePageStyles } from './homePageStyles.js'
+import { TranslateContext } from '../../contexts/TranslateContext'
 import CarBrand from '../../components/carBrand/CarBrand'
 import Product from '../../components/product/Product'
 import ProductBrand from '../../components/productBrand/ProductBrand'
 import Footer from '../../components/footer/Footer'
 import Ads from '../../components/ads/Ads'
-import ButtonComponent from '../../components/ButtonComponent/ButtonComponent'
 
 import downArrow from '../../images/icons/down-arrow.png'
-import { TranslateContext } from '../../contexts/TranslateContext'
+import { useHomePageStyles } from './homePageStyles.js'
 import './homePageStyles.js'
-import { Grid } from '@material-ui/core'
 
 const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 const array2 = [...array, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
@@ -38,13 +38,14 @@ export default function HomePage() {
                     <Carousel />
                 </section>
 
-                <section className={classes.carBrand_box}>
+                <Grid className={classes.carBrand_box}>
                     <CarBrand />
                     <CarBrand />
                     <CarBrand />
                     <CarBrand />
                     <CarBrand />
-                </section>
+                    <CarBrand />
+                </Grid>
 
                 <h1 className={classes.bestSeller_title}>
                     {trans ? `Хиты продаж` : `Eng ko'p sotilgan mahsulotlar`}
@@ -72,17 +73,14 @@ export default function HomePage() {
                     }
                 </section>
 
-                <section className={classes.seeAll_box}>
-                    <ButtonComponent
-                        outlined
-                        withIcon
-                        title={trans ? `Смотреть все` : `Barchasini ko'rish`}
-                    />
-                </section>
-
-                <h1 className={classes.bestSeller_title}>
-                    {trans ? `Популярные бренды` : `Mashhur brendlar`}
-                </h1>
+                <div className={classes.bestSeller}>
+                    <h1 className={classes.bestSeller_title}>
+                        {trans ? `Популярные бренды` : `Mashhur brendlar`}
+                    </h1>
+                    <Link>
+                        {trans ? `Все бренды` : `Barcha brendlar`}
+                    </Link>
+                </div>
                 <section className={classes.productBrand_box}>
                     <ProductBrand />
                     <ProductBrand />

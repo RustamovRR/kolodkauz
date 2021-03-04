@@ -4,10 +4,10 @@ import Currency from '../currency/Currency'
 import Language from '../language/Language'
 import Search from '../search/Search'
 import { useHeaderStyles } from './headerStyles'
-import person from '../../images/icons/person.png'
-import like from '../../images/icons/icon.png'
-import rate from '../../images/icons/rate.png'
-import basket from '../../images/icons/basket.png'
+import person from '../../images/icons/person.svg'
+import like from '../../images/icons/favorite.svg'
+import rate from '../../images/icons/rate.svg'
+import basket from '../../images/icons/basket.svg'
 import { Badge, Grid } from '@material-ui/core'
 import { BasketContext } from '../../contexts/BasketContext'
 import { TranslateContext } from '../../contexts/TranslateContext'
@@ -56,7 +56,7 @@ export default function Header() {
                                 </p>
                             </Link>
                             <Link to='/favorite' className={classes.link}>
-                                <Badge badgeContent={4} color="primary" >
+                                <Badge color="primary" >
                                     <img src={like} alt="tanlanganlar" />
                                 </Badge>
                                 <p>

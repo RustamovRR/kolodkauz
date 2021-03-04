@@ -1,5 +1,5 @@
 import { makeStyles } from "@material-ui/core/styles";
-import { clr, text } from "../../Globals/colors";
+import { clr } from "../../Globals/colors";
 
 
 export const useProductSmallStyles = makeStyles({
@@ -9,7 +9,7 @@ export const useProductSmallStyles = makeStyles({
         width: '100%',
         display: 'flex',
         alignItems: 'center',
-        border: `1px solid ${text.productSecondary}`
+        border: `1px solid ${clr.productSecondary}`
     },
 
     image_box: {
@@ -37,13 +37,13 @@ export const useProductSmallStyles = makeStyles({
         alignItems: 'center',
         '& p': {
             fontSize: 20,
-            color: text.red,
+            color: clr.red,
             fontWeight: 'bolder'
         },
         '& span': {
             marginLeft: 8,
             marginTop: 3,
-            color: text.productPrimary,
+            color: clr.productPrimary,
             textDecoration: 'line-through',
         }
     },

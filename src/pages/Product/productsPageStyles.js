@@ -6,7 +6,7 @@ const paddingRoot = '0 30px'
 export const useProductPageStyles = makeStyles({
 
     tabs_box: {
-        padding: paddingRoot
+        // padding: paddingRoot
     },
 
     title_box: {
@@ -15,20 +15,20 @@ export const useProductPageStyles = makeStyles({
         '& > h1': {
             fontSize: 32,
             margin: '32px 0',
-            color: clr.productPrimary
+            color: clr.gray1
         }
     },
 
     navigation: {
         fontSize: 14,
         '& > *': {
-            color: clr.primary
+            color: clr.dark900
         }
     },
 
     link: {
         textDecoration: 'none',
-        color: clr.productPrimary,
+        color: clr.dark500,
         '&:hover': {
             textDecoration: 'underline'
         }

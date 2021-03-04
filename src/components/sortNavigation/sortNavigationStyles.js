@@ -13,7 +13,7 @@ export const useSortNavigationStyles = makeStyles({
         display: 'flex',
         alignItems: 'center',
         '& p': {
-            color: clr.productPrimary,
+            color: clr.dark700,
             fontSize: 14
         }
     },
@@ -24,8 +24,11 @@ export const useSortNavigationStyles = makeStyles({
         '& *': {
             textTransform: 'none',
             textTransform: 'none',
-            color: clr.primary,
+            color: clr.dark900,
             fontWeight: 'bold'
+        },
+        '& > *:active': {
+            backgroundColor: `rgba(18, 115, 235, 0.1)`
         }
     },
 
@@ -36,7 +39,7 @@ export const useSortNavigationStyles = makeStyles({
                 backgroundColor: `rgba(18, 115, 235, 0.1)`,
             },
             '& *': {
-                color: clr.tab
+                color: clr.secondaryDarkBlue
             }
         }
     },

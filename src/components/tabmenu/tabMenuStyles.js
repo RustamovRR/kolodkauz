@@ -25,7 +25,7 @@ export const AntTab = withStyles((theme) => ({
         minWidth: 139,
         fontSize: 16,
         fontWeight: 500,
-        color: clr.productSecondary,
+        color: clr.dark900,
         '&:hover': {
             color: '#40a9ff',
             opacity: 1,

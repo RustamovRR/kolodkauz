@@ -10,6 +10,7 @@ export const useButtonYellowStyles = makeStyles({
         borderRadius: 4,
         fontWeight: 'bold',
         padding: '8px 12px',
+        whiteSpace: 'nowrap',
         textTransform: 'none',
         color: clr.primaryWhite,
         backgroundColor: clr.orange,

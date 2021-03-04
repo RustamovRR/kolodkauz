@@ -9,7 +9,7 @@ export const useProductSmallStyles = makeStyles({
         width: '100%',
         display: 'flex',
         alignItems: 'center',
-        border: `1px solid ${clr.productSecondary}`
+        border: `1px solid rgba(0, 0, 0, 0.15)`
     },
 
     image_box: {
@@ -43,7 +43,7 @@ export const useProductSmallStyles = makeStyles({
         '& span': {
             marginLeft: 8,
             marginTop: 3,
-            color: clr.productPrimary,
+            color: clr.dark700,
             textDecoration: 'line-through',
         }
     },
@@ -68,12 +68,5 @@ export const useProductSmallStyles = makeStyles({
     buttons: {
         display: 'flex',
         paddingTop: 5,
-    },
-
-    basket: {
-        color: clr.tab,
-        textTransform: 'none',
-        fontSize: 15,
-        fontWeight: 'bold'
     }
 });

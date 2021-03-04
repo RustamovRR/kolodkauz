@@ -11,7 +11,7 @@ export const useQuantityStyles = makeStyles({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
-        border: `1px solid ${clr.divider}`
+        border: `1px solid ${clr.dark100}`
     },
 
     count_text: {
@@ -28,7 +28,7 @@ export const useQuantityStyles = makeStyles({
         alignItems: 'center',
         backgroundColor: 'red',
         justifyContent: 'center',
-        backgroundColor: clr.divider
+        backgroundColor: clr.dark100
     }
 
 })

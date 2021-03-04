@@ -9,7 +9,7 @@ export const useProductMediumStyles = makeStyles({
         padding: '24px',
         paddingBottom: 36,
         justifyContent: 'space-between',
-        border: `1px solid ${clr.productSecondary}`
+        border: `1px solid ${clr.gray3}`
     },
 
     card: {
@@ -24,7 +24,7 @@ export const useProductMediumStyles = makeStyles({
 
     text_box: {
         marginLeft: 24,
-        color: clr.primary,
+        color: clr.dark900,
         whiteSpace: 'nowrap',
         '& h4': {
             fontSize: 24,
@@ -43,7 +43,7 @@ export const useProductMediumStyles = makeStyles({
             fontSize: 14,
             marginTop: 8,
             lineHeight: '17px',
-            color: clr.productPrimary
+            color: clr.gray1
         },
     },
 
@@ -62,7 +62,7 @@ export const useProductMediumStyles = makeStyles({
         '& p': {
             fontSize: 14,
             marginTop: 4,
-            color: clr.productMedium,
+            color: clr.dark700,
             textDecoration: 'line-through',
         }
     },

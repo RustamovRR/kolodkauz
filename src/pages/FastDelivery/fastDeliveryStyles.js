@@ -8,8 +8,7 @@ export const useFastDeliveryStyles = makeStyles({
         padding: 32,
         width: '60%',
         position: 'relative',
-        margin: '50px auto',
-        border: '1px solid gray'
+        margin: '50px auto'
     },
 
     text_box: {
@@ -19,7 +18,7 @@ export const useFastDeliveryStyles = makeStyles({
         justifyContent: 'space-between',
         '& h1': {
             fontSize: 32,
-            color: clr.primary,
+            color: clr.primaryDarkBlue,
         }
     },
 
@@ -28,7 +27,7 @@ export const useFastDeliveryStyles = makeStyles({
         marginTop: 8,
         display: 'flex',
         alignItems: 'center',
-        color: clr.productSecondary
+        color: clr.text2
     },
 
     close: {
@@ -75,12 +74,12 @@ export const useFastDeliveryStyles = makeStyles({
         whiteSpace: 'nowrap',
         '& h2': {
             fontSize: 32,
-            color: clr.primary
+            color: clr.dark900
         },
         '& p': {
             fontSize: 14,
             marginLeft: 8,
-            color: clr.productMedium,
+            color: clr.dark700,
             textDecoration: 'line-through'
         }
     },
@@ -106,17 +105,17 @@ export const useFastDeliveryStyles = makeStyles({
         fontSize: 16,
         marginTop: 16,
         fontWeight: 'bold',
-        color: clr.primary
+        color: clr.dark900
     },
 
     link: {
         marginTop: 40,
         textAlign: 'center',
         '& > *': {
-            color: clr.tab,
+            color: clr.secondaryDarkBlue,
             paddingBottom: 4,
             textDecoration: 'none',
-            borderBottom: `2px solid ${clr.tab}`
+            borderBottom: `2px solid ${clr.secondaryDarkBlue}`
         }
     }
 })

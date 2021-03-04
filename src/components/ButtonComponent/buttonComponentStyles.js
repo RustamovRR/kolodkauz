@@ -9,12 +9,12 @@ export const useButtonComponentStyles = makeStyles({
         borderRadius: 4,
         color: clr.primaryWhite,
         textTransform: 'none',
-        backgroundColor: clr.orange,
+        backgroundColor: clr.secondaryDarkBlue,
         transition: `0.5s ease`,
-        border: `1px solid ${clr.tab}`,
+        border: `1px solid ${clr.secondaryDarkBlue}`,
         '&:hover': {
-            color: clr.tab,
-            backgroundColor: clr.orange400,
+            color: clr.secondaryDarkBlue,
+            backgroundColor: clr.primaryWhite,
         }
     },
 
@@ -22,15 +22,15 @@ export const useButtonComponentStyles = makeStyles({
         width: '100%',
         fontWeight: 'bold',
         borderRadius: 4,
-        color: clr.primaryWhite,
+        color: clr.secondaryDarkBlue,
         textTransform: 'none',
         transition: `0.5s ease`,
-        backgroundColor: clr.orange,
-        border: `1px solid ${clr.orange}`,
+        backgroundColor: clr.primaryWhite,
+        border: `1px solid ${clr.secondaryDarkBlue}`,
         paddingRight: 30,
         '&:hover': {
-            color: clr.white,
-            backgroundColor: clr.orange400,
+            color: clr.primaryWhite,
+            backgroundColor: clr.secondaryDarkBlue,
         },
         '& .MuiButton-endIcon': {
             position: 'absolute',

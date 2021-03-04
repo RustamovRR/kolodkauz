@@ -5,13 +5,13 @@ const paddingRoot = '0 30px'
 
 export const useSidebarStyles = makeStyles({
     root: {
-        color: clr.primary
+        color: clr.dark900
     },
 
     filter: {
         fontSize: 14,
         fontWeight: 400,
-        color: clr.productPrimary
+        color: clr.dark700
     },
 
     brands_box: {
@@ -41,12 +41,8 @@ export const useSidebarStyles = makeStyles({
         justifyContent: 'space-between'
     },
 
-    track: {
-        backgroundColor: clr.tab
-    },
-
     thumb: {
-        backgroundColor: clr.tab
+        backgroundColor: clr.secondaryDarkBlue
     },
 
     discount_box: {

@@ -10,10 +10,6 @@ export default function LoginPage() {
 
     return (
         <div className={classes.root}>
-            <section>
-                <Header />
-            </section>
-
             <section className={classes.card_box}>
                 <h1>Войти профиль</h1>
                 <InputLogin />

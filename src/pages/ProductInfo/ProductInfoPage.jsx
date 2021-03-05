@@ -32,7 +32,6 @@ export default function ProductInfoPage() {
 
     return (
         <>
-            <Header />
             <div className={classes.root}>
                 <IconButton className={classes.arrow}>
                     <img src={leftArrow} alt="" />
@@ -149,12 +148,7 @@ export default function ProductInfoPage() {
                         </Link>
                     </div>
                 </section>
-
             </div>
-
-            <section className={classes.footer_box}>
-                <Footer />
-            </section>
         </>
     )
 }

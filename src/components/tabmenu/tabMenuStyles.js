@@ -9,7 +9,7 @@ export const useTabMenuStyles = makeStyles({
 export const AntTabs = withStyles({
     root: {
         width: '100%',
-        padding:'0 30px',
+        padding: '0 30px',
         margin: 'auto',
         boxShadow: ` 0px 2px 3px rgba(0, 0, 0, 0.12)`,
     },

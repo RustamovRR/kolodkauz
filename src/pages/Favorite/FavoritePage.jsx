@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { Breadcrumbs, Typography } from '@material-ui/core'
+import { Typography } from '@material-ui/core'
 import { Link } from 'react-router-dom'
 import Header from '../../components/header/Header'
 import TabMenu from '../../components/tabmenu/TabMenu'
@@ -8,6 +8,7 @@ import Footer from '../../components/footer/Footer'
 import { TranslateContext } from '../../contexts/TranslateContext'
 
 import { useFavoriteStyles } from './FavoriteStyles'
+import BreadCrumbs from '../../components/breadCrumbs/BreadCrumbs'
 
 export default function FavoritePage() {
     const classes = useFavoriteStyles()
@@ -20,9 +21,6 @@ export default function FavoritePage() {
 
     return (
         <div className={classes.root}>
-            <section className={classes.header_box}>
-                <Header />
-            </section>
 
             <section className={classes.tabs_box}>
                 <TabMenu />
@@ -30,14 +28,20 @@ export default function FavoritePage() {
 
 
             <section className={classes.favorite_box}>
-                <Breadcrumbs className={classes.navigation}>
-                    <Link to="/" className={classes.link}>
-                        {trans ? `Главная` : `Asosiy`}
-                    </Link>
-                    <p >
-                        {trans ? `Избранные` : `Sevimlilar`}
-                    </p>
-                </Breadcrumbs>
+                <BreadCrumbs
+                    items={[
+                        {
+                            link: `/`,
+                            titleRu: `Главная`,
+                            titleUz: `Asosiy`
+                        },
+                        {
+                            link: `/`,
+                            titleRu: `Избранные`,
+                            titleUz: `Sevimlilar`
+                        },
+                    ]}
+                />
 
                 <h1>
                     {trans ? `Избранные` : `Sevimlilar`}
@@ -51,11 +55,6 @@ export default function FavoritePage() {
                     <Product favorite={true} />
                 </div>
             </section>
-
-            <section className={classes.footer_box}>
-                <Footer />
-            </section>
-
         </div>
     )
 }

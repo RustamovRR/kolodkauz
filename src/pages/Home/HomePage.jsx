@@ -25,9 +25,6 @@ export default function HomePage() {
 
     return (
         <div className={classes.home_root}>
-            <section className={classes.header_box}>
-                <Header />
-            </section>
 
             <Grid className={classes.container}>
                 <section className={classes.tabs_box}>
@@ -102,10 +99,6 @@ export default function HomePage() {
                     <ProductBrand />
                 </section>
             </Grid>
-
-            <section className={classes.footer_box}>
-                <Footer />
-            </section>
         </div >
     )
 }

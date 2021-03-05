@@ -3,12 +3,11 @@ import Header from '../../components/header/Header'
 import Footer from '../../components/footer/Footer'
 import { useBasketPageStyles } from './basketPageStyles'
 import TabMenu from '../../components/tabmenu/TabMenu'
-import { Link } from 'react-router-dom'
-import { Breadcrumbs } from '@material-ui/core'
 import BasketList from '../../components/basketList/BasketList'
 import BasketPay from '../../components/basketPay/BasketPay'
 import InputBasket from '../../components/input/InputBasket'
 import { TranslateContext } from '../../contexts/TranslateContext'
+import BreadCrumbs from '../../components/breadCrumbs/BreadCrumbs'
 
 export default function BasketPage() {
     const classes = useBasketPageStyles()
@@ -24,9 +23,6 @@ export default function BasketPage() {
 
     return (
         <div className={classes.root}>
-            <section className={classes.header_box}>
-                <Header />
-            </section>
 
             <section className={classes.tabs_box}>
                 <TabMenu />
@@ -34,14 +30,20 @@ export default function BasketPage() {
 
             <section className={classes.basket_box}>
                 <div className={classes.left_box}>
-                    <Breadcrumbs className={classes.navigation}>
-                        <Link to="/" className={classes.link}>
-                            {trans ? `Главная` : `Asosiy`}
-                        </Link>
-                        <p >
-                            {trans ? `Корзина` : `Xaridlar savati`}
-                        </p>
-                    </Breadcrumbs>
+                    <BreadCrumbs
+                        items={[
+                            {
+                                link: `/`,
+                                titleRu: `Главная`,
+                                titleUz: `Asosiy`
+                            },
+                            {
+                                link: `/`,
+                                titleRu: `Корзина`,
+                                titleUz: `Xaridlar savati`
+                            },
+                        ]}
+                    />
 
                     <h1>
                         {trans ? `Корзина` : `Xaridlar savati`}
@@ -80,11 +82,6 @@ export default function BasketPage() {
                     }
                 </section>
             </section>
-
-            <section className={classes.footer_box}>
-                <Footer />
-            </section>
-
         </div>
     )
 }

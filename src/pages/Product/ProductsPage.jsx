@@ -1,4 +1,4 @@
-import { Breadcrumbs, Divider } from '@material-ui/core'
+import { Divider } from '@material-ui/core'
 import React, { useContext, } from 'react'
 import { Link } from 'react-router-dom'
 import Header from '../../components/header/Header'
@@ -16,6 +16,7 @@ import rol from '../../images/products/rol.png'
 import ProductMedium from '../../components/productMedium/ProductMedium'
 import ProductSmall from '../../components/productSmall/ProductSmall'
 import { TranslateContext } from '../../contexts/TranslateContext'
+import BreadCrumbs from '../../components/breadCrumbs/BreadCrumbs'
 
 export default function ProductsPage({ medium, small }) {
     const classes = useProductPageStyles()
@@ -27,26 +28,30 @@ export default function ProductsPage({ medium, small }) {
 
     return (
         <div className={classes.root}>
-            <section className={classes.header_box}>
-                <Header />
-            </section>
-
             <section className={classes.tabs_box}>
                 <TabMenu />
             </section>
 
             <section className={classes.title_box}>
-                <Breadcrumbs className={classes.navigation}>
-                    <Link to="/" className={classes.link}>
-                        {trans ? `Главная` : `Asosiy`}
-                    </Link>
-                    <Link to="/" className={classes.link}>
-                        {trans ? `Автотовары` : `Avtotovarlar`}
-                    </Link>
-                    <p >
-                        {trans ? `Шины и Диски` : `Shinalar va disklar`}
-                    </p>
-                </Breadcrumbs>
+                <BreadCrumbs
+                    items={[
+                        {
+                            link: `/`,
+                            titleRu: `Главная`,
+                            titleUz: `Asosiy`
+                        },
+                        {
+                            link: `/`,
+                            titleRu: `Автотовары`,
+                            titleUz: `Avtovarlar`
+                        },
+                        {
+                            link: `/`,
+                            titleRu: `Шины и Диски`,
+                            titleUz: `Shinalar va disklar`
+                        }
+                    ]}
+                />
 
                 <h1>
                     {trans ? `Шины и Диски` : `Shinalar va disklar`}
@@ -91,11 +96,6 @@ export default function ProductsPage({ medium, small }) {
                     </div>
                 </div>
             </section>
-
-            <section className={classes.footer_box}>
-                <Footer />
-            </section>
-
         </div>
     )
 }

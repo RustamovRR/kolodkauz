@@ -10,9 +10,6 @@ export default function InformationPage() {
 
     return (
         <div>
-            <section className={classes.header_box}>
-                <Header />
-            </section>
 
             <div className={classes.tabs_box}>
                 <TabMenu />
@@ -22,9 +19,6 @@ export default function InformationPage() {
                 <Info />
             </section>
 
-            <section className={classes.footer_box}>
-                <Footer />
-            </section>
         </div>
     )
 }

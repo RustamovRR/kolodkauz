@@ -18,22 +18,7 @@ export const useProductPageStyles = makeStyles({
             color: clr.gray1
         }
     },
-
-    navigation: {
-        fontSize: 14,
-        '& > *': {
-            color: clr.dark900
-        }
-    },
-
-    link: {
-        textDecoration: 'none',
-        color: clr.dark500,
-        '&:hover': {
-            textDecoration: 'underline'
-        }
-    },
-
+    
     products_box: {
         display: 'flex',
         padding: paddingRoot,
@@ -75,9 +60,5 @@ export const useProductPageStyles = makeStyles({
 
     product_small: {
         width: '100%'
-    },
-
-    footer_box: {
-        marginTop: 96
     }
 })

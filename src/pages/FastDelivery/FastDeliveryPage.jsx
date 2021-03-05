@@ -19,9 +19,6 @@ export default function FastDeliveryPage() {
 
     return (
         <div className={classes.root}>
-            <header className={classes.header_box}>
-                <Header />
-            </header>
 
             <main className={classes.card_box}>
                 <section className={classes.text_box}>

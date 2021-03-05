@@ -4,9 +4,6 @@ import { clr } from "../../Globals/colors";
 const paddingRoot = '0 30px'
 
 export const useBasketPageStyles = makeStyles({
-    tabs_box: {
-        padding: paddingRoot
-    },
 
     navigation: {
         fontSize: 14,

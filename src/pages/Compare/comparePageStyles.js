@@ -4,10 +4,6 @@ import { clr } from '../../Globals/colors'
 const paddingRoot = '0 30px'
 
 export const useComparePageStyles = makeStyles({
-    tabs_box: {
-        padding: paddingRoot
-    },
-
     compare_box: {
         padding: paddingRoot,
         paddingTop: 48,

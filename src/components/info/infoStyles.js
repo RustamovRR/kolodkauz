@@ -9,16 +9,26 @@ export const useInfoStyles = makeStyles({
     },
 
     left_panel: {
-        marginTop: 40,
+        marginTop: 32,
         marginBottom: 128,
-        '& > P': {
-            padding: '4px 0',
-            marginTop: 16,
-            cursor: 'pointer',
-            transition: '0.2s ease',
-            '&:hover': {
-                color: clr.hover
-            }
+    },
+
+    link: {
+        textDecoration: 'none',
+        display: 'block',
+        padding: '4px 0',
+        marginTop: 8,
+        color: clr.text2,
+        transition: '0.2s ease',
+        '&:hover': {
+            color: clr.gray1
+        }
+    },
+
+    active: {
+        color: clr.text1,
+        '&:hover': {
+            color: clr.text1,
         }
     },
 

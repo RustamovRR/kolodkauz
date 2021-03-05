@@ -1,31 +1,24 @@
-import Header from "./components/header/Header";
-import Product from "./components/product/Product";
-import { BrowserRouter } from "react-router-dom";
-import Footer from "./components/footer/Footer";
-import ProductBrand from "./components/productBrand/ProductBrand";
-import CarBrand from "./components/carBrand/CarBrand";
-import Carousel from "./components/carousel/Carousel";
-import TabMenu from "./components/tabmenu/TabMenu";
-import HomePage from "./pages/Home/HomePage";
-import "./App.css";
+import { Suspense } from "react";
+import { BrowserRouter, Route } from "react-router-dom";
+import Layout from "./components/Layout/Layout";
 import Pages from "./pages/Pages";
-import BasketProvider from "./contexts/BasketContext";
-import TabListProvider from "./contexts/TabListContext";
-import TranslateProvider from "./contexts/TranslateContext";
+import routes from "./routes";
+
+import "./App.css";
 
 function App() {
   return (
-    <BrowserRouter>
-      <TranslateProvider>
-        <BasketProvider>
-          <TabListProvider>
-            <div className="App" >
-              <Pages />
-            </div>
-          </TabListProvider>
-        </BasketProvider>
-      </TranslateProvider>
-    </BrowserRouter>
+    <div className="App" >
+      <Suspense fallback="loading...">
+        <Layout>
+          {
+            routes.map(({ path, exact, component }, key) => (
+              <Route {...{ key, exact, path, component }} />
+            ))
+          }
+        </Layout>
+      </Suspense>
+    </div>
   );
 }
 

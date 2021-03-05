@@ -4,7 +4,7 @@ import { useTabMenuStyles, AntTabs, AntTab } from './tabMenuStyles'
 import { TabListContext } from '../../contexts/TabListContext';
 import { TranslateContext } from '../../contexts/TranslateContext';
 
-export default function useHeaderStyles() {
+export default function TabMenu() {
     const classes = useTabMenuStyles();
     const [value, setValue] = useState(0);
     const { open, setOpen } = useContext(TabListContext)

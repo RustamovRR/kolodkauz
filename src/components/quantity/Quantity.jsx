@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 
 import { useQuantityStyles } from './quantityStyles'
-import minusImg from '../../images/icons/minus.png'
-import plusImg from '../../images/icons/plus.png'
+import minusImg from '../../images/icons/minus.svg'
+import plusImg from '../../images/icons/plus.svg'
 
 export default function Quantity() {
     const [quantity, setQuantity] = useState(1)

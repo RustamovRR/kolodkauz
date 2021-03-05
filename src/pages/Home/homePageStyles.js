@@ -49,7 +49,6 @@ export const useHomePageStyles = makeStyles({
     },
 
     bestSeller_title: {
-        marginTop: 64,
         fontSize: 40,
         padding: paddingRoot,
     },

@@ -1,15 +1,13 @@
 import React, { useContext } from 'react'
-import { Link } from 'react-router-dom';
-import { Button, Divider, IconButton } from '@material-ui/core'
-import ButtonComponent from '../ButtonComponent/ButtonComponent'
+import { IconButton } from '@material-ui/core'
 import { TranslateContext } from '../../contexts/TranslateContext';
 import RatingComp from '../../components/rating/RatingComp'
+import ButtonYellow from '../buttonYellow/ButtonYellow';
 
 import { useProductMediumStyles } from './productMediumStyles'
 import image1 from "../../images/products/Rectangle 14.png";
-import favoriteImg from '../../images/icons/heart_outline.png'
-import rateCard from '../../images/icons/rate_grey.png'
-import ButtonYellow from '../buttonYellow/ButtonYellow';
+import favoriteImg from '../../images/icons/heart_outline.svg'
+import rateCard from '../../images/icons/rate_grey.svg'
 
 export default function ProductMedium() {
     const classes = useProductMediumStyles()
@@ -56,7 +54,7 @@ export default function ProductMedium() {
                     />
                 </div>
             </section>
-            
+
             <section className={classes.action_box}>
                 <IconButton size="small">
                     <img src={favoriteImg} alt="" />

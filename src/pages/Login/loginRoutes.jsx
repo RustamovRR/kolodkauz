@@ -1,5 +1,5 @@
 import { lazy, Suspense } from 'react'
-import { Route } from 'react-router';
+import { Route } from 'react-router-dom';
 
 const LoginPage = lazy(() => import("./LoginPage"))
 

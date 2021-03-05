@@ -4,12 +4,9 @@ import { NavLink, useLocation } from 'react-router-dom'
 import { TranslateContext } from '../../contexts/TranslateContext'
 
 import { useSortNavigationStyles } from './sortNavigationStyles'
-import sortIcon1 from '../../images/icons/sort_icon1.png'
-import sortIcon2 from '../../images/icons/sort_icon2.png'
-import sortIcon3 from '../../images/icons/sort_icon3.png'
-import sortIconActive1 from '../../images/icons/sort_icon1_actve.png'
-import sortIconActive2 from '../../images/icons/sort_icon2_active.png'
-import sortIconActive3 from '../../images/icons/sort_icon3_active.png'
+import sortIcon1 from '../../images/icons/sort_icon1.svg'
+import sortIcon2 from '../../images/icons/sort_icon2.svg'
+import sortIcon3 from '../../images/icons/sort_icon3.svg'
 
 export default function SortNavigation() {
     const classes = useSortNavigationStyles()
@@ -27,9 +24,9 @@ export default function SortNavigation() {
     ]
 
     const icons = [
-        { icon: sortIcon1, activeIcon: sortIconActive1, link: '/products' },
-        { icon: sortIcon2, activeIcon: sortIconActive2, link: '/products/medium' },
-        { icon: sortIcon3, activeIcon: sortIconActive3, link: '/products/small' }
+        { icon: sortIcon1, link: '/products' },
+        { icon: sortIcon2, link: '/products/medium' },
+        { icon: sortIcon3, link: '/products/small' }
     ]
 
     return (
@@ -43,7 +40,7 @@ export default function SortNavigation() {
                         (trans ? buttonsRu : buttonsUz).map((item, index) => (
                             <NavLink
                                 key={item}
-                                to={`/products/${index}`}
+                                to={`/products/medium/${index}`}
                                 className={classes.navlink}
                                 activeClassName={classes.active_navlink}
                             >

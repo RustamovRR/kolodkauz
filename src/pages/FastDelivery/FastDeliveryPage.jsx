@@ -11,7 +11,7 @@ import ButtonComponent from '../../components/ButtonComponent/ButtonComponent'
 import { useFastDeliveryStyles } from './fastDeliveryStyles'
 import oilImg from '../../images/products/oil.png'
 import closeImg from '../../images/icons/close.png'
-import favoriteIcon from '../../images/icons/heart_outline.png'
+import favoriteIcon from '../../images/icons/heart_outline.svg'
 
 export default function FastDeliveryPage() {
     const classes = useFastDeliveryStyles()

@@ -3,13 +3,13 @@ import { Rating } from '@material-ui/lab';
 import Quantity from '../quantity/Quantity'
 import ButtonComponent from '../ButtonComponent/ButtonComponent';
 import { Button, Divider, IconButton } from '@material-ui/core';
+import { TranslateContext } from '../../contexts/TranslateContext';
+import ButtonYellow from '../buttonYellow/ButtonYellow';
 
 import { useProductSmallStyles } from './productSmallStyles';
 import karcher from "../../images/products/karcher.png";
-import favoriteImg from '../../images/icons/heart_blue.png'
-import rateImg from '../../images/icons/rate_blue.png'
-import { TranslateContext } from '../../contexts/TranslateContext';
-import ButtonYellow from '../buttonYellow/ButtonYellow';
+import favoriteImg from '../../images/icons/heart_blue.svg'
+import rateImg from '../../images/icons/rate_blue.svg'
 
 export default function ProductSmall() {
     const classes = useProductSmallStyles()

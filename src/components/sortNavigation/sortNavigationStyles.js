@@ -28,6 +28,10 @@ export const useSortNavigationStyles = makeStyles({
             fontWeight: 'bold'
         },
         '& > *:active': {
+            color: clr.secondaryDarkBlue,
+            backgroundColor: `rgba(18, 115, 235, 0.1)`
+        },
+        '& > *:hover': {
             backgroundColor: `rgba(18, 115, 235, 0.1)`
         }
     },

@@ -6,7 +6,7 @@ import CheckBoxComp from '../checkBox/Checkbox'
 
 import { useProductStyles } from "./productStyles";
 import image1 from "../../images/products/bagaj.png";
-import favoriteImg from '../../images/icons/favorite_product.png'
+import favoriteImg from '../../images/icons/favorite_product.svg'
 
 export default function Product({ favorite, compare }) {
     const classes = useProductStyles();

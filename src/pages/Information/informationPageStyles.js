@@ -12,7 +12,21 @@ export const useInformationStyles = makeStyles({
     },
 
     info_box: {
+        display: 'flex',
+        justifyContent: 'space-between',
         padding: paddingRoot
     },
+
+    sidebar: {
+        width: '20%',
+        minHeight: '100vh',
+        marginTop: -4,
+        borderRight: '1px solid rgba(224, 224, 224, 1)'
+    },
+
+    info_panel: {
+        width: '77%',
+        paddingTop: 32
+    }
 
 })

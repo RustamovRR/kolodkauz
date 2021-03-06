@@ -1,14 +1,14 @@
-import { Suspense, lazy } from 'react'
-import { Route } from 'react-router-dom'
+import { lazy, Suspense } from 'react'
+import { Route } from 'react-router-dom';
 
-const InfoPage = lazy(() => import("./InformationPage"))
+const InformationPage = lazy(() => import("./InformationPage"))
 
 const routes = [
     {
+        // exact: true,
         path: "/info",
-        exact: true,
-        component: InfoPage
-    },
+        component: InformationPage
+    }
 ]
 
 export default () => (
@@ -17,4 +17,4 @@ export default () => (
             <Route {...{ key, exact, path, component }} />
         ))}
     </Suspense>
-)
+);

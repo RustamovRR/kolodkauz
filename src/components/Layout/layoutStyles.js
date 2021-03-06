@@ -7,7 +7,7 @@ export const useLayoutStyles = makeStyles({
     layout: {
         display: 'flex',
         flexDirection: 'column',
-        minHeight: '200vh'
+        minHeight: '100vh'
     },
     layout_content: {
         flex: 1

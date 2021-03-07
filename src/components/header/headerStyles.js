@@ -8,14 +8,16 @@ export const useHeaderStyles = makeStyles({
     },
 
     container: {
-        maxWidth: 1440,
+        width: '100%',
         margin: 'auto'
     },
 
     nav: {
         height: 48,
-        padding: '0 30px',
+        margin: 'auto',
+        maxWidth: 1440,
         display: 'flex',
+        padding: '0 30px',
         alignItems: 'center',
     },
 
@@ -34,13 +36,19 @@ export const useHeaderStyles = makeStyles({
         },
     },
 
+    secondary_box: {
+        width: '100%',
+        backgroundColor: clr.primaryWhite,
+    },
+
     function_box: {
         height: 96,
+        margin: 'auto',
+        maxWidth: 1440,
         display: 'flex',
         padding: '0 30px',
         alignItems: 'center',
         justifyContent: 'flex-end',
-        backgroundColor: clr.primaryWhite,
     },
 
     function_items: {

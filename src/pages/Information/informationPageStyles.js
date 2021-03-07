@@ -4,6 +4,10 @@ import { clr, text } from '../../Globals/colors'
 const paddingRoot = '0 30px'
 
 export const useInformationStyles = makeStyles({
+    root: {
+        maxWidth: 1440,
+        margin: 'auto'
+    },
 
     tabs_box: {
         background: clr.primaryWhite,

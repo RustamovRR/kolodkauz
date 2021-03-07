@@ -45,48 +45,50 @@ export default function Header() {
                     </div>
                 </nav>
 
-                <section class={classes.function_box}>
-                    <Search />
-                    <div className={classes.functions}>
-                        <div className={classes.function_items}>
-                            <Link to='/login' className={classes.link}>
-                                <img src={person} alt="kolodka kirish" />
-                                <p>
-                                    {trans ? `Войти` : `Kirish`}
-                                </p>
-                            </Link>
-                            <Link to='/favorite' className={classes.link}>
-                                <Badge color="primary" >
-                                    <img src={like} alt="tanlanganlar" />
-                                </Badge>
-                                <p>
-                                    {trans ? `Избранные` : `Sevimlilar`}
-                                </p>
-                            </Link>
-                            <Link to='/compare' className={classes.link}>
-                                <img src={rate} alt="Taqqoslash" />
-                                <p>
-                                    {trans ? `Сравнение` : `Taqqoslash`}
-                                </p>
-                            </Link>
-                            <Link
-                                to='/basket'
-                                className={classes.link}
-                                onMouseEnter={() => {
-                                    setTimeout(() => {
-                                        handleOpen()
-                                    }, 200)
-                                }}
-                            >
-                                <img src={basket} alt="Savat" />
-                                <p>
-                                    {trans ? `Корзина` : `Xaridlar savati`}
-                                </p>
-                            </Link>
-                            <Basket />
+                <Grid className={classes.secondary_box}>
+                    <section class={classes.function_box}>
+                        <Search />
+                        <div className={classes.functions}>
+                            <div className={classes.function_items}>
+                                <Link to='/login' className={classes.link}>
+                                    <img src={person} alt="kolodka kirish" />
+                                    <p>
+                                        {trans ? `Войти` : `Kirish`}
+                                    </p>
+                                </Link>
+                                <Link to='/favorite' className={classes.link}>
+                                    <Badge color="primary" >
+                                        <img src={like} alt="tanlanganlar" />
+                                    </Badge>
+                                    <p>
+                                        {trans ? `Избранные` : `Sevimlilar`}
+                                    </p>
+                                </Link>
+                                <Link to='/compare' className={classes.link}>
+                                    <img src={rate} alt="Taqqoslash" />
+                                    <p>
+                                        {trans ? `Сравнение` : `Taqqoslash`}
+                                    </p>
+                                </Link>
+                                <Link
+                                    to='/basket'
+                                    className={classes.link}
+                                    onMouseEnter={() => {
+                                        setTimeout(() => {
+                                            handleOpen()
+                                        }, 200)
+                                    }}
+                                >
+                                    <img src={basket} alt="Savat" />
+                                    <p>
+                                        {trans ? `Корзина` : `Xaridlar savati`}
+                                    </p>
+                                </Link>
+                                <Basket />
+                            </div>
                         </div>
-                    </div>
-                </section>
+                    </section>
+                </Grid>
             </Grid>
         </div>
     )

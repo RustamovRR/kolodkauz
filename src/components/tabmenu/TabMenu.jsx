@@ -45,7 +45,7 @@ export default function TabMenu() {
 
     return (
         <div className={classes.root}>
-            <div className={classes.demo1}>
+            <div className={classes.container}>
                 <AntTabs value={value} onChange={handleChange} aria-label="ant example">
                     {
                         (trans ? linksRu : linksUz).map(item => (

@@ -26,11 +26,11 @@ export default function HomePage() {
     return (
         <div className={classes.home_root}>
 
-            <Grid className={classes.container}>
-                <section className={classes.tabs_box}>
-                    <TabMenu />
-                </section>
+            <section className={classes.tabs_box}>
+                <TabMenu />
+            </section>
 
+            <Grid className={classes.container}>
                 <section className={classes.carousel_box}>
                     <Carousel />
                 </section>

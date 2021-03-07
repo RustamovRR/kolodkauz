@@ -6,15 +6,16 @@ export const useTabListStyles = makeStyles({
     container: {
         margin: 'auto',
         margin: '0 30px ',
-        marginTop: 5
+        marginTop: 5,
     },
     tabPanel: {
-        width: '96%',
+        maxWidth: 1440,
         height: 500,
         zIndex: 1000,
         margin: 'auto',
         position: "absolute",
-        backgroundColor: clr.primaryWhite
+        backgroundColor: clr.primaryWhite,
+        backgroundColor: 'red',
     },
 
     hidden: {

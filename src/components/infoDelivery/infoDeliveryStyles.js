@@ -10,6 +10,13 @@ export const useInfoDeliveryStyles = makeStyles({
         }
     },
 
+    header: {
+        margin: '24px 0',
+        fontSize: 32,
+        fontWeight: 'bold',
+        color: clr.dark900
+    },
+
     text_box: {
         marginTop: 32,
         '& > h4': {

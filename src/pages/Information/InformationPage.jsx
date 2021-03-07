@@ -2,7 +2,6 @@ import React from 'react'
 import TabMenu from '../../components/tabmenu/TabMenu'
 import Info from '../../components/info/Info'
 import InfoSidebar from '../../components/infoSidebar/InfoSidebar'
-import { Divider } from '@material-ui/core'
 import { useInformationStyles } from './informationPageStyles'
 
 export default function InformationPage() {

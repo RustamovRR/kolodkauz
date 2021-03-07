@@ -10,7 +10,7 @@ export default function CheckboxComp({ label }) {
                 style={{ width: '120%', color: clr.dark900 }}
                 label={label}
                 control={
-                    <Checkbox name="checked" disableTouchRipple />
+                    <Checkbox name="checked" disableTouchRipple color="primary" />
                 }
             />
         </div>

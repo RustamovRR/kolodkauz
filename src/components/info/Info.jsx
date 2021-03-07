@@ -1,14 +1,15 @@
-import { Divider } from '@material-ui/core'
 import React, { useContext } from 'react'
-import { TranslateContext } from '../../contexts/TranslateContext'
 import BreadCrumbs from '../breadCrumbs/BreadCrumbs'
+import { TranslateContext } from '../../contexts/TranslateContext'
 
 import { useInfoStyles } from './infoStyles'
+import InfoDelivery from '../infoDelivery/InfoDelivery'
+import InfoService from '../infoService/InfoService'
 
 export default function Info() {
     const classes = useInfoStyles()
     const { trans, setTrans } = useContext(TranslateContext)
-
+    const title = ""
     return (
         <div className={classes.info_root}>
             <BreadCrumbs
@@ -30,7 +31,11 @@ export default function Info() {
                     },
                 ]}
             />
-            <h1 className={classes.header}>Автосервис - Услуги</h1>
+            <div className={classes.container}>
+                {/* <InfoDelivery /> */}
+                {/* <CardService /> */}
+                <InfoService />
+            </div>
         </div>
     )
 }

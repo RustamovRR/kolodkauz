@@ -6,7 +6,7 @@ export default function InfoDelivery() {
 
     return (
         <div className={classes.delivery_root}>
-            <h1>Информация о доставке</h1>
+            <h1 className={classes.header}>Информация о доставке</h1>
 
             <section className={classes.text_box}>
                 <h4 className={classes.title}>

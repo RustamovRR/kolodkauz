@@ -3,11 +3,11 @@ import { clr } from "../../Globals/colors";
 
 
 export const useInfoServiceStyles = makeStyles({
-    delivery_root: {
-        '& > h1': {
-            fontSize: 32,
-            fontWeight: 700
-        }
+    header: {
+        margin: '24px 0',
+        fontSize: 32,
+        fontWeight: 'bold',
+        color: clr.dark900
     },
 
     text_box: {
@@ -37,6 +37,16 @@ export const useInfoServiceStyles = makeStyles({
             fontSize: 18,
             fontWeight: 500,
             marginTop: 25
+        }
+    },
+
+    card_box: {
+        display: 'flex',
+        flexFlow: 'row wrap',
+        justifyContent: 'space-between',
+        '& > *': {
+            marginTop: 24,
+            flex: '0 1 calc(100% * 1/2 - 12px)'
         }
     }
 });

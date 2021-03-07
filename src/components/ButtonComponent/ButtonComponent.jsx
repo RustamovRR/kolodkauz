@@ -1,6 +1,6 @@
+import React from 'react'
 import { Button } from '@material-ui/core'
 import { ArrowDownward } from '@material-ui/icons'
-import React from 'react'
 import { useButtonComponentStyles } from './buttonComponentStyles'
 
 export default function ButtonComponent({ title, outlined, withIcon, slim }) {

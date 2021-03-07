@@ -13,10 +13,6 @@ export const useHomePageStyles = makeStyles({
         margin: 'auto'
     },
 
-    tabs_box: {
-        // padding: paddingRoot
-    },
-
     carousel_box: {
         padding: paddingRoot,
         marginTop: 48

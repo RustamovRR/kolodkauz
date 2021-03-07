@@ -23,10 +23,10 @@ export const useBasketStyles = makeStyles({
     },
 
     link: {
-        color: clr.tab,
-        marginRight: 20,
+        color: clr.secondaryDarkBlue,
+        marginRight: 24,
         textDecoration: 'none',
-        borderBottom: `2px solid ${clr.tab}`,
+        borderBottom: `2px solid ${clr.secondaryDarkBlue}`,
     },
 
     list_item: {
@@ -43,7 +43,18 @@ export const useBasketStyles = makeStyles({
     },
 
     text: {
-        marginLeft: 16
+        marginLeft: 16,
+    },
+
+    text_primary: {
+        color: 'red',
+        fontWeight: "bold",
+        color: clr.dark900,
+    },
+
+    text_secondary: {
+        fontSize: 16,
+        color: clr.dark900
     },
 
     icon: {
@@ -55,13 +66,14 @@ export const useBasketStyles = makeStyles({
         display: 'flex',
         justifyContent: 'space-between',
         marginTop: 24,
+        color: clr.dark900,
         '& > h4': {
             fontSize: 16,
             fontWeight: 400,
         },
         '& > p': {
             fontSize: 20,
-            fontWeight: 500
+            fontWeight: 'bold'
         }
     },
 

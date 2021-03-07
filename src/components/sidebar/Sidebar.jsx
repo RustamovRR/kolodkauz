@@ -121,7 +121,7 @@ export default function Sidebar() {
                             <FormControlLabel
                                 value={item.title}
                                 control={
-                                    <Radio />
+                                    <Radio color="primary" />
                                 }
                                 label={item.title}
                             />

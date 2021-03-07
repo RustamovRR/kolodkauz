@@ -1,24 +1,18 @@
 import React, { useContext } from 'react'
+import {
+    Button, Dialog, Divider, IconButton, List, ListItem, ListItemAvatar, ListItemSecondaryAction, ListItemText
+} from '@material-ui/core'
+import { Close } from '@material-ui/icons'
+import ButtonComponent from '../ButtonComponent/ButtonComponent'
 import { BasketContext } from '../../contexts/BasketContext'
 import { TranslateContext } from '../../contexts/TranslateContext'
-import {
-    Button,
-    Dialog,
-    Divider,
-    IconButton,
-    List,
-    ListItem,
-    ListItemAvatar,
-    ListItemSecondaryAction,
-    ListItemText
-} from '@material-ui/core'
+
 import { useBasketStyles } from './basketStyles'
 import { Link } from 'react-router-dom'
 import close from '../../images/icons/close.png'
 import sidina from '../../images/products/Rectangle 14.png'
 import rol from '../../images/products/rol.png'
 import bolgarka from '../../images/products/bolgarka.png'
-import { Close } from '@material-ui/icons'
 
 export default function Basket() {
     const classes = useBasketStyles()
@@ -100,13 +94,9 @@ export default function Basket() {
                     <p>{`21,678,400 ${sum}`}</p>
                 </section>
 
-                <Button
-                    disableElevation
-                    variant="contained"
-                    className={classes.button}
-                >
-                    {trans ? `Войти` : `Kirish`}
-                </Button>
+                <div className={classes.button}>
+                    <ButtonComponent title={trans ? `Войти` : `Kirish`} />
+                </div>
             </Dialog>
         </div>
     )

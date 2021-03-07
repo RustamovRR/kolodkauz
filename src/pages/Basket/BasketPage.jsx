@@ -53,9 +53,9 @@ export default function BasketPage() {
                     <BasketList />
                 </div>
 
-                <div className={classes.modal_box}>
+                {/* <div className={classes.modal_box}>
                     <BasketPay />
-                </div>
+                </div> */}
             </section>
 
             <section className={classes.billing_box}>
@@ -71,7 +71,7 @@ export default function BasketPage() {
                 </p>
                 <section className={classes.input_box}>
                     {
-                        trans ? labelsRu : labelsUz.map((label, index) => (
+                        (trans ? labelsRu : labelsUz).map((label, index) => (
                             <div className={classes.input_label} key={label}>
                                 <label htmlFor={label}>{label}</label>
                                 <div className={classes.input}>

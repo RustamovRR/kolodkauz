@@ -4,6 +4,12 @@ import { clr } from '../../Globals/colors'
 const paddingRoot = '0 30px'
 
 export const useFavoriteStyles = makeStyles({
+    tabs_box: {
+        position: 'sticky',
+        top: 0,
+        zIndex: 100,
+        backgroundColor: clr.primaryWhite
+    },
 
     navigation: {
         fontSize: 14,

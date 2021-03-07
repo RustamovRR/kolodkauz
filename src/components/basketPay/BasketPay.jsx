@@ -11,7 +11,7 @@ export default function BasketPay() {
     const { trans, sum } = useContext(TranslateContext)
 
     return (
-        <Paper className={classes.paper} elevation={2}>
+        <Paper className={classes.paper} elevation={2} >
             <section className={classes.product}>
                 <p>
                     {trans ? `Товары` : `Tovarlar`}

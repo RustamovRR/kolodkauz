@@ -5,7 +5,8 @@ const paddingRoot = '0 30px'
 
 export const useBasketPayStyles = makeStyles({
     paper: {
-        width: 345,
+        width: '100%',
+        overflow: 'hidden',
         height: 332,
         padding: 24,
     },

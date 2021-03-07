@@ -4,6 +4,12 @@ import { clr } from "../../Globals/colors";
 const paddingRoot = '0 30px'
 
 export const useBasketPageStyles = makeStyles({
+    tabs_box: {
+        position: 'sticky',
+        top: 0,
+        zIndex: 100,
+        backgroundColor: clr.primaryWhite
+    },
 
     navigation: {
         fontSize: 14,
@@ -27,9 +33,8 @@ export const useBasketPageStyles = makeStyles({
     },
 
     left_box: {
-        width: '100%',
+        width: '67%',
         paddingTop: 48,
-        marginRight: 60,
         paddingBottom: 100,
         color: clr.primary,
         '& > h1': {
@@ -40,12 +45,13 @@ export const useBasketPageStyles = makeStyles({
     },
 
     modal_box: {
+        width: '28%',
         marginTop: 96
     },
 
     billing_box: {
         padding: paddingRoot,
-        color: clr.primary,
+        color: clr.primaryDarkBlue,
         '& h1': {
             fontSize: 40,
             fontWeight: 700
@@ -54,28 +60,26 @@ export const useBasketPageStyles = makeStyles({
             fontSize: 14,
             marginTop: 16,
             fontWeight: 400,
-            color: clr.productPrimary
+            color: clr.dark700
         }
     },
 
     input_box: {
         display: 'flex',
-        flexWrap: 'wrap',
+        flexFlow: 'row wrap',
         justifyContent: 'space-between'
     },
 
     input_label: {
-        marginTop: 24
+        marginTop: 24,
+        color: clr.dark700
     },
 
     input: {
         marginTop: 8,
-        '& *': {
-            width: '46vw'
-        }
-    },
-
-    footer_box: {
-        marginTop: 196
+        width: '46vw',
+        flex: '0 1 calc(100% * 1/2)',
+        // '& > *': {
+        // }
     }
 });

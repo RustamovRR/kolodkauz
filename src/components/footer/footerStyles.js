@@ -5,6 +5,7 @@ export const useFooterStyles = makeStyles({
     footer_root: {
         width: '100%',
         height: 570,
+        marginTop: 120,
         backgroundColor: clr.primaryDarkBlue,
         color: clr.primaryWhite
     },

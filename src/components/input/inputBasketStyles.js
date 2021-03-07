@@ -10,7 +10,7 @@ export const useInputBasketStyles = makeStyles({
     },
 
     textfield: {
-        width: 472,
+        width: '100%',
         height: 48,
         '& .MuiOutlinedInput-root': {
             borderRadius: 0,

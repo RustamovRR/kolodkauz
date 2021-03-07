@@ -1,4 +1,5 @@
 export const clr = {
+    blue100: `rgba(237, 243, 252, 1)`,
     primaryBlue: `rgba(58, 78, 133, 1)`,
     primaryDarkBlue: `rgba(2, 23, 78, 1)`,
     secondaryDarkBlue: `rgba(18, 115, 235, 1)`,

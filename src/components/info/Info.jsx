@@ -5,6 +5,7 @@ import { TranslateContext } from '../../contexts/TranslateContext'
 import { useInfoStyles } from './infoStyles'
 import InfoMaster from './infoMaster/infoMaster'
 import InfoService from './infoService/InfoService'
+import InfoDelivery from './infoDelivery/InfoDelivery'
 
 export default function Info({
     howToOrder,
@@ -19,7 +20,7 @@ export default function Info({
     const { trans, setTrans } = useContext(TranslateContext)
     let component
     if (howToOrder) {
-        component = <InfoService />
+        component = <InfoDelivery />
     }
     else if (delivery) {
         component = <InfoMaster />

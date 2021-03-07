@@ -1,13 +1,12 @@
 import React, { useContext } from 'react'
-import Header from '../../components/header/Header'
-import Footer from '../../components/footer/Footer'
-import { useBasketPageStyles } from './basketPageStyles'
 import TabMenu from '../../components/tabmenu/TabMenu'
-import BasketList from '../../components/basketList/BasketList'
-import BasketPay from '../../components/basketPay/BasketPay'
+import BasketList from '../../components/Basket/basketList/BasketList'
+import BasketPay from '../../components/Basket/basketPay/BasketPay'
 import InputBasket from '../../components/input/InputBasket'
 import { TranslateContext } from '../../contexts/TranslateContext'
 import BreadCrumbs from '../../components/breadCrumbs/BreadCrumbs'
+
+import { useBasketPageStyles } from './basketPageStyles'
 
 export default function BasketPage() {
     const classes = useBasketPageStyles()
@@ -53,9 +52,9 @@ export default function BasketPage() {
                     <BasketList />
                 </div>
 
-                {/* <div className={classes.modal_box}>
+                <div className={classes.modal_box}>
                     <BasketPay />
-                </div> */}
+                </div>
             </section>
 
             <section className={classes.billing_box}>

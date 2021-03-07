@@ -5,7 +5,7 @@ import { TranslateContext } from '../../contexts/TranslateContext'
 import Header from '../../components/header/Header'
 import RatingComp from '../../components/rating/RatingComp'
 import Checkbox from '../../components/checkBox/Checkbox'
-import ProductBrand from '../../components/productBrand/ProductBrand'
+import ProductBrand from '../../components/Product/productBrand/ProductBrand'
 import ButtonComponent from '../../components/ButtonComponent/ButtonComponent'
 
 import { useFastDeliveryStyles } from './fastDeliveryStyles'

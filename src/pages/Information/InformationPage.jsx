@@ -1,7 +1,7 @@
 import React from 'react'
 import TabMenu from '../../components/tabmenu/TabMenu'
-import Info from '../../components/info/Info'
-import InfoSidebar from '../../components/infoSidebar/InfoSidebar'
+import Info from '../../components/Info/Info'
+import InfoSidebar from '../../components/Info/infoSidebar/InfoSidebar'
 import { useInformationStyles } from './informationPageStyles'
 
 export default function InformationPage({

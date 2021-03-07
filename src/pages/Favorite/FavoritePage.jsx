@@ -1,10 +1,6 @@
 import React, { useContext } from 'react'
-import { Typography } from '@material-ui/core'
-import { Link } from 'react-router-dom'
-import Header from '../../components/header/Header'
 import TabMenu from '../../components/tabmenu/TabMenu'
-import Product from '../../components/product/Product'
-import Footer from '../../components/footer/Footer'
+import Product from '../../components/Product/Product'
 import { TranslateContext } from '../../contexts/TranslateContext'
 
 import { useFavoriteStyles } from './FavoriteStyles'

@@ -11,7 +11,7 @@ import basket from '../../images/icons/basket.svg'
 import { Badge, Grid } from '@material-ui/core'
 import { BasketContext } from '../../contexts/BasketContext'
 import { TranslateContext } from '../../contexts/TranslateContext'
-import Basket from '../basket/Basket'
+import Basket from '../Basket/basketModal/BasketModal'
 
 export default function Header() {
     const classes = useHeaderStyles()

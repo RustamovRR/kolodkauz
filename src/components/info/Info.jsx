@@ -3,9 +3,8 @@ import BreadCrumbs from '../breadCrumbs/BreadCrumbs'
 import { TranslateContext } from '../../contexts/TranslateContext'
 
 import { useInfoStyles } from './infoStyles'
-import InfoDelivery from '../infoDelivery/InfoDelivery'
-import InfoService from '../infoService/InfoService'
-import InfoSidebar from '../infoSidebar/InfoSidebar'
+import InfoMaster from './infoMaster/infoMaster'
+import InfoService from './infoService/InfoService'
 
 export default function Info({
     howToOrder,
@@ -23,25 +22,25 @@ export default function Info({
         component = <InfoService />
     }
     else if (delivery) {
-        component = <InfoDelivery />
+        component = <InfoMaster />
     }
     else if (deliveryToApartment) {
         component = <InfoService />
     }
     else if (methodOfService) {
-        component = <InfoDelivery />
+        component = <InfoMaster />
     }
     else if (guaranty) {
         component = <InfoService />
     }
     else if (returnAndExchange) {
-        component = <InfoDelivery />
+        component = <InfoMaster />
     }
     else if (termsOfUse) {
         component = <InfoService />
     }
     else {
-        component = <InfoDelivery />
+        component = <InfoMaster />
     }
 
     return (

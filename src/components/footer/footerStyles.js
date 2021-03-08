@@ -85,6 +85,10 @@ export const useFooterStyles = makeStyles({
         display: 'block',
         textDecoration: 'none',
         color: clr.white200,
+        transition: '0.3s',
+        '&:hover': {
+            color: clr.primaryWhite
+        }
     },
 
     divider: {

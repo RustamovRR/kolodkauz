@@ -1,4 +1,4 @@
-import { Divider } from '@material-ui/core'
+import { Divider, Grid } from '@material-ui/core'
 import React, { useContext, } from 'react'
 import { Link } from 'react-router-dom'
 import Header from '../../components/header/Header'
@@ -32,70 +32,72 @@ export default function ProductsPage({ medium, small }) {
                 <TabMenu />
             </section>
 
-            <section className={classes.title_box}>
-                <BreadCrumbs
-                    items={[
-                        {
-                            link: `/`,
-                            titleRu: `Главная`,
-                            titleUz: `Asosiy`
-                        },
-                        {
-                            link: `/`,
-                            titleRu: `Автотовары`,
-                            titleUz: `Avtovarlar`
-                        },
-                        {
-                            link: `/`,
-                            titleRu: `Шины и Диски`,
-                            titleUz: `Shinalar va disklar`
-                        }
-                    ]}
-                />
+            <Grid className={classes.container}>
+                <section className={classes.title_box}>
+                    <BreadCrumbs
+                        items={[
+                            {
+                                link: `/`,
+                                titleRu: `Главная`,
+                                titleUz: `Asosiy`
+                            },
+                            {
+                                link: `/`,
+                                titleRu: `Автотовары`,
+                                titleUz: `Avtovarlar`
+                            },
+                            {
+                                link: `/`,
+                                titleRu: `Шины и Диски`,
+                                titleUz: `Shinalar va disklar`
+                            }
+                        ]}
+                    />
 
-                <h1>
-                    {trans ? `Шины и Диски` : `Shinalar va disklar`}
-                </h1>
-            </section>
+                    <h1>
+                        {trans ? `Шины и Диски` : `Shinalar va disklar`}
+                    </h1>
+                </section>
 
-            <section className={classes.products_box} >
-                <div className={classes.sidebar}>
-                    <Sidebar />
-                </div>
-
-                <div className={classes.sort}>
-                    <div className={classes.sort_navigation}>
-                        <SortNavigation />
+                <section className={classes.products_box} >
+                    <div className={classes.sidebar}>
+                        <Sidebar />
                     </div>
-                    <div className={classes.product_box}>
-                        {
-                            arrays.map((item, index) => {
-                                if (medium) {
-                                    return (
-                                        <div className={classes.product_medium}>
-                                            <ProductMedium index={index} />
-                                        </div>
-                                    )
-                                }
-                                else if (small) {
-                                    return (
-                                        <div className={classes.product_small}>
-                                            <ProductSmall index={index} />
-                                        </div>
-                                    )
-                                }
-                                else {
-                                    return (
-                                        <div className={classes.product}>
-                                            <Product favorite index={index} />
-                                        </div>
-                                    )
-                                }
-                            })
-                        }
+
+                    <div className={classes.sort}>
+                        <div className={classes.sort_navigation}>
+                            <SortNavigation />
+                        </div>
+                        <div className={classes.product_box}>
+                            {
+                                arrays.map((item, index) => {
+                                    if (medium) {
+                                        return (
+                                            <div className={classes.product_medium}>
+                                                <ProductMedium index={index} />
+                                            </div>
+                                        )
+                                    }
+                                    else if (small) {
+                                        return (
+                                            <div className={classes.product_small}>
+                                                <ProductSmall index={index} />
+                                            </div>
+                                        )
+                                    }
+                                    else {
+                                        return (
+                                            <div className={classes.product}>
+                                                <Product favorite index={index} />
+                                            </div>
+                                        )
+                                    }
+                                })
+                            }
+                        </div>
                     </div>
-                </div>
-            </section>
+                </section>
+            </Grid>
         </div>
     )
 }

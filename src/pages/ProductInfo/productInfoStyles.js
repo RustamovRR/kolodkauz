@@ -6,6 +6,8 @@ const paddingRoot = '0 30px'
 export const useProductInfoPageStyles = makeStyles({
     root: {
         width: '100%',
+        maxWidth: 1440,
+        margin: 'auto',
         padding: paddingRoot,
         color: clr.dark900
     },

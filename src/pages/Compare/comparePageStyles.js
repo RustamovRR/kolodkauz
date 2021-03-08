@@ -4,13 +4,18 @@ import { clr } from '../../Globals/colors'
 const paddingRoot = '0 30px'
 
 export const useComparePageStyles = makeStyles({
+    container: {
+        maxWidth: 1440,
+        margin: 'auto'
+    },
+
     tabs_box: {
         position: 'sticky',
         top: 0,
         zIndex: 100,
         backgroundColor: clr.primaryWhite
     },
-    
+
     compare_box: {
         padding: paddingRoot,
         paddingTop: 48,

@@ -4,6 +4,11 @@ import { clr } from '../../Globals/colors'
 const paddingRoot = '0 30px'
 
 export const useFavoriteStyles = makeStyles({
+    container: {
+        maxWidth: 1440,
+        margin: 'auto'
+    },
+
     tabs_box: {
         position: 'sticky',
         top: 0,

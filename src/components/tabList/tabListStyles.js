@@ -14,8 +14,7 @@ export const useTabListStyles = makeStyles({
         zIndex: 1000,
         margin: 'auto',
         position: "absolute",
-        backgroundColor: clr.primaryWhite,
-        backgroundColor: 'red',
+        backgroundColor: clr.primaryWhite
     },
 
     hidden: {

@@ -4,6 +4,11 @@ import { clr } from '../../Globals/colors'
 const paddingRoot = '0 30px'
 
 export const useFastDeliveryStyles = makeStyles({
+    root: {
+        maxWidth: 1440,
+        margin: 'auto'
+    },
+
     card_box: {
         padding: 32,
         width: '60%',

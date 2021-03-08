@@ -9,6 +9,11 @@ export const useProductPageStyles = makeStyles({
         // padding: paddingRoot
     },
 
+    container: {
+        maxWidth: 1440,
+        margin: 'auto'
+    },
+
     title_box: {
         padding: paddingRoot,
         paddingTop: 48,
@@ -18,7 +23,7 @@ export const useProductPageStyles = makeStyles({
             color: clr.gray1
         }
     },
-    
+
     products_box: {
         display: 'flex',
         padding: paddingRoot,

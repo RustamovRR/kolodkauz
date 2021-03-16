@@ -4,22 +4,33 @@ import { clr } from '../../Globals/colors'
 const paddingRoot = '0 30px'
 
 export const useLoginStyles = makeStyles({
+    root: {
+        maxWidth: 1440,
+        margin: 'auto'
+    },
+
     card_box: {
-        margin: 'auto',
         width: 516,
         height: 588,
         padding: 48,
-        border: '1px solid black',
+        margin: 'auto',
         color: clr.primary,
         '& h1': {
             fontSize: 32
         }
     },
 
-    input: {
-        backgroundColor: 'red',
-        '&  *': {
-            width: '10%',
+    input_box: {
+        marginTop: 24
+    },
+
+    link: {
+        marginTop: 48,
+        textAlign: 'center',
+        '& a': {
+            fontSize: 16,
+            color: clr.text1,
+            fontWeight: 'bold',
         }
     }
 })

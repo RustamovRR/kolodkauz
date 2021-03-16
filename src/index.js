@@ -1,13 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { BrowserRouter } from "react-router-dom";
 
 import BasketProvider from "./contexts/BasketContext";
 import TabListProvider from "./contexts/TabListContext";
 import TranslateProvider from "./contexts/TranslateContext";
-
+import CountProvider from "./contexts/CountContext";
 import App from "./App";
+
 import "./index.css";
-import { BrowserRouter } from "react-router-dom";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -15,9 +16,11 @@ ReactDOM.render(
       <TranslateProvider>
         <BasketProvider>
           <TabListProvider>
+            <CountProvider >
 
-            <App />
+              <App />
 
+            </CountProvider>
           </TabListProvider>
         </BasketProvider>
       </TranslateProvider>

@@ -114,7 +114,7 @@ export default function Sidebar() {
                 <h4>
                     {trans ? `Скидка` : `Chegirma`}
                 </h4>
-                {/* <FormControl component="fieldset"> */}
+
                 <RadioGroup value={radio} onChange={radioChange}>
                     {
                         (trans ? radiosRu : radiosUz).map((item) => (
@@ -128,7 +128,6 @@ export default function Sidebar() {
                         ))
                     }
                 </RadioGroup>
-                {/* </FormControl> */}
             </section>
         </div >
     )

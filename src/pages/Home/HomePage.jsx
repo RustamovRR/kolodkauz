@@ -22,7 +22,6 @@ export default function HomePage() {
     const classes = useHomePageStyles()
     const { trans, setTrans } = useContext(TranslateContext)
 
-
     return (
         <div className={classes.home_root}>
 

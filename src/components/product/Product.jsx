@@ -7,11 +7,16 @@ import CheckBoxComp from '../checkBox/Checkbox'
 import { useProductStyles } from "./productStyles";
 import image1 from "../../images/products/bagaj.png";
 import favoriteImg from '../../images/icons/favorite_product.svg'
+import favoriteIcon from '../../images/icons/favorite.svg'
 
 export default function Product({ favorite, compare }) {
     const classes = useProductStyles();
-    const [showIcon, setShowIcon] = useState(true)
+    const [showFavorite, setShowFavorite] = useState(false)
     const { trans, sum } = useContext(TranslateContext)
+
+    const handleClick = () => {
+        setShowFavorite(!showFavorite)
+    }
 
     return (
         <div className={classes.product_root}>
@@ -35,24 +40,23 @@ export default function Product({ favorite, compare }) {
                     </div>
                     <div>
                         {
-                            compare
-                                ? <div className={classes.checkbox}>
-                                    <CheckBoxComp />
-                                </div>
-                                : null
+                            compare && <div className={classes.checkbox}>
+                                <CheckBoxComp />
+                            </div>
                         }
                     </div>
                 </div>
             </section>
 
             {
-                favorite
-                    ? <section className={classes.icon_box}>
-                        <IconButton size="small">
-                            <img src={favoriteImg} alt="" />
-                        </IconButton>
-                    </section>
-                    : ""
+                favorite && <section className={classes.icon_box} >
+                    <IconButton size="small" onClick={handleClick}>
+                        {showFavorite
+                            ? <img src={favoriteIcon} alt="" />
+                            : <img src={favoriteImg} alt="" />
+                        }
+                    </IconButton>
+                </section>
             }
 
         </div>

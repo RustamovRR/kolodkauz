@@ -35,23 +35,5 @@ export const useCarouselStyles = makeStyles({
         height: 48,
         top: '45%',
         cursor: 'pointer'
-    },
-
-    content: {
-        position: 'absolute',
-        width: 548,
-        height: 74,
-        left: '30%',
-        bottom: '25%',
-        display: 'flex',
-        borderRadius: 0,
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: clr.primaryWhite,
-        '& > h1': {
-            fontSize: 54,
-            fontWeight: 'bold',
-
-        }
     }
 });

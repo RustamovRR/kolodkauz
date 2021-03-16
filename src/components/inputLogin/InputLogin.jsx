@@ -3,7 +3,7 @@ import { MenuItem, TextField } from '@material-ui/core'
 
 import { useInputLoginStyles } from './inputLoginStyles'
 
-export default function InputLogin({ id, selected, index }) {
+export default function InputLogin({ id }) {
     const classes = useInputLoginStyles()
     const menu = [
         `Контактный телефон`, `Ф.И.О`, `Область`, `Город / Район`, `Адрес`, `Индекс`
@@ -12,7 +12,6 @@ export default function InputLogin({ id, selected, index }) {
     return (
         <TextField
             id={id}
-            select={(index == 2 || index == 3) ? true : false}
             variant="outlined"
             className={classes.textfield}
         >

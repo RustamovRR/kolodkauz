@@ -38,6 +38,7 @@ export default function Carousel() {
 
     return (
         <div className={classes.carousel_root}>
+
             <SwipeableViews
                 index={activeStep}
             >
@@ -63,7 +64,6 @@ export default function Carousel() {
             </section>
 
             <section className={classes.content}>
-                <h1>ГОНКА БЕЗ ФИНИША</h1>
             </section>
         </div>
     )

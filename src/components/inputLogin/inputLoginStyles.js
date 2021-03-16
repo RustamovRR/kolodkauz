@@ -5,13 +5,14 @@ const paddingRoot = '0 30px'
 
 export const useInputLoginStyles = makeStyles({
     fieldset: {
-        backgroundColor: "red",
-        color: 'green'
+        color: 'green',
     },
 
     textfield: {
         width: 422,
         height: 48,
+        marginTop: 8,
+        color: 'red',
         '& .MuiOutlinedInput-root': {
             borderRadius: 0,
             '& fieldset': {

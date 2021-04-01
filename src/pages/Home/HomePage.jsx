@@ -1,6 +1,8 @@
 import React, { useContext } from 'react'
 import { Grid } from '@material-ui/core'
 import { Link } from 'react-router-dom'
+import useAPIQuery from '../../hooks/queries/useAPIQuery'
+
 import Header from '../../components/header/Header'
 import TabMenu from '../../components/tabmenu/TabMenu'
 import Carousel from '../../components/carousel/Carousel'
@@ -10,10 +12,10 @@ import Product from '../../components/Product/Product'
 import ProductBrand from '../../components/Product/productBrand/ProductBrand'
 import Footer from '../../components/footer/Footer'
 import Ads from '../../components/ads/Ads'
-
 import downArrow from '../../assets/images/icons/down-arrow.png'
 import { useHomePageStyles } from './homePageStyles.js'
 import './homePageStyles.js'
+
 
 const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 const array2 = [...array, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
@@ -21,6 +23,9 @@ const array2 = [...array, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 export default function HomePage() {
     const classes = useHomePageStyles()
     const { trans, setTrans } = useContext(TranslateContext)
+
+    const query = useAPIQuery(`/api/products`)
+    console.log(query)
 
     return (
         <div className={classes.home_root}>

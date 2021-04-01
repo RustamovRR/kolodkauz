@@ -1,7 +1,9 @@
 import { Suspense } from "react";
-import { BrowserRouter, Route } from "react-router-dom";
+import { Route } from "react-router-dom";
+import { QueryClientProvider } from 'react-query'
 import Layout from "./components/Layout/Layout";
 import routes from "./routes";
+import { queryClient } from './services/api'
 
 import "./App.css";
 
@@ -9,15 +11,17 @@ function App() {
   return (
     <div className="App" >
       <Suspense fallback="loading...">
-        <Layout>
-          {
-            routes.map(({ path, exact, component }, key) => (
-              <Route {...{ key, exact, path, component }} />
-            ))
-          }
-        </Layout>
+        <QueryClientProvider client={queryClient}>
+          <Layout>
+            {
+              routes.map(({ path, exact, component }, key) => (
+                <Route {...{ key, exact, path, component }} />
+              ))
+            }
+          </Layout>
+        </QueryClientProvider>
       </Suspense>
-    </div>
+    </div >
   );
 }
 

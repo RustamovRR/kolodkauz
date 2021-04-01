@@ -9,12 +9,12 @@ import ButtonComponent from '../../components/ButtonComponent/ButtonComponent'
 import { useProductInfoPageStyles } from './productInfoStyles'
 import SImilarProduct from '../../components/Product/similarProduct/SImilarProduct'
 
-import { clr } from '../../Globals/colors'
-import productImg from '../../images/products/oil.png'
-import leftArrow from '../../images/icons/left-arrow.png'
-import heartImg from '../../images/icons/heart_black.png'
-import rateImg from '../../images/icons/rate_black.png'
-import castrolImg from '../../images/icons/castrol.png'
+import { clr } from '../../constants/colors'
+import productImg from '../../assets/images/products/oil.png'
+import leftArrow from '../../assets/images/icons/left-arrow.png'
+import heartImg from '../../assets/images/icons/heart_black.png'
+import rateImg from '../../assets/images/icons/rate_black.png'
+import castrolImg from '../../assets/images/icons/castrol.png'
 import { TranslateContext } from '../../contexts/TranslateContext'
 
 export default function ProductInfoPage() {

@@ -2,8 +2,8 @@ import React, { useContext, useState } from 'react'
 import { CountContext } from '../../contexts/CountContext'
 
 import { useQuantityStyles } from './quantityStyles'
-import minusImg from '../../images/icons/minus.svg'
-import plusImg from '../../images/icons/plus.svg'
+import minusImg from '../../assets/images/icons/minus.svg'
+import plusImg from '../../assets/images/icons/plus.svg'
 import { Add, Remove } from '@material-ui/icons'
 
 export default function Quantity() {

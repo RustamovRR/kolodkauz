@@ -1,6 +1,6 @@
 import React from 'react'
 import { useAdStyles } from './adStyles'
-import adsImg from '../../images/products/ads.png'
+import adsImg from '../../assets/images/products/ads.png'
 
 export default function Ads() {
     const classes = useAdStyles()

@@ -6,8 +6,8 @@ import { TranslateContext } from '../../contexts/TranslateContext'
 import 'swiper/swiper.min.css';
 
 import { useComparePageStyles } from './comparePageStyles'
-import leftArrow from '../../images/icons/compare_left.svg'
-import rightArrow from '../../images/icons/compare_right.svg'
+import leftArrow from '../../assets/images/icons/compare_left.svg'
+import rightArrow from '../../assets/images/icons/compare_right.svg'
 import BreadCrumbs from '../../components/breadCrumbs/BreadCrumbs'
 import { Grid } from '@material-ui/core';
 

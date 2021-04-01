@@ -2,8 +2,8 @@ import { Divider, Grid } from '@material-ui/core'
 import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { useFooterStyles } from './footerStyles'
-import clickImg from '../../images/icons/click.png'
-import paymeImg from '../../images/icons/payme.png'
+import clickImg from '../../assets/images/icons/click.png'
+import paymeImg from '../../assets/images/icons/payme.png'
 import { TranslateContext } from '../../contexts/TranslateContext'
 
 export default function Footer() {

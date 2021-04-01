@@ -1,11 +1,11 @@
 import React from 'react'
 
-import one from '../../../images/icons/one.svg'
-import two from '../../../images/icons/two.svg'
-import three from '../../../images/icons/three.svg'
-import four from '../../../images/icons/four.svg'
-import five from '../../../images/icons/five.svg'
-import six from '../../../images/icons/six.svg'
+import one from '../../../assets/images/icons/one.svg'
+import two from '../../../assets/images/icons/two.svg'
+import three from '../../../assets/images/icons/three.svg'
+import four from '../../../assets/images/icons/four.svg'
+import five from '../../../assets/images/icons/five.svg'
+import six from '../../../assets/images/icons/six.svg'
 import { useInfoDeliveryStyles } from './infoDeliveryStyles'
 
 export default function InfoDelivery() {

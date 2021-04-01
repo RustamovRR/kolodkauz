@@ -1,7 +1,7 @@
 import React from 'react'
 import { Checkbox, FormControlLabel } from '@material-ui/core'
-import checkIcon from '../../images/icons/check.png'
-import { clr } from '../../Globals/colors'
+import checkIcon from '../../assets/images/icons/check.png'
+import { clr } from '../../constants/colors'
 
 export default function CheckboxComp({ label }) {
     return (

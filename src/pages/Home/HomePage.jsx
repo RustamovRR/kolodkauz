@@ -11,7 +11,7 @@ import ProductBrand from '../../components/Product/productBrand/ProductBrand'
 import Footer from '../../components/footer/Footer'
 import Ads from '../../components/ads/Ads'
 
-import downArrow from '../../images/icons/down-arrow.png'
+import downArrow from '../../assets/images/icons/down-arrow.png'
 import { useHomePageStyles } from './homePageStyles.js'
 import './homePageStyles.js'
 

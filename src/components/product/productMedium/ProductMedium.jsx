@@ -5,9 +5,9 @@ import RatingComp from '../../../components/rating/RatingComp'
 import ButtonYellow from '../../buttonYellow/ButtonYellow';
 
 import { useProductMediumStyles } from './productMediumStyles'
-import image1 from "../../../images/products/Rectangle 14.png";
-import favoriteImg from '../../../images/icons/heart_outline.svg'
-import rateCard from '../../../images/icons/rate_grey.svg'
+import image1 from "../../../assets/images/products/Rectangle 14.png";
+import favoriteImg from '../../../assets/images/icons/heart_outline.svg'
+import rateCard from '../../../assets/images/icons/rate_grey.svg'
 
 export default function ProductMedium() {
     const classes = useProductMediumStyles()

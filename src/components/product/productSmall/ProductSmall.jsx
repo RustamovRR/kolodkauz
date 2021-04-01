@@ -6,9 +6,9 @@ import { TranslateContext } from '../../../contexts/TranslateContext';
 import ButtonYellow from '../../buttonYellow/ButtonYellow';
 
 import { useProductSmallStyles } from './productSmallStyles';
-import karcher from "../../../images/products/karcher.png";
-import favoriteImg from '../../../images/icons/heart_blue.svg'
-import rateImg from '../../../images/icons/rate_blue.svg'
+import karcher from "../../../assets/images/products/karcher.png";
+import favoriteImg from '../../../assets/images/icons/heart_blue.svg'
+import rateImg from '../../../assets/images/icons/rate_blue.svg'
 
 export default function ProductSmall() {
     const classes = useProductSmallStyles()

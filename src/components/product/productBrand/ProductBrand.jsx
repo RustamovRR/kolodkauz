@@ -1,5 +1,5 @@
 import React from 'react'
-import image from '../../../images/brands/castrol.png'
+import image from '../../../assets/images/brands/castrol.png'
 import { useProductBrandStyles } from './productBrandStyles'
 
 export default function ProductBrand() {

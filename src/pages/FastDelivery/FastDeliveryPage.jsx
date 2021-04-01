@@ -9,9 +9,9 @@ import ProductBrand from '../../components/Product/productBrand/ProductBrand'
 import ButtonComponent from '../../components/ButtonComponent/ButtonComponent'
 
 import { useFastDeliveryStyles } from './fastDeliveryStyles'
-import oilImg from '../../images/products/oil.png'
-import closeImg from '../../images/icons/close.png'
-import favoriteIcon from '../../images/icons/heart_outline.svg'
+import oilImg from '../../assets/images/products/oil.png'
+import closeImg from '../../assets/images/icons/close.png'
+import favoriteIcon from '../../assets/images/icons/heart_outline.svg'
 
 export default function FastDeliveryPage() {
     const classes = useFastDeliveryStyles()

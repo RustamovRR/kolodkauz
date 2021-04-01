@@ -1,5 +1,5 @@
 import { makeStyles, withStyles } from "@material-ui/core/styles";
-import { clr, text } from "../../../Globals/colors";
+import { clr, text } from "../../../constants/colors";
 
 const paddingRoot = '0 30px'
 

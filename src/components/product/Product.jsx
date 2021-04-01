@@ -5,9 +5,9 @@ import ButtonYellow from "../buttonYellow/ButtonYellow";
 import CheckBoxComp from '../checkBox/Checkbox'
 
 import { useProductStyles } from "./productStyles";
-import image1 from "../../images/products/bagaj.png";
-import favoriteImg from '../../images/icons/favorite_product.svg'
-import favoriteIcon from '../../images/icons/favorite.svg'
+import image1 from "../../assets/images/products/bagaj.png";
+import favoriteImg from '../../assets/images/icons/favorite_product.svg'
+import favoriteIcon from '../../assets/images/icons/favorite.svg'
 
 export default function Product({ favorite, compare }) {
     const classes = useProductStyles();

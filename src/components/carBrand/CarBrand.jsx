@@ -1,5 +1,5 @@
 import React from 'react'
-import image from '../../images/brands/chevrolet.png'
+import image from '../../assets/images/brands/chevrolet.png'
 import { useCarBrandStyles } from './carBrandStyles'
 
 export default function CarBrand() {

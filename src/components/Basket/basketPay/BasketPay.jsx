@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { Checkbox, Divider, Paper } from '@material-ui/core'
-import check from '../../../images/icons/check.png'
+import check from '../../../assets/images/icons/check.png'
 import { useBasketPayStyles } from './basketPayStyles'
 import ButtonComponent from '../../ButtonComponent/ButtonComponent'
 import { TranslateContext } from '../../../contexts/TranslateContext'

@@ -1,6 +1,6 @@
 import { Tab, Tabs } from "@material-ui/core";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
-import { clr } from "../../Globals/colors";
+import { clr } from "../../constants/colors";
 
 
 export const AntTabs = withStyles({

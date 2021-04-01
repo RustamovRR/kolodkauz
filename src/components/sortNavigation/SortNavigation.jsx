@@ -4,9 +4,9 @@ import { NavLink, useLocation } from 'react-router-dom'
 import { TranslateContext } from '../../contexts/TranslateContext'
 
 import { useSortNavigationStyles } from './sortNavigationStyles'
-import sortIcon1 from '../../images/icons/sort_icon1.svg'
-import sortIcon2 from '../../images/icons/sort_icon2.svg'
-import sortIcon3 from '../../images/icons/sort_icon3.svg'
+import sortIcon1 from '../../assets/images/icons/sort_icon1.svg'
+import sortIcon2 from '../../assets/images/icons/sort_icon2.svg'
+import sortIcon3 from '../../assets/images/icons/sort_icon3.svg'
 
 export default function SortNavigation() {
     const classes = useSortNavigationStyles()

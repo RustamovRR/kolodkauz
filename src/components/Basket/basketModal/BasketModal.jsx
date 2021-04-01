@@ -9,10 +9,10 @@ import { TranslateContext } from '../../../contexts/TranslateContext'
 
 import { useBasketModalStyles } from './basketModalStyles'
 import { Link } from 'react-router-dom'
-import close from '../../../images/icons/close.png'
-import sidina from '../../../images/products/Rectangle 14.png'
-import rol from '../../../images/products/rol.png'
-import bolgarka from '../../../images/products/bolgarka.png'
+import close from '../../../assets/images/icons/close.png'
+import sidina from '../../../assets/images/products/Rectangle 14.png'
+import rol from '../../../assets/images/products/rol.png'
+import bolgarka from '../../../assets/images/products/bolgarka.png'
 
 export default function Basket() {
     const classes = useBasketModalStyles()

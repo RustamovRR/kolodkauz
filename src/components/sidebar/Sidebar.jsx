@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react'
 import { FormControl, FormControlLabel, Radio, RadioGroup, Slider } from '@material-ui/core'
 import CheckboxComp from '../checkBox/Checkbox'
-import radioImg from '../../images/icons/radio.png'
+import radioImg from '../../assets/images/icons/radio.png'
 import { useSidebarStyles } from './sidebarStyles'
 import { TranslateContext } from '../../contexts/TranslateContext'
 

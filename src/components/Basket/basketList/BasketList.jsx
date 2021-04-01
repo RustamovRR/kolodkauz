@@ -15,7 +15,7 @@ import { Rating } from '@material-ui/lab'
 import Quantity from '../../quantity/Quantity'
 
 import { useBasketListStyles } from './basketListStyles'
-import sidina from '../../../images/products/Rectangle 14.png'
+import sidina from '../../../assets/images/products/Rectangle 14.png'
 import { TranslateContext } from '../../../contexts/TranslateContext'
 
 export default function BasketList() {

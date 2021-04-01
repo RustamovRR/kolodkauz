@@ -4,13 +4,13 @@ import SwipeableViews from 'react-swipeable-views';
 import { useCarouselStyles } from './carouselStyles'
 import { autoPlay } from 'react-swipeable-views-utils';
 
-import back1 from '../../images/brands/background.png'
-import back2 from '../../images/brands/back2.jpg'
-import back3 from '../../images/brands/back3.jpg'
-import back4 from '../../images/brands/back4.jpg'
-import back5 from '../../images/brands/back5.jpg'
-import leftArrow from '../../images/icons/left-arrow.png'
-import rightArrow from '../../images/icons/right-arrow.png'
+import back1 from '../../assets/images/brands/background.png'
+import back2 from '../../assets/images/brands/back2.jpg'
+import back3 from '../../assets/images/brands/back3.jpg'
+import back4 from '../../assets/images/brands/back4.jpg'
+import back5 from '../../assets/images/brands/back5.jpg'
+import leftArrow from '../../assets/images/icons/left-arrow.png'
+import rightArrow from '../../assets/images/icons/right-arrow.png'
 
 
 export default function Carousel() {

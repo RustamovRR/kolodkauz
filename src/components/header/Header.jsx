@@ -10,10 +10,10 @@ import { TranslateContext } from '../../contexts/TranslateContext'
 import { CountContext } from '../../contexts/CountContext'
 
 import { useHeaderStyles } from './headerStyles'
-import person from '../../images/icons/person.svg'
-import like from '../../images/icons/favorite.svg'
-import rate from '../../images/icons/rate.svg'
-import basket from '../../images/icons/basket.svg'
+import person from '../../assets/images/icons/person.svg'
+import like from '../../assets/images/icons/favorite.svg'
+import rate from '../../assets/images/icons/rate.svg'
+import basket from '../../assets/images/icons/basket.svg'
 
 export default function Header() {
     const classes = useHeaderStyles()

@@ -4,7 +4,7 @@ import InputBase from '@material-ui/core/InputBase';
 import IconButton from '@material-ui/core/IconButton';
 
 import { useSearchStyles } from './searchStyles';
-import searchImg from '../../images/icons/search.png'
+import searchImg from '../../assets/images/icons/search.png'
 import { TranslateContext } from '../../contexts/TranslateContext';
 import { Button } from '@material-ui/core';
 

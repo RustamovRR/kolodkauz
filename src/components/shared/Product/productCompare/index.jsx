@@ -1,13 +1,11 @@
 import React, { useContext } from 'react'
-import { Divider } from '@material-ui/core'
-import Product from '../Product'
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
-import {RatingComp} from '../../../shared'
+import { Product, RatingComp } from '../../../shared'
 
 import { useProductCompareStyles } from './productCompareStyles'
 import { TranslateContext } from '../../../../contexts';

@@ -43,13 +43,13 @@ export default function HomePage() {
                 <h1 className={classes.bestSeller_title}>
                     {trans ? `Хиты продаж` : `Eng ko'p sotilgan mahsulotlar`}
                 </h1>
-                <section className={classes.bestSeller_box}>
+                {/* <section className={classes.bestSeller_box}>
                     {
                         array.map(() => (
                             <Product />
                         ))
                     }
-                </section>
+                </section> */}
 
                 <section className={classes.ads_box}>
                     <Ads />
@@ -66,7 +66,7 @@ export default function HomePage() {
                     }
                 </section>
 
-                <div className={classes.bestSeller}>
+                {/* <div className={classes.bestSeller}>
                     <h1 className={classes.bestSeller_title}>
                         {trans ? `Популярные бренды` : `Mashhur brendlar`}
                     </h1>
@@ -93,7 +93,7 @@ export default function HomePage() {
                     <Product.ProductBrand />
                     <Product.ProductBrand />
                     <Product.ProductBrand />
-                </section>
+                </section> */}
             </Grid>
         </div >
     )

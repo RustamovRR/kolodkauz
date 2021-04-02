@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { IconButton } from '@material-ui/core'
 import { useProductMediumStyles } from './productMediumStyles'
 
-import { ButtonYellow, RatingComp } from '../../../shared';
+import { ButtonYellow, RatingComp } from '../..';
 import { TranslateContext } from '../../../../contexts';
 import { FavoriteGreyOutline, CompareDisableOutline } from '../../../../assets/images/icons'
 import image1 from "../../../../assets/images/products/Rectangle 14.png";

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { Badge, Grid, Hidden } from '@material-ui/core'
 import { useHeaderStyles } from './headerStyles'
 
-import { Currency, Language, Basket, Search } from '../index'
+import { Currency, Language, BasketModal, Search } from '../index'
 import { BasketContext, TranslateContext, CountContext } from "../../../contexts"
 import { LoginBlack, FavoriteBlack, CompareBlack, BasketBlack } from '../../../assets/images/icons'
 
@@ -82,7 +82,7 @@ export default function Header() {
                                     {trans ? `Корзина` : `Xaridlar savati`}
                                 </p>
                             </Link>
-                            <Basket.BasketModal />
+                            <BasketModal />
                         </div>
                     </div>
                 </section>

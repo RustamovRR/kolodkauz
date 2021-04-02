@@ -5,7 +5,7 @@ import { useComparePageStyles } from './comparePageStyles'
 import 'swiper/swiper.min.css';
 
 import { TranslateContext } from '../../../contexts'
-import { TabMenu, Product, BreadCrumbs } from '../../../components/shared'
+import { TabMenu, ProductCompare, BreadCrumbs } from '../../../components/shared'
 import { LeftGreyCircle, RightGreyCircle } from '../../../assets/images/icons'
 
 
@@ -56,7 +56,7 @@ export default function ComparePage() {
                             {
                                 [1, 2, 3, 4, 5, 6, 7, 8, 9].map((item, index) => (
                                     <SwiperSlide >
-                                        <Product.ProductCompare primary={index === 0 ? true : false} />
+                                        <ProductCompare primary={index === 0 ? true : false} />
                                     </SwiperSlide>
                                 ))
                             }

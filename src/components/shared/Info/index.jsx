@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { useInfoStyles } from './infoStyles'
 
 import { BreadCrumbs } from '../index'
-import { InfoMaster, InfoService, InfoDelivery } from './index'
+import { InfoDelivery, InfoMaster, InfoService } from '../../shared'
 import { TranslateContext } from '../../../contexts'
 
 export default function Info({

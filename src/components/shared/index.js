@@ -1,6 +1,3 @@
-export * as Basket from "./Basket";
-export * as Info from "./Info";
-export * as Product from "./Product";
 
 export { default as Ads } from "./ads";
 export { default as BreadCrumbs } from "./breadCrumbs";
@@ -26,3 +23,20 @@ export { default as Sidebar } from "./sidebar";
 export { default as SortNavigation } from "./sortNavigation";
 export { default as TabList } from "./tabList";
 export { default as TabMenu } from "./tabmenu";
+
+export { default as Info } from "./Info";
+export { default as InfoDelivery } from "./Info/infoDelivery";
+export { default as InfoMaster } from "./Info/infoMaster";
+export { default as InfoService } from "./Info/infoService";
+export { default as InfoSidebar } from "./Info/infoSidebar";
+
+export { default as Product } from "./Product";
+export { default as ProductBrand } from "./Product/productBrand";
+export { default as ProductCompare } from "./Product/productCompare";
+export { default as ProductMedium } from "./Product/productMedium";
+export { default as ProductSmall } from "./Product/productSmall";
+export { default as SimilarProduct } from "./Product/similarProduct";
+
+export { default as BasketList } from "./Basket/basketList";
+export { default as BasketModal } from "./Basket/basketModal";
+export { default as BasketPay } from "./Basket/basketPay";

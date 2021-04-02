@@ -6,14 +6,22 @@ import { queryClient } from './services/api'
 import "./App.css";
 
 import { Layout } from "./components/shared";
-import HomePage from "./pages/client/Home/HomePage";
-import ProductsPage from "./pages/client/Product/ProductsPage";
 
 
 function App() {
   return (
     <div className="App" >
-      <ProductsPage />
+      <Suspense fallback="loading...">
+        <QueryClientProvider client={queryClient}>
+          <Layout>
+            {
+              routes.map(({ path, exact, component }, key) => (
+                <Route {...{ key, exact, path, component }} />
+              ))
+            }
+          </Layout>
+        </QueryClientProvider>
+      </Suspense>
     </div >
   );
 }

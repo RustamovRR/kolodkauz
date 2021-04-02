@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Product from '../Product'
+import { Product } from '../../../shared'
 import { useSimilarProductStyles } from './similarProductStyles';
 
 export default function SImilarProduct() {

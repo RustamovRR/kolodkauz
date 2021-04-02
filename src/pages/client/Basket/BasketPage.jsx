@@ -3,7 +3,7 @@ import { Grid } from '@material-ui/core'
 import { useBasketPageStyles } from './basketPageStyles'
 
 import { TranslateContext } from '../../../contexts'
-import { TabMenu, Basket, InputBasket, BreadCrumbs } from '../../../components/shared'
+import { TabMenu, BasketList, BasketPay, InputBasket, BreadCrumbs } from '../../../components/shared'
 
 
 export default function BasketPage() {
@@ -46,13 +46,13 @@ export default function BasketPage() {
                         <h1>
                             {trans ? `Корзина` : `Xaridlar savati`}
                         </h1>
-                        <Basket.BasketList />
-                        <Basket.BasketList />
-                        <Basket.BasketList />
+                        <BasketList />
+                        <BasketList />
+                        <BasketList />
                     </div>
 
                     <div className={classes.modal_box}>
-                        <Basket.BasketPay />
+                        <BasketPay />
                     </div>
                 </section>
 

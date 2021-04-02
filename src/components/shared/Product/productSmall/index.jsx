@@ -4,7 +4,7 @@ import { IconButton } from '@material-ui/core';
 import { useProductSmallStyles } from './productSmallStyles';
 
 import { TranslateContext } from '../../../../contexts';
-import { Quantity, ButtonYellow } from '../../../shared'
+import { Quantity, ButtonYellow } from '../..'
 import { FavoriteBlueOutline, CompareBlueOutline } from '../../../../assets/images/icons'
 import karcher from "../../../../assets/images/products/karcher.png";
 

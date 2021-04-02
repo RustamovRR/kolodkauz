@@ -12,10 +12,6 @@
     "axios": "^0.21.1",
     "dotenv": "^8.2.0",
     "hoist-non-react-statics": "^3.3.2",
-    "husky": "^6.0.0",
-    "plop": "^2.7.4",
-    "prettier": "^2.2.1",
-    "pretty-quick": "^3.1.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-query": "^3.13.3",
@@ -30,10 +26,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "generate": "plop",
-    "i18n": "i18next 'src/**/*.{js,jsx}' [-oc]",
-    "prettify": "prettier --write src/**/*.{js,jsx,png,svg}"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [

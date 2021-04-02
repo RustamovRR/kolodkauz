@@ -4,7 +4,7 @@ import { Button, IconButton } from '@material-ui/core'
 import { useProductInfoPageStyles } from './productInfoStyles'
 
 import { clr } from '../../../constants/colors'
-import { RatingComp, CheckBox, Description, ButtonComponent, Product } from '../../../components/shared'
+import { RatingComp, CheckBox, Description, ButtonComponent, SimilarProduct } from '../../../components/shared'
 
 import { LeftGreyArrow, FavoriteBlack, CompareBlack } from '../../../assets/images/icons'
 import productImg from '../../../assets/images/products/oil.png'
@@ -95,7 +95,7 @@ export default function ProductInfoPage() {
                     <h1>
                         {trans ? `Похожие товары` : `O'xshash mahsulotlar`}
                     </h1>
-                    <Product.SimilarProduct />
+                    <SimilarProduct />
                 </section>
 
                 <section className={classes.comment_box}>

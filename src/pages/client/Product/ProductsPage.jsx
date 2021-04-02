@@ -3,7 +3,7 @@ import { Divider, Grid } from '@material-ui/core'
 import { Link } from 'react-router-dom'
 import { useProductPageStyles } from './productsPageStyles'
 
-import { Header, Footer, Sidebar, SortNavigation, TabMenu, Product, BreadCrumbs } from '../../../components/shared'
+import { Header, Footer, Sidebar, SortNavigation, TabMenu, Product, ProductMedium, ProductSmall, BreadCrumbs } from '../../../components/shared'
 import { TranslateContext } from '../../../contexts'
 
 import balon from '../../../assets/images/products/balon.png'
@@ -67,14 +67,14 @@ export default function ProductsPage({ medium, small }) {
                                     if (medium) {
                                         return (
                                             <div className={classes.product_medium}>
-                                                <Product.ProductMedium index={index} />
+                                                <ProductMedium index={index} />
                                             </div>
                                         )
                                     }
                                     else if (small) {
                                         return (
                                             <div className={classes.product_small}>
-                                                <Product.ProductSmall index={index} />
+                                                <ProductSmall index={index} />
                                             </div>
                                         )
                                     }

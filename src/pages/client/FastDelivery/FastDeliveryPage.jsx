@@ -4,7 +4,7 @@ import { IconButton } from '@material-ui/core'
 import { useFastDeliveryStyles } from './fastDeliveryStyles'
 
 import { TranslateContext } from '../../../contexts'
-import { Header, RatingComp, CheckBox, Product, ButtonComponent } from '../../../components/shared'
+import { Header, RatingComp, CheckBox, ProductBrand, ButtonComponent } from '../../../components/shared'
 import { Close, FavoriteBlack } from '../../../assets/images/icons'
 import oilImg from '../../../assets/images/products/oil.png'
 
@@ -57,7 +57,7 @@ export default function FastDeliveryPage() {
                         </div>
 
                         <div className={classes.brand}>
-                            <Product.ProductBrand />
+                            <ProductBrand />
                         </div>
 
                         <p className={classes.shipping}>Бесплатная доставка</p>

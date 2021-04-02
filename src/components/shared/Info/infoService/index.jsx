@@ -1,5 +1,5 @@
 import React from 'react'
-import {CardService} from '../../../shared'
+import { CardService } from '../../../shared'
 import { useInfoServiceStyles } from './infoServiceStyles'
 
 export default function InfoService() {

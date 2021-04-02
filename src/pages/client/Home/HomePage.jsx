@@ -5,7 +5,7 @@ import { Grid } from '@material-ui/core'
 import { useHomePageStyles } from './homePageStyles.js'
 import './homePageStyles.js'
 
-import { TabMenu, Carousel, CarBrand, Product, Ads } from '../../../components/shared'
+import { TabMenu, Carousel, CarBrand, Product, ProductBrand, Ads, Layout } from '../../../components/shared'
 import { TranslateContext } from '../../../contexts'
 
 
@@ -20,81 +20,83 @@ export default function HomePage() {
     // console.log(query)
 
     return (
-        <div className={classes.home_root}>
+        <Layout>
+            <div className={classes.home_root}>
 
-            <section className={classes.tabs_box}>
-                <TabMenu />
-            </section>
-
-            <Grid className={classes.container}>
-                <section className={classes.carousel_box}>
-                    <Carousel />
+                <section className={classes.tabs_box}>
+                    <TabMenu />
                 </section>
 
-                <Grid className={classes.carBrand_box}>
-                    <CarBrand />
-                    <CarBrand />
-                    <CarBrand />
-                    <CarBrand />
-                    <CarBrand />
-                    <CarBrand />
-                </Grid>
+                <Grid className={classes.container}>
+                    <section className={classes.carousel_box}>
+                        <Carousel />
+                    </section>
 
-                <h1 className={classes.bestSeller_title}>
-                    {trans ? `Хиты продаж` : `Eng ko'p sotilgan mahsulotlar`}
-                </h1>
-                {/* <section className={classes.bestSeller_box}>
-                    {
-                        array.map(() => (
-                            <Product />
-                        ))
-                    }
-                </section> */}
+                    <Grid className={classes.carBrand_box}>
+                        <CarBrand />
+                        <CarBrand />
+                        <CarBrand />
+                        <CarBrand />
+                        <CarBrand />
+                        <CarBrand />
+                    </Grid>
 
-                <section className={classes.ads_box}>
-                    <Ads />
-                </section>
-
-                <h1 className={classes.product_box_title}>
-                    {trans ? `Хиты продаж` : `Eng ko'p sotilgan mahsulotlar`}
-                </h1>
-                <section className={classes.product_box}>
-                    {
-                        array2.map(() => (
-                            <Product />
-                        ))
-                    }
-                </section>
-
-                {/* <div className={classes.bestSeller}>
                     <h1 className={classes.bestSeller_title}>
-                        {trans ? `Популярные бренды` : `Mashhur brendlar`}
+                        {trans ? `Хиты продаж` : `Eng ko'p sotilgan mahsulotlar`}
                     </h1>
-                    <Link>
-                        {trans ? `Все бренды` : `Barcha brendlar`}
-                    </Link>
-                </div>
-                <section className={classes.productBrand_box}>
-                    <Product.ProductBrand />
-                    <Product.ProductBrand />
-                    <Product.ProductBrand />
-                    <Product.ProductBrand />
-                    <Product.ProductBrand />
-                    <Product.ProductBrand />
-                    <Product.ProductBrand />
-                    <Product.ProductBrand />
-                    <Product.ProductBrand />
-                    <Product.ProductBrand />
-                    <Product.ProductBrand />
-                    <Product.ProductBrand />
-                    <Product.ProductBrand />
-                    <Product.ProductBrand />
-                    <Product.ProductBrand />
-                    <Product.ProductBrand />
-                    <Product.ProductBrand />
-                    <Product.ProductBrand />
-                </section> */}
-            </Grid>
-        </div >
+                    <section className={classes.bestSeller_box}>
+                        {
+                            array.map(() => (
+                                <Product />
+                            ))
+                        }
+                    </section>
+
+                    <section className={classes.ads_box}>
+                        <Ads />
+                    </section>
+
+                    <h1 className={classes.product_box_title}>
+                        {trans ? `Хиты продаж` : `Eng ko'p sotilgan mahsulotlar`}
+                    </h1>
+                    <section className={classes.product_box}>
+                        {
+                            array2.map(() => (
+                                <Product />
+                            ))
+                        }
+                    </section>
+
+                    <div className={classes.bestSeller}>
+                        <h1 className={classes.bestSeller_title}>
+                            {trans ? `Популярные бренды` : `Mashhur brendlar`}
+                        </h1>
+                        <Link>
+                            {trans ? `Все бренды` : `Barcha brendlar`}
+                        </Link>
+                    </div>
+                    <section className={classes.productBrand_box}>
+                        <ProductBrand />
+                        <ProductBrand />
+                        <ProductBrand />
+                        <ProductBrand />
+                        <ProductBrand />
+                        <ProductBrand />
+                        <ProductBrand />
+                        <ProductBrand />
+                        <ProductBrand />
+                        <ProductBrand />
+                        <ProductBrand />
+                        <ProductBrand />
+                        <ProductBrand />
+                        <ProductBrand />
+                        <ProductBrand />
+                        <ProductBrand />
+                        <ProductBrand />
+                        <ProductBrand />
+                    </section>
+                </Grid>
+            </div >
+        </Layout>
     )
 }

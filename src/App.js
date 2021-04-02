@@ -5,21 +5,16 @@ import routes from "./routes";
 import { queryClient } from './services/api'
 import "./App.css";
 
-import { Layout } from "./components/shared";
-
-
 function App() {
   return (
     <div className="App" >
       <Suspense fallback="loading...">
         <QueryClientProvider client={queryClient}>
-          <Layout>
-            {
-              routes.map(({ path, exact, component }, key) => (
-                <Route {...{ key, exact, path, component }} />
-              ))
-            }
-          </Layout>
+          {
+            routes.map(({ path, exact, component }, key) => (
+              <Route {...{ key, exact, path, component }} />
+            ))
+          }
         </QueryClientProvider>
       </Suspense>
     </div >

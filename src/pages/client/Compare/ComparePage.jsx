@@ -5,7 +5,7 @@ import { useComparePageStyles } from './comparePageStyles'
 import 'swiper/swiper.min.css';
 
 import { TranslateContext } from '../../../contexts'
-import { TabMenu, ProductCompare, BreadCrumbs } from '../../../components/shared'
+import { TabMenu, ProductCompare, BreadCrumbs, Layout } from '../../../components/shared'
 import { LeftGreyCircle, RightGreyCircle } from '../../../assets/images/icons'
 
 
@@ -16,7 +16,7 @@ export default function ComparePage() {
     const navigationNextRef = React.useRef(null)
 
     return (
-        <div>
+        <Layout>
 
             <section className={classes.tabs_box}>
                 <TabMenu />
@@ -71,6 +71,6 @@ export default function ComparePage() {
                 </section>
             </Grid>
 
-        </div >
+        </Layout >
     )
 }

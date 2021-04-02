@@ -1,7 +1,7 @@
 import React from 'react'
 import { useInformationStyles } from './informationPageStyles'
 
-import { TabMenu, Info } from '../../../components/shared'
+import { TabMenu, Info, Layout } from '../../../components/shared'
 
 export default function InformationPage({
     howToOrder,
@@ -40,21 +40,23 @@ export default function InformationPage({
     }
 
     return (
-        <div className={classes.root}>
+        <Layout>
+            <div className={classes.root}>
 
-            <div className={classes.tabs_box}>
-                <TabMenu />
+                <div className={classes.tabs_box}>
+                    <TabMenu />
+                </div>
+
+                <section className={classes.info_box}>
+                    <div className={classes.sidebar}>
+                        <Info.InfoSidebar />
+                    </div>
+                    <div className={classes.info_panel}>
+                        {component}
+                    </div>
+                </section>
+
             </div>
-
-            <section className={classes.info_box}>
-                <div className={classes.sidebar}>
-                    <Info.InfoSidebar />
-                </div>
-                <div className={classes.info_panel}>
-                    {component}
-                </div>
-            </section>
-
-        </div>
+        </Layout>
     )
 }

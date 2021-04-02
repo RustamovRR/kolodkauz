@@ -4,7 +4,7 @@ import { Button, IconButton } from '@material-ui/core'
 import { useProductInfoPageStyles } from './productInfoStyles'
 
 import { clr } from '../../../constants/colors'
-import { RatingComp, CheckBox, Description, ButtonComponent, SimilarProduct } from '../../../components/shared'
+import { Layout, RatingComp, CheckBox, Description, ButtonComponent, SimilarProduct } from '../../../components/shared'
 
 import { LeftGreyArrow, FavoriteBlack, CompareBlack } from '../../../assets/images/icons'
 import productImg from '../../../assets/images/products/oil.png'
@@ -24,7 +24,7 @@ export default function ProductInfoPage() {
     ]
 
     return (
-        <>
+        <Layout>
             <div className={classes.root}>
                 <IconButton className={classes.arrow}>
                     <LeftGreyArrow />
@@ -142,6 +142,6 @@ export default function ProductInfoPage() {
                     </div>
                 </section>
             </div>
-        </>
+        </Layout>
     )
 }

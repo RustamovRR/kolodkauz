@@ -1,14 +1,14 @@
 import { lazy } from 'react'
 
-const HomeRoutes = lazy(() => import("./pages/Home/homeRoutes"))
-const InfoRoutes = lazy(() => import("./pages/Information/infoRoutes"))
-const FavoriteRoutes = lazy(() => import("./pages/Favorite/favoriteRoutes"))
-const CompareRoutes = lazy(() => import("./pages/Compare/compareRoutes"))
-const BasketRoutes = lazy(() => import("./pages/Basket/basketRoutes"))
-const ProductRoutes = lazy(() => import("./pages/Product/productRoutes.jsx"))
-const ProductInfoRoutes = lazy(() => import("./pages/ProductInfo/productInfoRoutes"))
-const LoginRoutes = lazy(() => import("./pages/Login/loginRoutes"))
-const FastDeliveryRoutes = lazy(() => import("./pages/FastDelivery/fastDeliveryRoutes"))
+const HomeRoutes = lazy(() => import("./pages/client/Home/homeRoutes"))
+const InfoRoutes = lazy(() => import("./pages/client/Information/infoRoutes"))
+const FavoriteRoutes = lazy(() => import("./pages/client/Favorite/favoriteRoutes"))
+const CompareRoutes = lazy(() => import("./pages/client/Compare/compareRoutes"))
+const BasketRoutes = lazy(() => import("./pages/client/Basket/basketRoutes"))
+const ProductRoutes = lazy(() => import("./pages/client/Product/productRoutes.jsx"))
+const ProductInfoRoutes = lazy(() => import("./pages/client/ProductInfo/productInfoRoutes"))
+const LoginRoutes = lazy(() => import("./pages/client/Login/loginRoutes"))
+const FastDeliveryRoutes = lazy(() => import("./pages/client/FastDelivery/fastDeliveryRoutes"))
 
 const routes = [
     {

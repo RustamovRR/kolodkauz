@@ -50,8 +50,8 @@ export default function Product({ favorite, compare }) {
                 favorite && <section className={classes.icon_box} >
                     <IconButton size="small" onClick={handleClick}>
                         {showFavorite
-                            ? <FavoriteGreyOutline />
-                            : <FavoriteBlack />
+                            ? <FavoriteBlack />
+                            : <FavoriteGreyOutline />
                         }
                     </IconButton>
                 </section>

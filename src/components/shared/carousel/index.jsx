@@ -10,7 +10,7 @@ import back3 from '../../../assets/images/brands/back3.jpg'
 import back4 from '../../../assets/images/brands/back4.jpg'
 import back5 from '../../../assets/images/brands/back5.jpg'
 
-import { LeftGreyCircle, RightGreyCircle } from '../../../assets/images/icons'
+import { LeftGreyCircle, LeftGreyArrow, RightGreyCircle } from '../../../assets/images/icons'
 
 
 export default function Carousel() {
@@ -56,7 +56,7 @@ export default function Carousel() {
 
             <section className={classes.arrows}>
                 <IconButton className={classes.left_arrow} onClick={handleBack}>
-                    <LeftGreyCircle />
+                    <LeftGreyCircle style={{ width: 48, height: 48 }} />
                 </IconButton>
                 <IconButton className={classes.right_arrow} onClick={handleNext}>
                     <RightGreyCircle />

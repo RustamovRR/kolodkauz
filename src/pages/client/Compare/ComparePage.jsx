@@ -6,7 +6,7 @@ import 'swiper/swiper.min.css';
 
 import { TranslateContext } from '../../../contexts'
 import { TabMenu, ProductCompare, BreadCrumbs, Layout } from '../../../components/shared'
-import { LeftGreyCircle, RightGreyCircle } from '../../../assets/images/icons'
+import { LeftGreyCircle, LeftWhiteCircle, RightGreyCircle, RightWhiteCircle } from '../../../assets/images/icons'
 
 
 export default function ComparePage() {
@@ -63,8 +63,8 @@ export default function ComparePage() {
                             <div className="prev" />
                             <div className="next" />
                             <div className={classes.arrows} >
-                                <LeftGreyCircle />
-                                <RightGreyCircle />
+                                <LeftWhiteCircle />
+                                <RightWhiteCircle />
                             </div>
                         </Swiper>
                     </div>

@@ -60,7 +60,7 @@ export const useComparePageStyles = makeStyles({
             top: '10%',
             cursor: 'pointer'
         },
-        '& > img:first-child': {
+        '& > *:first-child': {
             left: -10,
             top: '10%',
             cursor: 'pointer'

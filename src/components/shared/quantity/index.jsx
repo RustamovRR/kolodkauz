@@ -26,7 +26,6 @@ export default function Quantity() {
                     handleDecrement()
                 }}
             >
-                {/* <img src={minusImg} alt="" /> */}
                 <Minus />
             </div>
 

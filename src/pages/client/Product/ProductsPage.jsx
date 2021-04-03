@@ -1,9 +1,8 @@
 import React, { useContext, } from 'react'
-import { Divider, Grid } from '@material-ui/core'
-import { Link } from 'react-router-dom'
+import { Grid } from '@material-ui/core'
 import { useProductPageStyles } from './productsPageStyles'
 
-import { Layout, Header, Footer, Sidebar, SortNavigation, TabMenu, Product, ProductMedium, ProductSmall, BreadCrumbs } from '../../../components/shared'
+import { Layout, Sidebar, SortNavigation, TabMenu, Product, ProductMedium, ProductSmall, BreadCrumbs } from '../../../components/shared'
 import { TranslateContext } from '../../../contexts'
 
 import balon from '../../../assets/images/products/balon.png'

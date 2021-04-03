@@ -22,8 +22,6 @@ export const useCarouselStyles = makeStyles({
     left_arrow: {
         position: 'absolute',
         left: 62,
-        width: 48,
-        height: 48,
         top: '45%',
         cursor: 'pointer'
     },
@@ -31,8 +29,6 @@ export const useCarouselStyles = makeStyles({
     right_arrow: {
         position: 'absolute',
         right: 62,
-        width: 48,
-        height: 48,
         top: '45%',
         cursor: 'pointer'
     }

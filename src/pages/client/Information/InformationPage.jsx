@@ -1,7 +1,7 @@
 import React from 'react'
 import { useInformationStyles } from './informationPageStyles'
 
-import { TabMenu, Info, Layout } from '../../../components/shared'
+import { TabMenu, Info, InfoSidebar, Layout } from '../../../components/shared'
 
 export default function InformationPage({
     howToOrder,
@@ -13,6 +13,7 @@ export default function InformationPage({
     termsOfUse,
 }) {
     const classes = useInformationStyles()
+
     let component
     if (howToOrder) {
         component = <Info howToOrder />
@@ -49,7 +50,7 @@ export default function InformationPage({
 
                 <section className={classes.info_box}>
                     <div className={classes.sidebar}>
-                        <Info.InfoSidebar />
+                        <InfoSidebar />
                     </div>
                     <div className={classes.info_panel}>
                         {component}

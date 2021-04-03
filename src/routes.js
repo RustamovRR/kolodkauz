@@ -10,7 +10,7 @@ const ProductInfoRoutes = lazy(() => import("./pages/client/ProductInfo/productI
 const LoginRoutes = lazy(() => import("./pages/client/Login/loginRoutes"))
 const FastDeliveryRoutes = lazy(() => import("./pages/client/FastDelivery/fastDeliveryRoutes"))
 
-const AdminRoutes = lazy(() => import("./pages/admin/adminRoutes"))
+const AdminRoutes = lazy(() => import("./pages/admin/routes"))
 
 const routes = [
     {
@@ -54,7 +54,6 @@ const routes = [
     {
         path: "/admin",
         component: AdminRoutes,
-        isAdmin: true
     },
 ]
 

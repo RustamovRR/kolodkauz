@@ -1,12 +1,12 @@
 import { lazy, Suspense } from 'react'
 import { Route } from 'react-router-dom';
 
-const AdminHome = lazy(() => import("./AdminHome"))
+const AdminHome = lazy(() => import("./Home"))
 
 const routes = [
     {
         path: "/admin",
-        exact: true,
+        // exact: true,
         component: AdminHome
     },
 ]

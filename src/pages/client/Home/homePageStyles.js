@@ -90,8 +90,12 @@ export const useHomePageStyles = makeStyles({
         padding: paddingRoot,
         justifyContent: 'space-between',
         '& > * ': {
-            marginTop: 48,
-            flex: '0 1 calc(100% * 1/8 - 10px)',
+            // marginTop: 48,
+            // flex: '0 1 calc(100% * 1/8 - 10px)',
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(30%, 1fr))',
+            gridColumnGap: '3rem',
+            gridRowGap: '5rem'
         }
     },
 

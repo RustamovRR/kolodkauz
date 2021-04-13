@@ -4,22 +4,31 @@ import { clr } from "../../../constants/colors";
 
 export const useProductStyles = makeStyles({
     product_root: {
+        position: 'relative',
+        display: 'flex',
+        flexDirection: 'column',
         width: 220,
-        position: 'relative'
+        minWidth: 220,
+    },
+
+    product_link: {
+        textDecoration: 'none'
     },
 
     card: {
-        height: 220,
         width: '100%',
-        "& > img": {
-            width: "100%",
-            height: '100%',
-            objectFit: "cover",
-        },
+        height: 220,
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        '& img': {
+            width: '100%',
+            objectFit: 'contain'
+        }
     },
 
     price: {
-        marginTop: 12,
+        marginTop: 8,
         '& h3': {
             fontSize: 18,
             color: clr.gray1,
@@ -44,7 +53,7 @@ export const useProductStyles = makeStyles({
     button: {
         marginTop: 16,
         '& > *': {
-            width: 90,
+            width: 96,
         }
     },
 

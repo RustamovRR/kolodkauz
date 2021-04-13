@@ -30,6 +30,10 @@ export const useHomePageStyles = makeStyles({
         marginTop: 64,
         display: 'flex',
         justifyContent: 'space-between',
+        '& > div': {
+            width: 220,
+            marginTop: 32
+        }
     },
 
     bestSeller: {
@@ -51,13 +55,12 @@ export const useHomePageStyles = makeStyles({
 
     bestSeller_box: {
         display: 'flex',
-        flexFlow: 'row wrap',
-        padding: paddingRoot,
+        flexWrap: 'wrap',
         justifyContent: 'space-between',
-        position: 'relative',
-        '& > *': {
-            marginTop: 32,
-            flex: '0 1 calc(100% * 1/6 - 10px)',
+        padding: paddingRoot,
+        '& > div': {
+            width: 220,
+            marginTop: 32
         }
     },
 
@@ -72,6 +75,7 @@ export const useHomePageStyles = makeStyles({
         padding: paddingRoot,
     },
 
+
     product_box: {
         display: 'flex',
         flexFlow: 'row wrap',
@@ -84,14 +88,26 @@ export const useHomePageStyles = makeStyles({
         }
     },
 
+    brands_box: {
+        marginTop: 100,
+        display: 'flex',
+        alignItems: 'center',
+        '& a': {
+            fontSize: 15,
+            fontWeight: 'bold',
+            textDecoration: 'none',
+            color: clr.primaryBlue
+        }
+    },
+
     productBrand_box: {
         display: 'flex',
         flexFlow: 'row wrap',
         padding: paddingRoot,
         justifyContent: 'space-between',
         '& > * ': {
-            // marginTop: 48,
-            // flex: '0 1 calc(100% * 1/8 - 10px)',
+            marginTop: 32,
+            flex: '0 1 calc(100% * 1/8 - 10px)',
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(30%, 1fr))',
             gridColumnGap: '3rem',

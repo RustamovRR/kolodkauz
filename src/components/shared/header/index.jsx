@@ -25,7 +25,7 @@ export default function Header() {
                 <Language />
                 <Currency />
 
-                <Hidden mdDown>
+                <Hidden xsDown>
                     <div className={classes.services}>
                         <Link to="/products">
                             {trans ? `Скидки` : `Chegirmalar`}
@@ -46,7 +46,8 @@ export default function Header() {
             <Grid className={classes.secondary_box}>
                 <section class={classes.function_box}>
                     <Search />
-                    <div className={classes.functions}>
+
+                    <Hidden xsDown >
                         <div className={classes.function_items}>
                             <Link to='/login' className={classes.link}>
                                 <LoginBlack />
@@ -84,7 +85,8 @@ export default function Header() {
                             </Link>
                             <BasketModal />
                         </div>
-                    </div>
+                    </Hidden>
+
                 </section>
             </Grid>
         </div>

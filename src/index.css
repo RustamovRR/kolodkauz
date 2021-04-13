@@ -5,6 +5,9 @@
   font-family: gilroy !important;
 }
 
+body{
+}
+
 @font-face {
   src: url("./assets/fonts/Gilroy-Regular.ttf");
   font-family: gilroy;

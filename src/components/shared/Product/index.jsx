@@ -6,6 +6,7 @@ import { CheckBox, ButtonYellow } from '../../shared'
 import { TranslateContext } from "../../../contexts";
 import { FavoriteGreyOutline, FavoriteBlack } from '../../../assets/images/icons'
 import image1 from "../../../assets/images/products/bagaj.png";
+import { Link } from "react-router-dom";
 
 export default function Product({ favorite, compare }) {
     const classes = useProductStyles();
@@ -18,31 +19,33 @@ export default function Product({ favorite, compare }) {
 
     return (
         <div className={classes.product_root}>
-            <section className={classes.card}>
-                <img src={image1} alt="" />
-            </section>
+            <Link to="#" className={classes.product_link}>
+                <section className={classes.card}>
+                    <img src={image1} alt="" />
+                </section>
 
-            <section className={classes.action_box}>
-                <div className={classes.price}>
-                    <h3>{`1,845,600 ${sum}`}</h3>
-                    <p>{`2,845,600 ${sum}`}</p>
-                </div>
-
-                <div className={classes.text}>
-                    <p>Автомобильная шина Hankook Tire Ventus Prime</p>
-                </div>
-
-                <div style={{ display: 'flex', alignItems: 'center' }}>
-                    <div className={classes.button}>
-                        <ButtonYellow title="В корзину" />
+                <section className={classes.action_box}>
+                    <div className={classes.price}>
+                        <h3>{`1,845,600 ${sum}`}</h3>
+                        <p>{`2,845,600 ${sum}`}</p>
                     </div>
-                    <div>
-                        {
-                            compare && <div className={classes.checkbox}>
-                                <CheckBox />
-                            </div>
-                        }
+
+                    <div className={classes.text}>
+                        <p>Автомобильная шина Hankook Tire Ventus Prime</p>
                     </div>
+                </section>
+            </Link>
+
+            <section style={{ display: 'flex', alignItems: 'center' }}>
+                <div className={classes.button}>
+                    <ButtonYellow title="В корзину" />
+                </div>
+                <div>
+                    {
+                        compare && <div className={classes.checkbox}>
+                            <CheckBox />
+                        </div>
+                    }
                 </div>
             </section>
 

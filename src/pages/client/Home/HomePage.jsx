@@ -41,16 +41,19 @@ export default function HomePage() {
                         <CarBrand />
                     </Grid>
 
-                    <h1 className={classes.bestSeller_title}>
-                        {trans ? `Хиты продаж` : `Eng ko'p sotilgan mahsulotlar`}
-                    </h1>
-                    <section className={classes.bestSeller_box}>
+                    <div className={classes.bestSeller}>
+                        <h1 className={classes.bestSeller_title}>
+                            {trans ? `Хиты продаж` : `Eng ko'p sotilgan mahsulotlar`}
+                        </h1>
+                    </div>
+
+                    <Grid className={classes.bestSeller_box}>
                         {
                             array.map(() => (
                                 <Product />
                             ))
                         }
-                    </section>
+                    </Grid>
 
                     <section className={classes.ads_box}>
                         <Ads />
@@ -67,7 +70,7 @@ export default function HomePage() {
                         }
                     </section>
 
-                    <div className={classes.bestSeller}>
+                    <div className={classes.brands_box}>
                         <h1 className={classes.bestSeller_title}>
                             {trans ? `Популярные бренды` : `Mashhur brendlar`}
                         </h1>

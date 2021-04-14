@@ -150,8 +150,12 @@ export default function Footer() {
                         {trans ? `2016-2020 © ZAP. Все права защищены.` : `2016-2020 © ZAP. Barcha huquqlar himoyalangan.`}
                     </p>
                     <div className={classes.pay_box}>
-                        <Click />
-                        <Payme />
+                        <div>
+                            <Click />
+                        </div>
+                        <div className={classes.payme} >
+                            <Payme />
+                        </div>
                     </div>
                 </section>
             </Grid>

@@ -49,8 +49,12 @@ export const useHomePageStyles = makeStyles({
     },
 
     bestSeller_title: {
-        fontSize: 40,
+        fontSize: 32,
         padding: paddingRoot,
+        '@media (max-width: 500px)': {
+            width: '100%',
+            fontSize: 24
+        },
     },
 
     bestSeller_box: {
@@ -61,7 +65,12 @@ export const useHomePageStyles = makeStyles({
         '& > div': {
             width: 220,
             marginTop: 32
-        }
+        },
+        '@media (max-width: 500px)': {
+            '& > div': {
+                width: '100%',
+            }
+        },
     },
 
     ads_box: {
@@ -89,7 +98,7 @@ export const useHomePageStyles = makeStyles({
     },
 
     brands_box: {
-        marginTop: 100,
+        marginTop: 96,
         display: 'flex',
         alignItems: 'center',
         '& a': {
@@ -97,26 +106,30 @@ export const useHomePageStyles = makeStyles({
             fontWeight: 'bold',
             textDecoration: 'none',
             color: clr.primaryBlue
-        }
+        },
+        '@media (max-width: 700px)': {
+            marginTop: 64,
+            marginBottom: 16
+        },
     },
 
     productBrand_box: {
         display: 'flex',
-        flexFlow: 'row wrap',
-        padding: paddingRoot,
+        flexWrap: 'wrap',
         justifyContent: 'space-between',
-        '& > * ': {
-            marginTop: 32,
-            flex: '0 1 calc(100% * 1/8 - 10px)',
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(30%, 1fr))',
-            gridColumnGap: '3rem',
-            gridRowGap: '5rem'
-        }
-    },
-
-    footer_box: {
-        marginTop: 130
+        padding: paddingRoot,
+        '& > div ': {
+            width: '12%'
+        },
+        '@media (max-width: 700px)': {
+            '& > div ': {
+                width: '20%'
+            },
+        },
+        '@media (max-width: 500px)': {
+            '& > div ': {
+                width: '30%'
+            },
+        },
     }
-
 })

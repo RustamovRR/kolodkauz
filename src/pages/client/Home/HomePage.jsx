@@ -59,10 +59,12 @@ export default function HomePage() {
                         <Ads />
                     </section>
 
-                    <h1 className={classes.product_box_title}>
-                        {trans ? `Хиты продаж` : `Eng ko'p sotilgan mahsulotlar`}
-                    </h1>
-                    <section className={classes.product_box}>
+                    <div className={classes.bestSeller}>
+                        <h1 className={classes.bestSeller_title}>
+                            {trans ? `Хиты продаж` : `Eng ko'p sotilgan mahsulotlar`}
+                        </h1>
+                    </div>
+                    <section className={classes.bestSeller_box}>
                         {
                             array2.map(() => (
                                 <Product />

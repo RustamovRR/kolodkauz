@@ -4,10 +4,13 @@ import { clr } from '../../../constants/colors'
 export const useFooterStyles = makeStyles({
     footer_root: {
         width: '100%',
-        height: 570,
-        marginTop: 120,
+        minHeight: 570,
+        marginTop: 96,
         backgroundColor: clr.primaryDarkBlue,
-        color: clr.primaryWhite
+        color: clr.primaryWhite,
+        '@media (max-width: 700px)': {
+            marginTop: 64
+        },
     },
 
     container: {
@@ -19,15 +22,40 @@ export const useFooterStyles = makeStyles({
     footer: {
         padding: '64px 30px',
         display: 'flex',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        '@media (max-width: 700px)': {
+            flexWrap: 'wrap',
+            padding: '0 30px',
+        }
+    },
+
+    information_box: {
+        width: '25%',
+        '@media (max-width: 700px)': {
+            width: '50%',
+            marginTop: 32,
+        },
+        '@media (max-width: 500px)': {
+            width: '100%',
+            marginTop: 32
+        },
+        '& > h4': {
+            fontSize: 18,
+        }
     },
 
     left_box: {
-        width: 368,
+        width: '25%',
+        '@media (max-width: 700px)': {
+            width: '50%'
+        },
+        '@media (max-width: 500px)': {
+            width: '100%',
+            marginTop: 32
+        },
     },
 
     zap_box: {
-        whiteSpace: 'nowrap',
         lineHeight: '22px',
         '& > p': {
             fontSize: 18,
@@ -48,7 +76,10 @@ export const useFooterStyles = makeStyles({
             fontWeight: 400,
             fontSize: 16,
             marginTop: 2
-        }
+        },
+        '@media (max-width: 500px)': {
+            marginTop: 32,
+        },
     },
 
     work_box: {
@@ -69,14 +100,12 @@ export const useFooterStyles = makeStyles({
                     fontWeight: 'normal',
                 }
             },
-        }
+        },
+        '@media (max-width: 500px)': {
+            marginTop: 32,
+        },
     },
 
-    information_box: {
-        '& > h4': {
-            fontSize: 18,
-        }
-    },
 
     link: {
         fontSize: 18,
@@ -99,16 +128,28 @@ export const useFooterStyles = makeStyles({
     license_box: {
         marginTop: 16,
         display: 'flex',
-        padding: '0 50px',
+        padding: '0 30px',
         justifyContent: 'space-between',
+        '@media (max-width: 500px)': {
+            flexWrap: 'wrap',
+            '& > p': {
+                width: '100%'
+            }
+        },
         '& > p': {
             color: clr.footerPrimary,
             fontSize: 14,
-            fontWeight: 400
-        }
+            fontWeight: 400,
+        },
     },
 
-    click: {
-        marginRight: 30
+    pay_box: {
+        display: 'flex',
+        '@media (max-width: 500px)': {
+            marginTop: 16
+        },
+    },
+    payme: {
+        marginLeft: 24
     }
 })

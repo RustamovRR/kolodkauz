@@ -8,7 +8,7 @@ import "./App.css";
 function App() {
   return (
     <div className="App" >
-      <Suspense fallback="loading...">
+      <Suspense fallback="App..." >
         <QueryClientProvider client={queryClient}>
           {
             routes.map(({ path, exact, component }, key) => (

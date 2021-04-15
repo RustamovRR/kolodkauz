@@ -12,9 +12,9 @@ const routes = [
 ]
 
 export default () => (
-    <Suspense fallback="loading...">
+    <>
         {routes.map(({ path, exact, component }, key) => (
             <Route {...{ key, exact, path, component }} />
         ))}
-    </Suspense>
+    </>
 );

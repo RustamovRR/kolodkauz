@@ -56,15 +56,9 @@ export default function SortNavigation() {
                         <NavLink
                             key={index}
                             to={{ pathname: item.link }}
-                            isActive={(match, location) => {
-                                if (pathname === location.pathname) {
-                                    setActive(true)
-                                }
-                            }}
-                            activeStyle={{ backgroundColor: 'red ' }}
                         >
                             <IconButton >
-                                <img src={item.icon} alt="" />
+                                {item.icon}
                             </IconButton>
                         </NavLink>
                     ))

@@ -31,32 +31,33 @@ export const useProductPageStyles = makeStyles({
     },
 
     sidebar: {
-        width: '18.8% ',
+        width: '18.8%'
     },
 
     sort: {
         width: '79.4%',
+        '@media (max-width: 500px)': {
+            width: '100%'
+        },
     },
 
     sort_navigation: {
     },
 
     product_box: {
-        marginTop: 24,
         display: 'flex',
         flexWrap: 'wrap',
         justifyContent: 'space-between',
     },
 
     product: {
-        marginTop: 24,
-        width: '23%',
-        display: 'flex',
-        flexWrap: 'wrap',
-        justifyContent: 'space-between',
-        '& div': {
-            width: '100%',
-        }
+        '@media (max-width: 500px)': {
+            marginTop: 24,
+            margin: 'auto',
+            '& > div': {
+                width: '100%'
+            }
+        },
     },
 
     product_medium: {

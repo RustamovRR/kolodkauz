@@ -20,7 +20,7 @@ const routes = [
 ]
 
 export default () => (
-    <Suspense fallback="loading...">
+    <Suspense fallback="Product...">
         {routes.map(({ path, exact, component }, key) => (
             <Route {...{ key, exact, path, component }} />
         ))}

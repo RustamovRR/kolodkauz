@@ -19,7 +19,7 @@ export const AntTabs = withStyles({
     indicator: {
         backgroundColor: clr.primaryBlue,
     },
-})((props) => <Tabs {...props} />);
+})((props) => <Tabs {...props} variant={window.innerWidth <= 700 && 'scrollable'} scrollButtons="off" />);
 
 export const AntTab = withStyles((theme) => ({
     root: {
@@ -33,7 +33,13 @@ export const AntTab = withStyles((theme) => ({
         '&:hover': {
             color: '#40a9ff',
             opacity: 1,
-        }
+        },
+        '@media (max-width: 900px)': {
+            marginLeft: 16,
+            '&:nth-child(1)': {
+                marginLeft: 0
+            }
+        },
     },
     selected: {
         color: clr.primaryBlue

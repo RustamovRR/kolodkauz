@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Grid } from '@material-ui/core'
 // import useAPIQuery from '../../../hooks/queries/useAPIQuery'
@@ -7,6 +7,7 @@ import './homePageStyles.js'
 
 import { TabMenu, Carousel, CarBrand, Product, ProductBrand, Ads, Layout } from '../../../components/shared'
 import { TranslateContext } from '../../../contexts'
+import { Skeleton } from '@material-ui/lab'
 
 
 const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]

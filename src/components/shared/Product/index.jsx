@@ -7,6 +7,7 @@ import { TranslateContext } from "../../../contexts";
 import { FavoriteGreyOutline, FavoriteBlack } from '../../../assets/images/icons'
 import image1 from "../../../assets/images/products/bagaj.png";
 import { Link } from "react-router-dom";
+import { Skeleton } from "@material-ui/lab";
 
 export default function Product({ favorite, compare }) {
     const classes = useProductStyles();
@@ -23,6 +24,11 @@ export default function Product({ favorite, compare }) {
                 <section className={classes.card}>
                     <img src={image1} alt="" />
                 </section>
+                {/* <Skeleton
+                    height={220}
+                    animation="wave"
+                    variant="rect"
+                /> */}
 
                 <section className={classes.action_box}>
                     <div className={classes.price}>
@@ -32,6 +38,11 @@ export default function Product({ favorite, compare }) {
 
                     <div className={classes.text}>
                         <p>Автомобильная шина Hankook Tire Ventus Prime</p>
+                        {/* <Skeleton
+                            width="95%"
+                            height={64}
+                            animation="wave"
+                        /> */}
                     </div>
                 </section>
             </Link>
@@ -40,6 +51,11 @@ export default function Product({ favorite, compare }) {
                 <div className={classes.button}>
                     <ButtonYellow title="В корзину" />
                 </div>
+                {/* <Skeleton
+                    width={96}
+                    height={64}
+                    animation="wave"
+                /> */}
                 <div>
                     {
                         compare && <div className={classes.checkbox}>

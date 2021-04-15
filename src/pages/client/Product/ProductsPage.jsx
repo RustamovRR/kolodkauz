@@ -1,5 +1,5 @@
 import React, { useContext, } from 'react'
-import { Grid } from '@material-ui/core'
+import { Grid, Hidden } from '@material-ui/core'
 import { useProductPageStyles } from './productsPageStyles'
 
 import { Layout, Sidebar, SortNavigation, TabMenu, Product, ProductMedium, ProductSmall, BreadCrumbs } from '../../../components/shared'
@@ -53,14 +53,15 @@ export default function ProductsPage({ medium, small }) {
                     </section>
 
                     <section className={classes.products_box} >
-                        <div className={classes.sidebar}>
+                        <Hidden className={classes.sidebar} xsDown >
                             <Sidebar />
-                        </div>
+                        </Hidden>
 
                         <div className={classes.sort}>
                             <div className={classes.sort_navigation}>
                                 <SortNavigation />
                             </div>
+
                             <div className={classes.product_box}>
                                 {
                                     arrays.map((item, index) => {

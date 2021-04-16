@@ -5,11 +5,18 @@ import { clr } from "../../../../constants/colors";
 export const useProductSmallStyles = makeStyles({
     root: {
         padding: 24,
-        height: 160,
+        minHeight: 160,
         width: '100%',
         display: 'flex',
         alignItems: 'center',
-        border: `1px solid rgba(0, 0, 0, 0.15)`
+        justifyContent: 'space-between',
+        border: `1px solid rgba(0, 0, 0, 0.15)`,
+        '@media ( max-width: 800px)': {
+            flexWrap: 'wrap'
+        },
+        '@media ( max-width: 600px)': {
+            marginTop: 16
+        },
     },
 
     image_box: {
@@ -26,9 +33,13 @@ export const useProductSmallStyles = makeStyles({
         marginBottom: 8,
         '& h1': {
             fontSize: 24,
-            whiteSpace: 'nowrap',
             marginBottom: 8
-        }
+        },
+        '@media ( max-width: 800px)': {
+            order: 2,
+            margin: 0,
+            marginTop: 16
+        },
     },
 
     price_box: {
@@ -45,18 +56,43 @@ export const useProductSmallStyles = makeStyles({
             marginTop: 3,
             color: clr.dark700,
             textDecoration: 'line-through',
-        }
+        },
+    },
+
+    right_box: {
+        display: 'flex',
+        justifyContent: 'space-between',
+        '@media ( max-width: 1100px)': {
+            flexWrap: 'wrap',
+            marginTop: 16
+        },
+        '@media ( max-width: 800px)': {
+            width: '70%'
+        },
+        '@media ( max-width: 500px)': {
+            width: '50%'
+        },
     },
 
     count_box: {
         width: 128,
-        marginLeft: 24,
+        marginLeft: 16,
         marginBottom: 50,
+        '@media ( max-width: 1100px)': {
+            margin: 0,
+            marginBottom: 16
+        },
+        '@media ( max-width: 500px)': {
+            marginTop: 16
+        },
     },
 
     action_box: {
         width: 140,
         marginLeft: 72,
+        '@media ( max-width: 1100px)': {
+            margin: 0
+        },
     },
 
     fast_order: {

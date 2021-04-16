@@ -23,6 +23,7 @@ export default function Product({ favorite, compare }) {
             <Link to="#" className={classes.product_link}>
                 <section className={classes.card}>
                     <img src={image1} alt="" />
+                    {/* <img src="https://filedn.com/ltOdFv1aqz1YIFhf4gTY8D7/ingus-info/BLOGS/Photography-stocks3/stock-photography-slider.jpg" alt="" /> */}
                 </section>
                 {/* <Skeleton
                     height={220}

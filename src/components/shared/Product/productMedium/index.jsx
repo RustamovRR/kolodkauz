@@ -41,25 +41,27 @@ export default function ProductMedium() {
                 </section>
             </section>
 
-            <section className={classes.price_box}>
-                <div className={classes.price}>
-                    <h1>{`7,980,000 ${sum}`}</h1>
-                    <p>{`9,876,000 ${sum}`}</p>
+            <section className={classes.right_box}>
+                <div className={classes.price_box}>
+                    <div className={classes.price}>
+                        <h1>{`7,980,000 ${sum}`}</h1>
+                        <p>{`9,876,000 ${sum}`}</p>
+                    </div>
+                    <div className={classes.button}>
+                        <ButtonYellow
+                            title={trans ? `Быстрый заказ` : `Tezkor buyurtma`}
+                        />
+                    </div>
                 </div>
-                <div className={classes.button}>
-                    <ButtonYellow
-                        title={trans ? `Быстрый заказ` : `Tezkor buyurtma`}
-                    />
-                </div>
-            </section>
 
-            <section className={classes.action_box}>
-                <IconButton size="small">
-                    <FavoriteGreyOutline />
-                </IconButton>
-                <IconButton size="small">
-                    <CompareDisableOutline />
-                </IconButton>
+                <div className={classes.action_box}>
+                    <IconButton size="small">
+                        <FavoriteGreyOutline />
+                    </IconButton>
+                    <IconButton size="small">
+                        <CompareDisableOutline />
+                    </IconButton>
+                </div>
             </section>
 
         </div>

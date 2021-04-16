@@ -6,7 +6,10 @@ const paddingRoot = '0 30px'
 export const useSortNavigationStyles = makeStyles({
     root: {
         display: 'flex',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        '@media (max-width: 600px)': {
+            marginTop: 16
+        },
     },
 
     navigation: {
@@ -48,8 +51,16 @@ export const useSortNavigationStyles = makeStyles({
         }
     },
 
-    buttons: {
+    icon_box: {
+        '@media (max-width: 600px)': {
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            width: '35%'
+        },
     },
 
-
+    select: {
+        width: '60%',
+    }
 })

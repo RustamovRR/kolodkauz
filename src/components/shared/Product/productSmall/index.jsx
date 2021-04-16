@@ -13,27 +13,26 @@ export default function ProductSmall() {
     const { trans, sum } = useContext(TranslateContext)
 
     return (
-        <>
-            <div className={classes.root}>
+        <div className={classes.root}>
+            <section className={classes.image_box}>
+                <img src={karcher} alt="" width={110} height={110} />
+            </section>
 
-                <section className={classes.image_box}>
-                    <img src={karcher} alt="" width={110} height={110} />
-                </section>
+            <section className={classes.text_box}>
+                <h1>Мойка высокого давления K5 Compact</h1>
+                <Rating defaultValue={4} size="small" />
+                <div className={classes.price_box}>
+                    <p>{`7,850,000 ${sum}`}</p>
+                    <span>{`9,876,000 ${sum}`}</span>
+                </div>
+            </section>
 
-                <section className={classes.text_box}>
-                    <h1>Мойка высокого давления K5 Compact</h1>
-                    <Rating defaultValue={4} size="small" />
-                    <div className={classes.price_box}>
-                        <p>{`7,850,000 ${sum}`}</p>
-                        <span>{`9,876,000 ${sum}`}</span>
-                    </div>
-                </section>
-
-                <section className={classes.count_box}>
+            <section className={classes.right_box} >
+                <div className={classes.count_box}>
                     <Quantity />
-                </section>
+                </div>
 
-                <section className={classes.action_box}>
+                <div className={classes.action_box}>
                     <div className={classes.fast_order}>
                         <ButtonYellow title="Быстрый заказ" />
                     </div>
@@ -48,8 +47,8 @@ export default function ProductSmall() {
                             <CompareBlueOutline />
                         </IconButton>
                     </div>
-                </section>
-            </div>
-        </>
+                </div>
+            </section>
+        </div>
     )
 }

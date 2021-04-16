@@ -2,13 +2,14 @@ import React, { useContext, } from 'react'
 import { Grid, Hidden } from '@material-ui/core'
 import { useProductPageStyles } from './productsPageStyles'
 
-import { Layout, Sidebar, SortNavigation, TabMenu, Product, ProductMedium, ProductSmall, BreadCrumbs } from '../../../components/shared'
+import { Layout, Sidebar, SortNavigation, TabMenu, Product, ProductMedium, ProductSmall, BreadCrumbs, ButtonComponent, Select } from '../../../components/shared'
 import { TranslateContext } from '../../../contexts'
 
 import balon from '../../../assets/images/products/balon.png'
 import bolgarka from '../../../assets/images/products/bolgarka.png'
 import rectangle from '../../../assets/images/products/Rectangle 14.png'
 import rol from '../../../assets/images/products/rol.png'
+import { FilterList } from '@material-ui/icons'
 
 export default function ProductsPage({ medium, small }) {
     const classes = useProductPageStyles()
@@ -55,6 +56,14 @@ export default function ProductsPage({ medium, small }) {
                     <section className={classes.products_box} >
                         <Hidden className={classes.sidebar} xsDown >
                             <Sidebar />
+                        </Hidden>
+                        <Hidden smUp>
+                            <ButtonComponent
+                                outlined
+                                title="Filter"
+                                startIcon
+                                componentIcon={<FilterList />}
+                            />
                         </Hidden>
 
                         <div className={classes.sort}>

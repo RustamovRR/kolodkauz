@@ -3,20 +3,19 @@ import { Button } from '@material-ui/core'
 import { ArrowDownward } from '@material-ui/icons'
 import { useButtonComponentStyles } from './buttonComponentStyles'
 
-export default function ButtonComponent({ title, outlined, withIcon, slim }) {
+export default function ButtonComponent({ title, outlined, endIcon, startIcon, componentIcon, slim }) {
     const classes = useButtonComponentStyles()
 
     return (
-        <div className={classes.root}>
-            <Button
-                disableElevation
-                variant="contained"
-                className={outlined ? classes.outlined_button : classes.button}
-                style={slim ? { height: 36 } : { height: 48 }}
-                endIcon={withIcon ? <ArrowDownward /> : ``}
-            >
-                {title}
-            </Button>
-        </div>
+        <Button
+            disableElevation
+            variant="contained"
+            className={outlined ? classes.outlined_button : classes.button}
+            style={slim ? { height: 36 } : { height: 48 }}
+            endIcon={endIcon ? componentIcon : ``}
+            startIcon={startIcon ? componentIcon : ``}
+        >
+            {title}
+        </Button>
     )
 }

@@ -28,6 +28,9 @@ export const useProductPageStyles = makeStyles({
         display: 'flex',
         padding: paddingRoot,
         justifyContent: 'space-between',
+        '@media (max-width: 600px)': {
+            display: 'block',
+        },
     },
 
     sidebar: {
@@ -36,7 +39,7 @@ export const useProductPageStyles = makeStyles({
 
     sort: {
         width: '79.4%',
-        '@media (max-width: 500px)': {
+        '@media (max-width: 600px)': {
             width: '100%'
         },
     },
@@ -54,6 +57,7 @@ export const useProductPageStyles = makeStyles({
         '@media (max-width: 500px)': {
             marginTop: 24,
             margin: 'auto',
+            width: '100%',
             '& > div': {
                 width: '100%'
             }
@@ -66,5 +70,6 @@ export const useProductPageStyles = makeStyles({
 
     product_small: {
         width: '100%'
-    }
+    },
+
 })

@@ -1,8 +1,8 @@
-import React, { useContext, } from 'react'
+import React, { useContext, useState, } from 'react'
 import { Grid, Hidden } from '@material-ui/core'
 import { useProductPageStyles } from './productsPageStyles'
 
-import { Layout, Sidebar, SortNavigation, TabMenu, Product, ProductMedium, ProductSmall, BreadCrumbs, ButtonComponent, Select } from '../../../components/shared'
+import { Layout, Sidebar, SortNavigation, TabMenu, Product, ProductMedium, ProductSmall, BreadCrumbs, ButtonComponent, Select, ProductDrawer } from '../../../components/shared'
 import { TranslateContext } from '../../../contexts'
 
 import balon from '../../../assets/images/products/balon.png'
@@ -14,6 +14,14 @@ import { FilterList } from '@material-ui/icons'
 export default function ProductsPage({ medium, small }) {
     const classes = useProductPageStyles()
     const { trans, setTrans } = useContext(TranslateContext)
+    const [open, setOpen] = useState(false)
+    const handleOpen = () => {
+        setOpen(true)
+    }
+    const handleClose = () => {
+        setOpen(false)
+    }
+
 
     // const arrays = [balon]
     const arrays = [balon, bolgarka, rectangle, rol, balon, bolgarka, rectangle, rol]
@@ -63,8 +71,16 @@ export default function ProductsPage({ medium, small }) {
                                 title="Filter"
                                 startIcon
                                 componentIcon={<FilterList />}
+                                onClick={() => setOpen(true)}
                             />
                         </Hidden>
+
+                        <ProductDrawer
+                            open={open}
+                            setOpen={setOpen}
+                            handleOpen={handleOpen}
+                            handleClose={handleClose}
+                        />
 
                         <div className={classes.sort}>
                             <div className={classes.sort_navigation}>

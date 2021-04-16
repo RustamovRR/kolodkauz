@@ -36,6 +36,7 @@ export { default as ProductBrand } from "./Product/productBrand";
 export { default as ProductCompare } from "./Product/productCompare";
 export { default as ProductMedium } from "./Product/productMedium";
 export { default as ProductSmall } from "./Product/productSmall";
+export { default as ProductDrawer } from "./Product/productDrawer";
 export { default as SimilarProduct } from "./Product/similarProduct";
 
 export { default as BasketList } from "./Basket/basketList";

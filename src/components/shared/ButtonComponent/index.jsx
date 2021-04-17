@@ -3,7 +3,7 @@ import { Button } from '@material-ui/core'
 import { ArrowDownward } from '@material-ui/icons'
 import { useButtonComponentStyles } from './buttonComponentStyles'
 
-export default function ButtonComponent({ title, outlined, endIcon, startIcon, componentIcon, slim }) {
+export default function ButtonComponent({ title, outlined, endIcon, startIcon, componentIcon, slim, onClick }) {
     const classes = useButtonComponentStyles()
 
     return (
@@ -14,6 +14,7 @@ export default function ButtonComponent({ title, outlined, endIcon, startIcon, c
             style={slim ? { height: 36 } : { height: 48 }}
             endIcon={endIcon ? componentIcon : ``}
             startIcon={startIcon ? componentIcon : ``}
+            onClick={onClick}
         >
             {title}
         </Button>

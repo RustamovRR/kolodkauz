@@ -72,4 +72,14 @@ export const useProductPageStyles = makeStyles({
         width: '100%'
     },
 
+    drawer: {
+        // width: 0,
+        flexShrink: 0,
+    },
+    
+    drawerPaper: {
+        backgroundColor: 'red',
+        width: 400
+    }
+
 })

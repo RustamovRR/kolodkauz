@@ -1,21 +1,26 @@
-import React, { useState } from 'react'
-import { Button, Divider, List, ListItem, ListItemText, SwipeableDrawer } from '@material-ui/core';
-import { useProductDrawerStyles } from './productDrawerStyles'
+import React, { useState } from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import Drawer from '@material-ui/core/Drawer';
+import { Sidebar } from '../..';
+import { useProductDrawerStyles } from './productDrawerStyles';
 
-export default function ProductDrawer({ open, setOpen, handleOpen, handleClose }) {
+
+export default function ProductDrawer({ open, setOpen, drawerOpen, drawerClose }) {
     const classes = useProductDrawerStyles()
 
     return (
         <div>
-            <React.Fragment >
-                <SwipeableDrawer
-                    open={open}
-                    onOpen={handleOpen}
-                    onClose={handleClose}
-                >
-                    left
-                </SwipeableDrawer>
-            </React.Fragment>
+            <Drawer
+                anchor='left'
+                open={open}
+                onClose={drawerClose}
+                className={classes.drawer}
+                classes={{
+                    paper: classes.paper
+                }}
+            >
+                <Sidebar />
+            </Drawer>
         </div>
-    )
+    );
 }

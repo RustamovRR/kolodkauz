@@ -3,10 +3,9 @@ import { clr } from "../../../../constants/colors";
 
 
 export const useProductDrawerStyles = makeStyles({
-    list: {
-        width: 250,
+    drawer: {
     },
-    fullList: {
-        width: 'auto',
+    paper: {
+        width: 300,
     },
 });

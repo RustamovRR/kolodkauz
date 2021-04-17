@@ -1,5 +1,5 @@
 import React, { useContext, useState, } from 'react'
-import { Grid, Hidden } from '@material-ui/core'
+import { Drawer, Grid, Hidden } from '@material-ui/core'
 import { useProductPageStyles } from './productsPageStyles'
 
 import { Layout, Sidebar, SortNavigation, TabMenu, Product, ProductMedium, ProductSmall, BreadCrumbs, ButtonComponent, Select, ProductDrawer } from '../../../components/shared'
@@ -15,11 +15,12 @@ export default function ProductsPage({ medium, small }) {
     const classes = useProductPageStyles()
     const { trans, setTrans } = useContext(TranslateContext)
     const [open, setOpen] = useState(false)
-    
-    const handleOpen = () => {
+
+    const drawerOpen = () => {
         setOpen(true)
     }
-    const handleClose = () => {
+
+    const drawerClose = () => {
         setOpen(false)
     }
 
@@ -72,16 +73,18 @@ export default function ProductsPage({ medium, small }) {
                                 title="Filter"
                                 startIcon
                                 componentIcon={<FilterList />}
-                                onClick={() => setOpen(true)}
+                                onClick={drawerOpen}
                             />
                         </Hidden>
 
-                        <ProductDrawer
-                            open={open}
-                            setOpen={setOpen}
-                            handleOpen={handleOpen}
-                            handleClose={handleClose}
-                        />
+                        <Hidden smUp>
+                            <ProductDrawer
+                                open={open}
+                                setOpen={setOpen}
+                                drawerOpen={drawerOpen}
+                                drawerClose={drawerClose}
+                            />
+                        </Hidden>
 
                         <div className={classes.sort}>
                             <div className={classes.sort_navigation}>

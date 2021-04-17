@@ -15,6 +15,7 @@ export default function ProductsPage({ medium, small }) {
     const classes = useProductPageStyles()
     const { trans, setTrans } = useContext(TranslateContext)
     const [open, setOpen] = useState(false)
+    
     const handleOpen = () => {
         setOpen(true)
     }

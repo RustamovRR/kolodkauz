@@ -21,6 +21,7 @@ export const useProductStyles = makeStyles({
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
+        overflow:'hidden',
         '& img': {
             width: '100%',
             objectFit: 'contain'

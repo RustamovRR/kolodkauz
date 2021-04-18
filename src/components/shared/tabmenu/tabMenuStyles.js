@@ -4,17 +4,19 @@ import { clr } from "../../../constants/colors";
 
 export const useTabMenuStyles = makeStyles({
     container: {
-        maxWidth: 1440,
-        margin: 'auto'
+        width: '100vw',
+        margin: 'auto',
+    },
+    tabmenu: {
+        boxShadow: ` 0px 2px 3px rgba(0, 0, 0, 0.12)`,
     }
 })
 
 export const AntTabs = withStyles({
     root: {
-        width: '100%',
-        padding: '0 30px',
-        // backgroundColor: 'red'
-        boxShadow: ` 0px 2px 3px rgba(0, 0, 0, 0.12)`,
+        maxWidth: 1440,
+        margin: 'auto',
+        padding: '0 30px'
     },
     indicator: {
         backgroundColor: clr.primaryBlue,

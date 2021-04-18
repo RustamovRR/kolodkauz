@@ -5,7 +5,6 @@ const paddingRoot = '0 30px'
 
 export const useInformationStyles = makeStyles({
     root: {
-        maxWidth: 1440,
         margin: 'auto'
     },
 
@@ -16,6 +15,8 @@ export const useInformationStyles = makeStyles({
     },
 
     info_box: {
+        maxWidth: 1440,
+        margin: 'auto',
         display: 'flex',
         justifyContent: 'space-between',
         padding: paddingRoot

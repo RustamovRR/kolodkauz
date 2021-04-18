@@ -5,16 +5,15 @@ import { clr } from "../../../constants/colors";
 export const useTabListStyles = makeStyles({
     container: {
         margin: 'auto',
-        margin: '0 30px ',
         marginTop: 5,
     },
     tabPanel: {
         maxWidth: 1440,
-        height: 500,
+        minHeight: 500,
         zIndex: 1000,
         margin: 'auto',
-        position: "absolute",
-        backgroundColor: clr.primaryWhite
+        padding: '0 30px',
+        backgroundColor: clr.primaryWhite,
     },
 
     hidden: {
@@ -33,7 +32,22 @@ export const useTabListStyles = makeStyles({
         flexFlow: 'row wrap',
         '& > *': {
             flex: '0 1 calc(100% * 1/4)'
-        }
+        },
+        '@media (max-width: 1000px)': {
+            '& > *': {
+                flex: '0 1 calc(100% * 1/3)'
+            },
+        },
+        '@media (max-width: 700px)': {
+            '& > *': {
+                flex: '0 1 calc(100% * 1/2)'
+            },
+        },
+        '@media (max-width: 500px)': {
+            '& > *': {
+                flex: '0 1 calc(100%)'
+            },
+        },
     },
 
     title: {

@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import { useTabMenuStyles, AntTabs, AntTab } from './tabMenuStyles'
 
 import { TabList } from '../../shared';
-import { TabListContext, TranslateContext} from '../../../contexts';
+import { TabListContext, TranslateContext } from '../../../contexts';
 
 export default function TabMenu() {
     const classes = useTabMenuStyles();
@@ -46,14 +46,18 @@ export default function TabMenu() {
     return (
         <div className={classes.root}>
             <div className={classes.container}>
-                <AntTabs value={value} onChange={handleChange} aria-label="ant example">
-                    {
-                        (trans ? linksRu : linksUz).map(item => (
-                            <AntTab label={item} onClick={handleOpen} />
-                        ))
-                    }
-                </AntTabs>
-                <TabList />
+                <div className={classes.tabmenu}>
+                    <AntTabs value={value} onChange={handleChange} aria-label="ant example">
+                        {
+                            (trans ? linksRu : linksUz).map(item => (
+                                <AntTab label={item} onClick={handleOpen} />
+                            ))
+                        }
+                    </AntTabs>
+                </div>
+                <div>
+                    <TabList />
+                </div>
             </div>
         </div>
     );

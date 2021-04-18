@@ -7,11 +7,15 @@ export const useDescriptionStyles = makeStyles({
     root: {
         width: 588,
         marginTop: 32,
+        // backgroundColor: 'red',
         color: clr.dark900,
         '& h2': {
             marginTop: 24,
             fontSize: 20
-        }
+        },
+        '@media (max-width: 700px)': {
+            width: '100%'
+        },
     },
 
     info_box: {

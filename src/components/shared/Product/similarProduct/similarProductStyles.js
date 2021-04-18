@@ -7,7 +7,18 @@ export const useSimilarProductStyles = makeStyles({
     product_box: {
         marginTop: 32,
         display: 'flex',
-        justifyContent: 'space-between'
+        flexWrap: 'wrap',
+        justifyContent: 'space-between',
+        '& > div': {
+            width: 220,
+            marginTop: 32
+        },
+        '@media (max-width: 500px)': {
+            margin: 0,
+            '& > div': {
+                width: '100%',
+            }
+        },
     },
 
     divider: {

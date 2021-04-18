@@ -53,32 +53,35 @@ export default function ProductInfoPage() {
                             <div><p style={{ color: clr.dark900 }} >Купили более 100 000 раз</p></div>
                         </div>
 
-                        <section style={{ width: 308 }} >
+                        <section >
                             <div className={classes.price_box}>
                                 <h2>{`7,850,000 ${sum}`}</h2>
                                 <p>{`9,876,000 ${sum}`}</p>
                             </div>
 
-                            <div className={classes.checkbox}>
-                                <CheckBox label="Обратитесь к мастеру службы" />
-                            </div>
-
-                            <div className={classes.action_box}>
-                                <ButtonComponent title="Быстрый заказ " />
-
-                                <div className={classes.buttons}>
-                                    <div className={classes.order_button}>
-                                        <ButtonComponent outlined title="Корзинка" />
-                                    </div>
-                                    <IconButton>
-                                        <FavoriteBlack />
-                                    </IconButton>
-                                    <IconButton>
-                                        <CompareBlack />
-                                    </IconButton>
+                            <section className={classes.inputs} >
+                                <div className={classes.checkbox}>
+                                    <CheckBox label="Обратитесь к мастеру службы" />
                                 </div>
-                            </div>
+
+                                <div className={classes.action_box}>
+                                    <ButtonComponent title="Быстрый заказ " />
+
+                                    <div className={classes.buttons}>
+                                        <div className={classes.order_button}>
+                                            <ButtonComponent outlined title="Корзинка" />
+                                        </div>
+                                        <IconButton>
+                                            <FavoriteBlack />
+                                        </IconButton>
+                                        <IconButton>
+                                            <CompareBlack />
+                                        </IconButton>
+                                    </div>
+                                </div>
+                            </section>
                         </section>
+
                         <p className={classes.text}>Обратитесь к мастеру службы</p>
                         <img src={castrolImg} alt="" className={classes.photo} />
                     </section>

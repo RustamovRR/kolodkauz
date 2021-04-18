@@ -17,7 +17,7 @@ function App() {
           }
         </QueryClientProvider>
       </Suspense>
-    </div >
+    </div>
   );
 }
 

@@ -14,22 +14,34 @@ export const useProductInfoPageStyles = makeStyles({
 
     arrow: {
         marginTop: 52,
+        '@media (max-width: 900px)': {
+            margin: 0
+        },
     },
 
     product_box: {
         marginTop: 96,
         display: 'flex',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        '@media (max-width: 900px)': {
+            flexWrap: 'wrap',
+            marginTop: 32,
+        },
     },
 
     product_image: {
         width: '47%',
         height: 660,
+        // background: 'lightblue',
         '& img': {
             width: '100%',
             height: '100%',
-            objectFit: 'cover'
-        }
+            objectFit: 'contain'
+        },
+        '@media (max-width: 900px)': {
+            width: '100%',
+            height: 400
+        },
     },
 
     info_box: {
@@ -37,7 +49,16 @@ export const useProductInfoPageStyles = makeStyles({
         '& h1': {
             fontSize: 40,
             color: clr.primaryDarkBlue
-        }
+        },
+        '@media (max-width: 900px)': {
+            width: '100%',
+            marginTop: 16
+        },
+        '@media (max-width: 700px)': {
+            '& h1': {
+                fontSize: '1.5rem',
+            },
+        },
     },
 
     secondary: {
@@ -48,7 +69,10 @@ export const useProductInfoPageStyles = makeStyles({
         },
         '& p': {
             color: clr.dark700
-        }
+        },
+        '@media (max-width: 500px)': {
+            flexWrap: 'wrap'
+        },
     },
 
     price_box: {
@@ -65,7 +89,23 @@ export const useProductInfoPageStyles = makeStyles({
             color: clr.dark700,
             fontWeight: 'normal',
             textDecoration: 'line-through'
-        }
+        },
+        '@media (max-width: 700px)': {
+            '& h2': {
+                fontSize: '1.2rem',
+            },
+        },
+    },
+
+    inputs: {
+        display: 'flex',
+        flexDirection: 'column',
+        '@media (max-width: 900px)': {
+            width: '85vw',
+            flexDirection: 'row',
+            flexWrap: 'wrap',
+            justifyContent: 'space-between'
+        },
     },
 
     checkbox: {
@@ -73,7 +113,7 @@ export const useProductInfoPageStyles = makeStyles({
     },
 
     action_box: {
-        marginTop: 32
+        marginTop: 32,
     },
 
     buttons: {
@@ -83,12 +123,21 @@ export const useProductInfoPageStyles = makeStyles({
     },
 
     order_button: {
-        width: 210
+        width: 210,
+        '@media (max-width: 400px)': {
+            width: 150
+        },
     },
 
     text: {
         marginTop: 48,
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        '@media (max-width: 900px)': {
+            margin: 0
+        },
+        '@media (max-width: 660px)': {
+            marginTop: 16,
+        },
     },
 
     photo: {
@@ -103,7 +152,13 @@ export const useProductInfoPageStyles = makeStyles({
         '& h1': {
             fontSize: 40,
             color: clr.primaryDarkBlue
-        }
+        },
+        '@media (max-width: 700px)': {
+            marginTop: 48,
+            '& h1': {
+                fontSize: '2rem',
+            },
+        },
     },
 
     similar_box: {
@@ -111,7 +166,13 @@ export const useProductInfoPageStyles = makeStyles({
         '& h1': {
             fontSize: 40,
             color: clr.primaryDarkBlue
-        }
+        },
+        '@media (max-width: 700px)': {
+            marginTop: 48,
+            '& h1': {
+                fontSize: '2rem',
+            },
+        },
     },
 
     comment_box: {
@@ -119,7 +180,13 @@ export const useProductInfoPageStyles = makeStyles({
         '& h1': {
             fontSize: 40,
             color: clr.primaryDarkBlue
-        }
+        },
+        '@media (max-width: 700px)': {
+            marginTop: 32,
+            '& h1': {
+                fontSize: '2rem',
+            },
+        },
     },
 
     sign_button: {
@@ -138,7 +205,10 @@ export const useProductInfoPageStyles = makeStyles({
         alignItems: 'center',
         '& p': {
             color: clr.dark500
-        }
+        },
+        '@media (max-width: 700px)': {
+            flexWrap: 'wrap'
+        },
     },
 
     links: {
@@ -153,7 +223,10 @@ export const useProductInfoPageStyles = makeStyles({
 
     comments: {
         width: 705,
-        marginTop: 16
+        marginTop: 16,
+        '@media (max-width: 780px)': {
+            width: '100%'
+        },
     },
 
     users: {

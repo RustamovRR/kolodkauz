@@ -5,7 +5,11 @@ const paddingRoot = '0 30px'
 
 export const useSidebarStyles = makeStyles({
     root: {
-        color: clr.dark900
+        color: clr.dark900,
+        '@media (max-width: 600px)': {
+            padding: 16,
+            overflowX: 'hidden'
+        },
     },
 
     filter: {

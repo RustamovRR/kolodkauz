@@ -129,6 +129,6 @@ export default function Sidebar() {
                     }
                 </RadioGroup>
             </section>
-        </div >
+        </div>
     )
 }

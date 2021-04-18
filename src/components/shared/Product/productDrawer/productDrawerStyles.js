@@ -6,6 +6,6 @@ export const useProductDrawerStyles = makeStyles({
     drawer: {
     },
     paper: {
-        width: 300,
+        width: '80%',
     },
 });

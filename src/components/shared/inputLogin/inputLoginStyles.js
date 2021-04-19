@@ -10,16 +10,26 @@ export const useInputLoginStyles = makeStyles({
 
     textfield: {
         width: 422,
-        height: 48,
+        height: 'auto',
         marginTop: 8,
         color: 'red',
         '& .MuiOutlinedInput-root': {
             borderRadius: 0,
             '& fieldset': {
-                border: `1px solid ${clr.productPrimary}`
+                border: `1px solid ${clr.productPrimary}`,
             },
             '&.Mui-focused fieldset': {
                 border: `1px solid ${clr.tab}`
+            },
+        },
+        '@media (max-width: 600px)': {
+            width: '100%',
+            '& input': {
+                padding: 10
+            },
+            '& fieldset': {
+                border: `1px solid ${clr.productPrimary}`,
+                height: 48
             },
         },
     }

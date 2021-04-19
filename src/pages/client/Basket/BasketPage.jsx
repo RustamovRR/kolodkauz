@@ -47,9 +47,11 @@ export default function BasketPage() {
                             <h1>
                                 {trans ? `Корзина` : `Xaridlar savati`}
                             </h1>
-                            <BasketList />
-                            <BasketList />
-                            <BasketList />
+                            <div className={classes.basket_list}>
+                                <BasketList />
+                                <BasketList />
+                                <BasketList />
+                            </div>
                         </div>
 
                         <div className={classes.modal_box}>

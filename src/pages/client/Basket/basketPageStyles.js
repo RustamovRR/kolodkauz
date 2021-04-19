@@ -16,25 +16,13 @@ export const useBasketPageStyles = makeStyles({
         backgroundColor: clr.primaryWhite
     },
 
-    navigation: {
-        fontSize: 14,
-        '& > *': {
-            color: clr.primary
-        }
-    },
-
-    link: {
-        textDecoration: 'none',
-        color: clr.productPrimary,
-        '&:hover': {
-            textDecoration: 'underline'
-        }
-    },
-
     basket_box: {
         display: 'flex',
         padding: paddingRoot,
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        '@media ( max-width: 1200px)': {
+            flexWrap: 'wrap'
+        },
     },
 
     left_box: {
@@ -46,12 +34,19 @@ export const useBasketPageStyles = makeStyles({
             margin: '32px 0',
             fontSize: 40,
             fontWeight: 700
-        }
+        },
+        '@media ( max-width: 1200px)': {
+            width: '100%'
+        },
     },
 
     modal_box: {
         width: '28%',
-        marginTop: 96
+        marginTop: 96,
+        '@media ( max-width: 1200px)': {
+            width: '100%',
+            marginTop: -48,
+        },
     },
 
     billing_box: {
@@ -66,7 +61,13 @@ export const useBasketPageStyles = makeStyles({
             marginTop: 16,
             fontWeight: 400,
             color: clr.dark700
-        }
+        },
+        '@media ( max-width: 700px)': {
+            marginTop: 48,
+            '& h1': {
+                fontSize: '2rem'
+            },
+        },
     },
 
     input_box: {
@@ -83,8 +84,12 @@ export const useBasketPageStyles = makeStyles({
     input: {
         marginTop: 8,
         width: '46vw',
-        flex: '0 1 calc(100% * 1/2)',
-        // '& > *': {
-        // }
+        display: 'flex',
+        '@media ( max-width: 750px)': {
+            width: '90vw',
+        },
+        '@media ( max-width: 500px)': {
+            width: '85vw'
+        },
     }
 });

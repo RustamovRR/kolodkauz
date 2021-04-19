@@ -43,8 +43,18 @@ export const useFavoriteStyles = makeStyles({
 
     product_box: {
         display: 'flex',
+        flexWrap: 'wrap',
         justifyContent: 'space-between',
-        flexWrap: 'wrap'
+        padding: paddingRoot,
+        '& > div': {
+            width: 220,
+            marginTop: 32
+        },
+        '@media (max-width: 500px)': {
+            '& > div': {
+                width: '100%',
+            }
+        },
     },
 
     footer_box: {

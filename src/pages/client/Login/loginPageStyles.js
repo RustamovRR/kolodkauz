@@ -6,7 +6,7 @@ const paddingRoot = '0 30px'
 export const useLoginStyles = makeStyles({
     root: {
         maxWidth: 1440,
-        margin: 'auto'
+        margin: 'auto',
     },
 
     card_box: {
@@ -17,7 +17,10 @@ export const useLoginStyles = makeStyles({
         color: clr.primary,
         '& h1': {
             fontSize: 32
-        }
+        },
+        '@media (max-width: 600px)': {
+            width: '100%'
+        },
     },
 
     input_box: {

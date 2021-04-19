@@ -7,8 +7,8 @@ export const useBasketPayStyles = makeStyles({
     paper: {
         width: '100%',
         overflow: 'hidden',
-        height: 332,
-        padding: 24,
+        minHeight: 332,
+        padding: 24
     },
 
     product: {

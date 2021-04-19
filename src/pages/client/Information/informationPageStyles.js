@@ -10,8 +10,8 @@ export const useInformationStyles = makeStyles({
 
     tabs_box: {
         background: clr.primaryWhite,
-        position: 'sticky',
-        top: 0,
+        // position: 'sticky',
+        // top: 0,
     },
 
     info_box: {
@@ -26,7 +26,11 @@ export const useInformationStyles = makeStyles({
         width: '20%',
         minHeight: '100vh',
         marginTop: -4,
-        borderRight: '1px solid rgba(224, 224, 224, 1)'
+        borderRight: '1px solid rgba(224, 224, 224, 1)',
+        '@media (max-width: 800px)': {
+            // visibility: 'hidden'
+            // display: 'none'
+        },
     },
 
     info_panel: {

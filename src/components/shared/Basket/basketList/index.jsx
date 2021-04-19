@@ -1,7 +1,5 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import {
-    Button,
-    Dialog,
     Divider,
     IconButton,
     List,
@@ -24,44 +22,77 @@ export default function BasketList() {
     const { sum } = useContext(TranslateContext)
 
     return (
-        <div>
-            <List className={classes.list}>
-                <section >
-                    <ListItem className={classes.list_item}>
-                        <ListItemAvatar className={classes.avatar}>
-                            <img src={sidina} alt="" />
-                        </ListItemAvatar>
-                        <ListItemText
-                            primary="Мойка высокого давления "
-                            secondary={
-                                <Rating defaultValue={4} />
-                            }
-                            classes={{
-                                root: classes.text,
-                                primary: classes.text_primary,
-                                secondary: classes.text_secondary
-                            }}
-                        />
+        // <div>
+        //     <List className={classes.list}>
+        //         <section >
+        //             <ListItem className={classes.list_item}>
+        //                 <ListItemAvatar className={classes.avatar}>
+        //                     <img src={sidina} alt="" />
+        //                 </ListItemAvatar>
+        //                 <div className={classes.text_box} >
+        //                     <p>Мойка высокого давления</p>
+        //                     <Rating defaultValue={4} />
+        //                 </div>
+        //                 {/* <ListItemText
+        //                     primary="Мойка высокого давления "
+        //                     secondary={
+        //                     }
+        //                     classes={{
+        //                         root: classes.text,
+        //                         primary: classes.text_primary,
+        //                         secondary: classes.text_secondary
+        //                     }}
+        //                 /> */}
 
-                        <ListItemSecondaryAction className={classes.action_box}>
+        //                 <ListItemSecondaryAction className={classes.action_box}>
 
-                            <section className={classes.count}>
-                                <Quantity />
-                            </section>
+        //                     <section className={classes.count}>
+        //                         <Quantity />
+        //                     </section>
 
-                            <section className={classes.price}>
-                                <h3>{`7,850,000 ${sum}`}</h3>
-                                <p>{`9,876,000 ${sum}`}</p>
-                            </section>
+        //                     <section className={classes.price}>
+        //                         <h3>{`7,850,000 ${sum}`}</h3>
+        //                         <p>{`9,876,000 ${sum}`}</p>
+        //                     </section>
 
-                            <IconButton className={classes.icon}>
-                                <Close fontSize="small" />
-                            </IconButton>
-                        </ListItemSecondaryAction>
-                    </ListItem>
-                    <Divider />
+        //                     <IconButton className={classes.icon}>
+        //                         <Close fontSize="small" />
+        //                     </IconButton>
+        //                 </ListItemSecondaryAction>
+        //             </ListItem>
+        //             <Divider />
+        //         </section>
+        //     </List>
+        // </div>
+
+        <div className={classes.root}>
+            <div className={classes.left_box} >
+                <section className={classes.image_box}>
+                    <img src={sidina} alt="" width={110} height={110} />
                 </section>
-            </List>
+
+                <section className={classes.text_box}>
+                    <p>Мойка высокого давления</p>
+                    <Rating defaultValue={4} size="small" />
+                </section>
+            </div>
+
+            <div className={classes.right_box} >
+                <section className={classes.count_box}>
+                    <Quantity />
+                </section>
+
+                <section className={classes.price_box}>
+                    <p>{`7,850,000 ${sum}`}</p>
+                    <span>{`9,876,000 ${sum}`}</span>
+                </section>
+
+                <section className={classes.action_box}>
+                    <IconButton className={classes.icon}>
+                        <Close fontSize="small" />
+                    </IconButton>
+                </section>
+            </div>
         </div>
     )
 }

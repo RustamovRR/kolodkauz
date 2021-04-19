@@ -4,11 +4,11 @@ import { clr } from "../../../constants/colors";
 
 export const useTabMenuStyles = makeStyles({
     container: {
-        width: '100vw',
-        margin: 'auto',
+        width: '100%',
+        margin: 'auto'
     },
     tabmenu: {
-        boxShadow: ` 0px 2px 3px rgba(0, 0, 0, 0.12)`,
+        boxShadow: ` 0px 2px 3px rgba(0, 0, 0, 0.12)`
     }
 })
 

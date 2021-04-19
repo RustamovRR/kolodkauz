@@ -6,7 +6,7 @@ const paddingRoot = '0 30px'
 export const useQuantityStyles = makeStyles({
     count: {
         height: 32,
-        width: 128,
+        width: '100%',
         marginRight: 64,
         display: 'flex',
         alignItems: 'center',

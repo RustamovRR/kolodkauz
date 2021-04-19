@@ -38,7 +38,12 @@ export const useFavoriteStyles = makeStyles({
             margin: '32px 0',
             fontSize: 40,
             fontWeight: 700
-        }
+        },
+        '@media (max-width: 700px)': {
+            '& h1': {
+                fontSize: '2rem',
+            },
+        },
     },
 
     product_box: {

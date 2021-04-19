@@ -62,7 +62,7 @@ export const useBasketPageStyles = makeStyles({
             fontWeight: 400,
             color: clr.dark700
         },
-        '@media ( max-width: 700px)': {
+        '@media ( max-width: 1200px)': {
             marginTop: 48,
             '& h1': {
                 fontSize: '2rem'

@@ -5,10 +5,12 @@ const paddingRoot = '0 30px'
 
 export const useBasketPayStyles = makeStyles({
     paper: {
+        padding: 24,
         width: '100%',
-        overflow: 'hidden',
+        maxWidth: 350,
         minHeight: 332,
-        padding: 24
+        margin: 'auto',
+        overflow: 'hidden',
     },
 
     product: {
@@ -58,6 +60,9 @@ export const useBasketPayStyles = makeStyles({
     },
 
     button: {
-        marginTop: 32
+        marginTop: 32,
+        '& > *': {
+            maxWidth: 300
+        }
     }
 });

@@ -23,7 +23,12 @@ export const useComparePageStyles = makeStyles({
             margin: '32px 0',
             fontSize: 40,
             fontWeight: 700
-        }
+        },
+        '@media (max-width: 700px)': {
+            '& > h1': {
+                fontSize: '2rem'
+            },
+        },
     },
 
     navigation: {
@@ -41,15 +46,10 @@ export const useComparePageStyles = makeStyles({
         }
     },
 
-    product_box: {
-        position: 'relative',
-        '& > *': {
-            flex: '0 1 calc(100% * 1/6 - 10px)',
+    swiper_slide: {
+        '@media (max-width: 500px)': {
+            marginLeft: '2%'
         },
-        '& > p': {
-            fontSize: 18,
-            fontWeight: 400
-        }
     },
 
     arrows: {

@@ -114,6 +114,7 @@ export const useProductInfoPageStyles = makeStyles({
 
     action_box: {
         marginTop: 32,
+        maxWidth: 310
     },
 
     buttons: {

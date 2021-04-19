@@ -52,10 +52,27 @@ export default function ComparePage() {
                         <Swiper
                             slidesPerView={5}
                             className={classes.swiper}
+                            breakpoints={{
+                                1100: {
+                                    slidesPerView: 5,
+                                },
+                                900: {
+                                    slidesPerView: 4,
+                                },
+                                700: {
+                                    slidesPerView: 3,
+                                },
+                                500: {
+                                    slidesPerView: 2,
+                                },
+                                279: {
+                                    slidesPerView: 1,
+                                },
+                            }}
                         >
                             {
                                 [1, 2, 3, 4, 5, 6, 7, 8, 9].map((item, index) => (
-                                    <SwiperSlide >
+                                    <SwiperSlide className={classes.swiper_slide} >
                                         <ProductCompare primary={index === 0 ? true : false} />
                                     </SwiperSlide>
                                 ))

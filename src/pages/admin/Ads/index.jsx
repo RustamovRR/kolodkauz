@@ -7,91 +7,94 @@ import { useDispatch, useSelector } from 'react-redux';
 import { adsAction } from '../../../redux/actions';
 import { useAdsStyles } from './useAdsStyles'
 import { request } from '../../../services/api';
+import loadAds from '../../../redux/actions/adsAction';
+import useFileUpload from '../../../hooks/queries/useFileUpload';
+import UploadImageForm from '../../../components/forms/UploadImageForm';
 
 export default function Ads() {
     const classes = useAdsStyles()
     const { register, control, handleSubmit } = useForm()
-    const [image, setImage] = useState(null)
 
-    const dispatch = useDispatch()
+    const onSubmit = handleSubmit(async (data) => {
+        const response = await request.post('/ads', data)
 
-    useEffect(() => {
-        dispatch(adsAction())
-    }, [])
-
-    const ads = useSelector((state) => state.ads)
-    // console.log(ads)
-
+        console.log(response)
+    })
 
     return (
-        <form encType="multipart/form-data">
+        <>
             <div className={classes.form_root}>
-                <section className={classes.names}>
-                    {/* <Controller
-                        name="uz[title]"
-                        control={control}
-                        label="Sarlavha (uz)"
-                        variant="outlined"
-                        margin="normal"
-                        color="primary"
-                        as={<TextField />}
-                    />
-                    <Controller
-                        name="ru[title]"
-                        control={control}
-                        label="Sarlavha (ru)"
-                        variant="outlined"
-                        margin="normal"
-                        color="primary"
-                        as={<TextField />}
-                    />
-                    <Controller
-                        name="uz[description]"
-                        control={control}
-                        label="Izoh (uz)"
-                        variant="outlined"
-                        margin="normal"
-                        color="primary"
-                        as={<TextField />}
-                    />
-                    <Controller
-                        name="ru[description]"
-                        control={control}
-                        label="Izoh (ru)"
-                        variant="outlined"
-                        margin="normal"
-                        color="primary"
-                        as={<TextField />}
-                    /> */}
-                </section>
+                <UploadImageForm
+                    name="image"
+                    multiple={false}
+                />
+                <form onSubmit={onSubmit}>
+                    <section className={classes.names}>
+                        <Controller
+                            name="uz[title]"
+                            control={control}
+                            label="Sarlavha (uz)"
+                            variant="outlined"
+                            margin="normal"
+                            color="primary"
+                            as={<TextField />}
+                        />
+                        <Controller
+                            name="ru[title]"
+                            control={control}
+                            label="Sarlavha (ru)"
+                            variant="outlined"
+                            margin="normal"
+                            color="primary"
+                            as={<TextField />}
+                        />
+                        <Controller
+                            name="uz[description]"
+                            control={control}
+                            label="Izoh (uz)"
+                            variant="outlined"
+                            margin="normal"
+                            color="primary"
+                            as={<TextField />}
+                        />
+                        <Controller
+                            name="ru[description]"
+                            control={control}
+                            label="Izoh (ru)"
+                            variant="outlined"
+                            margin="normal"
+                            color="primary"
+                            as={<TextField />}
+                        />
+                    </section>
 
-                <section className={classes.products}>
-                    {/* <Controller
-                        name="type"
-                        control={control}
-                        label="Turi"
-                        variant="outlined"
-                        margin="normal"
-                        color="primary"
-                        as={<TextField />}
-                    /> */}
-                    <input
-                        name="image"
-                        type="file"
-                        onChange={(e) => setImage(e.target.files[0])}
-                    // ref={register}
-                    />
-                </section>
+                    <section className={classes.products}>
+                        <Controller
+                            name="type"
+                            control={control}
+                            label="Turi"
+                            variant="outlined"
+                            margin="normal"
+                            color="primary"
+                            as={<TextField />}
+                        />
+                        {/* <input
+                            name="image"
+                            type="file"
+                            onChange={(e) => setImage(e.target.files[0])}
+                        /> */}
+                    </section>
 
-                <Button
-                    variant="contained"
-                    color="primary"
-                    type="submit"
-                    className={classes.button}
-                >
-                    Post qilish
+                    <Button
+                        variant="contained"
+                        color="primary"
+                        type="submit"
+                        className={classes.button}
+                    >
+                        Post qilish
                 </Button>
+                </form>
             </div>
-        </form>
+        </>
     )
 }

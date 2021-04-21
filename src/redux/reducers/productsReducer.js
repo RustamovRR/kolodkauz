@@ -1,7 +1,5 @@
-import axios from "axios"
-
 const initialState = {
-
+    products: []
 }
 
 const productsReducer = (state = initialState, action) => {
@@ -9,7 +7,7 @@ const productsReducer = (state = initialState, action) => {
         case 'FETCH_PRODUCTS':
             return {
                 ...state,
-
+                products: action.payload.products
             }
         default:
             return { ...state }

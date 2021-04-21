@@ -1,3 +1,10 @@
-export { default as rootReducer } from './rootReducer'
-export { default as productsReducer } from './productsReducer'
-export { default as adsReducer } from './adsReducer'
+import { combineReducers } from 'redux'
+import adsReducer from './adsReducer'
+import productsReducer from './productsReducer'
+
+const rootReducer = combineReducers({
+    ads: adsReducer,
+    products: productsReducer
+})
+
+export default rootReducer

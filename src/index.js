@@ -7,21 +7,19 @@ import { createStore, compose, applyMiddleware } from 'redux';
 
 import "./index.css";
 import App from "./App";
-import { rootReducer } from "./redux/reducers"
+import rootReducer from "./redux/reducers"
 import CountProvider from "./contexts/CountContext";
 import BasketProvider from "./contexts/BasketContext";
 import TabListProvider from "./contexts/TabListContext";
 import TranslateProvider from "./contexts/TranslateContext";
 
 
-const composeEnhancer = typeof window === 'object' &&
-  window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?
-  window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({}) : compose;
+const composeEnchancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const store = createStore(
-  rootReducer,  
-  composeEnhancer(applyMiddleware(thunk))
-)
+  rootReducer,
+  composeEnchancer(applyMiddleware(thunk))
+);
 
 ReactDOM.render(
   <BrowserRouter>

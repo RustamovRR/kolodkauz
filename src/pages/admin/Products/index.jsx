@@ -1,38 +1,17 @@
-import React from 'react'
+import axios from 'axios';
+import React, { useState, useEffect } from 'react'
 import { TextField, Button, IconButton } from '@material-ui/core'
 import { useForm, Controller, FormProvider } from "react-hook-form";
-import * as yup from "yup";
 import { useProductsStyles } from './useProductsStyles'
-import { useMemo } from 'react';
-import useAdsMutation from '../../../hooks/mutations/useAdsMutation';
-import { useState } from 'react';
-import { apiRequest } from '../../../services/api';
-import axios from 'axios';
 import { PhotoCamera } from '@material-ui/icons';
-import { useEffect } from 'react';
 
 export default function Products() {
     const classes = useProductsStyles()
     const { register, control, handleSubmit } = useForm()
-    const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDcwNmM0ODMyZmNlMDgwNDc2Njg4NjciLCJmdWxsbmFtZSI6ImFkbWluIiwicGhvbmUiOiIrOTk4OTkxMjM0NTY3Iiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjE3OTgwNDg4fQ.dio-htO_Hx6PnLvAyQOliifGFe4Q-rD2YrTMhkWO2gI'
-
-
-    const handleClick = handleSubmit(async (data) => {
-        console.log(data)
-        const response = await axios('http://zap.uz/api/products', {
-            method: 'POST',
-            headers: {
-                'Content-type': "application/json",
-                'x-token': token
-            },
-            data: data
-        })
-        console.log(response)
-    })
 
     return (
         <FormProvider>
-            <form onSubmit={handleClick} >
+            <form >
                 <div className={classes.form_root}>
                     <section className={classes.names}>
                         <Controller

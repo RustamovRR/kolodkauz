@@ -2,12 +2,15 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { useLoginStyles } from './loginPageStyles'
 
-import { InputLogin, CheckBox, ButtonComponent, Layout } from '../../../components/shared'
+import { InputLogin, CheckBox, ButtonComponent, Layout, PhoneNumberFormat } from '../../../components/shared'
 
 
 export default function LoginPage() {
     const classes = useLoginStyles()
-    const labels = [`Контактный телефон`, `Имя`]
+    const labels = [
+        { label: `Контактный телефон`, numberFormat: true },
+        { label: `Имя`, numberFormat: false }
+    ]
 
     return (
         <Layout>
@@ -15,10 +18,10 @@ export default function LoginPage() {
                 <div className={classes.card_box}>
                     <h1>Войти профиль</h1>
                     {
-                        labels.map((item) => (
+                        labels.map(({ label, numberFormat }) => (
                             <div className={classes.input_box}>
-                                <label htmlFor={item}>{item}</label>
-                                <InputLogin id={item} />
+                                <label htmlFor={label}>{label}</label>
+                                <InputLogin id={label}  />
                             </div>
                         ))
                     }

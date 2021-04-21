@@ -1,62 +1,33 @@
 import React, { useState, useEffect } from 'react'
+import axios from 'axios';
 import { TextField, Button, IconButton } from '@material-ui/core'
 import { useForm, Controller, FormProvider } from "react-hook-form";
 import * as yup from "yup";
+import { useDispatch, useSelector } from 'react-redux';
+import { adsAction } from '../../../redux/actions';
 import { useAdsStyles } from './useAdsStyles'
-import { useMemo } from 'react';
-import useAdsMutation from '../../../hooks/mutations/useAdsMutation';
-import { apiRequest } from '../../../services/api';
-import axios from 'axios';
+import { request } from '../../../services/api';
 
 export default function Ads() {
     const classes = useAdsStyles()
     const { register, control, handleSubmit } = useForm()
-    const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDcwNmM0ODMyZmNlMDgwNDc2Njg4NjciLCJmdWxsbmFtZSI6ImFkbWluIiwicGhvbmUiOiIrOTk4OTkxMjM0NTY3Iiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjE3OTgwNDg4fQ.dio-htO_Hx6PnLvAyQOliifGFe4Q-rD2YrTMhkWO2gI'
+    const [image, setImage] = useState(null)
 
-    const onsubmit = handleSubmit(async (data) => {
-        const formData = new FormData()
-        formData.append('image', data.image[0])
+    const dispatch = useDispatch()
 
-        console.log(formData)
-        const response = await axios('http://zap.uz/api/ads', {
-            method: 'POST',
-            mode: 'no-cors',
-            data: formData,
-            headers: {
-                'Content-type': "application/json",
-                'Access-Control-Allow-Origin': '*',
-                'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
-                'x-token': token
-            }
-        })
-        console.log(response)
-    })
+    useEffect(() => {
+        dispatch(adsAction())
+    }, [])
 
-    // const handleSubmitted = (e) => {
-    //     e.preventDefault()
-    //     let data = new FormData()
-    //     console.log(image)
+    const ads = useSelector((state) => state.ads)
+    // console.log(ads)
 
-    //     data.append('image', image)
-
-    //     axios.post('http://zap.uz/api/ads', data, {
-    //         headers: {
-    //             'Content-type': "application/json",
-    //             'x-token': token
-    //         }
-    //     })
-    //         .then(res => {
-    //             alert('sucess post')
-    //             // console.log(res);
-    //         })
-    //         .catch((err) => alert('Error'))
-    // }
 
     return (
-        <form onSubmit={onsubmit} >
+        <form encType="multipart/form-data">
             <div className={classes.form_root}>
                 <section className={classes.names}>
-                    <Controller
+                    {/* <Controller
                         name="uz[title]"
                         control={control}
                         label="Sarlavha (uz)"
@@ -91,11 +62,11 @@ export default function Ads() {
                         margin="normal"
                         color="primary"
                         as={<TextField />}
-                    />
+                    /> */}
                 </section>
 
                 <section className={classes.products}>
-                    <Controller
+                    {/* <Controller
                         name="type"
                         control={control}
                         label="Turi"
@@ -103,12 +74,12 @@ export default function Ads() {
                         margin="normal"
                         color="primary"
                         as={<TextField />}
-                    />
+                    /> */}
                     <input
                         name="image"
                         type="file"
-                        // onChange={(e) => setImage(e.target.files[0])}
-                        ref={register}
+                        onChange={(e) => setImage(e.target.files[0])}
+                    // ref={register}
                     />
                 </section>
 

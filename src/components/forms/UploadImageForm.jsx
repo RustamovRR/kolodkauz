@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState, useContext } from 'react';
 import { useFormContext } from "react-hook-form";
 import { useDropzone } from "react-dropzone";
 import Button from '@material-ui/core/Button';
@@ -9,11 +9,12 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import { AlertSnackbar } from '../shared'
 import { request } from '../../services/api';
+import { ContextRoot } from '../../contexts';
 
 const UploadImageForm = ({ children, label, className, multiple = true, ...inputProps }) => {
+    const { imageUrl, setImageUrl } = useContext(ContextRoot)
     const [openModal, setOpenModal] = useState(false);
     const [image, setImage] = useState(null)
-    const [data, setData] = useState('')
 
     const handleClickOpen = () => {
         setOpenModal(true);
@@ -29,8 +30,13 @@ const UploadImageForm = ({ children, label, className, multiple = true, ...input
         formData.append('image', image)
 
         await request.post('/uploads', formData)
-            .then((res) => setData(res.data.data))
+            .then((res) => setImageUrl(res.data.data))
     }
+
+    // useEffect(() => {
+    //     setImageUrl(data)
+    // }, [data])
+    console.log(imageUrl)
 
     return (
         <div>
@@ -54,7 +60,7 @@ const UploadImageForm = ({ children, label, className, multiple = true, ...input
                     </DialogContent>
                     <DialogActions style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }} >
                         <img
-                            src={`http://zap.uz/${data}`}
+                            src={`http://zap.uz/${imageUrl}`}
                             alt=""
                             width={300}
                             height={200}

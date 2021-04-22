@@ -6,6 +6,7 @@ export default function Provider({ children }) {
 
     const [openBasket, setOpenBasket] = useState(false)
     const [openTabList, setOpenTabList] = useState(false)
+    const [imageUrl, setImageUrl] = useState('')
     const [trans, setTrans] = useState(false)
     const sum = trans ? `сум` : `so'm`
 
@@ -32,6 +33,7 @@ export default function Provider({ children }) {
         sum,
         openBasket, setOpenBasket,
         openTabList, setOpenTabList,
+        imageUrl, setImageUrl,
         trans, setTrans,
         countState: count, countDispatch: dispatch,
     }

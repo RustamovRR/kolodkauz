@@ -1,56 +1,44 @@
 import React, { useState, useEffect, useMemo, useContext } from 'react'
 import axios from 'axios';
 import { TextField, Button, IconButton } from '@material-ui/core'
-import { useForm, Controller, FormProvider } from "react-hook-form";
+import { useForm, Controller, useWatch } from "react-hook-form";
 import { useDispatch, useSelector } from 'react-redux';
 import { adsAction } from '../../../redux/actions';
 import { useAdsStyles } from './useAdsStyles'
 import { request } from '../../../services/api';
 import loadAds from '../../../redux/actions/adsAction';
 import UploadImageForm from '../../../components/forms/UploadImageForm';
-import { joiResolver } from "@hookform/resolvers/joi";
-import * as yup from "yup";
-import Joi from "joi";
+import { ContextRoot } from '../../../contexts'
 
+function IsolateReRender({ control }) {
+    const firstName = useWatch({
+        control,
+        name: 'firstName', // without supply name will watch the entire form, or ['firstName', 'lastName'] to watch both
+        defaultValue: 'default' // default value before the render
+    });
+
+    return <div>{firstName}</div>; // only re-render at the component level, when firstName changes
+}
 export default function Ads() {
     const classes = useAdsStyles()
+    const { imageUrl } = useContext(ContextRoot)
+    const { handleSubmit, control, register } = useForm()
 
-    const validationSchema = useMemo(
-        () =>
-            Joi.object({
-                uz: {
-                    title: Joi.string(),
-                    description: Joi.string(),
-                },
-                ru: {
-                    title: Joi.string(),
-                    description: Joi.string(),
-                },
-                type: Joi.string(),
-                image: Joi.string()
-            })
-    );
-
-    let form = useForm({
-        resolver: joiResolver(validationSchema)
-    })
-
-    const onSubmit = form.handleSubmit(async (data) => {
-        // const response = await request.post('/ads', data)
-
-        // console.log(response)
+    const onSubmit = handleSubmit(async (data) => {
         console.log(data)
     })
+    console.log(imageUrl)
+
 
     return (
-        <div className={classes.form_root}>
-            <FormProvider {...form}>
+        < >
+            <div className={classes.form_root}>
+                <UploadImageForm name="image" />
                 <form onSubmit={onSubmit}>
                     <section className={classes.names}>
-                        <UploadImageForm name="image" />
-                        {/* <Controller
+                        <Controller
                             name="uz[title]"
-                            control={form.control}
+                            control={control}
                             label="Sarlavha (uz)"
                             variant="outlined"
                             margin="normal"
@@ -59,7 +47,7 @@ export default function Ads() {
                         />
                         <Controller
                             name="ru[title]"
-                            control={form.control}
+                            control={control}
                             label="Sarlavha (ru)"
                             variant="outlined"
                             margin="normal"
@@ -68,16 +56,16 @@ export default function Ads() {
                         />
                         <Controller
                             name="uz[description]"
-                            control={form.control}
+                            control={control}
                             label="Izoh (uz)"
                             variant="outlined"
                             margin="normal"
                             color="primary"
                             as={<TextField />}
-                        /> */}
+                        />
                         <Controller
                             name="ru[description]"
-                            control={form.control}
+                            control={control}
                             label="Izoh (ru)"
                             variant="outlined"
                             margin="normal"
@@ -85,22 +73,22 @@ export default function Ads() {
                             as={<TextField />}
                         />
                     </section>
-
+                    <h1>{imageUrl}</h1>
                     <section className={classes.products}>
                         <Controller
                             name="type"
-                            control={form.control}
+                            control={control}
                             label="Turi"
                             variant="outlined"
                             margin="normal"
                             color="primary"
                             as={<TextField />}
                         />
-                        {/* <input
+                        <Controller
                             name="image"
-                            type="file"
-                            onChange={(e) => setImage(e.target.files[0])}
-                        /> */}
+                            control={control}
+                            defaultValue={imageUrl}
+                        />
                     </section>
 
                     <Button
@@ -112,7 +100,7 @@ export default function Ads() {
                         Post qilish
                 </Button>
                 </form>
-            </FormProvider>
-        </div>
+            </div>
+        </>
     )
 }

@@ -3,7 +3,7 @@ import { useInfoStyles } from './infoStyles'
 
 import { BreadCrumbs } from '../index'
 import { InfoDelivery, InfoMaster, InfoService } from '../../shared'
-import { TranslateContext } from '../../../contexts'
+import { ContextRoot } from '../../../contexts'
 
 export default function Info({
     howToOrder,
@@ -15,7 +15,7 @@ export default function Info({
     termsOfUse,
 }) {
     const classes = useInfoStyles()
-    const { trans, setTrans } = useContext(TranslateContext)
+    const { trans, setTrans } = useContext(ContextRoot)
     let component
     if (howToOrder) {
         component = <InfoDelivery />

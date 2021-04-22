@@ -3,7 +3,7 @@ import { IconButton } from "@material-ui/core";
 import { useProductStyles } from "./productStyles";
 
 import { CheckBox, ButtonYellow } from '../../shared'
-import { TranslateContext } from "../../../contexts";
+import { ContextRoot } from "../../../contexts";
 import { FavoriteGreyOutline, FavoriteBlack } from '../../../assets/images/icons'
 import image1 from "../../../assets/images/products/bagaj.png";
 import { Link } from "react-router-dom";
@@ -12,7 +12,7 @@ import { Skeleton } from "@material-ui/lab";
 export default function Product({ favorite, compare }) {
     const classes = useProductStyles();
     const [showFavorite, setShowFavorite] = useState(false)
-    const { trans, sum } = useContext(TranslateContext)
+    const { trans, sum } = useContext(ContextRoot)
 
     const handleClick = () => {
         setShowFavorite(!showFavorite)

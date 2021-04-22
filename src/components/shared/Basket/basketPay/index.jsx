@@ -1,13 +1,13 @@
 import React, { useContext } from 'react'
 import { Divider, Paper } from '@material-ui/core'
-import { TranslateContext } from '../../../../contexts'
+import { ContextRoot } from '../../../../contexts'
 
 import { CheckBox, ButtonComponent } from '../../../shared'
 import { useBasketPayStyles } from './basketPayStyles'
 
 export default function BasketPay() {
     const classes = useBasketPayStyles()
-    const { trans, sum } = useContext(TranslateContext)
+    const { trans, sum } = useContext(ContextRoot)
 
     return (
         <Paper className={classes.paper} elevation={2} >

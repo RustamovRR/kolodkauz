@@ -3,7 +3,7 @@ import { Drawer, Grid, Hidden } from '@material-ui/core'
 import { useProductPageStyles } from './productsPageStyles'
 
 import { Layout, Sidebar, SortNavigation, TabMenu, Product, ProductMedium, ProductSmall, BreadCrumbs, ButtonComponent, Select, ProductDrawer } from '../../../components/shared'
-import { TranslateContext } from '../../../contexts'
+import { ContextRoot } from '../../../contexts'
 
 import balon from '../../../assets/images/products/balon.png'
 import bolgarka from '../../../assets/images/products/bolgarka.png'
@@ -13,7 +13,7 @@ import { FilterList } from '@material-ui/icons'
 
 export default function ProductsPage({ medium, small }) {
     const classes = useProductPageStyles()
-    const { trans, setTrans } = useContext(TranslateContext)
+    const { trans, setTrans } = useContext(ContextRoot)
     const [open, setOpen] = useState(false)
 
     const drawerOpen = () => {

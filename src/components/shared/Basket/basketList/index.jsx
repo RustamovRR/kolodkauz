@@ -14,12 +14,12 @@ import { Quantity } from '../../../shared'
 
 import { useBasketListStyles } from './basketListStyles'
 import sidina from '../../../../assets/images/products/Rectangle 14.png'
-import { TranslateContext } from '../../../../contexts'
+import { ContextRoot } from '../../../../contexts'
 
 export default function BasketList() {
 
     const classes = useBasketListStyles()
-    const { sum } = useContext(TranslateContext)
+    const { sum } = useContext(ContextRoot)
 
     return (
         // <div>

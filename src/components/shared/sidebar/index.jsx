@@ -3,11 +3,11 @@ import { FormControl, FormControlLabel, Radio, RadioGroup, Slider } from '@mater
 import { useSidebarStyles } from './sidebarStyles'
 
 import {CheckBox} from '../../shared'
-import { TranslateContext } from '../../../contexts'
+import { ContextRoot } from '../../../contexts'
 
 export default function Sidebar() {
     const classes = useSidebarStyles()
-    const { trans, sum } = useContext(TranslateContext)
+    const { trans, sum } = useContext(ContextRoot)
 
     const [value, setValue] = useState([1000, 10000]);
     const [radio, setRadio] = React.useState('female');

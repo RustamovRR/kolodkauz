@@ -3,13 +3,13 @@ import { IconButton } from '@material-ui/core'
 import { useProductMediumStyles } from './productMediumStyles'
 
 import { ButtonYellow, RatingComp } from '../..';
-import { TranslateContext } from '../../../../contexts';
+import { ContextRoot } from '../../../../contexts';
 import { FavoriteGreyOutline, CompareDisableOutline } from '../../../../assets/images/icons'
 import image1 from "../../../../assets/images/products/Rectangle 14.png";
 
 export default function ProductMedium() {
     const classes = useProductMediumStyles()
-    const { trans, sum } = useContext(TranslateContext)
+    const { trans, sum } = useContext(ContextRoot)
 
     return (
         <div className={classes.root}>

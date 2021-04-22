@@ -2,13 +2,13 @@ import React, { useContext } from 'react'
 import { Grid } from '@material-ui/core'
 import { useBasketPageStyles } from './basketPageStyles'
 
-import { TranslateContext } from '../../../contexts'
+import { ContextRoot } from '../../../contexts'
 import { TabMenu, BasketList, BasketPay, InputBasket, BreadCrumbs, Layout } from '../../../components/shared'
 
 
 export default function BasketPage() {
     const classes = useBasketPageStyles()
-    const { trans } = useContext(TranslateContext)
+    const { trans } = useContext(ContextRoot)
 
     const labelsRu = [
         `Контактный телефон`, `Ф.И.О`, `Область`, `Город / Район`, `Адрес`, `Индекс`

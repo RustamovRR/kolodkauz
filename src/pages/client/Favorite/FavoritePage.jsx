@@ -3,11 +3,11 @@ import { Grid } from '@material-ui/core'
 import { useFavoriteStyles } from './FavoriteStyles'
 
 import { TabMenu, Product, BreadCrumbs, Layout } from '../../../components/shared'
-import { TranslateContext } from '../../../contexts'
+import { ContextRoot } from '../../../contexts'
 
 export default function FavoritePage() {
     const classes = useFavoriteStyles()
-    const { trans, setTrans } = useContext(TranslateContext)
+    const { trans, setTrans } = useContext(ContextRoot)
 
     function handleClick(event) {
         event.preventDefault();

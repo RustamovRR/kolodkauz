@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { IconButton } from '@material-ui/core'
 import { useFastDeliveryStyles } from './fastDeliveryStyles'
 
-import { TranslateContext } from '../../../contexts'
+import { ContextRoot } from '../../../contexts'
 import { Header, RatingComp, CheckBox, ProductBrand, ButtonComponent, Layout } from '../../../components/shared'
 import { Close, FavoriteBlack } from '../../../assets/images/icons'
 import oilImg from '../../../assets/images/products/oil.png'
@@ -11,7 +11,7 @@ import oilImg from '../../../assets/images/products/oil.png'
 
 export default function FastDeliveryPage() {
     const classes = useFastDeliveryStyles()
-    const { trans, sum } = useContext(TranslateContext)
+    const { trans, sum } = useContext(ContextRoot)
 
     return (
         <Layout>

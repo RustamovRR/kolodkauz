@@ -9,11 +9,11 @@ import { Layout, RatingComp, CheckBox, Description, ButtonComponent, SimilarProd
 import { LeftGreyArrow, FavoriteBlack, CompareBlack } from '../../../assets/images/icons'
 import productImg from '../../../assets/images/products/oil.png'
 import castrolImg from '../../../assets/images/brands/castrol.png'
-import { TranslateContext } from '../../../contexts'
+import { ContextRoot } from '../../../contexts'
 
 export default function ProductInfoPage() {
     const classes = useProductInfoPageStyles()
-    const { trans, sum } = useContext(TranslateContext)
+    const { trans, sum } = useContext(ContextRoot)
 
     const sortRu = [
         `Популярности`, `Рейтингу`, `Название (А-Я)`

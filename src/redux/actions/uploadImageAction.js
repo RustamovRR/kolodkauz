@@ -1,13 +1,13 @@
 import { request } from "../../services/api"
 
-const loadAds = () => async (dispatch) => {
-    const adsData = await request.get('/ads')
+const uploadImage = () => async (dispatch) => {
+    const adsData = await request.post('/uploads')
     dispatch({
-        type: 'FETCH_ADS',
+        type: 'POST_IMAGE',
         payload: {
-            ads: adsData.data.data
+            ads: adsData.data
         }
     })
 }
 
-export default loadAds
+export default uploadImage

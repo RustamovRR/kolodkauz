@@ -4,18 +4,18 @@ import { Badge, Grid, Hidden } from '@material-ui/core'
 import { useHeaderStyles } from './headerStyles'
 
 import { Currency, Language, BasketModal, Search } from '../index'
-import { BasketContext, TranslateContext, CountContext } from "../../../contexts"
+import { ContextRoot } from "../../../contexts"
 import { LoginBlack, FavoriteBlack, CompareBlack, BasketBlack } from '../../../assets/images/icons'
 
 export default function Header() {
 
     const classes = useHeaderStyles()
-    const { open, setOpen } = useContext(BasketContext)
-    const { trans, setTrans } = useContext(TranslateContext)
-    const { countState, countDispatch } = useContext(CountContext)
+    const { openBasket, setOpenBasket } = useContext(ContextRoot)
+    const { trans, setTrans } = useContext(ContextRoot)
+    const { countState, countDispatch } = useContext(ContextRoot)
 
     const handleOpen = () => {
-        setOpen(true);
+        setOpenBasket(true);
     };
     console.log(countState)
 

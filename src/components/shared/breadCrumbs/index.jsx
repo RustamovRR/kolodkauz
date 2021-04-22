@@ -2,11 +2,11 @@ import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { Breadcrumbs } from '@material-ui/core'
 import { useBreadCrumbStyles } from './breadCrumbStyles'
-import { TranslateContext } from '../../../contexts'
+import { ContextRoot } from '../../../contexts'
 
 export default function BreadCrumbs({ items }) {
     const classes = useBreadCrumbStyles()
-    const { trans, setTrans } = useContext(TranslateContext)
+    const { trans, setTrans } = useContext(ContextRoot)
 
     const last = items.length - 1
 

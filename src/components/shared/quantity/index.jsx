@@ -1,12 +1,12 @@
 import React, { useContext, useState } from 'react'
 import { useQuantityStyles } from './quantityStyles'
 
-import { CountContext } from '../../../contexts'
+import { ContextRoot } from '../../../contexts'
 import { Minus, Plus } from '../../../assets/images/icons'
 
 export default function Quantity() {
     const [quantity, setQuantity] = useState(1)
-    const { countState, countDispatch } = useContext(CountContext)
+    const { countState, countDispatch } = useContext(ContextRoot)
 
     const classes = useQuantityStyles()
 

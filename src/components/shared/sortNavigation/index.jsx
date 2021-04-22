@@ -3,14 +3,14 @@ import { NavLink } from 'react-router-dom'
 import { Button, Hidden, IconButton } from '@material-ui/core'
 import { useSortNavigationStyles } from './sortNavigationStyles'
 
-import { TranslateContext } from '../../../contexts'
+import { ContextRoot } from '../../../contexts'
 import { ProductSort1, ProductSort2, ProductSort3 } from '../../../assets/images/icons'
 import Select from '../select'
 import { useWindowSize } from 'react-use'
 
 export default function SortNavigation() {
     const classes = useSortNavigationStyles()
-    const { trans, setTrans } = useContext(TranslateContext)
+    const { trans, setTrans } = useContext(ContextRoot)
     const { width } = useWindowSize()
 
     const buttonsRu = [

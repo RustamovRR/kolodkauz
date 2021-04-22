@@ -6,11 +6,11 @@ import { Button } from '@material-ui/core';
 import { useSearchStyles } from './searchStyles';
 
 import { SearchIcon } from '../../../assets/images/icons'
-import { TranslateContext } from '../../../contexts';
+import { ContextRoot } from '../../../contexts';
 
 export default function Search() {
     const classes = useSearchStyles()
-    const { trans, setTrans } = useContext(TranslateContext)
+    const { trans, setTrans } = useContext(ContextRoot)
 
     return (
         <Paper component="form" className={classes.search_root} elevation={0}>

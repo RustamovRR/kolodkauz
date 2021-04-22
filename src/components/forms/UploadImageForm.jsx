@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useFormContext } from "react-hook-form";
 import { useDropzone } from "react-dropzone";
 import Button from '@material-ui/core/Button';
@@ -10,42 +10,18 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import { AlertSnackbar } from '../shared'
 import { request } from '../../services/api';
 
-const UploadImageForm = () => {
-    const [open, setOpen] = useState(false);
+const UploadImageForm = ({ children, label, className, multiple = true, ...inputProps }) => {
+    const [openModal, setOpenModal] = useState(false);
     const [image, setImage] = useState(null)
     const [data, setData] = useState('')
-    // const { register, unregister, setValue } = useFormContext();
-
-    // const onDrop = useCallback(
-    //     (droppedFiles) => {
-    //         setValue(inputProps.name, droppedFiles, { shouldValidate: true });
-    //     },
-    //     [setValue, inputProps.name]
-    // );
 
     const handleClickOpen = () => {
-        setOpen(true);
+        setOpenModal(true);
     };
 
     const handleClose = () => {
-        setOpen(false);
+        setOpenModal(false);
     };
-
-    // const { getRootProps, getInputProps, open, acceptedFiles } = useDropzone({
-    //     accept: inputProps.accept,
-    //     noClick: true,
-    //     noKeyboard: true,
-    //     multiple,
-    //     onDrop,
-    //     maxSize
-    // });
-
-    // useEffect(() => {
-    //     register(inputProps.name);
-    //     return () => {
-    //         unregister(inputProps.name);
-    //     };
-    // }, [register, unregister, inputProps.name]);
 
     const fileSubmit = async (e) => {
         e.preventDefault()
@@ -56,17 +32,15 @@ const UploadImageForm = () => {
             .then((res) => setData(res.data.data))
     }
 
-    console.log(data)
-
     return (
         <div>
             <Button variant="outlined" color="primary" onClick={handleClickOpen}>
                 Rasm Yuklash
             </Button>
             {/* <AlertSnackbar /> */}
-            <form encType="multipart/form-data" onSubmit={fileSubmit}>
+            <form encType="multipart/form-data" >
                 <Dialog
-                    open={open}
+                    open={openModal}
                     onClose={handleClose}
                     aria-labelledby="alert-dialog-title"
                     aria-describedby="alert-dialog-description"
@@ -77,10 +51,6 @@ const UploadImageForm = () => {
                             type="file"
                             onChange={(e) => setImage(e.target.files[0])}
                         />
-                        {/* <div {...getRootProps()}>
-                            <input {...getInputProps()} />
-                            {children({ acceptedFiles, open })}
-                        </div> */}
                     </DialogContent>
                     <DialogActions style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }} >
                         <img

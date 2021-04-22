@@ -4,11 +4,11 @@ import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import { useLanguageStyles } from './languageStyles';
 import { ExpandMore } from '@material-ui/icons';
-import { TranslateContext } from '../../../contexts';
+import { ContextRoot } from '../../../contexts';
 
 export default function Language() {
     const [anchorEl, setAnchorEl] = React.useState(null)
-    const { trans, setTrans } = useContext(TranslateContext)
+    const { trans, setTrans } = useContext(ContextRoot)
     const classes = useLanguageStyles()
 
     const handleClick = (event) => {

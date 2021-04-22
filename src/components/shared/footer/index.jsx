@@ -3,11 +3,11 @@ import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { useFooterStyles } from './footerStyles'
 import { Click, Payme } from '../../../assets/images/icons'
-import { TranslateContext } from '../../../contexts'
+import { ContextRoot } from '../../../contexts'
 
 export default function Footer() {
     const classes = useFooterStyles()
-    const { trans, setTrans } = useContext(TranslateContext)
+    const { trans, setTrans } = useContext(ContextRoot)
 
     const infoRu = [
         `Как сделать заказ`,

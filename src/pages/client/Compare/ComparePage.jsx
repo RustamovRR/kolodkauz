@@ -4,14 +4,14 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { useComparePageStyles } from './comparePageStyles'
 import 'swiper/swiper.min.css';
 
-import { TranslateContext } from '../../../contexts'
+import { ContextRoot } from '../../../contexts'
 import { TabMenu, ProductCompare, BreadCrumbs, Layout } from '../../../components/shared'
 import { LeftGreyCircle, LeftWhiteCircle, RightGreyCircle, RightWhiteCircle } from '../../../assets/images/icons'
 
 
 export default function ComparePage() {
     const classes = useComparePageStyles()
-    const { trans, setTrans } = useContext(TranslateContext)
+    const { trans, setTrans } = useContext(ContextRoot)
     const navigationPrevRef = React.useRef(null)
     const navigationNextRef = React.useRef(null)
 

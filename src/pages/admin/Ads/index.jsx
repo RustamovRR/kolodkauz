@@ -1,38 +1,56 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useMemo, useContext } from 'react'
 import axios from 'axios';
 import { TextField, Button, IconButton } from '@material-ui/core'
 import { useForm, Controller, FormProvider } from "react-hook-form";
-import * as yup from "yup";
 import { useDispatch, useSelector } from 'react-redux';
 import { adsAction } from '../../../redux/actions';
 import { useAdsStyles } from './useAdsStyles'
 import { request } from '../../../services/api';
 import loadAds from '../../../redux/actions/adsAction';
-import useFileUpload from '../../../hooks/queries/useFileUpload';
 import UploadImageForm from '../../../components/forms/UploadImageForm';
+import { joiResolver } from "@hookform/resolvers/joi";
+import * as yup from "yup";
+import Joi from "joi";
 
 export default function Ads() {
     const classes = useAdsStyles()
-    const { register, control, handleSubmit } = useForm()
 
-    const onSubmit = handleSubmit(async (data) => {
-        const response = await request.post('/ads', data)
+    const validationSchema = useMemo(
+        () =>
+            Joi.object({
+                uz: {
+                    title: Joi.string(),
+                    description: Joi.string(),
+                },
+                ru: {
+                    title: Joi.string(),
+                    description: Joi.string(),
+                },
+                type: Joi.string(),
+                image: Joi.string()
+            })
+    );
 
-        console.log(response)
+    let form = useForm({
+        resolver: joiResolver(validationSchema)
+    })
+
+    const onSubmit = form.handleSubmit(async (data) => {
+        // const response = await request.post('/ads', data)
+
+        // console.log(response)
+        console.log(data)
     })
 
     return (
-        <>
-            <div className={classes.form_root}>
-                <UploadImageForm
-                    name="image"
-                    multiple={false}
-                />
+        <div className={classes.form_root}>
+            <FormProvider {...form}>
                 <form onSubmit={onSubmit}>
                     <section className={classes.names}>
-                        <Controller
+                        <UploadImageForm name="image" />
+                        {/* <Controller
                             name="uz[title]"
-                            control={control}
+                            control={form.control}
                             label="Sarlavha (uz)"
                             variant="outlined"
                             margin="normal"
@@ -41,7 +59,7 @@ export default function Ads() {
                         />
                         <Controller
                             name="ru[title]"
-                            control={control}
+                            control={form.control}
                             label="Sarlavha (ru)"
                             variant="outlined"
                             margin="normal"
@@ -50,16 +68,16 @@ export default function Ads() {
                         />
                         <Controller
                             name="uz[description]"
-                            control={control}
+                            control={form.control}
                             label="Izoh (uz)"
                             variant="outlined"
                             margin="normal"
                             color="primary"
                             as={<TextField />}
-                        />
+                        /> */}
                         <Controller
                             name="ru[description]"
-                            control={control}
+                            control={form.control}
                             label="Izoh (ru)"
                             variant="outlined"
                             margin="normal"
@@ -71,7 +89,7 @@ export default function Ads() {
                     <section className={classes.products}>
                         <Controller
                             name="type"
-                            control={control}
+                            control={form.control}
                             label="Turi"
                             variant="outlined"
                             margin="normal"
@@ -94,7 +112,7 @@ export default function Ads() {
                         Post qilish
                 </Button>
                 </form>
-            </div>
-        </>
+            </FormProvider>
+        </div>
     )
 }

@@ -2,20 +2,20 @@ import React, { useContext, useState } from 'react';
 import { useTabMenuStyles, AntTabs, AntTab } from './tabMenuStyles'
 
 import { TabList } from '../../shared';
-import { TabListContext, TranslateContext } from '../../../contexts';
+import { ContextRoot } from '../../../contexts';
 
 export default function TabMenu() {
     const classes = useTabMenuStyles();
     const [value, setValue] = useState(0);
-    const { open, setOpen } = useContext(TabListContext)
-    const { trans, setTrans } = useContext(TranslateContext)
+    const { openTabList, setOpenTabList } = useContext(ContextRoot)
+    const { trans, setTrans } = useContext(ContextRoot)
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
 
     const handleOpen = () => {
-        setOpen(true)
+        setOpenTabList(true)
     }
 
     const linksRu = [

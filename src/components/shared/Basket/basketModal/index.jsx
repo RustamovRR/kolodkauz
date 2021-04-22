@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 import { useBasketModalStyles } from './basketModalStyles'
 
 import ButtonComponent from '../../ButtonComponent'
-import { BasketContext,TranslateContext } from '../../../../contexts'
+import { ContextRoot } from '../../../../contexts'
 import { Close } from '../../../../assets/images/icons'
 import sidina from '../../../../assets/images/products/Rectangle 14.png'
 import rol from '../../../../assets/images/products/rol.png'
@@ -14,11 +14,11 @@ import bolgarka from '../../../../assets/images/products/bolgarka.png'
 
 export default function Basket() {
     const classes = useBasketModalStyles()
-    const { open, setOpen } = useContext(BasketContext)
-    const { trans, sum } = useContext(TranslateContext)
+    const { openBasket, setOpenBasket } = useContext(ContextRoot)
+    const { trans, sum } = useContext(ContextRoot)
 
     const handleClose = () => {
-        setOpen(false);
+        setOpenBasket(false);
     };
 
     const basketsRu = [
@@ -36,7 +36,7 @@ export default function Basket() {
     return (
         <div >
             <Dialog
-                open={open}
+                open={openBasket}
                 onClose={handleClose}
                 scroll="paper"
                 className={classes.dialog_root}

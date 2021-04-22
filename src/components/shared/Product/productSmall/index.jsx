@@ -3,14 +3,14 @@ import { Rating } from '@material-ui/lab';
 import { IconButton } from '@material-ui/core';
 import { useProductSmallStyles } from './productSmallStyles';
 
-import { TranslateContext } from '../../../../contexts';
+import { ContextRoot } from '../../../../contexts';
 import { Quantity, ButtonYellow } from '../..'
 import { FavoriteBlueOutline, CompareBlueOutline } from '../../../../assets/images/icons'
 import karcher from "../../../../assets/images/products/karcher.png";
 
 export default function ProductSmall() {
     const classes = useProductSmallStyles()
-    const { trans, sum } = useContext(TranslateContext)
+    const { trans, sum } = useContext(ContextRoot)
 
     return (
         <div className={classes.root}>

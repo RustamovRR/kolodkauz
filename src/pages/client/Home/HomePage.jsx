@@ -6,7 +6,7 @@ import { useHomePageStyles } from './homePageStyles.js'
 import './homePageStyles.js'
 
 import { TabMenu, Carousel, CarBrand, Product, ProductBrand, Ads, Layout } from '../../../components/shared'
-import { TranslateContext } from '../../../contexts'
+import { ContextRoot } from '../../../contexts'
 import { Skeleton } from '@material-ui/lab'
 
 
@@ -15,7 +15,7 @@ const array2 = [...array, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 
 export default function HomePage() {
     const classes = useHomePageStyles()
-    const { trans, setTrans } = useContext(TranslateContext)
+    const { trans, setTrans } = useContext(ContextRoot)
 
     // const query = useAPIQuery(`/api/products`)
     // console.log(query)

@@ -1,12 +1,12 @@
 import React, { useContext } from 'react'
 import { NavLink } from 'react-router-dom'
-import { TranslateContext } from '../../../../contexts'
+import { ContextRoot } from '../../../../contexts'
 
 import { useInfoSidebarStyles } from './infoSidebarStyles'
 
 export default function InfoSidebar() {
     const classes = useInfoSidebarStyles()
-    const { trans, setTrans } = useContext(TranslateContext)
+    const { trans, setTrans } = useContext(ContextRoot)
 
     const links = [
         { titleRu: `Как сделать заказ`, titleUz: `Qanday buyurtma qilinadi`, path: `/info/how_to_order` },

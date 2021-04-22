@@ -8,11 +8,11 @@ import TableRow from '@material-ui/core/TableRow';
 import { Product, RatingComp } from '../../../shared'
 
 import { useProductCompareStyles } from './productCompareStyles'
-import { TranslateContext } from '../../../../contexts';
+import { ContextRoot } from '../../../../contexts';
 
 export default function ProductCompare({ primary }) {
     const classes = useProductCompareStyles()
-    const { trans, sum } = useContext(TranslateContext)
+    const { trans, sum } = useContext(ContextRoot)
 
     function createData(title, body) {
         return { title, body };

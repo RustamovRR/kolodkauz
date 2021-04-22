@@ -5,16 +5,16 @@ import { useTabListStyles } from './tabListStyles'
 
 import balonImg from '../../../assets/images/products/balon.png'
 import { Close } from '../../../assets/images/icons'
-import { TabListContext, TranslateContext } from '../../../contexts'
+import { ContextRoot } from '../../../contexts'
 
 
 export default function TabList() {
     const classes = useTabListStyles()
-    const { open, setOpen } = useContext(TabListContext)
-    const { trans, setTrans } = useContext(TranslateContext)
+    const { openTabList, setOpenTabList } = useContext(ContextRoot)
+    const { trans, setTrans } = useContext(ContextRoot)
 
     const handleClose = () => {
-        setOpen(false)
+        setOpenTabList(false)
     }
 
     window.addEventListener('keydown', (e) => {
@@ -64,7 +64,7 @@ export default function TabList() {
 
     return (
         <div className={classes.container} >
-            <div className={open ? classes.tabPanel : classes.hidden}>
+            <div className={openTabList ? classes.tabPanel : classes.hidden}>
                 <header className={classes.header}>Ходовая часть</header>
 
                 <Grid className={classes.content_box}>

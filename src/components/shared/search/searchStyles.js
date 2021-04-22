@@ -6,7 +6,8 @@ export const useSearchStyles = makeStyles({
         width: 668,
         height: 48,
         display: 'flex',
-        paddingLeft: 24,
+        padding: 12,
+        paddingRight: 0,
         alignItems: 'center',
         border: `2px solid ${clr.orange}`,
         backgroundColor: clr.search,
@@ -31,5 +32,9 @@ export const useSearchStyles = makeStyles({
         '&:hover': {
             backgroundColor: clr.orange,
         }
+    },
+    divider: {
+        marginLeft: 12,
+        marginRight: 8
     }
 });

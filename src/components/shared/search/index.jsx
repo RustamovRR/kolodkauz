@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import Paper from '@material-ui/core/Paper';
 import InputBase from '@material-ui/core/InputBase';
 import IconButton from '@material-ui/core/IconButton';
-import { Button } from '@material-ui/core';
+import { Button, Divider } from '@material-ui/core';
 import { useSearchStyles } from './searchStyles';
 
 import { SearchIcon } from '../../../assets/images/icons'
@@ -14,6 +14,8 @@ export default function Search() {
 
     return (
         <Paper component="form" className={classes.search_root} elevation={0}>
+            <SearchIcon />
+            <Divider orientation="vertical" className={classes.divider} />
             <InputBase
                 className={classes.input}
                 placeholder={trans ? `Найдите нужный предмет` : `Kerakli mahsulotni qidirish`}

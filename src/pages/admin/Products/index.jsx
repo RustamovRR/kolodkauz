@@ -1,19 +1,41 @@
 import axios from 'axios';
-import React, { useState, useEffect } from 'react'
-import { TextField, Button, IconButton } from '@material-ui/core'
+import React, { useState, useEffect, useContext } from 'react'
+import { TextField, Button, IconButton, Input } from '@material-ui/core'
 import { useForm, Controller, FormProvider } from "react-hook-form";
 import { useProductsStyles } from './useProductsStyles'
+import UploadImageForm from '../../../components/forms/UploadImageForm'
 import { PhotoCamera } from '@material-ui/icons';
+import { ContextRoot } from '../../../contexts';
+import { request } from '../../../services/api';
 
 export default function Products() {
     const classes = useProductsStyles()
+    const { imageUrl } = useContext(ContextRoot)
     const { register, control, handleSubmit } = useForm()
 
+    const onSubmit = handleSubmit(async (data) => {
+        // await request.post('/products', data)
+        //     .then((res) => console.log(res.data))
+        //     .catch((err) => console.log(err))
+        console.log(data)
+    })
+
     return (
-        <FormProvider>
-            <form >
+        <div>
+            <UploadImageForm />
+            <h2>{imageUrl}</h2>
+            <form onSubmit={onSubmit}>
                 <div className={classes.form_root}>
                     <section className={classes.names}>
+                        <Controller
+                            name="image"
+                            control={control}
+                            label="Rasm manzili"
+                            variant="outlined"
+                            margin="normal"
+                            color="primary"
+                            as={<TextField />}
+                        />
                         <Controller
                             name="uz[title]"
                             control={control}
@@ -87,7 +109,7 @@ export default function Products() {
                             variant="outlined"
                             margin="normal"
                             color="primary"
-                            as={<TextField />}
+                            as={<Input type="number" />}
                         />
                         <Controller
                             name="price"
@@ -96,7 +118,7 @@ export default function Products() {
                             variant="outlined"
                             margin="normal"
                             color="primary"
-                            as={<TextField />}
+                            as={<Input type="number" />}
                         />
                         <Controller
                             name="discount"
@@ -105,7 +127,7 @@ export default function Products() {
                             variant="outlined"
                             margin="normal"
                             color="primary"
-                            as={<TextField />}
+                            as={<Input type="number" />}
                         />
                         <Controller
                             name="buy_count"
@@ -114,7 +136,7 @@ export default function Products() {
                             variant="outlined"
                             margin="normal"
                             color="primary"
-                            as={<TextField />}
+                            as={<Input type="number" />}
                         />
                     </section>
 
@@ -128,6 +150,6 @@ export default function Products() {
                     </Button>
                 </div>
             </form>
-        </FormProvider>
+        </div>
     )
 }

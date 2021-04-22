@@ -25,13 +25,13 @@ export default function Ads() {
     const { handleSubmit, control, register } = useForm()
 
     const onSubmit = handleSubmit(async (data) => {
-        console.log(data)
+        await request.post('/ads', data)
+            .then((res) => console.log(res.data))
     })
-    console.log(imageUrl)
 
 
     return (
-        < >
+        <>
             <div className={classes.form_root}>
                 <UploadImageForm name="image" />
                 <form onSubmit={onSubmit}>

@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from 'react'
-import { Link, NavLink, useParams } from 'react-router-dom'
+import { Link, NavLink, useHistory, useParams } from 'react-router-dom'
 import { Button, IconButton } from '@material-ui/core'
 import { useProductInfoPageStyles } from './productInfoStyles'
 
@@ -17,6 +17,7 @@ export default function ProductInfoPage() {
     const classes = useProductInfoPageStyles()
     const { trans, sum } = useContext(ContextRoot)
     const { state } = useLocation()
+    const { goBack } = useHistory()
     const data = state.state
 
     const sortRu = [
@@ -32,7 +33,7 @@ export default function ProductInfoPage() {
     return (
         <Layout>
             <div className={classes.root}>
-                <IconButton className={classes.arrow}>
+                <IconButton className={classes.arrow} onClick={() => goBack()} >
                     <LeftGreyArrow />
                 </IconButton>
 
@@ -40,12 +41,12 @@ export default function ProductInfoPage() {
                     <section className={classes.product_image}>
                         <img
                             src={`${url}/${data?.image}`}
-                            alt={data.uz?.type.description}
+                            alt={data?.uz?.type.description}
                         />
                     </section>
 
                     <section className={classes.info_box}>
-                        <h1>{data.uz?.type.title}</h1>
+                        <h1>{data?.uz?.type.title}</h1>
                         <div className={classes.secondary}>
                             <div>
                                 <p>Артикул:&nbsp;
@@ -64,8 +65,8 @@ export default function ProductInfoPage() {
 
                         <section >
                             <div className={classes.price_box}>
-                                <h2>{`7,850,000 ${sum}`}</h2>
-                                <p>{`9,876,000 ${sum}`}</p>
+                                <h2>{`${data?.price} ${sum}`}</h2>
+                                <p>{`${data?.discount} ${sum}`}</p>
                             </div>
 
                             <section className={classes.inputs} >

@@ -6,20 +6,16 @@ import { BrowserRouter } from "react-router-dom";
 import "./index.css";
 import App from "./App";
 import Provider from "./contexts/Context";
-
-
-// const composeEnchancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-
-// const store = createStore(
-//   rootReducer,
-//   composeEnchancer(applyMiddleware(thunk))
-// );
+import { QueryClientProvider } from "react-query";
+import { queryClient } from "./services/api";
 
 ReactDOM.render(
-  <BrowserRouter>
-    <Provider>
-      <App />
-    </Provider>
-  </BrowserRouter>
+  <QueryClientProvider client={queryClient}>
+    <BrowserRouter>
+      <Provider>
+        <App />
+      </Provider>
+    </BrowserRouter>
+  </QueryClientProvider>
   , document.getElementById("root")
 );

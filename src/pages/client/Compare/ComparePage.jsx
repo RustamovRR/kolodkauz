@@ -12,8 +12,6 @@ import { LeftGreyCircle, LeftWhiteCircle, RightGreyCircle, RightWhiteCircle } fr
 export default function ComparePage() {
     const classes = useComparePageStyles()
     const { trans, setTrans } = useContext(ContextRoot)
-    const navigationPrevRef = React.useRef(null)
-    const navigationNextRef = React.useRef(null)
 
     return (
         <Layout>

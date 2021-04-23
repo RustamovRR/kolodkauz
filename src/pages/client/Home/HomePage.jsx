@@ -8,6 +8,7 @@ import './homePageStyles.js'
 import { TabMenu, Carousel, CarBrand, Product, ProductBrand, Ads, Layout } from '../../../components/shared'
 import { ContextRoot } from '../../../contexts'
 import { Skeleton } from '@material-ui/lab'
+import useProductsData from '../../../hooks/queries/useProductsData.jsx'
 
 
 const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
@@ -16,7 +17,6 @@ const array2 = [...array, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 export default function HomePage() {
     const classes = useHomePageStyles()
     const { trans, setTrans, productsData } = useContext(ContextRoot)
-
     console.log(productsData)
 
     return (
@@ -49,18 +49,12 @@ export default function HomePage() {
 
                     <Grid className={classes.bestSeller_box}>
                         {
-                            productsData.data?.map((item) => (
+                            productsData.data?.slice(0, 12).map((item) => (
                                 <Product
                                     key={item._id}
                                     id={item._id}
                                     data={item}
-                                    image={item.image}
-                                    uz={item.uz}
-                                    buy_count={item.buy_count}
-                                    discount={item.discount}
-                                    price={item.price}
-                                    quantity={item.quantity}
-                                    type={item.type}
+                                    homePage={true}
                                 />
                             ))
                         }
@@ -77,8 +71,13 @@ export default function HomePage() {
                     </div>
                     <section className={classes.bestSeller_box}>
                         {
-                            array2.map((item) => (
-                                <Product key={item} />
+                            productsData.data?.slice(12, 36).map((item) => (
+                                <Product
+                                    key={item._id}
+                                    id={item._id}
+                                    data={item}
+                                    homePage={true}
+                                />
                             ))
                         }
                     </section>

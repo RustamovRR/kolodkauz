@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { IconButton } from "@material-ui/core";
+import { Button, IconButton } from "@material-ui/core";
 import { useProductStyles } from "./productStyles";
 
 import { CheckBox, ButtonYellow } from '../../shared'
@@ -8,52 +8,43 @@ import { FavoriteGreyOutline, FavoriteBlack } from '../../../assets/images/icons
 import image1 from "../../../assets/images/products/bagaj.png";
 import { Link } from "react-router-dom";
 import { Skeleton } from "@material-ui/lab";
+import useProductsData from "../../../hooks/queries/useProductsData";
+import ButtonComponent from "../ButtonComponent";
 
 export default function Product({
-    favorite, compare,
-    id,
-    data,
-    image,
-    uz,
-    buy_count,
-    discount,
-    price,
-    quantity,
-    type
+    favorite, compare, homePage,
+    data
 }) {
     const classes = useProductStyles();
     const [showFavorite, setShowFavorite] = useState(false)
-    const { trans, sum } = useContext(ContextRoot)
+    const { trans, sum, productsData } = useContext(ContextRoot)
 
     const handleClick = () => {
         setShowFavorite(!showFavorite)
     }
+    const { success } = productsData
 
     const url = `http://zap.uz`
-
+    console.log(success)
     return (
         <div className={classes.product_root}>
-            <Link to={{ pathname: `/product/${id}`, state: data }} className={classes.product_link}>
+            <Link to={{ pathname: `/product/${data?._id}`, state: data }} className={classes.product_link}>
+
                 <section className={classes.card}>
                     <img
-                        src={`${url}/${image}`}
-                        alt={uz?.type.description}
+                        src={`${url}/${data?.image}`}
+                        alt={data?.uz.type.description}
                     />
                 </section>
-                {/* <Skeleton
-                    height={220}
-                    animation="wave"
-                    variant="rect"
-                /> */}
 
                 <section className={classes.action_box}>
                     <div className={classes.price}>
-                        <h3>{`${price} ${sum}`}</h3>
-                        <p>{`${discount} ${sum}`}</p>
+                        <h3>{`${data?.price} ${sum}`}</h3>
+                        <p>{`${data?.discount} ${sum}`}</p>
                     </div>
 
                     <div className={classes.text}>
-                        <p>{uz?.type.title}</p>
+                        <p>{data?.uz.type.title}</p>
                         {/* <Skeleton
                             width="95%"
                             height={64}
@@ -80,6 +71,8 @@ export default function Product({
                     }
                 </div>
             </section>
+
+            {/* <ButtonComponent title="Ko'rish" /> */}
 
             {
                 favorite && <section className={classes.icon_box} >

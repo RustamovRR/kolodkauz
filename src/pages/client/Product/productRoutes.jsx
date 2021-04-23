@@ -6,15 +6,15 @@ const ProductsPage = lazy(() => import("./ProductsPage"))
 const routes = [
     {
         exact: true,
-        path: "/products",
+        path: "/categories",
         component: ProductsPage
     },
     {
-        path: "/products/medium",
+        path: "/categories/medium",
         component: (() => <ProductsPage medium />)
     },
     {
-        path: "/products/small",
+        path: "/categories/small",
         component: (() => <ProductsPage small />)
     },
 ]

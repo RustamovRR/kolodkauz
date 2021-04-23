@@ -27,7 +27,7 @@ export default function Header() {
 
                 <Hidden xsDown>
                     <div className={classes.services}>
-                        <Link to="/products">
+                        <Link to="/categories">
                             {trans ? `Скидки` : `Chegirmalar`}
                         </Link>
                         <Link to="/fast_delivery">

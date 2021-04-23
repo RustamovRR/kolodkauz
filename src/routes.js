@@ -35,11 +35,11 @@ const routes = [
         component: BasketRoutes
     },
     {
-        path: "/products",
+        path: "/categories",
         component: ProductRoutes
     },
     {
-        path: "/product_info",
+        path: "/product/:id",
         component: ProductInfoRoutes
     },
     {

@@ -22,9 +22,9 @@ export default function SortNavigation() {
     ]
 
     const icons = [
-        { icon: <ProductSort1 />, link: '/products' },
-        { icon: <ProductSort2 />, link: '/products/medium' },
-        { icon: <ProductSort3 />, link: '/products/small' }
+        { icon: <ProductSort1 />, link: '/categories' },
+        { icon: <ProductSort2 />, link: '/categories/medium' },
+        { icon: <ProductSort3 />, link: '/categories/small' }
     ]
 
     return (
@@ -63,7 +63,7 @@ export default function SortNavigation() {
                 {
                     icons.map((item, index) => (
                         <NavLink
-                            key={index}
+                            key={item}
                             to={{ pathname: item.link }}
                         >
                             <IconButton size={width <= 600 && "small"}>

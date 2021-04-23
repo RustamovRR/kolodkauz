@@ -9,7 +9,18 @@ import image1 from "../../../assets/images/products/bagaj.png";
 import { Link } from "react-router-dom";
 import { Skeleton } from "@material-ui/lab";
 
-export default function Product({ favorite, compare }) {
+export default function Product({
+    favorite, compare,
+    id,
+    data,
+    image,
+    uz,
+    buy_count,
+    discount,
+    price,
+    quantity,
+    type
+}) {
     const classes = useProductStyles();
     const [showFavorite, setShowFavorite] = useState(false)
     const { trans, sum } = useContext(ContextRoot)
@@ -18,12 +29,16 @@ export default function Product({ favorite, compare }) {
         setShowFavorite(!showFavorite)
     }
 
+    const url = `http://zap.uz`
+
     return (
         <div className={classes.product_root}>
-            <Link to="#" className={classes.product_link}>
+            <Link to={{ pathname: `/product/${id}`, state: data }} className={classes.product_link}>
                 <section className={classes.card}>
-                    <img src={image1} alt="" />
-                    {/* <img src="https://filedn.com/ltOdFv1aqz1YIFhf4gTY8D7/ingus-info/BLOGS/Photography-stocks3/stock-photography-slider.jpg" alt="" /> */}
+                    <img
+                        src={`${url}/${image}`}
+                        alt={uz?.type.description}
+                    />
                 </section>
                 {/* <Skeleton
                     height={220}
@@ -33,12 +48,12 @@ export default function Product({ favorite, compare }) {
 
                 <section className={classes.action_box}>
                     <div className={classes.price}>
-                        <h3>{`1,845,600 ${sum}`}</h3>
-                        <p>{`2,845,600 ${sum}`}</p>
+                        <h3>{`${price} ${sum}`}</h3>
+                        <p>{`${discount} ${sum}`}</p>
                     </div>
 
                     <div className={classes.text}>
-                        <p>Автомобильная шина Hankook Tire Ventus Prime</p>
+                        <p>{uz?.type.title}</p>
                         {/* <Skeleton
                             width="95%"
                             height={64}

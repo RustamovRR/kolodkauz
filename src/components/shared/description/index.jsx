@@ -20,7 +20,7 @@ export default function Description() {
             <section className={classes.info_box}>
                 {
                     infos.map(info => (
-                        <div className={classes.text}>
+                        <div className={classes.text} key={info.title}>
                             <p>{info.title}</p>
                             <span>{info.value}</span>
                         </div>

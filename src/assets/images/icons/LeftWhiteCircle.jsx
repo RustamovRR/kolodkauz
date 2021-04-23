@@ -1,9 +1,9 @@
-export default () => (
+const index = () => (
     <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g filter="url(#filter0_d)">
             <rect width="48" height="48" rx="24" transform="matrix(-1 0 0 1 52 3)" fill="white" />
         </g>
-        <path fill-rule="evenodd" clip-rule="evenodd" d="M21.4142 26L27.7071 19.7071L26.2929 18.2929L18.2929 26.2929L17.5858 27L18.2929 27.7071L26.2929 35.7071L27.7071 34.2929L21.4142 28H38V26H21.4142Z" fill="#1B222A" />
+        <path  d="M21.4142 26L27.7071 19.7071L26.2929 18.2929L18.2929 26.2929L17.5858 27L18.2929 27.7071L26.2929 35.7071L27.7071 34.2929L21.4142 28H38V26H21.4142Z" fill="#1B222A" />
         <defs>
             <filter id="filter0_d" x="0" y="0" width="56" height="56" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
                 <feFlood flood-opacity="0" result="BackgroundImageFix" />
@@ -17,3 +17,5 @@ export default () => (
         </defs>
     </svg>
 );
+
+export default index

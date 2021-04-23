@@ -19,7 +19,7 @@ export default function LoginPage() {
                     <h1>Войти профиль</h1>
                     {
                         labels.map(({ label, numberFormat }) => (
-                            <div className={classes.input_box}>
+                            <div className={classes.input_box} key={label} >
                                 <label htmlFor={label}>{label}</label>
                                 <InputLogin id={label}  />
                             </div>

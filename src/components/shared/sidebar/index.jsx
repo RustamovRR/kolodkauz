@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react'
 import { FormControl, FormControlLabel, Radio, RadioGroup, Slider } from '@material-ui/core'
 import { useSidebarStyles } from './sidebarStyles'
 
-import {CheckBox} from '../../shared'
+import { CheckBox } from '../../shared'
 import { ContextRoot } from '../../../contexts'
 
 export default function Sidebar() {
@@ -57,7 +57,7 @@ export default function Sidebar() {
                 </h4>
                 {
                     brands.map(brand => (
-                        <div>
+                        <div key={brand}>
                             <CheckBox label={brand} />
                         </div>
                     ))
@@ -70,7 +70,7 @@ export default function Sidebar() {
                 </h4>
                 {
                     models.map(brand => (
-                        <div>
+                        <div key={brand}>
                             <CheckBox label={brand} />
                         </div>
                     ))
@@ -119,6 +119,7 @@ export default function Sidebar() {
                     {
                         (trans ? radiosRu : radiosUz).map((item) => (
                             <FormControlLabel
+                                key={item.title}
                                 value={item.title}
                                 control={
                                     <Radio color="primary" />

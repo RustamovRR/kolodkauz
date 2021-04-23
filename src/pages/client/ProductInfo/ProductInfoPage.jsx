@@ -1,5 +1,5 @@
-import React, { useContext } from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import React, { useContext, useEffect } from 'react'
+import { Link, NavLink, useParams } from 'react-router-dom'
 import { Button, IconButton } from '@material-ui/core'
 import { useProductInfoPageStyles } from './productInfoStyles'
 
@@ -10,10 +10,14 @@ import { LeftGreyArrow, FavoriteBlack, CompareBlack } from '../../../assets/imag
 import productImg from '../../../assets/images/products/oil.png'
 import castrolImg from '../../../assets/images/brands/castrol.png'
 import { ContextRoot } from '../../../contexts'
+import { request } from '../../../services/api'
+import { useLocation } from 'react-use'
 
 export default function ProductInfoPage() {
     const classes = useProductInfoPageStyles()
     const { trans, sum } = useContext(ContextRoot)
+    const { state } = useLocation()
+    const data = state.state
 
     const sortRu = [
         `Популярности`, `Рейтингу`, `Название (А-Я)`
@@ -22,6 +26,8 @@ export default function ProductInfoPage() {
     const sortUz = [
         `Ommaboplik`, `Reyting`, `Nom (A-Z)`
     ]
+
+    const url = `http://zap.uz`
 
     return (
         <Layout>
@@ -32,11 +38,14 @@ export default function ProductInfoPage() {
 
                 <section className={classes.product_box}>
                     <section className={classes.product_image}>
-                        <img src={productImg} alt="" />
+                        <img
+                            src={`${url}/${data?.image}`}
+                            alt={data.uz?.type.description}
+                        />
                     </section>
 
                     <section className={classes.info_box}>
-                        <h1>Castrol Edge Supercar TURBOMAX</h1>
+                        <h1>{data.uz?.type.title}</h1>
                         <div className={classes.secondary}>
                             <div>
                                 <p>Артикул:&nbsp;
@@ -114,8 +123,8 @@ export default function ProductInfoPage() {
                             {trans ? `Сортировать по:` : `Saralash turi:`}
                         </p>
                         {
-                            trans ? sortRu : sortUz.map(item => (
-                                <Link className={classes.links}>
+                            trans ? sortRu : sortUz.map((item, index) => (
+                                <Link className={classes.links} key={item} >
                                     <Button>
                                         {item}
                                     </Button>
@@ -126,8 +135,8 @@ export default function ProductInfoPage() {
 
                     <div className={classes.comments}>
                         {
-                            [1, 2, 3, 4, 5].map(item => (
-                                <div className={classes.users}>
+                            [1, 2, 3, 4, 5].map((item, index) => (
+                                <div className={classes.users} key={item} >
                                     <p className={classes.comment_name}>Абдусаттор</p>
                                     <RatingComp value={4} />
                                     <p className={classes.comment_text}>

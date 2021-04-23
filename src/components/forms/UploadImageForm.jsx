@@ -1,20 +1,15 @@
-import React, { useCallback, useEffect, useState, useContext } from 'react';
-import { useFormContext } from "react-hook-form";
-import { useDropzone } from "react-dropzone";
+import React, { useState, useContext } from 'react';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogTitle from '@material-ui/core/DialogTitle';
-import { AlertSnackbar } from '../shared'
 import { request } from '../../services/api';
 import { ContextRoot } from '../../contexts';
 
 const UploadImageForm = ({ children, label, className, multiple = true, ...inputProps }) => {
     const { imageUrl, setImageUrl } = useContext(ContextRoot)
     const [openModal, setOpenModal] = useState(false);
-    const [image, setImage] = useState(null)
+    const [image, setImage] = useState('')
 
     const handleClickOpen = () => {
         setOpenModal(true);
@@ -36,14 +31,13 @@ const UploadImageForm = ({ children, label, className, multiple = true, ...input
     // useEffect(() => {
     //     setImageUrl(data)
     // }, [data])
-    console.log(imageUrl)
+    // console.log(imageUrl)
 
     return (
         <div>
             <Button variant="outlined" color="primary" onClick={handleClickOpen}>
                 Rasm Yuklash
             </Button>
-            {/* <AlertSnackbar /> */}
             <form encType="multipart/form-data" >
                 <Dialog
                     open={openModal}

@@ -89,7 +89,8 @@ export default function Footer() {
                         </h4>
                         {
                             socials.map((item) => (
-                                <Link to={item.href}
+                                <Link
+                                    to={item.href}
                                     key={item}
                                     className={classes.link}
                                 >

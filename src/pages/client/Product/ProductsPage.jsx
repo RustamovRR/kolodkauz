@@ -96,14 +96,14 @@ export default function ProductsPage({ medium, small }) {
                                     arrays.map((item, index) => {
                                         if (medium) {
                                             return (
-                                                <div className={classes.product_medium}>
+                                                <div className={classes.product_medium} key={item} >
                                                     <ProductMedium index={index} />
                                                 </div>
                                             )
                                         }
                                         else if (small) {
                                             return (
-                                                <div className={classes.product_small}>
+                                                <div className={classes.product_small} key={item} >
                                                     <ProductSmall index={index} />
                                                 </div>
                                             )
@@ -111,7 +111,7 @@ export default function ProductsPage({ medium, small }) {
                                         else {
                                             return (
                                                 <div className={classes.product}>
-                                                    <Product favorite index={index} />
+                                                    <Product favorite index={index} key={item} />
                                                 </div>
                                             )
                                         }

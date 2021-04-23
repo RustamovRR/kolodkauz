@@ -1,93 +1,112 @@
 import React, { useState, useEffect, useMemo, useContext } from 'react'
-import axios from 'axios';
 import { TextField, Button, IconButton } from '@material-ui/core'
-import { useForm, Controller, useWatch } from "react-hook-form";
-import { useDispatch, useSelector } from 'react-redux';
-import { adsAction } from '../../../redux/actions';
 import { useAdsStyles } from './useAdsStyles'
 import { request } from '../../../services/api';
-import loadAds from '../../../redux/actions/adsAction';
 import UploadImageForm from '../../../components/forms/UploadImageForm';
 import { ContextRoot } from '../../../contexts'
+import { useFormik } from 'formik';
+import * as yup from 'yup';
 
-function IsolateReRender({ control }) {
-    const firstName = useWatch({
-        control,
-        name: 'firstName', // without supply name will watch the entire form, or ['firstName', 'lastName'] to watch both
-        defaultValue: 'default' // default value before the render
-    });
-
-    return <div>{firstName}</div>; // only re-render at the component level, when firstName changes
-}
 export default function Ads() {
     const classes = useAdsStyles()
     const { imageUrl } = useContext(ContextRoot)
-    const { handleSubmit, control, register } = useForm()
 
-    const onSubmit = handleSubmit(async (data) => {
-        await request.post('/ads', data)
-            .then((res) => console.log(res.data))
+    // const onSubmit = handleSubmit(async (data) => {
+    //     await request.post('/ads', data)
+    //         .then((res) => console.log(res.data))
+    // })
+
+    const validationSchema = yup.object({
+        uz: {
+            title: yup.string(),
+            description: yup.string()
+        },
+        ru: {
+            title: yup.string(),
+            description: yup.string()
+        },
+        type: yup.string(),
+        image: yup.string()
+    });
+
+    const formik = useFormik({
+        initialValues: {
+            uz: {
+                title: 'Tire Ventus Prime',
+                description: 'asjdfl alsdj f'
+            },
+            ru: {
+                title: 'Автомобильная шина Hankook',
+                description: 'фдывадлфывалдо'
+            },
+            type: 'moy',
+            image: 'url'
+        },
+        // validationSchema,
+        onSubmit: async (values) => {
+            await request.post('/ads', values).then((res) => console.log(res.data.data))
+        }
     })
-
 
     return (
         <>
             <div className={classes.form_root}>
-                <UploadImageForm name="image" />
-                <form onSubmit={onSubmit}>
+                <UploadImageForm />
+                <form onSubmit={formik.handleSubmit}>
                     <section className={classes.names}>
-                        <Controller
+                        <TextField
                             name="uz[title]"
-                            control={control}
                             label="Sarlavha (uz)"
                             variant="outlined"
                             margin="normal"
                             color="primary"
-                            as={<TextField />}
+                            value={formik.values.uz.title}
+                            onChange={formik.handleChange}
                         />
-                        <Controller
+                        <TextField
                             name="ru[title]"
-                            control={control}
                             label="Sarlavha (ru)"
                             variant="outlined"
                             margin="normal"
                             color="primary"
-                            as={<TextField />}
+                            value={formik.values.ru.title}
+                            onChange={formik.handleChange}
                         />
-                        <Controller
+                        <TextField
                             name="uz[description]"
-                            control={control}
                             label="Izoh (uz)"
                             variant="outlined"
                             margin="normal"
                             color="primary"
-                            as={<TextField />}
+                            value={formik.values.uz.description}
+                            onChange={formik.handleChange}
                         />
-                        <Controller
+                        <TextField
                             name="ru[description]"
-                            control={control}
                             label="Izoh (ru)"
                             variant="outlined"
                             margin="normal"
                             color="primary"
-                            as={<TextField />}
+                            value={formik.values.ru.description}
+                            onChange={formik.handleChange}
                         />
                     </section>
                     <h1>{imageUrl}</h1>
                     <section className={classes.products}>
-                        <Controller
+                        <TextField
                             name="type"
-                            control={control}
                             label="Turi"
                             variant="outlined"
                             margin="normal"
                             color="primary"
-                            as={<TextField />}
+                            value={formik.values.type}
+                            onChange={formik.handleChange}
                         />
-                        <Controller
+                        <TextField
                             name="image"
-                            control={control}
-                            defaultValue={imageUrl}
+                            label="Rasm"
+                            value={formik.values.image}
+                            onChange={formik.handleChange}
                         />
                     </section>
 

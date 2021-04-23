@@ -70,12 +70,12 @@ export default function TabList() {
                 <Grid className={classes.content_box}>
                     {
                         [1, 2, 3, 4, 5, 6].map((data) => (
-                            <section className={classes.content}>
+                            <section className={classes.content} key={data} >
                                 <h3 className={classes.title}>Тормозная система</h3>
                                 <div>
                                     {
                                         tabsPrimaryRu.map((item) => (
-                                            <div className={classes.link}>
+                                            <div className={classes.link} key={item} >
                                                 <Link key={item}>{item}</Link>
                                             </div>
                                         ))

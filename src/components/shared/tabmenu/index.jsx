@@ -50,7 +50,7 @@ export default function TabMenu() {
                     <AntTabs value={value} onChange={handleChange} aria-label="ant example">
                         {
                             (trans ? linksRu : linksUz).map(item => (
-                                <AntTab label={item} onClick={handleOpen} />
+                                <AntTab label={item} onClick={handleOpen} key={item} />
                             ))
                         }
                     </AntTabs>

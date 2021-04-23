@@ -1,142 +1,183 @@
 import axios from 'axios';
-import React, { useState, useEffect, useContext } from 'react'
-import { TextField, Button, IconButton, Input } from '@material-ui/core'
-import { useForm, Controller, FormProvider } from "react-hook-form";
+import React, { useContext, useEffect } from 'react'
+import { TextField, Button } from '@material-ui/core'
 import { useProductsStyles } from './useProductsStyles'
 import UploadImageForm from '../../../components/forms/UploadImageForm'
-import { PhotoCamera } from '@material-ui/icons';
 import { ContextRoot } from '../../../contexts';
 import { request } from '../../../services/api';
+import { useFormik } from 'formik';
+import * as yup from 'yup';
 
 export default function Products() {
     const classes = useProductsStyles()
-    const { imageUrl } = useContext(ContextRoot)
-    const { register, control, handleSubmit } = useForm()
+    const { imageUrl, productsData, FetchProducts } = useContext(ContextRoot)
 
-    const onSubmit = handleSubmit(async (data) => {
-        // await request.post('/products', data)
-        //     .then((res) => console.log(res.data))
-        //     .catch((err) => console.log(err))
-        console.log(data)
+    console.log(productsData)
+
+
+    const formik = useFormik({
+        initialValues: {
+            uz: {
+                type: {
+                    title: 'chevrolet',
+                    description: 'description uz',
+                    characteristics: {
+                        info: 'noinfo'
+                    },
+                },
+            },
+            ru: {
+                type: {
+                    title: 'bmw',
+                    description: 'description ru',
+                    characteristics: {
+                        info: 'ruinfo'
+                    },
+                },
+            },
+            type: 'moy',
+            // car: 'spark',
+            // brand: 'chevrolet',
+            image: 'url',
+            quantity: 10,
+            price: 20,
+            discount: 30,
+            buy_count: 40,
+            rating: {
+                data: [
+                    {
+                        score: 50,
+                        comment: 'nocomment'
+                    }
+                ],
+                overall: 40,
+                count: 100
+            },
+        },
+        onSubmit: async (values) => {
+            // console.log(values)
+            await request.post('/products', values).then((res) => console.log(res.data))
+        }
     })
+
 
     return (
         <div>
             <UploadImageForm />
             <h2>{imageUrl}</h2>
-            <form onSubmit={onSubmit}>
+            <form onSubmit={formik.handleSubmit}>
                 <div className={classes.form_root}>
                     <section className={classes.names}>
-                        <Controller
+                        <TextField
                             name="image"
-                            control={control}
                             label="Rasm manzili"
                             variant="outlined"
                             margin="normal"
                             color="primary"
-                            as={<TextField />}
+                            value={formik.values.image}
+                            onChange={formik.handleChange}
                         />
-                        <Controller
+                        <TextField
                             name="uz[title]"
-                            control={control}
                             label="Sarlavha (uz)"
                             variant="outlined"
                             margin="normal"
                             color="primary"
-                            as={<TextField />}
+                            value={formik.values.uz.title}
+                            onChange={formik.handleChange}
                         />
-                        <Controller
+                        <TextField
                             name="ru[title]"
-                            control={control}
                             label="Sarlavha (ru)"
                             variant="outlined"
                             margin="normal"
                             color="primary"
-                            as={<TextField />}
+                            value={formik.values.ru.title}
+                            onChange={formik.handleChange}
                         />
-                        <Controller
+                        <TextField
                             name="uz[description]"
-                            control={control}
                             label="Izoh (uz)"
                             variant="outlined"
                             margin="normal"
                             color="primary"
-                            as={<TextField />}
+                            value={formik.values.uz.description}
+                            onChange={formik.handleChange}
                         />
-                        <Controller
+                        <TextField
                             name="ru[description]"
-                            control={control}
                             label="Izoh (ru)"
                             variant="outlined"
                             margin="normal"
                             color="primary"
-                            as={<TextField />}
+                            value={formik.values.ru.description}
+                            onChange={formik.handleChange}
                         />
                     </section>
 
                     <section className={classes.products}>
-                        <Controller
+                        <TextField
                             name="type"
-                            control={control}
                             label="Turi"
                             variant="outlined"
                             margin="normal"
                             color="primary"
-                            as={<TextField />}
+                            value={formik.values.type}
+                            onChange={formik.handleChange}
                         />
-                        <Controller
+                        <TextField
                             name="car"
-                            control={control}
                             label="Avtomobil"
                             variant="outlined"
                             margin="normal"
                             color="primary"
-                            as={<TextField />}
+                            value={formik.values.car}
+                            onChange={formik.handleChange}
                         />
-                        <Controller
+                        <TextField
                             name="brand"
-                            control={control}
                             label="Brend"
                             variant="outlined"
                             margin="normal"
                             color="primary"
-                            as={<TextField />}
+                            value={formik.values.brand}
+                            onChange={formik.handleChange}
                         />
-                        <Controller
+                        <TextField
                             name="quantity"
-                            control={control}
                             label="Miqdor"
                             variant="outlined"
                             margin="normal"
                             color="primary"
-                            as={<Input type="number" />}
+                            value={formik.values.quantity}
+                            onChange={formik.handleChange}
                         />
-                        <Controller
+                        <TextField
                             name="price"
-                            control={control}
                             label="Narxi"
                             variant="outlined"
                             margin="normal"
                             color="primary"
-                            as={<Input type="number" />}
+                            value={formik.values.price}
+                            onChange={formik.handleChange}
                         />
-                        <Controller
+                        <TextField
                             name="discount"
-                            control={control}
                             label="Chegirma narxi"
                             variant="outlined"
                             margin="normal"
                             color="primary"
-                            as={<Input type="number" />}
+                            value={formik.values.discount}
+                            onChange={formik.handleChange}
                         />
-                        <Controller
+                        <TextField
                             name="buy_count"
-                            control={control}
                             label="Sotuvda narxi"
                             variant="outlined"
                             margin="normal"
                             color="primary"
-                            as={<Input type="number" />}
+                            value={formik.values.buy_count}
+                            onChange={formik.handleChange}
                         />
                     </section>
 

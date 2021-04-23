@@ -15,10 +15,9 @@ const array2 = [...array, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 
 export default function HomePage() {
     const classes = useHomePageStyles()
-    const { trans, setTrans } = useContext(ContextRoot)
+    const { trans, setTrans, productsData } = useContext(ContextRoot)
 
-    // const query = useAPIQuery(`/api/products`)
-    // console.log(query)
+    console.log(productsData)
 
     return (
         <Layout>
@@ -50,8 +49,19 @@ export default function HomePage() {
 
                     <Grid className={classes.bestSeller_box}>
                         {
-                            array.map(() => (
-                                <Product />
+                            productsData.data?.map((item) => (
+                                <Product
+                                    key={item._id}
+                                    id={item._id}
+                                    data={item}
+                                    image={item.image}
+                                    uz={item.uz}
+                                    buy_count={item.buy_count}
+                                    discount={item.discount}
+                                    price={item.price}
+                                    quantity={item.quantity}
+                                    type={item.type}
+                                />
                             ))
                         }
                     </Grid>
@@ -67,8 +77,8 @@ export default function HomePage() {
                     </div>
                     <section className={classes.bestSeller_box}>
                         {
-                            array2.map(() => (
-                                <Product />
+                            array2.map((item) => (
+                                <Product key={item} />
                             ))
                         }
                     </section>

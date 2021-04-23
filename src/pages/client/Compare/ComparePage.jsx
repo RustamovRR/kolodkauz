@@ -72,7 +72,7 @@ export default function ComparePage() {
                         >
                             {
                                 [1, 2, 3, 4, 5, 6, 7, 8, 9].map((item, index) => (
-                                    <SwiperSlide className={classes.swiper_slide} >
+                                    <SwiperSlide className={classes.swiper_slide} key={item} >
                                         <ProductCompare primary={index === 0 ? true : false} />
                                     </SwiperSlide>
                                 ))

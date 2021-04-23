@@ -49,6 +49,7 @@ export default function Carousel() {
                             style={{
                                 backgroundImage: `url(${item})`,
                             }}
+                            key={item}
                         />
                     ))
                 }

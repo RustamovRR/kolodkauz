@@ -10,7 +10,7 @@ export default function SImilarProduct() {
             <section className={classes.product_box}>
                 {
                     [1, 2, 3, 4, 5].map(item => (
-                        <Product />
+                        <Product key={item} />
                     ))
                 }
             </section>

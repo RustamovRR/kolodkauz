@@ -5,7 +5,7 @@ const ProductInfoPage = lazy(() => import("./ProductInfoPage"))
 
 const routes = [
     {
-        path: "/product_info",
+        path: "/product/:id",
         exact: true,
         component: ProductInfoPage
     },

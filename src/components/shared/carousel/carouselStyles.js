@@ -5,21 +5,26 @@ import { clr } from "../../../constants/colors";
 export const useCarouselStyles = makeStyles({
     carousel_root: {
         width: '100%',
-        position: 'relative',
-        '& > *': {
-            borderRadius: 16
-        }
+        position: 'relative'
     },
-
+    
+    swiper: {
+        borderRadius: 16
+    },
+    
     carousel: {
         width: '100%',
         height: 400,
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-        backgroundSize: 'cover'
+        '& img': {
+            width: '100%',
+            height: '100%',
+            borderRadius: 16,
+            objectFit: 'cover',
+        }
     },
 
     left_arrow: {
+        zIndex: 100,
         position: 'absolute',
         left: 62,
         top: '45%',
@@ -27,6 +32,7 @@ export const useCarouselStyles = makeStyles({
     },
 
     right_arrow: {
+        zIndex: 100,
         position: 'absolute',
         right: 62,
         top: '45%',

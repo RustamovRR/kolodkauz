@@ -16,7 +16,7 @@ const array2 = [...array, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 export default function HomePage() {
     const classes = useHomePageStyles()
     const { trans, setTrans, productsData, favoriteCart } = useContext(ContextRoot)
-    const fav = JSON.parse(localStorage.getItem('favoriteCart')) || 1
+    // const fav = JSON.parse(localStorage.getItem('favoriteCart')) || 1
 
     const productsQuery = useProductsQuery({ page: 0 })
 
@@ -44,7 +44,6 @@ export default function HomePage() {
                         <CarBrand />
                     </Grid>
 
-                    <h1>{fav.length}</h1>
                     <div className={classes.bestSeller}>
                         <h1 className={classes.bestSeller_title}>
                             {trans ? `Хиты продаж` : `Eng ko'p sotilgan mahsulotlar`}

@@ -17,12 +17,12 @@ export default function ProductMedium({ data }) {
             <section className={classes.card}>
                 <img
                     src={`${url}/${data?.image}`}
-                    alt={data?.uz.type.description}
+                    alt={data?.uz.description}
                 />
             </section>
 
             <section className={classes.text_box}>
-                <h4>{data?.uz.type.title}</h4>
+                <h4>{data?.uz.title}</h4>
                 <RatingComp value={4} />
                 <section className={classes.info}>
                     <div className={classes.left_text}>

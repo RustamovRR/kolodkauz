@@ -13,7 +13,7 @@ import { useProductQuery } from "../../../hooks/queries";
 
 export default function Product({
     favorite, compare, homePage,
-    data, 
+    data,
 }) {
     const classes = useProductStyles();
     const [showFavorite, setShowFavorite] = useState(false)
@@ -55,8 +55,7 @@ export default function Product({
             <section style={{ display: 'flex', alignItems: 'center' }}>
                 <div className={classes.button}>
                     <ButtonYellow
-                        favorite={favorite}
-                        title={favorite ? `Sevimlidan o'chirish` : `В корзину`}
+                        title={`В корзину`}
                         onClick={() => addToFavoriteCart(data)}
                     />
                 </div>

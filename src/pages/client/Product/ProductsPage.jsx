@@ -11,11 +11,15 @@ import rectangle from '../../../assets/images/products/Rectangle 14.png'
 import rol from '../../../assets/images/products/rol.png'
 import { FilterList } from '@material-ui/icons'
 import { Pagination } from '@material-ui/lab'
+import { useProductsQuery } from '../../../hooks/queries'
 
 export default function ProductsPage({ medium, small }) {
     const classes = useProductPageStyles()
     const { trans, setTrans, productsData } = useContext(ContextRoot)
     const [open, setOpen] = useState(false)
+    const [page, setPage] = useState(0)
+    const productsQuery = useProductsQuery({ page })
+    const data = productsQuery.isSuccess && productsQuery.data?.data ? productsQuery.data?.data : []
 
     const drawerOpen = () => {
         setOpen(true)
@@ -25,6 +29,9 @@ export default function ProductsPage({ medium, small }) {
         setOpen(false)
     }
 
+    const handleChagePage = (e, value) => {
+        setPage(value == 0 ? value = 0 : value - 1)
+    }
 
     // const arrays = [balon]
     const arrays = [balon, bolgarka, rectangle, rol, balon, bolgarka, rectangle, rol]
@@ -94,13 +101,12 @@ export default function ProductsPage({ medium, small }) {
 
                             <div className={classes.product_box}>
                                 {
-                                    productsData.data?.map((item, index) => {
+                                    data.data?.map((item, index) => {
                                         if (medium) {
                                             return (
-                                                <div className={classes.product_medium} key={item} >
+                                                <div className={classes.product_medium} key={item._id} >
                                                     <ProductMedium
                                                         index={index}
-                                                        key={item._id}
                                                         id={item._id}
                                                         data={item}
                                                     />
@@ -109,10 +115,9 @@ export default function ProductsPage({ medium, small }) {
                                         }
                                         else if (small) {
                                             return (
-                                                <div className={classes.product_small} key={item} >
+                                                <div className={classes.product_small} key={item._id} >
                                                     <ProductSmall
                                                         index={index}
-                                                        key={item._id}
                                                         id={item._id}
                                                         data={item}
                                                     />
@@ -121,11 +126,10 @@ export default function ProductsPage({ medium, small }) {
                                         }
                                         else {
                                             return (
-                                                <div className={classes.product}>
+                                                <div className={classes.product} key={item._id} >
                                                     <Product
                                                         favorite
                                                         index={index}
-                                                        key={item._id}
                                                         id={item._id}
                                                         data={item}
                                                     />
@@ -134,8 +138,15 @@ export default function ProductsPage({ medium, small }) {
                                         }
                                     })
                                 }
-                                <Pagination />
                             </div>
+                            <section className={classes.pagination} >
+                                <Pagination
+                                    count={10}
+                                    shape="rounded"
+                                    color="primary"
+                                    onChange={handleChagePage}
+                                />
+                            </section>
                         </div>
                     </section>
                 </Grid>

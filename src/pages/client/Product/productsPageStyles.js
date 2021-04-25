@@ -82,6 +82,10 @@ export const useProductPageStyles = makeStyles({
     drawerPaper: {
         backgroundColor: 'red',
         width: 400
+    },
+
+    pagination: {
+        marginTop: 60
     }
 
 })

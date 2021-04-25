@@ -18,7 +18,7 @@ export default function ProductSmall({ data }) {
             <section className={classes.image_box}>
                 <img
                     src={`${url}/${data?.image}`}
-                    alt={data?.uz.type.description}
+                    alt={data?.uz.description}
                     width={110}
                     height={110}
                     style={{ objectFit: 'contain' }}
@@ -26,7 +26,7 @@ export default function ProductSmall({ data }) {
             </section>
 
             <section className={classes.text_box}>
-                <h1>{data?.uz.type.title}</h1>
+                <h1>{data?.uz.title}</h1>
                 <Rating defaultValue={4} size="small" />
                 <div className={classes.price_box}>
                     <p>{`${data?.price} ${sum}`}</p>

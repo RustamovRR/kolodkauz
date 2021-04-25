@@ -7,14 +7,14 @@ import { ContextRoot } from '../../../contexts'
 
 export default function FavoritePage() {
     const classes = useFavoriteStyles()
-    const { trans, setTrans, favoriteCart } = useContext(ContextRoot)
+    const { trans, setTrans, productsData } = useContext(ContextRoot)
 
     function handleClick(event) {
         event.preventDefault();
         console.info('You clicked a breadcrumb.');
     }
-    const fav = JSON.parse(localStorage.getItem('favoriteCart')) || 1
-    console.log(fav)
+    // const fav = JSON.parse(localStorage.getItem('favoriteCart')) || 1
+    // console.log(fav)
 
     return (
         <Layout>
@@ -47,7 +47,7 @@ export default function FavoritePage() {
 
                         <div className={classes.product_box}>
                             {
-                                fav?.map((item) => (
+                                productsData?.map((item) => (
                                     <Product
                                         key={item._id}
                                         id={item._id}

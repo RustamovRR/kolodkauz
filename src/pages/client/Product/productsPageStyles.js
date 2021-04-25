@@ -50,6 +50,7 @@ export const useProductPageStyles = makeStyles({
     product_box: {
         display: 'flex',
         flexWrap: 'wrap',
+        minHeight: '120vh',
         justifyContent: 'space-between',
     },
 
@@ -86,6 +87,12 @@ export const useProductPageStyles = makeStyles({
 
     pagination: {
         marginTop: 60
+    },
+
+    paginationItem: {
+        '& .Mui-selected': {
+            backgroundColor: clr.primaryBlue
+        }
     }
 
 })

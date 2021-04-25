@@ -1,4 +1,4 @@
-import React, { useContext, useState, } from 'react'
+import React, { useContext, useEffect, useState, } from 'react'
 import { Drawer, Grid, Hidden } from '@material-ui/core'
 import { useProductPageStyles } from './productsPageStyles'
 
@@ -29,9 +29,10 @@ export default function ProductsPage({ medium, small }) {
         setOpen(false)
     }
 
-    const handleChagePage = (e, value) => {
+    const handleChangePage = (e, value) => {
         setPage(value == 0 ? value = 0 : value - 1)
     }
+
 
     // const arrays = [balon]
     const arrays = [balon, bolgarka, rectangle, rol, balon, bolgarka, rectangle, rol]
@@ -144,7 +145,10 @@ export default function ProductsPage({ medium, small }) {
                                     count={10}
                                     shape="rounded"
                                     color="primary"
-                                    onChange={handleChagePage}
+                                    hidePrevButton
+                                    className={classes.paginationItem}
+                                    onChange={handleChangePage}
+                                    onClick={() => window.scrollTo(0, 0)}
                                 />
                             </section>
                         </div>

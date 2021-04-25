@@ -12,50 +12,48 @@ export default function Products() {
     const classes = useProductsStyles()
     const { imageUrl, productsData, FetchProducts } = useContext(ContextRoot)
 
-    // console.log(productsData)
 
 
     const formik = useFormik({
         initialValues: {
             uz: {
-                type: {
-                    title: 'chevrolet',
-                    description: 'description uz',
-                    characteristics: {
-                        info: 'noinfo'
-                    },
-                },
+                title: 'Castrol Edge Supercar TURBOMAX',
+                description: 'description uz',
+                characteristics: [
+                    { option: `sifati`, value: `a'lo` },
+                    { option: `kafolat`, value: `2 yil` }
+                ]
             },
             ru: {
-                type: {
-                    title: 'bmw',
-                    description: 'description ru',
-                    characteristics: {
-                        info: 'ruinfo'
-                    },
-                },
+                title: 'Автомобильная шина Hankook Tire Ventus Prime',
+                description: 'description ru',
+                characteristics: [
+                    { option: `kachestva`, value: 'xorosho' },
+                    { option: `garantiya`, value: '2 goda' }
+                ]
             },
             type: 'moy',
             // car: 'spark',
             // brand: 'chevrolet',
             image: 'url',
             quantity: 10,
-            price: 20,
-            discount: 30,
-            buy_count: 40,
+            price: 20000,
+            discount: 30000,
+            slug: '',
+            buy_count: 50,
             rating: {
                 data: [
                     {
-                        score: 50,
+                        score: 4,
                         comment: 'nocomment'
                     }
                 ],
-                overall: 40,
-                count: 100
+                overall: 4,
+                count: 10
             },
         },
         onSubmit: async (values) => {
-            // console.log(values)
+            console.log(values)
             await request.post('/products', values).then((res) => console.log(res.data))
         }
     })

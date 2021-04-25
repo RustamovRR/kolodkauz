@@ -12,13 +12,29 @@ import castrolImg from '../../../assets/images/brands/castrol.png'
 import { ContextRoot } from '../../../contexts'
 import { request } from '../../../services/api'
 import { useLocation } from 'react-use'
+import { useProductQuery } from '../../../hooks/queries'
 
 export default function ProductInfoPage() {
     const classes = useProductInfoPageStyles()
     const { trans, sum } = useContext(ContextRoot)
-    const { state } = useLocation()
+    const { id } = useParams()
     const { goBack } = useHistory()
-    const data = state.state
+
+    const productQuery = useProductQuery({ id })
+    const data = productQuery.isSuccess && productQuery.data?.data ? productQuery.data?.data : []
+
+    const productPrice = data.data?.price
+    const productBuyCount = data.data?.buy_count
+    const productDiscount = data.data?.discount
+    const productQuantity = data.data?.quantity
+
+    const productUz = data.data?.uz
+    const productRu = data.data?.ru
+
+    const productRating = data.data?.rating
+    const productCount = productRating?.count ? productRating?.count : 10
+    const productOverall = productRating?.overall ? productRating?.overall : 10
+
 
     const sortRu = [
         `Популярности`, `Рейтингу`, `Название (А-Я)`
@@ -40,13 +56,13 @@ export default function ProductInfoPage() {
                 <section className={classes.product_box}>
                     <section className={classes.product_image}>
                         <img
-                            src={`${url}/${data?.image}`}
-                            alt={data?.uz?.type.description}
+                            src={`${url}/${data.data?.image}`}
+                            alt={productUz?.description}
                         />
                     </section>
 
                     <section className={classes.info_box}>
-                        <h1>{data?.uz?.type.title}</h1>
+                        <h1>{trans ? productUz?.title : productRu?.title}</h1>
                         <div className={classes.secondary}>
                             <div>
                                 <p>Артикул:&nbsp;
@@ -57,16 +73,18 @@ export default function ProductInfoPage() {
                             <RatingComp value={4} />
                             <div>
                                 <p>
-                                    <span style={{ color: clr.dark900 }} >2339</span>&nbsp;
+                                    <span style={{ color: clr.dark900 }} >{productOverall}</span>&nbsp;
                                     отзывов</p>
                             </div>
-                            <div><p style={{ color: clr.dark900 }} >Купили более 100 000 раз</p></div>
+                            <div><p style={{ color: clr.dark900 }} >
+                                {trans ? `Купили более ${productBuyCount} раз` : `${productBuyCount} martadan ortiq sotilgan`}
+                            </p></div>
                         </div>
 
                         <section >
                             <div className={classes.price_box}>
-                                <h2>{`${data?.price} ${sum}`}</h2>
-                                <p>{`${data?.discount} ${sum}`}</p>
+                                <h2>{`${productPrice} ${sum}`}</h2>
+                                <p>{`${productDiscount} ${sum}`}</p>
                             </div>
 
                             <section className={classes.inputs} >
@@ -101,7 +119,7 @@ export default function ProductInfoPage() {
                     <h1>
                         {trans ? `Описание` : `Tavsif`}
                     </h1>
-                    <Description />
+                    <Description data={trans ? productRu?.characteristics : productUz?.characteristics} />
                 </section>
 
                 <section className={classes.similar_box}>

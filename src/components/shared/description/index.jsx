@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDescriptionStyles } from './descriptionStyles'
 
-export default function Description() {
+export default function Description({ data }) {
     const classes = useDescriptionStyles()
     const infos = [
         { title: `Класс вязкости`, value: `5W-30` },
@@ -19,9 +19,9 @@ export default function Description() {
             <h2>Общие характеристики</h2>
             <section className={classes.info_box}>
                 {
-                    infos.map(info => (
-                        <div className={classes.text} key={info.title}>
-                            <p>{info.title}</p>
+                    data?.map(info => (
+                        <div className={classes.text} key={info.value}>
+                            <p>{info.option}</p>
                             <span>{info.value}</span>
                         </div>
                     ))

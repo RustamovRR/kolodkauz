@@ -8,12 +8,12 @@ import { FavoriteGreyOutline, FavoriteBlack } from '../../../assets/images/icons
 import image1 from "../../../assets/images/products/bagaj.png";
 import { Link } from "react-router-dom";
 import { Skeleton } from "@material-ui/lab";
-import useProductsData from "../../../hooks/queries/useProductsData";
 import ButtonComponent from "../ButtonComponent";
+import { useProductQuery } from "../../../hooks/queries";
 
 export default function Product({
     favorite, compare, homePage,
-    data
+    data, 
 }) {
     const classes = useProductStyles();
     const [showFavorite, setShowFavorite] = useState(false)
@@ -22,7 +22,6 @@ export default function Product({
     const handleClick = () => {
         setShowFavorite(!showFavorite)
     }
-    const { success } = productsData
 
     const url = `http://zap.uz`
     return (
@@ -32,7 +31,7 @@ export default function Product({
                 <section className={classes.card}>
                     <img
                         src={`${url}/${data?.image}`}
-                        alt={data?.uz.type.description}
+                        alt={data?.uz.description}
                     />
                 </section>
 
@@ -43,7 +42,7 @@ export default function Product({
                     </div>
 
                     <div className={classes.text}>
-                        <p>{data?.uz.type.title}</p>
+                        <p>{data?.uz.title}</p>
                         {/* <Skeleton
                             width="95%"
                             height={64}
@@ -58,7 +57,7 @@ export default function Product({
                     <ButtonYellow
                         favorite={favorite}
                         title={favorite ? `Sevimlidan o'chirish` : `В корзину`}
-                        onClick={() => !favorite && removeFromFavoriteCart(data)}
+                        onClick={() => addToFavoriteCart(data)}
                     />
                 </div>
                 {/* <Skeleton

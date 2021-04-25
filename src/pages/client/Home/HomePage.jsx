@@ -7,7 +7,7 @@ import './homePageStyles.js'
 import { TabMenu, Carousel, CarBrand, Product, ProductBrand, Ads, Layout } from '../../../components/shared'
 import { ContextRoot } from '../../../contexts'
 import { Skeleton } from '@material-ui/lab'
-import useProductsData from '../../../hooks/queries/useProductsData.jsx'
+import { useProductsQuery } from '../../../hooks/queries'
 
 
 const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
@@ -16,7 +16,11 @@ const array2 = [...array, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 export default function HomePage() {
     const classes = useHomePageStyles()
     const { trans, setTrans, productsData, favoriteCart } = useContext(ContextRoot)
-    console.log(favoriteCart)
+    const fav = JSON.parse(localStorage.getItem('favoriteCart')) || 1
+
+    const productsQuery = useProductsQuery({ page: 0 })
+
+    const data = productsQuery.isSuccess && productsQuery.data?.data ? productsQuery.data?.data : []
 
     return (
         <Layout>
@@ -40,6 +44,7 @@ export default function HomePage() {
                         <CarBrand />
                     </Grid>
 
+                    <h1>{fav.length}</h1>
                     <div className={classes.bestSeller}>
                         <h1 className={classes.bestSeller_title}>
                             {trans ? `Хиты продаж` : `Eng ko'p sotilgan mahsulotlar`}
@@ -48,7 +53,7 @@ export default function HomePage() {
 
                     <Grid className={classes.bestSeller_box}>
                         {
-                            productsData.data?.slice(0, 12).map((item) => (
+                            data.data?.slice(0, 12).map((item) => (
                                 <Product
                                     key={item._id}
                                     id={item._id}

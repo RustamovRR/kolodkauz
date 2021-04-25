@@ -13,6 +13,8 @@ export default function FavoritePage() {
         event.preventDefault();
         console.info('You clicked a breadcrumb.');
     }
+    const fav = JSON.parse(localStorage.getItem('favoriteCart')) || 1
+    console.log(fav)
 
     return (
         <Layout>
@@ -45,7 +47,7 @@ export default function FavoritePage() {
 
                         <div className={classes.product_box}>
                             {
-                                favoriteCart?.map((item) => (
+                                fav?.map((item) => (
                                     <Product
                                         key={item._id}
                                         id={item._id}

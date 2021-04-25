@@ -15,7 +15,7 @@ export default function Provider({ children }) {
     const sum = trans ? `сум` : `so'm`
 
     const fetchProducts = async () => {
-        const res = await request.get('/products')
+        const res = await request.get('/products', { params: { page: 0 } })
             .then((res) => setProductsData(res.data))
 
         return res
@@ -23,6 +23,7 @@ export default function Provider({ children }) {
 
     const addToFavoriteCart = (product) => {
         setFavoriteCart([...favoriteCart, product])
+        localStorage.setItem('favoriteCart', JSON.stringify(favoriteCart))
     }
 
     const removeFromFavoriteCart = (remove) => {

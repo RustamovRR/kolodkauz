@@ -27,17 +27,10 @@ export default function LoginPage() {
             await request.post('/users/login', values)
                 .then((res) => {
                     console.log(res)
-                    localStorage.setItem('x-token', res.config.headers['x-token'])
+                    localStorage.setItem('token', res.data?.data['x-token'])
                 })
         }
     })
-
-    let parse = formik.values.phone.split(' ')
-    let a = Number(parse[0])
-    let b = Number(parse[1])
-    let c = Number(parse[2])
-    let d = Number(parse[3])
-    let parseNumber = `${a}${b}${c}${d}`
 
     return (
         <div className={classes.root}>

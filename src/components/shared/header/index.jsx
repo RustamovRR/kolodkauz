@@ -17,7 +17,6 @@ export default function Header() {
     const handleOpen = () => {
         setOpenBasket(true);
     };
-    console.log(countState)
 
     return (
         <div className={classes.header_root}>

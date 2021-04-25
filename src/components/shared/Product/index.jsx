@@ -17,7 +17,7 @@ export default function Product({
 }) {
     const classes = useProductStyles();
     const [showFavorite, setShowFavorite] = useState(false)
-    const { trans, sum, productsData } = useContext(ContextRoot)
+    const { trans, sum, productsData, addToFavoriteCart, removeFromFavoriteCart } = useContext(ContextRoot)
 
     const handleClick = () => {
         setShowFavorite(!showFavorite)
@@ -25,7 +25,6 @@ export default function Product({
     const { success } = productsData
 
     const url = `http://zap.uz`
-    console.log(success)
     return (
         <div className={classes.product_root}>
             <Link to={{ pathname: `/product/${data?._id}`, state: data }} className={classes.product_link}>
@@ -56,7 +55,11 @@ export default function Product({
 
             <section style={{ display: 'flex', alignItems: 'center' }}>
                 <div className={classes.button}>
-                    <ButtonYellow title="В корзину" />
+                    <ButtonYellow
+                        favorite={favorite}
+                        title={favorite ? `Sevimlidan o'chirish` : `В корзину`}
+                        onClick={() => !favorite && removeFromFavoriteCart(data)}
+                    />
                 </div>
                 {/* <Skeleton
                     width={96}

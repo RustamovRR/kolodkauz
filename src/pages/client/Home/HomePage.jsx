@@ -1,7 +1,6 @@
 import React, { useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Grid } from '@material-ui/core'
-// import useAPIQuery from '../../../hooks/queries/useAPIQuery'
 import { useHomePageStyles } from './homePageStyles.js'
 import './homePageStyles.js'
 
@@ -16,8 +15,8 @@ const array2 = [...array, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 
 export default function HomePage() {
     const classes = useHomePageStyles()
-    const { trans, setTrans, productsData } = useContext(ContextRoot)
-    console.log(productsData)
+    const { trans, setTrans, productsData, favoriteCart } = useContext(ContextRoot)
+    console.log(favoriteCart)
 
     return (
         <Layout>
@@ -111,7 +110,7 @@ export default function HomePage() {
                         <ProductBrand />
                     </section>
                 </Grid>
-            </div >
+            </div>
         </Layout>
     )
 }

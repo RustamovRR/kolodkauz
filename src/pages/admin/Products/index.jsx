@@ -12,7 +12,7 @@ export default function Products() {
     const classes = useProductsStyles()
     const { imageUrl, productsData, FetchProducts } = useContext(ContextRoot)
 
-    console.log(productsData)
+    // console.log(productsData)
 
 
     const formik = useFormik({

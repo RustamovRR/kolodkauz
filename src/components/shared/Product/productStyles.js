@@ -54,7 +54,7 @@ export const useProductStyles = makeStyles({
     button: {
         marginTop: 16,
         '& > *': {
-            width: 96,
+            minWidth: 96,
         }
     },
 

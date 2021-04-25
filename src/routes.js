@@ -8,6 +8,7 @@ const BasketRoutes = lazy(() => import("./pages/client/Basket/basketRoutes"))
 const ProductRoutes = lazy(() => import("./pages/client/Product/productRoutes.jsx"))
 const ProductInfoRoutes = lazy(() => import("./pages/client/ProductInfo/productInfoRoutes"))
 const LoginRoutes = lazy(() => import("./pages/client/Login/loginRoutes"))
+const RegisterRoutes = lazy(() => import("./pages/client/Register/registerRoutes"))
 const FastDeliveryRoutes = lazy(() => import("./pages/client/FastDelivery/fastDeliveryRoutes"))
 
 const AdminRoutes = lazy(() => import("./pages/admin/routes"))
@@ -45,6 +46,10 @@ const routes = [
     {
         path: "/login",
         component: LoginRoutes
+    },
+    {
+        path: "/register",
+        component: RegisterRoutes
     },
     {
         path: "/fast_delivery",

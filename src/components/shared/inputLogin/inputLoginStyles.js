@@ -9,13 +9,17 @@ export const useInputLoginStyles = makeStyles({
     },
 
     textfield: {
-        width: 422,
+        width: '100%',
         height: 'auto',
         marginTop: 8,
         color: 'red',
         '& .MuiOutlinedInput-root': {
             borderRadius: 0,
+            '& input': {
+                padding: '13px 16px'
+            },
             '& fieldset': {
+                minHeight: 48,
                 border: `1px solid ${clr.productPrimary}`,
             },
             '&.Mui-focused fieldset': {
@@ -32,5 +36,9 @@ export const useInputLoginStyles = makeStyles({
                 height: 48
             },
         },
+    },
+
+    helperText: {
+        fontWeight: 'bold',
     }
 });

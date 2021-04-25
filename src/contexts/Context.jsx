@@ -6,6 +6,7 @@ export const ContextRoot = createContext()
 export default function Provider({ children }) {
 
     const [productsData, setProductsData] = useState([])
+    const [favoriteCart, setFavoriteCart] = useState([])
 
     const [openBasket, setOpenBasket] = useState(false)
     const [openTabList, setOpenTabList] = useState(false)
@@ -13,15 +14,23 @@ export default function Provider({ children }) {
     const [trans, setTrans] = useState(false)
     const sum = trans ? `сум` : `so'm`
 
-    const FetchProducts = async () => {
+    const fetchProducts = async () => {
         const res = await request.get('/products')
             .then((res) => setProductsData(res.data))
 
         return res
     }
 
+    const addToFavoriteCart = (product) => {
+        setFavoriteCart([...favoriteCart, product])
+    }
+
+    const removeFromFavoriteCart = (remove) => {
+        setFavoriteCart(favoriteCart.filter((product) => product == remove))
+    }
+
     useEffect(() => {
-        FetchProducts()
+        fetchProducts()
     }, [])
 
 
@@ -43,7 +52,8 @@ export default function Provider({ children }) {
     }
     const [count, dispatch] = useReducer(reducer, initialValue)
     const state = {
-        productsData, setProductsData, FetchProducts,
+        productsData, setProductsData, fetchProducts,
+        favoriteCart, setFavoriteCart, addToFavoriteCart, removeFromFavoriteCart,
 
         sum,
         openBasket, setOpenBasket,

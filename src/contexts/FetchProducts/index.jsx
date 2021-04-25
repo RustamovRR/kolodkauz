@@ -6,7 +6,7 @@ const FetchProducts = async () => {
     // const { productsData, setProductsData } = useContext(ContextRoot)
 
     const res = await request.get('/products')
-        .then((res) => console.log(res.data))
+        // .then((res) => console.log(res.data))
 
     return res
 }

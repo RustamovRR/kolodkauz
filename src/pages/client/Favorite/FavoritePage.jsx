@@ -7,7 +7,7 @@ import { ContextRoot } from '../../../contexts'
 
 export default function FavoritePage() {
     const classes = useFavoriteStyles()
-    const { trans, setTrans } = useContext(ContextRoot)
+    const { trans, setTrans, favoriteCart } = useContext(ContextRoot)
 
     function handleClick(event) {
         event.preventDefault();
@@ -44,11 +44,16 @@ export default function FavoritePage() {
                         </h1>
 
                         <div className={classes.product_box}>
-                            <Product favorite={true} />
-                            <Product favorite={true} />
-                            <Product favorite={true} />
-                            <Product favorite={true} />
-                            <Product favorite={true} />
+                            {
+                                favoriteCart?.map((item) => (
+                                    <Product
+                                        key={item._id}
+                                        id={item._id}
+                                        data={item}
+                                        favorite
+                                    />
+                                ))
+                            }
                         </div>
                     </section>
                 </Grid>

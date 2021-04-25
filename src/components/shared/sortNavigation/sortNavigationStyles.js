@@ -41,12 +41,12 @@ export const useSortNavigationStyles = makeStyles({
 
     active_navlink: {
         '& > *': {
-            backgroundColor: `rgba(18, 115, 235, 0.1)`,
+            backgroundColor: clr.secondaryDarkBlue,
             '&:hover': {
-                backgroundColor: `rgba(18, 115, 235, 0.1)`,
+                backgroundColor: clr.secondaryDarkBlue,
             },
             '& *': {
-                color: clr.secondaryDarkBlue
+                color: clr.primaryWhite
             }
         }
     },

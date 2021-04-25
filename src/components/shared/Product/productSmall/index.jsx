@@ -8,22 +8,29 @@ import { Quantity, ButtonYellow } from '../..'
 import { FavoriteBlueOutline, CompareBlueOutline } from '../../../../assets/images/icons'
 import karcher from "../../../../assets/images/products/karcher.png";
 
-export default function ProductSmall() {
+export default function ProductSmall({ data }) {
     const classes = useProductSmallStyles()
     const { trans, sum } = useContext(ContextRoot)
 
+    const url = `http://zap.uz`
     return (
         <div className={classes.root}>
             <section className={classes.image_box}>
-                <img src={karcher} alt="" width={110} height={110} />
+                <img
+                    src={`${url}/${data?.image}`}
+                    alt={data?.uz.type.description}
+                    width={110}
+                    height={110}
+                    style={{ objectFit: 'contain' }}
+                />
             </section>
 
             <section className={classes.text_box}>
-                <h1>Мойка высокого давления K5 Compact</h1>
+                <h1>{data?.uz.type.title}</h1>
                 <Rating defaultValue={4} size="small" />
                 <div className={classes.price_box}>
-                    <p>{`7,850,000 ${sum}`}</p>
-                    <span>{`9,876,000 ${sum}`}</span>
+                    <p>{`${data?.price} ${sum}`}</p>
+                    <span>{`${data?.discount} ${sum}`}</span>
                 </div>
             </section>
 

@@ -10,10 +10,11 @@ import bolgarka from '../../../assets/images/products/bolgarka.png'
 import rectangle from '../../../assets/images/products/Rectangle 14.png'
 import rol from '../../../assets/images/products/rol.png'
 import { FilterList } from '@material-ui/icons'
+import { Pagination } from '@material-ui/lab'
 
 export default function ProductsPage({ medium, small }) {
     const classes = useProductPageStyles()
-    const { trans, setTrans } = useContext(ContextRoot)
+    const { trans, setTrans, productsData } = useContext(ContextRoot)
     const [open, setOpen] = useState(false)
 
     const drawerOpen = () => {
@@ -93,30 +94,47 @@ export default function ProductsPage({ medium, small }) {
 
                             <div className={classes.product_box}>
                                 {
-                                    arrays.map((item, index) => {
+                                    productsData.data?.map((item, index) => {
                                         if (medium) {
                                             return (
                                                 <div className={classes.product_medium} key={item} >
-                                                    <ProductMedium index={index} />
+                                                    <ProductMedium
+                                                        index={index}
+                                                        key={item._id}
+                                                        id={item._id}
+                                                        data={item}
+                                                    />
                                                 </div>
                                             )
                                         }
                                         else if (small) {
                                             return (
                                                 <div className={classes.product_small} key={item} >
-                                                    <ProductSmall index={index} />
+                                                    <ProductSmall
+                                                        index={index}
+                                                        key={item._id}
+                                                        id={item._id}
+                                                        data={item}
+                                                    />
                                                 </div>
                                             )
                                         }
                                         else {
                                             return (
                                                 <div className={classes.product}>
-                                                    <Product favorite index={index} key={item} />
+                                                    <Product
+                                                        favorite
+                                                        index={index}
+                                                        key={item._id}
+                                                        id={item._id}
+                                                        data={item}
+                                                    />
                                                 </div>
                                             )
                                         }
                                     })
                                 }
+                                <Pagination />
                             </div>
                         </div>
                     </section>

@@ -40,7 +40,7 @@ export const useFooterStyles = makeStyles({
             marginTop: 32
         },
         '& > h4': {
-            fontSize: 18,
+            fontSize: 16,
         }
     },
 
@@ -108,7 +108,7 @@ export const useFooterStyles = makeStyles({
 
 
     link: {
-        fontSize: 18,
+        fontSize: 16,
         marginTop: 16,
         fontWeight: 400,
         display: 'block',

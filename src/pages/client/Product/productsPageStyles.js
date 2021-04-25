@@ -54,8 +54,8 @@ export const useProductPageStyles = makeStyles({
     },
 
     product: {
+        marginTop: 24,
         '@media (max-width: 500px)': {
-            marginTop: 24,
             margin: 'auto',
             width: '100%',
             '& > div': {
@@ -65,18 +65,20 @@ export const useProductPageStyles = makeStyles({
     },
 
     product_medium: {
-        width: '100%'
+        width: '100%',
+        marginTop: 24
     },
 
     product_small: {
-        width: '100%'
+        width: '100%',
+        marginTop: 24
     },
 
     drawer: {
         // width: 0,
         flexShrink: 0,
     },
-    
+
     drawerPaper: {
         backgroundColor: 'red',
         width: 400

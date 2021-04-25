@@ -39,7 +39,7 @@ export default function SortNavigation() {
                             (trans ? buttonsRu : buttonsUz).map((item, index) => (
                                 <NavLink
                                     key={item}
-                                    to={`/products/medium/${index}`}
+                                    to={`/categories/medium/${index}`}
                                     className={classes.navlink}
                                     activeClassName={classes.active_navlink}
                                 >

@@ -7,18 +7,22 @@ import { ContextRoot } from '../../../../contexts';
 import { FavoriteGreyOutline, CompareDisableOutline } from '../../../../assets/images/icons'
 import image1 from "../../../../assets/images/products/Rectangle 14.png";
 
-export default function ProductMedium() {
+export default function ProductMedium({ data }) {
     const classes = useProductMediumStyles()
     const { trans, sum } = useContext(ContextRoot)
 
+    const url = `http://zap.uz`
     return (
         <div className={classes.root}>
             <section className={classes.card}>
-                <img src={image1} alt="kolodka rasm" />
+                <img
+                    src={`${url}/${data?.image}`}
+                    alt={data?.uz.type.description}
+                />
             </section>
 
             <section className={classes.text_box}>
-                <h4>Мойка высокого давления K5 Compact </h4>
+                <h4>{data?.uz.type.title}</h4>
                 <RatingComp value={4} />
                 <section className={classes.info}>
                     <div className={classes.left_text}>
@@ -44,8 +48,8 @@ export default function ProductMedium() {
             <section className={classes.right_box}>
                 <div className={classes.price_box}>
                     <div className={classes.price}>
-                        <h1>{`7,980,000 ${sum}`}</h1>
-                        <p>{`9,876,000 ${sum}`}</p>
+                        <h1>{`${data?.price} ${sum}`}</h1>
+                        <p>{`${data?.discount} ${sum}`}</p>
                     </div>
                     <div className={classes.button}>
                         <ButtonYellow

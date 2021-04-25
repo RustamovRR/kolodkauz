@@ -76,7 +76,7 @@ export default function TabList() {
                                     {
                                         tabsPrimaryRu.map((item) => (
                                             <div className={classes.link} key={item} >
-                                                <Link key={item}>{item}</Link>
+                                                <Link to='/categories' key={item}>{item}</Link>
                                             </div>
                                         ))
                                     }

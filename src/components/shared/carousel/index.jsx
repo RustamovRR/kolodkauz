@@ -74,7 +74,7 @@ export default function Carousel() {
                             </div>
                         </SwiperSlide>
                     ))
-                }
+                } 
                 <section className={classes.arrows}>
                     <IconButton className={cn(classes.left_arrow, 'swiper-button-prev')} onClick={handleBack}>
                         <LeftGreyCircle style={{ width: 48, height: 48 }} />

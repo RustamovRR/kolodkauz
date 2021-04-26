@@ -5,7 +5,8 @@ export const useCarBrandStyles = makeStyles({
         width: '100%',
         '& > img': {
             width: '100%',
-            objectFit: 'cover',
+            height: '100%',
+            objectFit: 'contain',
         }
     }
 })

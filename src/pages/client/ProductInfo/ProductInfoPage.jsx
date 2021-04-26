@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from 'react'
-import { Link, NavLink, useHistory, useParams } from 'react-router-dom'
+import { Link, NavLink, useHistory, useLocation } from 'react-router-dom'
 import { Button, IconButton } from '@material-ui/core'
 import { useProductInfoPageStyles } from './productInfoStyles'
 
@@ -11,16 +11,15 @@ import productImg from '../../../assets/images/products/oil.png'
 import castrolImg from '../../../assets/images/brands/castrol.png'
 import { ContextRoot } from '../../../contexts'
 import { request } from '../../../services/api'
-import { useLocation } from 'react-use'
 import { useProductQuery } from '../../../hooks/queries'
 
 export default function ProductInfoPage() {
     const classes = useProductInfoPageStyles()
     const { trans, sum } = useContext(ContextRoot)
-    const { id } = useParams()
+    const { state } = useLocation()
     const { goBack } = useHistory()
 
-    const productQuery = useProductQuery({ id })
+    const productQuery = useProductQuery({ id: state })
     const data = productQuery.isSuccess && productQuery.data?.data ? productQuery.data?.data : []
 
     const productPrice = data.data?.price

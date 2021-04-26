@@ -1,2 +1,5 @@
 export { default as useProductsQuery } from './useProductsQuery'
 export { default as useProductQuery } from './useProductQuery'
+export { default as useBrandsQuery } from './useBrandsQuery'
+export { default as useAdsQuery } from './useAdsQuery'
+export { default as useCarsQuery } from './useCarsQuery'

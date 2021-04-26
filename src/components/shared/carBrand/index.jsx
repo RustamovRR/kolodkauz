@@ -1,13 +1,16 @@
 import React from 'react'
-import image from '../../../assets/images/brands/chevrolet.png'
+import { BASE_URL } from '../../../services/api'
 import { useCarBrandStyles } from './carBrandStyles'
 
-export default function CarBrand() {
+export default function CarBrand({ data }) {
     const classes = useCarBrandStyles()
 
     return (
         <div className={classes.carBrand_root}>
-            <img src={image} alt="" />
+            <img
+                src={`${BASE_URL}/${data?.image}`}
+                alt='brand'
+            />
         </div>
     )
 }

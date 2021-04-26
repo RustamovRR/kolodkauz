@@ -7,11 +7,10 @@ export const useAdStyles = makeStyles({
         '& > div': {
             width: '49%',
             height: 370,
-            backgroundColor: 'red',
             '& img': {
                 width: '100%',
                 height: '100%',
-                objectFit:'cover'
+                objectFit: 'cover'
             }
         }
     }

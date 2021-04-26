@@ -1,12 +1,14 @@
 import axios from 'axios'
 import { QueryClient } from 'react-query'
 
-const base_url = `http://zap.uz/api`
+export const BASE_URL = `http://zap.uz`
+
+export const API_BASE_URL = `http://zap.uz/api`
 
 const token = localStorage.getItem('token')
 
 export const request = axios.create({
-    baseURL: base_url,
+    baseURL: API_BASE_URL,
     headers: {
         "Content-Type": "application/json",
         "Access-Control-Allow-Origin": "*",

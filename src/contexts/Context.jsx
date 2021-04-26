@@ -22,7 +22,7 @@ export default function Provider({ children }) {
     }
 
     const addToFavoriteCart = async (product) => {
-        await request.post('/users/changecart', product).then((res) => console.log(res))
+        await request.post('/users/changeliked', product).then((res) => console.log(res))
         // setFavoriteCart([...favoriteCart, product])
         // localStorage.setItem('favoriteCart', JSON.stringify(favoriteCart))
     }

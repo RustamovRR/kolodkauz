@@ -32,6 +32,7 @@ export const useHomePageStyles = makeStyles({
         justifyContent: 'space-between',
         '& > div': {
             width: 220,
+            height: 80,
             marginTop: 32
         }
     },

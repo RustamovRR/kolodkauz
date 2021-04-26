@@ -11,7 +11,7 @@ export const useHeaderStyles = makeStyles({
         width: '100%',
         margin: 'auto'
     },
-
+    
     nav: {
         height: 48,
         margin: 'auto',
@@ -20,7 +20,7 @@ export const useHeaderStyles = makeStyles({
         padding: '0 30px',
         alignItems: 'center',
     },
-
+    
     services: {
         marginLeft: 14,
         '& > *': {
@@ -35,7 +35,7 @@ export const useHeaderStyles = makeStyles({
             }
         },
     },
-
+    
     secondary_box: {
         width: '100%',
         backgroundColor: clr.primaryWhite,

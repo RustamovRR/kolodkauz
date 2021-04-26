@@ -1,25 +1,21 @@
 import React, { useContext, useEffect, useState, } from 'react'
 import { Drawer, Grid, Hidden } from '@material-ui/core'
-import { useProductPageStyles } from './productsPageStyles'
+import { useCategoryPageStyles } from './categoryPageStyles'
 
 import { Layout, Sidebar, SortNavigation, TabMenu, Product, ProductMedium, ProductSmall, BreadCrumbs, ButtonComponent, Select, ProductDrawer } from '../../../components/shared'
 import { ContextRoot } from '../../../contexts'
-
-import balon from '../../../assets/images/products/balon.png'
-import bolgarka from '../../../assets/images/products/bolgarka.png'
-import rectangle from '../../../assets/images/products/Rectangle 14.png'
-import rol from '../../../assets/images/products/rol.png'
 import { FilterList } from '@material-ui/icons'
 import { Pagination } from '@material-ui/lab'
 import { useProductsQuery } from '../../../hooks/queries'
 
-export default function ProductsPage({ medium, small }) {
-    const classes = useProductPageStyles()
+export default function CategoriesPage({ medium, small }) {
+    const classes = useCategoryPageStyles()
     const { trans, setTrans, productsData } = useContext(ContextRoot)
     const [open, setOpen] = useState(false)
     const [page, setPage] = useState(0)
-    const productsQuery = useProductsQuery({ page })
-    const data = productsQuery.isSuccess && productsQuery.data?.data ? productsQuery.data?.data : []
+    const [count, setCount] = useState(5)
+    const products = useProductsQuery({ page })
+    const productsQuery = products.isSuccess && products.data?.data ? products.data?.data : []
 
     const drawerOpen = () => {
         setOpen(true)
@@ -33,9 +29,8 @@ export default function ProductsPage({ medium, small }) {
         setPage(value == 0 ? value = 0 : value - 1)
     }
 
+    console.log(productsQuery.data?.length)
 
-    // const arrays = [balon]
-    const arrays = [balon, bolgarka, rectangle, rol, balon, bolgarka, rectangle, rol]
 
 
     return (
@@ -102,7 +97,7 @@ export default function ProductsPage({ medium, small }) {
 
                             <div className={classes.product_box}>
                                 {
-                                    data.data?.map((item, index) => {
+                                    productsQuery.data?.map((item, index) => {
                                         if (medium) {
                                             return (
                                                 <div className={classes.product_medium} key={item._id} >
@@ -142,13 +137,13 @@ export default function ProductsPage({ medium, small }) {
                             </div>
                             <section className={classes.pagination} >
                                 <Pagination
-                                    count={10}
+                                    count={count}
                                     shape="rounded"
                                     color="primary"
                                     hidePrevButton
                                     className={classes.paginationItem}
                                     onChange={handleChangePage}
-                                    onClick={() => window.scrollTo(0, 0)}
+                                    onClick={() => window.scrollTo(0, 200)}
                                 />
                             </section>
                         </div>

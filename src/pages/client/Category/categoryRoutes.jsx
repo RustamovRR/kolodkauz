@@ -1,21 +1,21 @@
 import { lazy, Suspense } from 'react'
 import { Route } from 'react-router-dom';
 
-const ProductsPage = lazy(() => import("./ProductsPage"))
+const CategoriesPage = lazy(() => import("./CategoriesPage"))
 
 const routes = [
     {
         exact: true,
         path: "/categories",
-        component: ProductsPage
+        component: CategoriesPage
     },
     {
         path: "/categories/medium",
-        component: (() => <ProductsPage medium />)
+        component: (() => <CategoriesPage medium />)
     },
     {
         path: "/categories/small",
-        component: (() => <ProductsPage small />)
+        component: (() => <CategoriesPage small />)
     },
 ]
 

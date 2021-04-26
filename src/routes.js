@@ -5,7 +5,7 @@ const InfoRoutes = lazy(() => import("./pages/client/Information/infoRoutes"))
 const FavoriteRoutes = lazy(() => import("./pages/client/Favorite/favoriteRoutes"))
 const CompareRoutes = lazy(() => import("./pages/client/Compare/compareRoutes"))
 const BasketRoutes = lazy(() => import("./pages/client/Basket/basketRoutes"))
-const ProductRoutes = lazy(() => import("./pages/client/Product/productRoutes.jsx"))
+const CategoryRoutes = lazy(() => import("./pages/client/Category/categoryRoutes"))
 const ProductInfoRoutes = lazy(() => import("./pages/client/ProductInfo/productInfoRoutes"))
 const LoginRoutes = lazy(() => import("./pages/client/Login/loginRoutes"))
 const RegisterRoutes = lazy(() => import("./pages/client/Register/registerRoutes"))
@@ -37,7 +37,7 @@ const routes = [
     },
     {
         path: "/categories",
-        component: ProductRoutes
+        component: CategoryRoutes
     },
     {
         path: "/product/:id",

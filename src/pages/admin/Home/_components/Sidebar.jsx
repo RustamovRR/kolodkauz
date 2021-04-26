@@ -7,11 +7,12 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import { useTheme } from '@material-ui/core';
+import { IconButton, useTheme } from '@material-ui/core';
 import { useHomeStyles } from '../homeStyles';
 import { NavLink } from 'react-router-dom';
+import { ChevronLeft, ChevronRight } from '@material-ui/icons';
 
-export default function Sidebar({ mobileOpen, handleDrawerToggle }) {
+export default function Sidebar({ open, handleDrawerClose }) {
     const classes = useHomeStyles()
     const theme = useTheme()
 
@@ -25,7 +26,6 @@ export default function Sidebar({ mobileOpen, handleDrawerToggle }) {
 
     const drawer = (
         <div>
-            <div className={classes.toolbar} />
             <Divider />
             <List>
                 {menus.map(({ name, path, icon }) => (
@@ -44,40 +44,26 @@ export default function Sidebar({ mobileOpen, handleDrawerToggle }) {
             </List>
         </div>
     );
-    // const container = window !== undefined ? () => window().document.body : undefined;
 
     return (
         <div>
             <nav className={classes.drawer} aria-label="mailbox folders">
-                {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
-                <Hidden smUp implementation="css">
-                    <Drawer
-                        // container={container}
-                        variant="temporary"
-                        anchor={theme.direction === 'rtl' ? 'right' : 'left'}
-                        open={mobileOpen}
-                        onClose={handleDrawerToggle}
-                        classes={{
-                            paper: classes.drawerPaper,
-                        }}
-                        ModalProps={{
-                            keepMounted: true, // Better open performance on mobile.
-                        }}
-                    >
-                        {drawer}
-                    </Drawer>
-                </Hidden>
-                <Hidden xsDown implementation="css">
-                    <Drawer
-                        classes={{
-                            paper: classes.drawerPaper,
-                        }}
-                        variant="permanent"
-                        open
-                    >
-                        {drawer}
-                    </Drawer>
-                </Hidden>
+                <Drawer
+                    className={classes.drawer}
+                    variant="persistent"
+                    anchor="left"
+                    open={open}
+                    classes={{
+                        paper: classes.drawerPaper,
+                    }}
+                >
+                    <div className={classes.drawerHeader}>
+                        <IconButton onClick={handleDrawerClose}>
+                            {theme.direction === 'ltr' ? <ChevronLeft /> : <ChevronRight />}
+                        </IconButton>
+                    </div>
+                    {drawer}
+                </Drawer>
             </nav>
         </div>
     )

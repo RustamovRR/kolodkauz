@@ -25,6 +25,7 @@ export { default as TabList } from "./tabList";
 export { default as TabMenu } from "./tabmenu";
 export { default as Select } from "./select";
 export { default as AlertSnackbar } from "./snackbar";
+export { default as CustomTable } from "./customTable";
 
 export { default as Info } from "./Info";
 export { default as InfoDelivery } from "./Info/infoDelivery";

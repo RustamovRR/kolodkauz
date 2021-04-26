@@ -3,7 +3,7 @@ import { clr } from '../../../constants/colors'
 
 const paddingRoot = '0 30px'
 
-export const useProductPageStyles = makeStyles({
+export const useCategoryPageStyles = makeStyles({
 
     tabs_box: {
         // padding: paddingRoot

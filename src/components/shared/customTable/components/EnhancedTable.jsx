@@ -14,6 +14,7 @@ import TableRow from '@material-ui/core/TableRow'
 import TableSortLabel from '@material-ui/core/TableSortLabel'
 import TableToolbar from './TableToolbar'
 import {
+    useGlobalFilter,
     usePagination,
     useRowSelect,
     useSortBy,
@@ -110,7 +111,9 @@ const EnhancedTable = ({
         page,
         gotoPage,
         setPageSize,
-        state: { pageIndex, pageSize, selectedRowIds },
+        preGlobalFilteredRows,
+        setGlobalFilter,
+        state: { pageIndex, pageSize, selectedRowIds, globalFilter },
     } = useTable(
         {
             columns,
@@ -124,6 +127,7 @@ const EnhancedTable = ({
             // cell renderer!
             updateMyData,
         },
+        useGlobalFilter,
         useSortBy,
         usePagination,
         useRowSelect,
@@ -187,6 +191,9 @@ const EnhancedTable = ({
                 numSelected={Object.keys(selectedRowIds).length}
                 deleteUserHandler={deleteUserHandler}
                 addUserHandler={addUserHandler}
+                preGlobalFilteredRows={preGlobalFilteredRows}
+                setGlobalFilter={setGlobalFilter}
+                globalFilter={globalFilter}
             />
             <MaUTable {...getTableProps()}>
                 <TableHead>

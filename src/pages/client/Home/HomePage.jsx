@@ -15,7 +15,7 @@ const array2 = [...array, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 
 export default function HomePage() {
     const classes = useHomePageStyles()
-    const { trans, setTrans, favoriteCart } = useContext(ContextRoot)
+    const { trans, setTrans, favoriteCart, openTabList } = useContext(ContextRoot)
 
     const products = useProductsQuery({ page: 0 })
     const brands = useBrandsQuery()

@@ -5,9 +5,14 @@ import { clr } from "../../../constants/colors";
 export const useTabMenuStyles = makeStyles({
     container: {
         width: '100%',
-        margin: 'auto'
+        background: '#fff',
+        margin: 'auto',
     },
-    tabmenu: {
+    // tabmenu: {
+    //     boxShadow: ` 0px 2px 3px rgba(0, 0, 0, 0.12)`
+    // },
+    borderedTabmenu: {
+        transition: '1s',
         boxShadow: ` 0px 2px 3px rgba(0, 0, 0, 0.12)`
     }
 })
@@ -16,10 +21,10 @@ export const AntTabs = withStyles({
     root: {
         maxWidth: 1440,
         margin: 'auto',
-        padding: '0 30px'
+        padding: '0 30px',
     },
     indicator: {
-        backgroundColor: clr.primaryBlue,
+        backgroundColor: clr.primaryBlue
     },
 })((props) => <Tabs {...props} variant={window.innerWidth <= 700 && 'scrollable'} scrollButtons="off" />);
 
@@ -32,6 +37,7 @@ export const AntTab = withStyles((theme) => ({
         fontSize: 16,
         fontWeight: 500,
         color: clr.dark900,
+        transition: '1s',
         '&:hover': {
             color: '#40a9ff',
             opacity: 1,

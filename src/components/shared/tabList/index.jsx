@@ -1,17 +1,16 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Grid, IconButton } from '@material-ui/core'
 import { useTabListStyles } from './tabListStyles'
 
-import balonImg from '../../../assets/images/products/balon.png'
 import { Close } from '../../../assets/images/icons'
 import { ContextRoot } from '../../../contexts'
+import { marka, xodovoy, motor, zapchast, kuzov, akkumlator, shina, maslo, avtotovar, tabLinksUz, tabLinksRu } from '../../../constants/tabListData/index.jsx'
 
 
-export default function TabList() {
+export default function TabList({ data }) {
     const classes = useTabListStyles()
-    const { openTabList, setOpenTabList } = useContext(ContextRoot)
-    const { trans, setTrans } = useContext(ContextRoot)
+    const { trans, activeTab, openTabList, setOpenTabList } = useContext(ContextRoot)
 
     const handleClose = () => {
         setOpenTabList(false)
@@ -23,60 +22,70 @@ export default function TabList() {
         }
     })
 
-    const tabsPrimaryRu = [
-        `Тормозные колодки дисковые`,
-        `Рабочий тормозной цилиндр`,
-        `Пользовательское соглашение`,
-        `Тормозные дики`,
-        `Тормозные шланги`
-    ]
+    const renderList = () => {
+        switch (activeTab) {
+            case 0:
+                return marka
+            case 1:
+                return xodovoy
+            case 2:
+                return motor
+            case 3:
+                return zapchast
+            case 4:
+                return kuzov
+            case 5:
+                return akkumlator
+            case 6:
+                return shina
+            case 7:
+                return maslo
+            case 8:
+                return avtotovar
+            default:
+                return marka
+        }
+    }
 
-    const tabsPrimaryUz = [
-        `Tormoz tizimi`,
-        `Debriyaj tizimi`,
-        `Shruslar`,
-        `Yoqilg'i tizimi`,
-        `Rul tayog'i va uchlari`,
-        `Prujinalar`
-    ]
+    const renderHeader = () => {
+        switch (activeTab) {
+            case 0:
+                return trans ? `Марки автомобилей` : `Avtomobil markalari`
+            case 1:
+                return trans ? `Ходовая часть` : `Shassi qismi`
+            case 2:
+                return trans ? `Моторная часть` : `Motor qismi`
+            case 3:
+                return trans ? `Запчасти ТО` : `Ehtiyot qismlar`
+            case 4:
+                return trans ? `Кузов и оптика` : `Kuzov va optika`
+            case 5:
+                return trans ? `Аккумуляторы` : `Akkumulyatorlar`
+            case 6:
+                return trans ? `Шины` : `Shinalar`
+            case 7:
+                return trans ? `Масла и автохимия` : `Moy va avtokimyo`
+            case 8:
+                return trans ? `Автотовары` : `Avtomahsulotlar`
+        }
+    }
 
-    const tabsCenterRu = [
-        `Тормозные колодки дисковые`,
-        `Тормозные колодки барабанные`,
-        `Бачок тормозной жидкости`,
-        `Главный тормозной цилиндр`,
-        `Рабочий тормозной цилиндр`,
-        `Тормозной барабан`,
-        `Тормозные дики`,
-        `Тормозные шланги`
-    ]
-
-    const tabsCenterUz = [
-        `Diskli tormoz kolodkasi`,
-        `Barabanli tormoz kolodkasi`,
-        `Tormoz suyuqligi ombori`,
-        `Tormozning asosiy silindri`,
-        `Ishlaydigan tormoz silindri`,
-        `Tormoz barabani`,
-        `Tormoz qistirmalari`,
-        `Tormoz shlanglari`
-    ]
 
     return (
         <div className={classes.container} >
             <div className={openTabList ? classes.tabPanel : classes.hidden}>
-                <header className={classes.header}>Ходовая часть</header>
+                <header className={classes.header}>{renderHeader()}</header>
 
                 <Grid className={classes.content_box}>
                     {
-                        [1, 2, 3, 4, 5, 6].map((data) => (
-                            <section className={classes.content} key={data} >
-                                <h3 className={classes.title}>Тормозная система</h3>
+                        renderList().map(({ field, titleUz, titleRu }, index) => (
+                            <section className={classes.content} key={index} >
+                                <h3 className={classes.title}>{trans ? titleRu : titleUz}</h3>
                                 <div>
                                     {
-                                        tabsPrimaryRu.map((item) => (
-                                            <div className={classes.link} key={item} >
-                                                <Link to='/categories' key={item}>{item}</Link>
+                                        field.map(({ valueUz, valueRu, link }, index) => (
+                                            <div className={classes.link} key={index + 100} >
+                                                <Link to={{ pathname: link }}>{trans ? valueRu : valueUz}</Link>
                                             </div>
                                         ))
                                     }

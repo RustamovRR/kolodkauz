@@ -2,17 +2,18 @@ import { Tab, Tabs } from "@material-ui/core";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 import { clr } from "../../../constants/colors";
 
-export const useTabListStyles = makeStyles({
+export const useTabListStyles = makeStyles(theme => ({
     container: {
         margin: 'auto',
-        marginTop: 5,
+        marginTop: 5
     },
     tabPanel: {
         maxWidth: 1440,
         minHeight: 500,
         zIndex: 1000,
         margin: 'auto',
-        padding: '0 30px',
+        padding: '0 40px',
+        paddingBottom: 32,
         backgroundColor: clr.primaryWhite,
     },
 
@@ -62,4 +63,4 @@ export const useTabListStyles = makeStyles({
             textDecoration: 'none'
         }
     }
-})
+}))

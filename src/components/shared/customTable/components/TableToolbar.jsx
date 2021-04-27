@@ -1,7 +1,9 @@
 import React from 'react'
 
+import AddUserDialog from './AddUserDialog.jsx'
 import clsx from 'clsx'
 import DeleteIcon from '@material-ui/icons/Delete'
+import GlobalFilter from './GlobalFilter'
 import IconButton from '@material-ui/core/IconButton'
 import { lighten, makeStyles } from '@material-ui/core/styles'
 import PropTypes from 'prop-types'
@@ -34,7 +36,10 @@ const TableToolbar = props => {
     const {
         numSelected,
         addUserHandler,
-        deleteUserHandler
+        deleteUserHandler,
+        preGlobalFilteredRows,
+        setGlobalFilter,
+        globalFilter,
     } = props
     return (
         <Toolbar
@@ -42,6 +47,7 @@ const TableToolbar = props => {
                 [classes.highlight]: numSelected > 0,
             })}
         >
+            <AddUserDialog addUserHandler={addUserHandler} />
             {numSelected > 0 ? (
                 <Typography
                     className={classes.title}
@@ -62,8 +68,13 @@ const TableToolbar = props => {
                         <DeleteIcon />
                     </IconButton>
                 </Tooltip>
-            ) : ''
-            }
+            ) : (
+                <GlobalFilter
+                    preGlobalFilteredRows={preGlobalFilteredRows}
+                    globalFilter={globalFilter}
+                    setGlobalFilter={setGlobalFilter}
+                />
+            )}
         </Toolbar>
     )
 }
@@ -72,6 +83,9 @@ TableToolbar.propTypes = {
     numSelected: PropTypes.number.isRequired,
     addUserHandler: PropTypes.func.isRequired,
     deleteUserHandler: PropTypes.func.isRequired,
+    setGlobalFilter: PropTypes.func.isRequired,
+    preGlobalFilteredRows: PropTypes.array.isRequired,
+    globalFilter: PropTypes.string.isRequired,
 }
 
 export default TableToolbar

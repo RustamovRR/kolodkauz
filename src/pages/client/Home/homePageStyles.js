@@ -13,6 +13,12 @@ export const useHomePageStyles = makeStyles({
         margin: 'auto'
     },
 
+    backgroundContainer: {
+        maxWidth: 1440,
+        margin: 'auto',
+        background: 'rgba(0,0,0,0.7)',
+    },
+
     carousel_box: {
         padding: paddingRoot,
         marginTop: 48

@@ -3,60 +3,42 @@ import { useTabMenuStyles, AntTabs, AntTab } from './tabMenuStyles'
 
 import { TabList } from '../../shared';
 import { ContextRoot } from '../../../contexts';
+import { tabLinksUz, tabLinksRu } from '../../../constants/tabListData';
 
 export default function TabMenu() {
     const classes = useTabMenuStyles();
     const [value, setValue] = useState(0);
-    const { openTabList, setOpenTabList } = useContext(ContextRoot)
-    const { trans, setTrans } = useContext(ContextRoot)
+    const { trans, openTabList, setOpenTabList, activeTab, setActiveTab } = useContext(ContextRoot)
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
 
-    const handleOpen = () => {
-        setOpenTabList(true)
-    }
-
-    const linksRu = [
-        `Марки автомобилей`,
-        `Ходовая часть`,
-        `Моторная часть`,
-        `Запчасти ТО`,
-        `Кузов и оптика`,
-        `Аккумуляторы`,
-        `Шины`,
-        `Масла и автохимия`,
-        `Автотовары`,
-    ]
-
-    const linksUz = [
-        `Avtomobil markalari`,
-        `Shassi qismi`,
-        `Motor qismi`,
-        `Ehtiyot qismlar`,
-        `Kuzov va optika`,
-        `Akkumulyatorlar`,
-        `Shinalar`,
-        `Moy va avtokimyo`,
-        `Avtomahsulotlar`,
-    ]
-
-
     return (
         <div className={classes.root}>
             <div className={classes.container}>
-                <div className={classes.tabmenu}>
+                <div className={openTabList ? classes.tabmenu : classes.borderedTabmenu}>
                     <AntTabs value={value} onChange={handleChange} aria-label="ant example">
                         {
-                            (trans ? linksRu : linksUz).map(item => (
-                                <AntTab label={item} onClick={handleOpen} key={item} />
+                            (trans ? tabLinksRu : tabLinksUz).map((item, index) => (
+                                <AntTab
+                                    label={item}
+                                    onClick={() => {
+                                        setActiveTab(index)
+                                        if (activeTab == index) {
+                                            setOpenTabList(!openTabList)
+                                        } else {
+                                            setOpenTabList(true)
+                                        }
+                                    }}
+                                    key={item}
+                                />
                             ))
                         }
                     </AntTabs>
                 </div>
                 <div>
-                    <TabList />
+                    <TabList/>
                 </div>
             </div>
         </div>

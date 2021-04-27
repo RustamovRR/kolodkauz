@@ -1,79 +1,163 @@
-import React, { useEffect, useState } from 'react'
-import { DataGrid } from '@material-ui/data-grid'
-import { useProductsQuery } from '../../../hooks/queries';
-import axios from 'axios';
-import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@material-ui/core';
-import EnhancedTable from './components/EnhancedTable';
+import React, { useMemo } from 'react'
 
+import CssBaseline from '@material-ui/core/CssBaseline'
+import EnhancedTable from './components/EnhancedTable'
+import makeData from './makeData'
+import { Cell } from 'react-table'
+import { useProductsQuery } from '../../../hooks/queries'
 
-const CustomDataGrid = () => {
-  const { data, isLoading, isSuccess } = useProductsQuery({ page: 0 })
-  const [item, setItem] = useState([])
+const CustomTable = () => {
+  const query = useProductsQuery({ page: 0 })
 
-  const columns = [
-    { field: 'number', headerName: 'Tartib', width: 120 },
-    { field: 'image', headerName: 'Rasm', width: 120 },
-    { field: 'title', headerName: 'Nom', width: 120 },
-    { field: 'description', headerName: 'Izoh', width: 120 },
-    { field: 'price', headerName: 'Narx', width: 120 },
-    { field: 'discount', headerName: 'Chegirma', width: 120 },
-    { field: 'buy_count', headerName: 'Marta sotilgan', width: 120 },
-    { field: 'quantity', headerName: 'Qolgan mahsulot', width: 120 },
-    { field: 'type', headerName: 'Turi', width: 120 },
-    { field: 'createdAt', headerName: 'Yaratilgan sana', width: 120 },
-    { field: 'update', headerName: `O'zgartirish`, width: 120 },
-    { field: 'delete', headerName: `O'chirish`, width: 120 }
-  ];
+  const rows = useMemo(() => {
+    const columnTypes = {
+      'getProducts': [
+        {
+          Header: 'Tartib',
+          accessor: 'number',
+          Cell
+        }
+      ]
+    }
+    return columnTypes
+  })
 
-  // {
-  //   id: index,
-  //   number: index,
-  //   iamge: item.image,
-  //   title: item.title,
-  //   description: item.description,
-  //   price: item.price,
-  //   discount: item.discount,
-  //   buy_count: item.buy_count,
-  //   quantity: item.quantity,
-  //   type: item.type,
-  //   field: item.quantity
-  // }
+  console.log(query)
 
+  const columns = React.useMemo(
+    () => [
+      {
+        Header: 'Tartib',
+        accessor: 'number',
+      },
+      {
+        Header: 'Rasm',
+        accessor: 'image',
+      },
+      {
+        Header: 'Nom',
+        accessor: 'title',
+      },
+      {
+        Header: 'Narx',
+        accessor: 'price',
+      },
+      {
+        Header: 'Chegirma',
+        accessor: 'discount',
+      },
+      {
+        Header: 'Marta sotilgan',
+        accessor: 'buy_count',
+      },
+      {
+        Header: 'Qolgan mahsulot',
+        accessor: 'quantity',
+      },
+      {
+        Header: 'Turi',
+        accessor: 'type',
+      },
+      {
+        Header: 'Yaratilgan sana',
+        accessor: 'createdAt',
+      },
+      {
+        Header: `O'zgartirish`,
+        accessor: 'update',
+      },
+      {
+        Header: `O'chirish`,
+        accessor: 'delete',
+      },
+    ],
+    []
+  )
+
+  // (data) => [
+  //   {
+  //     Header: 'Tartib',
+  //     accessor: 'number',
+  //   },
+  //   {
+  //     Header: 'Rasm',
+  //     accessor: 'image',
+  //   },
+  //   {
+  //     Header: 'Nom',
+  //     accessor: 'title',
+  //   },
+  //   {
+  //     Header: 'Narx',
+  //     accessor: 'price',
+  //   },
+  //   {
+  //     Header: 'Chegirma',
+  //     accessor: 'discount',
+  //   },
+  //   {
+  //     Header: 'Marta sotilgan',
+  //     accessor: 'buy_count',
+  //   },
+  //   {
+  //     Header: 'Qolgan mahsulot',
+  //     accessor: 'quantity',
+  //   },
+  //   {
+  //     Header: 'Turi',
+  //     accessor: 'type',
+  //   },
+  //   {
+  //     Header: 'Yaratilgan sana',
+  //     accessor: 'createdAt',
+  //   },
+  //   {
+  //     Header: `O'zgartirish`,
+  //     accessor: 'update',
+  //   },
+  //   {
+  //     Header: `O'chirish`,
+  //     accessor: 'delete',
+  //   },
+  // ],
+
+  const [make, setMake] = React.useState(React.useMemo(() => makeData(20), []))
+  const [skipPageReset, setSkipPageReset] = React.useState(false)
+
+  // We need to keep the table from resetting the pageIndex when we
+  // Update data. So we can keep track of that flag with a ref.
+
+  // When our cell renderer calls updateMyData, we'll use
+  // the rowIndex, columnId and new value to update the
+  // original data
+  const updateMyData = (rowIndex, columnId, value) => {
+    // We also turn on the flag to not reset the page
+    setSkipPageReset(true)
+    setMake(old =>
+      old.map((row, index) => {
+        if (index === rowIndex) {
+          return {
+            ...old[rowIndex],
+            [columnId]: value,
+          }
+        }
+        return row
+      })
+    )
+  }
 
   return (
-    <div
-      style={{
-        width: '100%',
-        height: 500
-      }}
-    >
-      {/* <TableContainer component={Paper}>
-        <Table aria-label="simple table">
-          <TableHead>
-            <TableRow>
-              {
-                columns.map((item) => (
-                  <TableCell>{item.headerName}</TableCell>
-                ))
-              }
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {
-              data?.data.data.map((row) => (
-                <TableRow key={row.name}>
-                  <TableCell component="th" scope="row">
-                    {row.type}
-                  </TableCell>
-                </TableRow>
-              ))
-            }
-          </TableBody>
-        </Table>
-      </TableContainer> */}
-      <EnhancedTable />
+    <div>
+      <CssBaseline />
+      <EnhancedTable
+        columns={columns}
+        data={make}
+        setData={setMake}
+        updateMyData={updateMyData}
+        skipPageReset={skipPageReset}
+      />
     </div>
   )
 }
 
-export default CustomDataGrid
+export default CustomTable

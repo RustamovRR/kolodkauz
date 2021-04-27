@@ -42,11 +42,17 @@ export const useSidebarStyles = makeStyles({
 
     amount: {
         display: 'flex',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        fontSize: 14,
+        marginTop: 8
+    },
+
+    sliderRoot: {
+        minWidth: 230
     },
 
     thumb: {
-        backgroundColor: clr.secondaryDarkBlue
+        backgroundColor: clr.secondaryDarkBlue,
     },
 
     discount_box: {

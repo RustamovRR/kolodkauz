@@ -1,21 +1,21 @@
 import React, { useContext, useState } from 'react'
-import { FormControl, FormControlLabel, Radio, RadioGroup, Slider } from '@material-ui/core'
+import { FormControlLabel, Radio, RadioGroup, Slider } from '@material-ui/core'
 import { useSidebarStyles } from './sidebarStyles'
 
 import { CheckBox } from '../../shared'
 import { ContextRoot } from '../../../contexts'
+import { EmptyRatio } from '../../../assets/images/icons'
 
 export default function Sidebar() {
     const classes = useSidebarStyles()
     const { trans, sum } = useContext(ContextRoot)
 
-    const [value, setValue] = useState([1000, 10000]);
-    const [radio, setRadio] = React.useState('female');
+    const [value, setValue] = useState([800000, 8000000]);
+    const [radio, setRadio] = useState('male');
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
-    };
-
+    }
 
     const radioChange = (event) => {
         setRadio(event.target.value);
@@ -89,8 +89,10 @@ export default function Sidebar() {
                     max={10000000}
                     step={10000}
                     classes={{
+                        root: classes.sliderRoot,
                         track: classes.thumb,
-                        thumb: classes.thumb
+                        thumb: classes.thumb,
+                        rail: classes.rail
                     }}
                 />
                 {
@@ -122,7 +124,10 @@ export default function Sidebar() {
                                 key={item.title}
                                 value={item.title}
                                 control={
-                                    <Radio color="primary" />
+                                    <Radio
+                                        color="primary"
+                                        icon={<EmptyRatio />}
+                                    />
                                 }
                                 label={item.title}
                             />

@@ -10,6 +10,7 @@ export default function Provider({ children }) {
 
     const [openBasket, setOpenBasket] = useState(false)
     const [openTabList, setOpenTabList] = useState(false)
+    const [openFastBuyModal, setOpenFastBuyModal] = useState(false)
     const [activeTab, setActiveTab] = useState(0)
     const [imageUrl, setImageUrl] = useState('')
     const [trans, setTrans] = useState(false)
@@ -57,6 +58,7 @@ export default function Provider({ children }) {
     const state = {
         productsData, setProductsData, fetchProducts,
         favoriteCart, setFavoriteCart, addToFavoriteCart, removeFromFavoriteCart,
+        openFastBuyModal, setOpenFastBuyModal,
 
         sum,
         openBasket, setOpenBasket,

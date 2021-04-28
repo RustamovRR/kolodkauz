@@ -20,11 +20,15 @@ export default function Product({
 }) {
     const classes = useProductStyles();
     const [showFavorite, setShowFavorite] = useState(false)
-    const { trans, sum, productsData, addToFavoriteCart } = useContext(ContextRoot)
+    const { sum, addToFavoriteCart, openFastBuyModal, setOpenFastBuyModal } = useContext(ContextRoot)
     const productsQuery = useProductsQuery({ page: 0 })
 
     const handleClick = () => {
         setShowFavorite(!showFavorite)
+    }
+
+    const handleClickOpenModal = () => {
+        setOpenFastBuyModal(true)
     }
 
     return (
@@ -32,7 +36,7 @@ export default function Product({
             <Link to={{ pathname: `/product/${data?.slug}`, state: data?._id }} className={classes.product_link}>
 
                 <section className={classes.card}>
-                    {
+                    {/* {
                         productsQuery.isFetching ? (
                             <Skeleton
                                 width={220}
@@ -40,13 +44,14 @@ export default function Product({
                                 animation="wave"
                                 variant="rect"
                             />
-                        ) : (
-                            <img
-                                src={`${BASE_URL}/${data?.image}`}
-                                alt={data?.uz.description}
-                            />
-                        )
-                    }
+                        ) : ( */}
+                    <img
+                        src={image1}
+                        // src={`${BASE_URL}/${data?.image}`}
+                        alt=''
+                    />
+                    {/* )
+                    } */}
                 </section>
 
                 <section className={classes.action_box}>
@@ -80,6 +85,7 @@ export default function Product({
                     }
                 </section>
             </Link>
+            <ButtonComponent title="show" onClick={handleClickOpenModal} />
 
             {
                 productsQuery.isFetching ? (

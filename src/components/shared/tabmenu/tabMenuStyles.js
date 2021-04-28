@@ -12,7 +12,7 @@ export const useTabMenuStyles = makeStyles({
     //     boxShadow: ` 0px 2px 3px rgba(0, 0, 0, 0.12)`
     // },
     borderedTabmenu: {
-        transition: '1s',
+        transition: '0.3s',
         boxShadow: ` 0px 2px 3px rgba(0, 0, 0, 0.12)`
     }
 })

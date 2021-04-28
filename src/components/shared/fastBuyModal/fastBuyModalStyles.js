@@ -5,15 +5,17 @@ const paddingRoot = '0 30px'
 
 export const useFastBuyModalStyles = makeStyles({
     root: {
-        maxWidth: 1440,
-        margin: 'auto'
+        background: 'rgba(2, 23, 78, 0.7)',
+        backdropFilter: 'blur(10px)'
     },
 
     card_box: {
         padding: 32,
-        width: '60%',
+        width: '100%',
         position: 'relative',
-        margin: '50px auto'
+        '@media (max-width: 500px)': {
+            padding: 12
+        },
     },
 
     text_box: {
@@ -24,7 +26,13 @@ export const useFastBuyModalStyles = makeStyles({
         '& h1': {
             fontSize: 32,
             color: clr.primaryDarkBlue,
-        }
+        },
+        '@media (max-width: 500px)': {
+            '& h1': {
+                fontSize: 24,
+                color: clr.primaryDarkBlue,
+            },
+        },
     },
 
     secondary_box: {
@@ -32,13 +40,20 @@ export const useFastBuyModalStyles = makeStyles({
         marginTop: 8,
         display: 'flex',
         alignItems: 'center',
-        color: clr.text2
+        color: clr.text2,
+        '@media (max-width: 500px)': {
+            flexWrap: 'wrap'
+        },
     },
 
     close: {
         position: 'absolute',
         top: 35,
-        right: 35
+        right: 35,
+        '@media (max-width: 600px)': {
+            top: 0,
+            right: 0
+        },
     },
 
     artikul: {
@@ -46,7 +61,10 @@ export const useFastBuyModalStyles = makeStyles({
     },
 
     review: {
-        marginLeft: 16
+        marginLeft: 16,
+        '@media (max-width: 500px)': {
+            margin: 0
+        },
     },
 
     icon: {
@@ -57,7 +75,13 @@ export const useFastBuyModalStyles = makeStyles({
     content_box: {
         marginTop: 40,
         display: 'flex',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        '@media (max-width: 700px)': {
+            flexWrap: 'wrap',
+        },
+        '@media (max-width: 500px)': {
+            marginTop: 10,
+        },
     },
 
     image_box: {
@@ -65,12 +89,24 @@ export const useFastBuyModalStyles = makeStyles({
         height: 384,
         '& img': {
             width: '100%',
-        }
+        },
+        '@media (max-width: 700px)': {
+            margin: 'auto',
+            display: 'flex',
+            alignItems: 'center'
+        },
     },
 
     right_box: {
         width: 330,
         marginLeft: 32,
+        '@media (max-width: 700px)': {
+            margin: 'auto'
+        },
+        '@media (max-width: 500px)': {
+            margin: '0',
+            width: '100%'
+        },
     },
 
     price: {
@@ -86,7 +122,10 @@ export const useFastBuyModalStyles = makeStyles({
             marginLeft: 8,
             color: clr.dark700,
             textDecoration: 'line-through'
-        }
+        },
+        '@media (max-width: 500px)': {
+            flexWrap: 'wrap'
+        },
     },
 
     checkbox: {
@@ -121,6 +160,19 @@ export const useFastBuyModalStyles = makeStyles({
             paddingBottom: 4,
             textDecoration: 'none',
             borderBottom: `2px solid ${clr.secondaryDarkBlue}`
-        }
+        },
+        '@media (max-width: 700px)': {
+            textAlign: 'left',
+            marginLeft: '20%'
+        },
+        '@media (max-width: 600px)': {
+            textAlign: 'left',
+            marginLeft: '10%',
+        },
+        '@media (max-width: 600px)': {
+            textAlign: 'left',
+            marginLeft: '5%',
+            marginBottom: 12
+        },
     }
 })

@@ -27,7 +27,7 @@ export const useButtonComponentStyles = makeStyles({
         transition: `0.5s ease`,
         backgroundColor: clr.primaryWhite,
         border: `1px solid ${clr.secondaryDarkBlue}`,
-        paddingRight: 30,
+        // paddingRight: 30,
         '&:hover': {
             color: clr.primaryWhite,
             backgroundColor: clr.secondaryDarkBlue,

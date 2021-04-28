@@ -12,7 +12,12 @@ export const useProductStyles = makeStyles({
     },
 
     product_link: {
-        textDecoration: 'none'
+        textDecoration: 'none',
+        '&:hover ': {
+            '& $showModalButton': {
+                display: 'block'
+            }
+        }
     },
 
     card: {
@@ -21,7 +26,7 @@ export const useProductStyles = makeStyles({
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        overflow:'hidden',
+        overflow: 'hidden',
         '& img': {
             width: '100%',
             objectFit: 'contain'
@@ -67,6 +72,13 @@ export const useProductStyles = makeStyles({
     checkbox: {
         marginTop: 15,
         marginLeft: 16
+    },
+    showModalButton: {
+        display: 'none',
+        position: 'absolute',
+        width: "80%",
+        left: '10%',
+        top: '25%'
     }
 
 });

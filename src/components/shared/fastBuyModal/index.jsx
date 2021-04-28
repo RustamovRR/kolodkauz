@@ -19,29 +19,14 @@ export default function FastBuyModal() {
     console.log(openFastBuyModal)
 
     return (
-        <Dialog className={classes.root} onClose={handleClickCloseModal} open={openFastBuyModal} >
-
-            <DialogTitle id="customized-dialog-title" onClose={handleClickCloseModal}>
-                Modal title
-        </DialogTitle>
-            <DialogContent dividers>
-                <Typography gutterBottom>
-                    Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis
-                    in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-          </Typography>
-                <Typography gutterBottom>
-                    Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis
-                    lacus vel augue laoreet rutrum faucibus dolor auctor.
-          </Typography>
-                <Typography gutterBottom>
-                    Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel
-                    scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus
-                    auctor fringilla.
-          </Typography>
-            </DialogContent>
-            <DialogActions>
-            </DialogActions>
-            {/* <main className={classes.card_box}>
+        <Dialog
+            className={classes.root}
+            onClose={handleClickCloseModal}
+            open={openFastBuyModal}
+            scroll="body"
+            maxWidth="xl"
+        >
+            <main className={classes.card_box}>
                 <section className={classes.text_box}>
                     <div>
                         <h1>Castrol/Автомобильная масло</h1>
@@ -56,7 +41,7 @@ export default function FastBuyModal() {
                         </div>
                     </div>
 
-                    <IconButton className={classes.close}>
+                    <IconButton className={classes.close} onClick={handleClickCloseModal} >
                         <Close />
                     </IconButton>
                 </section>
@@ -93,7 +78,7 @@ export default function FastBuyModal() {
                 <section className={classes.link}>
                     <Link> Больше информации о товаре</Link>
                 </section>
-            </main> */}
+            </main>
 
         </Dialog>
     )

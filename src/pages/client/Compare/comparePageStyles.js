@@ -31,6 +31,15 @@ export const useComparePageStyles = makeStyles({
         },
     },
 
+    compareTabContainer: {
+        width: '70%',
+        background: '#fff',
+    },
+    compareTabMenu: {
+        transition: '0.3s',
+        borderBottom: '2px solid #E0E0E0'
+    },
+
     navigation: {
         fontSize: 14,
         '& > *': {

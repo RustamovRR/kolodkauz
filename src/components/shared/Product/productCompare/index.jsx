@@ -41,7 +41,7 @@ export default function ProductCompare({ primary }) {
                 <Table className={classes.table} aria-label="simple table" >
                     <TableHead>
                         <TableRow>
-                            <TableCell><Product compare={true} /></TableCell>
+                            <TableCell><Product compare={true} favorite /></TableCell>
                         </TableRow>
                     </TableHead>
 

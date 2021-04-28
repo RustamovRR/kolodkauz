@@ -89,17 +89,21 @@ export default function Product({
                         )
                     } */}
                 </section>
-                <div className={classes.showModalButton}>
-                    <ButtonComponent
-                        title="show"
-                        onClick={(e) => {
-                            e.preventDefault()
-                            handleClickOpenModal()
-                        }}
-                        slim
-                        outlined
-                    />
-                </div>
+                {
+                    homePage && (
+                        <div className={classes.showModalButton}>
+                            <ButtonComponent
+                                title="show"
+                                onClick={(e) => {
+                                    e.preventDefault()
+                                    handleClickOpenModal()
+                                }}
+                                slim
+                                outlined
+                            />
+                        </div>
+                    )
+                }
             </Link>
             {/* {
                 showFastBuyModal && ( */}

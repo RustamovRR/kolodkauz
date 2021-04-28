@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { Grid } from '@material-ui/core';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { useComparePageStyles } from './comparePageStyles'
@@ -7,11 +7,29 @@ import 'swiper/swiper.min.css';
 import { ContextRoot } from '../../../contexts'
 import { TabMenu, ProductCompare, BreadCrumbs, Layout } from '../../../components/shared'
 import { LeftGreyCircle, LeftWhiteCircle, RightGreyCircle, RightWhiteCircle } from '../../../assets/images/icons'
+import { AntTabs, AntTab } from '../../../components/shared/tabmenu/tabMenuStyles';
 
 
 export default function ComparePage() {
     const classes = useComparePageStyles()
     const { trans, setTrans } = useContext(ContextRoot)
+    const [controlSlide, setControlSlide] = useState()
+    const [value, setValue] = useState(0);
+
+    const onNext = () => {
+        controlSlide?.slideNext();
+    };
+    const onPrev = () => {
+        controlSlide?.slidePrev();
+    };
+
+    const handleChange = (event, newValue) => {
+        setValue(newValue);
+    };
+
+    const tabs = [
+        'Автомобильные шины', 'Ходовая часть', 'Моторная часть', 'Запчасти ТО', 'Аккумуляторы'
+    ]
 
     return (
         <Layout>
@@ -46,10 +64,25 @@ export default function ComparePage() {
                         {trans ? `Сравнение` : `Taqqoslash`}
                     </h1>
 
+                    <div className={classes.compareTabContainer} >
+                        <div className={classes.compareTabMenu} >
+                            <AntTabs onChange={handleChange} value={value}>
+                                {
+                                    tabs.map((item) => (
+                                        <AntTab
+                                            label={item}
+                                        />
+                                    ))
+                                }
+                            </AntTabs>
+                        </div>
+                    </div>
+
                     <div className={classes.product_box}>
                         <Swiper
                             slidesPerView={5}
                             className={classes.swiper}
+                            onSwiper={setControlSlide}
                             breakpoints={{
                                 1100: {
                                     slidesPerView: 5,
@@ -78,8 +111,12 @@ export default function ComparePage() {
                             <div className="prev" />
                             <div className="next" />
                             <div className={classes.arrows} >
-                                <LeftWhiteCircle />
-                                <RightWhiteCircle />
+                                <div onClick={onPrev} >
+                                    <LeftWhiteCircle />
+                                </div>
+                                <div onClick={onNext} >
+                                    <RightWhiteCircle />
+                                </div>
                             </div>
                         </Swiper>
                     </div>

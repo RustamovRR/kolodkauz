@@ -8,6 +8,13 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { EffectFade } from 'swiper';
 import 'swiper/swiper.min.css';
 import { BASE_URL } from '../../../services/api';
+import back1 from '../../../assets/images/brands/background.png'
+import back2 from '../../../assets/images/brands/back2.jpg'
+import back3 from '../../../assets/images/brands/back3.jpg'
+import back4 from '../../../assets/images/brands/back4.jpg'
+import back5 from '../../../assets/images/brands/back5.jpg'
+
+const images = [back1, back2, back3, back4, back5]
 
 
 export default function Carousel({ data }) {
@@ -26,7 +33,6 @@ export default function Carousel({ data }) {
 
     return (
         <div className={classes.carousel_root}>
-
             <Swiper
                 className={classes.swiper}
                 onSwiper={setControlSlide}
@@ -35,11 +41,11 @@ export default function Carousel({ data }) {
             // swiper
             >
                 {
-                    data.data?.map(item => (
-                        <SwiperSlide className={classes.swiper_slide} key={item._id}>
+                    images.map(item => (
+                        <SwiperSlide className={classes.swiper_slide} key={item}>
                             <div className={classes.carousel} >
                                 <img
-                                    src={`${BASE_URL}/${item.image}`}
+                                    src={item}
                                     alt=""
                                 />
                             </div>
@@ -56,9 +62,6 @@ export default function Carousel({ data }) {
                 </section>
             </Swiper>
 
-
-            <section className={classes.content}>
-            </section>
         </div>
     )
 }

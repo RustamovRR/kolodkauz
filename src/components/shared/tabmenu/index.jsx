@@ -18,7 +18,7 @@ export default function TabMenu() {
         <div className={classes.root}>
             <div className={classes.container}>
                 <div className={openTabList ? classes.tabmenu : classes.borderedTabmenu}>
-                    <AntTabs value={value} onChange={handleChange} aria-label="ant example">
+                    <AntTabs value={value} onChange={handleChange}>
                         {
                             (trans ? tabLinksRu : tabLinksUz).map((item, index) => (
                                 <AntTab
@@ -38,7 +38,7 @@ export default function TabMenu() {
                     </AntTabs>
                 </div>
                 <div>
-                    <TabList/>
+                    <TabList />
                 </div>
             </div>
         </div>

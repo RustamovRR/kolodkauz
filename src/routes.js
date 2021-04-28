@@ -9,7 +9,6 @@ const CategoryRoutes = lazy(() => import("./pages/client/Category/categoryRoutes
 const ProductInfoRoutes = lazy(() => import("./pages/client/ProductInfo/productInfoRoutes"))
 const LoginRoutes = lazy(() => import("./pages/client/Login/loginRoutes"))
 const RegisterRoutes = lazy(() => import("./pages/client/Register/registerRoutes"))
-const FastDeliveryRoutes = lazy(() => import("./pages/client/FastDelivery/fastDeliveryRoutes"))
 
 const AdminRoutes = lazy(() => import("./pages/admin/routes"))
 
@@ -50,10 +49,6 @@ const routes = [
     {
         path: "/register",
         component: RegisterRoutes
-    },
-    {
-        path: "/fast_delivery",
-        component: FastDeliveryRoutes
     },
 
     {

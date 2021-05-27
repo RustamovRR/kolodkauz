@@ -45,7 +45,7 @@ export default function Product({
                     <img
                         // src={image1}
                         src={`${BASE_URL}/${data?.image}`}
-                        alt=''
+                        alt={data?.uz.description}
                     />
                 </section>
 
@@ -76,12 +76,12 @@ export default function Product({
             </Link>
 
             <section style={{ display: 'flex', alignItems: 'center' }}>
-                {favorite && <div className={classes.button}>
+                <div className={classes.button}>
                     <ButtonYellow
                         title={`В корзину`}
                         onClick={() => addToFavoriteCart(data)}
                     />
-                </div>}
+                </div>
                 <div>
                     {
                         compare && <div className={classes.checkbox}>
@@ -90,8 +90,6 @@ export default function Product({
                     }
                 </div>
             </section>
-
-            <ButtonComponent title="Ko'rish" />
 
             {
                 favorite && <section className={classes.icon_box} >

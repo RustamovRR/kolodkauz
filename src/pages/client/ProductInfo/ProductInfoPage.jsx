@@ -18,15 +18,16 @@ export default function ProductInfoPage() {
     const { trans, sum } = useContext(ContextRoot)
     const { state } = useLocation()
     const { goBack } = useHistory()
-    
+
     const productQuery = useProductQuery({ id: state })
     const data = productQuery.isSuccess && productQuery.data?.data ? productQuery.data?.data : []
-    
+
     const productPrice = data.data?.price
     const productBuyCount = data.data?.buy_count
     const productDiscount = data.data?.discount
-    // const productQuantity = data.data?.quantity
-    
+    const productQuantity = data.data?.quantity
+    const productArtikul = data.data?.artikul
+
     const productUz = data.data?.uz
     const productRu = data.data?.ru
     console.log(data?.data?.image)
@@ -65,7 +66,7 @@ export default function ProductInfoPage() {
                         <div className={classes.secondary}>
                             <div>
                                 <p>Артикул:&nbsp;
-                                    <span style={{ color: clr.dark900 }} >123277394</span>
+                                    <span style={{ color: clr.dark900 }} >{productArtikul}</span>
                                 </p>
 
                             </div>

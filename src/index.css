@@ -2,7 +2,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: gilroy !important;
+  font-family: rubik !important;
   scroll-behavior: smooth;
 }
 
@@ -10,6 +10,6 @@ body{
 }
 
 @font-face {
-  src: url("./assets/fonts/Gilroy-Regular.ttf");
-  font-family: gilroy;
+  src: url("./assets/fonts/Rubik.ttf");
+  font-family: rubik;
 }

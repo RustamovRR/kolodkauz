@@ -30,7 +30,7 @@ export default function Provider({ children }) {
     }
 
     const removeFromFavoriteCart = (remove) => {
-        setFavoriteCart(favoriteCart.filter((product) => product == remove))
+        setFavoriteCart(favoriteCart.filter((product) => product === remove))
     }
 
     useEffect(() => {

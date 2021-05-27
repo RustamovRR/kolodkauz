@@ -1,7 +1,7 @@
 import { makeStyles } from "@material-ui/core/styles";
 import { clr } from '../../../constants/colors'
 
-const paddingRoot = '0 30px'
+// const paddingRoot = '0 30px'
 
 export const useLoginStyles = makeStyles({
     root: {

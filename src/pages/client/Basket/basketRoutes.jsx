@@ -11,10 +11,12 @@ const routes = [
     },
 ]
 
-export default () => (
+const BasketRoutes = () => (
     <Suspense fallback="loading...">
         {routes.map(({ path, exact, component }, key) => (
             <Route {...{ key, exact, path, component }} />
         ))}
     </Suspense>
 );
+
+export default BasketRoutes

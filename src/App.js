@@ -1,8 +1,10 @@
 import { Suspense, useContext } from "react";
 import { Route } from "react-router-dom";
 import routes from "./routes";
-import "./App.css";
 import { ContextRoot } from "./contexts";
+import { LinearProgress } from '@material-ui/core'
+
+import "./App.css";
 
 function App() {
   const { openTabList } = useContext(ContextRoot)
@@ -10,7 +12,7 @@ function App() {
 
   return (
     <div className={openTabList ? "backgroundApp" : "App"}>
-      <Suspense fallback="App..." >
+      <Suspense fallback={<LinearProgress />} >
         {
           routes.map(({ path, exact, component }, key) => (
             <Route {...{ key, exact, path, component }} />

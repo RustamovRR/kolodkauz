@@ -1,8 +1,8 @@
-import React, { useContext, useEffect, useState, } from 'react'
-import { Drawer, Grid, Hidden } from '@material-ui/core'
+import React, { useContext, useState, } from 'react'
+import { Grid, Hidden } from '@material-ui/core'
 import { useCategoryPageStyles } from './categoryPageStyles'
 
-import { Layout, Sidebar, SortNavigation, TabMenu, Product, ProductMedium, ProductSmall, BreadCrumbs, ButtonComponent, Select, ProductDrawer } from '../../../components/shared'
+import { Layout, Sidebar, SortNavigation, TabMenu, Product, ProductMedium, ProductSmall, BreadCrumbs, ButtonComponent, ProductDrawer } from '../../../components/shared'
 import { ContextRoot } from '../../../contexts'
 import { FilterList } from '@material-ui/icons'
 import { Pagination } from '@material-ui/lab'
@@ -10,7 +10,7 @@ import { useProductsQuery } from '../../../hooks/queries'
 
 export default function CategoriesPage({ medium, small }) {
     const classes = useCategoryPageStyles()
-    const { trans, setTrans, productsData } = useContext(ContextRoot)
+    const { trans } = useContext(ContextRoot)
     const [open, setOpen] = useState(false)
     const [page, setPage] = useState(0)
     const [count, setCount] = useState(5)
@@ -26,7 +26,7 @@ export default function CategoriesPage({ medium, small }) {
     }
 
     const handleChangePage = (e, value) => {
-        setPage(value == 0 ? value = 0 : value - 1)
+        setPage(value === 0 ? value = 0 : value - 1)
     }
 
     console.log(productsQuery.data?.length)

@@ -3,7 +3,7 @@ import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
-import { request } from '../../services/api';
+import { request, BASE_URL, API_BASE_URL } from '../../services/api';
 import { ContextRoot } from '../../contexts';
 
 const UploadImageForm = ({ children, label, className, multiple = true, ...inputProps }) => {
@@ -54,7 +54,7 @@ const UploadImageForm = ({ children, label, className, multiple = true, ...input
                     </DialogContent>
                     <DialogActions style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }} >
                         <img
-                            src={`http://zap.uz/${imageUrl}`}
+                            src={`${BASE_URL}/${imageUrl}`}
                             alt=""
                             width={300}
                             height={200}

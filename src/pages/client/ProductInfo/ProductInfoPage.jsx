@@ -1,5 +1,5 @@
-import React, { useContext, useEffect } from 'react'
-import { Link, NavLink, useHistory, useLocation } from 'react-router-dom'
+import React, { useContext } from 'react'
+import { Link, useHistory, useLocation } from 'react-router-dom'
 import { Button, IconButton } from '@material-ui/core'
 import { useProductInfoPageStyles } from './productInfoStyles'
 
@@ -7,31 +7,32 @@ import { clr } from '../../../constants/colors'
 import { Layout, RatingComp, CheckBox, Description, ButtonComponent, SimilarProduct } from '../../../components/shared'
 
 import { LeftGreyArrow, FavoriteBlack, CompareBlack } from '../../../assets/images/icons'
-import productImg from '../../../assets/images/products/oil.png'
 import castrolImg from '../../../assets/images/brands/castrol.png'
 import { ContextRoot } from '../../../contexts'
-import { request } from '../../../services/api'
+// import { request } from '../../../services/api'
 import { useProductQuery } from '../../../hooks/queries'
+import { BASE_URL } from '../../../services/api'
 
 export default function ProductInfoPage() {
     const classes = useProductInfoPageStyles()
     const { trans, sum } = useContext(ContextRoot)
     const { state } = useLocation()
     const { goBack } = useHistory()
-
+    
     const productQuery = useProductQuery({ id: state })
     const data = productQuery.isSuccess && productQuery.data?.data ? productQuery.data?.data : []
-
+    
     const productPrice = data.data?.price
     const productBuyCount = data.data?.buy_count
     const productDiscount = data.data?.discount
-    const productQuantity = data.data?.quantity
-
+    // const productQuantity = data.data?.quantity
+    
     const productUz = data.data?.uz
     const productRu = data.data?.ru
+    console.log(data?.data?.image)
 
     const productRating = data.data?.rating
-    const productCount = productRating?.count ? productRating?.count : 10
+    // const productCount = productRating?.count ? productRating?.count : 10
     const productOverall = productRating?.overall ? productRating?.overall : 10
 
 
@@ -43,7 +44,6 @@ export default function ProductInfoPage() {
         `Ommaboplik`, `Reyting`, `Nom (A-Z)`
     ]
 
-    const url = `http://zap.uz`
 
     return (
         <Layout>
@@ -55,13 +55,13 @@ export default function ProductInfoPage() {
                 <section className={classes.product_box}>
                     <section className={classes.product_image}>
                         <img
-                            src={`${url}/${data.data?.image}`}
+                            src={`${BASE_URL}/${data.data?.image}`}
                             alt={productUz?.description}
                         />
                     </section>
 
                     <section className={classes.info_box}>
-                        <h1>{trans ? productUz?.title : productRu?.title}</h1>
+                        <h1>{trans ? productRu?.title : productUz?.title}</h1>
                         <div className={classes.secondary}>
                             <div>
                                 <p>Артикул:&nbsp;

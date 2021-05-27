@@ -1,5 +1,4 @@
 import React from "react";
-import thunk from 'redux-thunk';
 import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
 

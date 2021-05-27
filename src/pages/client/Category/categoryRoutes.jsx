@@ -19,10 +19,12 @@ const routes = [
     },
 ]
 
-export default () => (
+const CategoryRoutes = () => (
     <Suspense fallback="Product...">
         {routes.map(({ path, exact, component }, key) => (
             <Route {...{ key, exact, path, component }} />
         ))}
     </Suspense>
 );
+
+export default CategoryRoutes

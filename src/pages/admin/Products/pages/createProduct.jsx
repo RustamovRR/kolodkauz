@@ -1,16 +1,15 @@
-import axios from 'axios';
-import React, { useContext, useEffect } from 'react'
+import React, { useContext } from 'react'
 import { TextField, Button } from '@material-ui/core'
 import { useProductsStyles } from '../useProductsStyles'
 import UploadImageForm from '../../../../components/forms/UploadImageForm'
 import { ContextRoot } from '../../../../contexts';
 import { request } from '../../../../services/api';
 import { useFormik } from 'formik';
-import * as yup from 'yup';
+// import * as yup from 'yup';
 
-export default function Products() {
+export default function CreateProduct() {
     const classes = useProductsStyles()
-    const { imageUrl, productsData, FetchProducts } = useContext(ContextRoot)
+    const { imageUrl } = useContext(ContextRoot)
 
 
 
@@ -53,8 +52,9 @@ export default function Products() {
             },
         },
         onSubmit: async (values) => {
-            console.log(values)
-            await request.post('/products', values).then((res) => console.log(res.data))
+            await request.post('/products', values)
+                .then((res) => console.log(res.data))
+                .then(() => alert('success posted'))
         }
     })
 

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React from 'react'
 import { Route, Switch } from 'react-router-dom';
 import IconButton from '@material-ui/core/IconButton';
 import cn from 'classnames';
@@ -7,7 +7,6 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import MenuIcon from '@material-ui/icons/Menu';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Sidebar from './_components/Sidebar';
 import { useHomeStyles } from './homeStyles';
 import Products from '../Products'
@@ -17,9 +16,7 @@ import Brands from '../Brands'
 import Ads from '../Ads'
 
 function AdminHome(props) {
-    const { window } = props;
     const classes = useHomeStyles();
-    const theme = useTheme();
     const [open, setOpen] = React.useState(false);
 
     const handleDrawerOpen = () => {

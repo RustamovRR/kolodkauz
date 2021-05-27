@@ -19,12 +19,14 @@ export const useHomePageStyles = makeStyles({
         background: 'rgba(0,0,0,0.7)',
     },
 
-    carousel_box: {
-        padding: paddingRoot,
-        marginTop: 48
-    },
+    // carousel_box: {
+    //     padding: paddingRoot,
+    //     marginTop: 48
+    // },
 
     carousel_box: {
+        padding: paddingRoot,
+        marginTop: 48,
         '& > *': {
             padding: paddingRoot,
             marginTop: 48
@@ -68,6 +70,8 @@ export const useHomePageStyles = makeStyles({
         display: 'flex',
         flexWrap: 'wrap',
         justifyContent: 'space-between',
+        // display: 'grid',
+        // gridTemplateColumns: 'repeat(5, 1fr)',
         padding: paddingRoot,
         '& > div': {
             width: 220,

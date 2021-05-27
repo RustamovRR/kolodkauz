@@ -1,11 +1,10 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import { useLoginStyles } from './loginPageStyles'
 
-import { InputLogin, CheckBox, ButtonComponent, Layout, PhoneNumberFormat } from '../../../components/shared'
+import { InputLogin, CheckBox, ButtonComponent } from '../../../components/shared'
 import { useFormik } from 'formik';
 import * as yup from 'yup';
-import { TextField } from '@material-ui/core';
 import { request } from '../../../services/api';
 
 

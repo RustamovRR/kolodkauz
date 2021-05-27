@@ -11,10 +11,12 @@ const routes = [
     },
 ]
 
-export default () => (
+const RegisterPageRoutes = () => (
     <Suspense fallback="loading...">
         {routes.map(({ path, exact, component }, key) => (
             <Route {...{ key, exact, path, component }} />
         ))}
     </Suspense>
 );
+
+export default RegisterPageRoutes

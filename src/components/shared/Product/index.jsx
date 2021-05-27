@@ -31,63 +31,32 @@ export default function Product({
         setOpenFastBuyModal(true)
     }
 
+    console.log(data)
     return (
         <div className={classes.product_root}>
             <Link
-                to={{ pathname: `#`, state: data?._id }}
+                to={{ pathname: `product/${data?.slug}`, state: data?._id }}
                 className={classes.product_link}
             // onMouseEnter={() => setShowFastBuyModal(true)}
             // onMouseLeave={() => setShowFastBuyModal(false)}
             >
 
                 <section className={classes.card}>
-                    {/* {
-                        productsQuery.isFetching ? (
-                            <Skeleton
-                                width={220}
-                                height={220}
-                                animation="wave"
-                                variant="rect"
-                            />
-                        ) : ( */}
                     <img
-                        src={image1}
-                        // src={`${BASE_URL}/${data?.image}`}
+                        // src={image1}
+                        src={`${BASE_URL}/${data?.image}`}
                         alt=''
                     />
-                    {/* )
-                    } */}
                 </section>
 
                 <section className={classes.action_box}>
-                    {/* {
-                        productsQuery.isFetching ? ( */}
-                    <Skeleton
-                        width="70%"
-                        height={28}
-                        animation="wave"
-                    />
-                    {/* ) : (
-                            <div className={classes.price}>
-                                <h3>{`${data?.price} ${sum}`}</h3>
-                                <p>{`${data?.discount} ${sum}`}</p>
-                            </div>
-                        ) */}
-                    {/* } */}
-
-                    {/* {
-                        productsQuery.isFetching ? ( */}
-                    <Skeleton
-                        width="95%"
-                        height={54}
-                        animation="wave"
-                    />
-                    {/* ) : (
-                            <div className={classes.text}>
-                                <p>{data?.uz.title}</p>
-                            </div>
-                        )
-                    } */}
+                    <div className={classes.price}>
+                        <h3>{`${data?.price} ${sum}`}</h3>
+                        <p>{`${data?.discount} ${sum}`}</p>
+                    </div>
+                    <div className={classes.text}>
+                        <p>{data?.uz.title}</p>
+                    </div>
                 </section>
                 {
                     homePage && (
@@ -105,37 +74,24 @@ export default function Product({
                     )
                 }
             </Link>
-            {/* {
-                showFastBuyModal && ( */}
-            {/* )
-            } */}
-            {/* {
-                productsQuery.isFetching ? ( */}
-            <Skeleton
-                width={96}
-                height={64}
-                animation="wave"
-            />
-            {/* ) : (
-                    <section style={{ display: 'flex', alignItems: 'center' }}>
-                        <div className={classes.button}>
-                            <ButtonYellow
-                                title={`В корзину`}
-                                onClick={() => addToFavoriteCart(data)}
-                            />
-                        </div>
-                        <div>
-                            {
-                                compare && <div className={classes.checkbox}>
-                                    <CheckBox />
-                                </div>
-                            }
-                        </div>
-                    </section>
-                )
-            } */}
 
-            {/* <ButtonComponent title="Ko'rish" /> */}
+            <section style={{ display: 'flex', alignItems: 'center' }}>
+                {favorite && <div className={classes.button}>
+                    <ButtonYellow
+                        title={`В корзину`}
+                        onClick={() => addToFavoriteCart(data)}
+                    />
+                </div>}
+                <div>
+                    {
+                        compare && <div className={classes.checkbox}>
+                            <CheckBox />
+                        </div>
+                    }
+                </div>
+            </section>
+
+            <ButtonComponent title="Ko'rish" />
 
             {
                 favorite && <section className={classes.icon_box} >

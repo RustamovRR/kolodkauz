@@ -2,7 +2,7 @@ import { useQuery } from "react-query";
 import { request } from '../../services/api'
 
 
-const useProductsQuery = ({ page }) => {
+const useProductsQuery = ({ page = 0 }) => {
     return useQuery(["products", page], async () => {
         return await request.get(`/products`, { params: { page } });
     }, { refetchOnMount: false })

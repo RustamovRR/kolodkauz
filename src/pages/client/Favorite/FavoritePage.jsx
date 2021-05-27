@@ -7,14 +7,12 @@ import { ContextRoot } from '../../../contexts'
 
 export default function FavoritePage() {
     const classes = useFavoriteStyles()
-    const { trans, setTrans, productsData } = useContext(ContextRoot)
+    const { trans, productsData } = useContext(ContextRoot)
 
-    function handleClick(event) {
-        event.preventDefault();
-        console.info('You clicked a breadcrumb.');
-    }
-    // const fav = JSON.parse(localStorage.getItem('favoriteCart')) || 1
-    // console.log(fav)
+    // function handleClick(event) {
+    //     event.preventDefault();
+    //     console.info('You clicked a breadcrumb.');
+    // }
 
     return (
         <Layout>

@@ -1,11 +1,11 @@
-import React, { useState, useEffect, useMemo, useContext } from 'react'
-import { TextField, Button, IconButton } from '@material-ui/core'
+import React, { useContext } from 'react'
+import { TextField, Button } from '@material-ui/core'
 import { useBrandsStyles } from './useBrandsStyles'
 import { request } from '../../../services/api';
 import UploadImageForm from '../../../components/forms/UploadImageForm';
 import { ContextRoot } from '../../../contexts'
 import { useFormik } from 'formik';
-import * as yup from 'yup';
+// import * as yup from 'yup';
 
 export default function Brands() {
     const classes = useBrandsStyles()
@@ -16,18 +16,18 @@ export default function Brands() {
     //         .then((res) => console.log(res.data))
     // })
 
-    const validationSchema = yup.object({
-        uz: {
-            title: yup.string(),
-            description: yup.string()
-        },
-        ru: {
-            title: yup.string(),
-            description: yup.string()
-        },
-        type: yup.string(),
-        image: yup.string()
-    });
+    // const validationSchema = yup.object({
+    //     uz: {
+    //         title: yup.string(),
+    //         description: yup.string()
+    //     },
+    //     ru: {
+    //         title: yup.string(),
+    //         description: yup.string()
+    //     },
+    //     type: yup.string(),
+    //     image: yup.string()
+    // });
 
     const formik = useFormik({
         initialValues: {

@@ -6,13 +6,13 @@ import 'swiper/swiper.min.css';
 
 import { ContextRoot } from '../../../contexts'
 import { TabMenu, ProductCompare, BreadCrumbs, Layout } from '../../../components/shared'
-import { LeftGreyCircle, LeftWhiteCircle, RightGreyCircle, RightWhiteCircle } from '../../../assets/images/icons'
+import { LeftWhiteCircle, RightWhiteCircle } from '../../../assets/images/icons'
 import { AntTabs, AntTab } from '../../../components/shared/tabmenu/tabMenuStyles';
 
 
 export default function ComparePage() {
     const classes = useComparePageStyles()
-    const { trans, setTrans } = useContext(ContextRoot)
+    const { trans } = useContext(ContextRoot)
     const [controlSlide, setControlSlide] = useState()
     const [value, setValue] = useState(0);
 

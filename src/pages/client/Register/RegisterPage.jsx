@@ -1,18 +1,18 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import { useRegisterStyles } from './registerPageStyles'
 
-import { InputLogin, CheckBox, ButtonComponent, Layout, PhoneNumberFormat } from '../../../components/shared'
+import { InputLogin, CheckBox, ButtonComponent } from '../../../components/shared'
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import { request } from '../../../services/api';
 
 export default function RegisterPage() {
     const classes = useRegisterStyles()
-    const [phone, setPhone] = useState('')
-    const [name, setName] = useState('')
-    const [password, setPassword] = useState('')
-    const [repeatPassword, setRepeatPassword] = useState('')
+    // const [phone, setPhone] = useState('')
+    // const [name, setName] = useState('')
+    // const [password, setPassword] = useState('')
+    // const [repeatPassword, setRepeatPassword] = useState('')
 
     const validationSchema = yup.object({
         fullname: yup.string().required('majburiy'),

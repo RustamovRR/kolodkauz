@@ -1,4 +1,4 @@
-import { lazy, Suspense } from 'react'
+import { lazy } from 'react'
 import { Route } from 'react-router-dom';
 
 const HomePage = lazy(() => import("./HomePage"))
@@ -11,10 +11,12 @@ const routes = [
     },
 ]
 
-export default () => (
+const HomeRoutes = () => (
     <>
         {routes.map(({ path, exact, component }, key) => (
             <Route {...{ key, exact, path, component }} />
         ))}
     </>
 );
+
+export default HomeRoutes

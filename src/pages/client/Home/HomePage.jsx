@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { Grid } from '@material-ui/core'
 import { useHomePageStyles } from './homePageStyles.js'
@@ -6,12 +6,11 @@ import './homePageStyles.js'
 
 import { TabMenu, Carousel, CarBrand, Product, ProductBrand, Ads, Layout, FastBuyModal } from '../../../components/shared'
 import { ContextRoot } from '../../../contexts'
-import { Skeleton } from '@material-ui/lab'
 import { useAdsQuery, useBrandsQuery, useProductsQuery } from '../../../hooks/queries'
 
 export default function HomePage() {
     const classes = useHomePageStyles()
-    const { trans, setTrans, favoriteCart, openTabList } = useContext(ContextRoot)
+    const { trans } = useContext(ContextRoot)
 
     const products = useProductsQuery({ page: 0 })
     const brands = useBrandsQuery()
@@ -20,7 +19,8 @@ export default function HomePage() {
     const productsQuery = products.isSuccess ? products.data?.data : []
     const brandsQuery = brands.isSuccess ? brands.data?.data : []
     const adsQuery = ads.isSuccess ? ads.data?.data : []
-    let productArray = new Array(20).fill('asd')
+    // let productArray = new Array(20).fill('asd')
+    // console.log(productsQuery)
 
     return (
         <Layout>
@@ -56,7 +56,7 @@ export default function HomePage() {
 
                     <Grid className={classes.bestSeller_box}>
                         {
-                            productArray.slice(0, 12).map((item) => (
+                            productsQuery.data?.map((item) => (
                                 <Product
                                     key={item._id}
                                     id={item._id}

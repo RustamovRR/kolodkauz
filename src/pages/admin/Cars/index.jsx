@@ -1,29 +1,15 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { TextField, Button } from '@material-ui/core'
 import { useCarsStyles } from './useCarsStyles'
 import { request } from '../../../services/api';
-// import UploadImageForm from '../../../components/forms/UploadImageForm';
-// import { ContextRoot } from '../../../contexts'
+import { ContextRoot } from '../../../contexts'
 import { useFormik } from 'formik';
-// import * as yup from 'yup';
+import UploadImageForm from '../../../components/forms/UploadImageForm';
 
 export default function Cars() {
     const classes = useCarsStyles()
-    // const { imageUrl } = useContext(ContextRoot)
+    const { imageUrl } = useContext(ContextRoot)
 
-    // const onSubmit = handleSubmit(async (data) => {
-    //     await request.post('/ads', data)
-    //         .then((res) => console.log(res.data))
-    // })
-
-    // const validationSchema = yup.object({
-    //     uz: {
-    //         name: yup.string()
-    //     },
-    //     ru: {
-    //         name: yup.string()
-    //     },
-    // });
 
     const formik = useFormik({
         initialValues: {
@@ -33,25 +19,39 @@ export default function Cars() {
             ru: {
                 name: 'Captiva',
             },
+            image: 'url'
         },
         // validationSchema,
         onSubmit: async (values) => {
-            await request.post('/cars', values).then((res) => console.log(res.data.data))
+            await request.post('/cars', values)
+                .then((res) => console.log(res.data.data))
+                .then((res) => alert('success'))
         }
     })
 
     return (
         <>
             <div className={classes.form_root}>
+                <UploadImageForm />
+                <h2>{imageUrl}</h2>
                 <form onSubmit={formik.handleSubmit}>
                     <section className={classes.names}>
+                        <TextField
+                            name="image"
+                            label="Rasm manzili"
+                            variant="outlined"
+                            margin="normal"
+                            color="primary"
+                            value={formik.values.image}
+                            onChange={formik.handleChange}
+                        />
                         <TextField
                             name="uz[name]"
                             label="Nomi (uz)"
                             variant="outlined"
                             margin="normal"
                             color="primary"
-                            value={formik.values.uz.title}
+                            value={formik.values.uz.name}
                             onChange={formik.handleChange}
                         />
                         <TextField
@@ -60,7 +60,7 @@ export default function Cars() {
                             variant="outlined"
                             margin="normal"
                             color="primary"
-                            value={formik.values.ru.title}
+                            value={formik.values.ru.name}
                             onChange={formik.handleChange}
                         />
                     </section>

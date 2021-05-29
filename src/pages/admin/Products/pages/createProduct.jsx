@@ -5,6 +5,7 @@ import UploadImageForm from '../../../../components/forms/UploadImageForm'
 import { ContextRoot } from '../../../../contexts';
 import { request } from '../../../../services/api';
 import { useFormik } from 'formik';
+import axios from 'axios';
 // import * as yup from 'yup';
 
 export default function CreateProduct() {
@@ -32,12 +33,11 @@ export default function CreateProduct() {
                 ]
             },
             type: 'moy',
-            // car: 'spark',
-            // brand: 'chevrolet',
             image: 'url',
             quantity: 10,
             price: 20000,
             discount: 30000,
+            artikul: '123',
             slug: '',
             buy_count: 50,
             rating: {
@@ -51,8 +51,8 @@ export default function CreateProduct() {
                 count: 10
             },
         },
-        onSubmit: async (values) => {
-            await request.post('/products', values)
+        onSubmit: (values) => {
+            request.post('/products', values)
                 .then((res) => console.log(res.data))
                 .then(() => alert('success posted'))
         }

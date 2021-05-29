@@ -36,7 +36,10 @@ export const useHomePageStyles = makeStyles({
     carBrand_box: {
         padding: paddingRoot,
         marginTop: 64,
-        display: 'flex',
+        display: 'grid',
+        gridTemplateColumns: 'repeat(5, 1fr)',
+        // justifyItems: 'stretch ',
+        // display:'flex',
         justifyContent: 'space-between',
         '& > div': {
             width: 220,
@@ -125,6 +128,8 @@ export const useHomePageStyles = makeStyles({
     },
 
     productBrand_box: {
+        // display: 'grid',
+        // gridTemplateColumns: 'repeat(8, 1fr)',
         display: 'flex',
         flexWrap: 'wrap',
         justifyContent: 'space-between',

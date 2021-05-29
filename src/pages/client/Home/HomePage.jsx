@@ -6,7 +6,7 @@ import './homePageStyles.js'
 
 import { TabMenu, Carousel, CarBrand, Product, ProductBrand, Ads, Layout, FastBuyModal } from '../../../components/shared'
 import { ContextRoot } from '../../../contexts'
-import { useAdsQuery, useBrandsQuery, useProductsQuery } from '../../../hooks/queries'
+import { useAdsQuery, useBrandsQuery, useCarsQuery, useProductsQuery } from '../../../hooks/queries'
 
 export default function HomePage() {
     const classes = useHomePageStyles()
@@ -15,12 +15,13 @@ export default function HomePage() {
     const products = useProductsQuery({ page: 0 })
     const brands = useBrandsQuery()
     const ads = useAdsQuery()
+    const cars = useCarsQuery()
 
     const productsQuery = products.isSuccess ? products.data?.data : []
     const brandsQuery = brands.isSuccess ? brands.data?.data : []
     const adsQuery = ads.isSuccess ? ads.data?.data : []
-    // let productArray = new Array(20).fill('asd')
-    // console.log(productsQuery)
+    const carsQuery = cars.isSuccess ? cars.data?.data : []
+    console.log(carsQuery)
 
     return (
         <Layout>
@@ -37,7 +38,7 @@ export default function HomePage() {
 
                     <Grid className={classes.carBrand_box}>
                         {
-                            brandsQuery.data?.map((item) => (
+                            carsQuery.data?.map((item) => (
                                 <CarBrand
                                     key={item._id}
                                     data={item}
@@ -98,23 +99,14 @@ export default function HomePage() {
                         </Link>
                     </div>
                     <section className={classes.productBrand_box}>
-                        <ProductBrand />
-                        <ProductBrand />
-                        <ProductBrand />
-                        <ProductBrand />
-                        <ProductBrand />
-                        <ProductBrand />
-                        <ProductBrand />
-                        <ProductBrand />
-                        <ProductBrand />
-                        <ProductBrand />
-                        <ProductBrand />
-                        <ProductBrand />
-                        <ProductBrand />
-                        <ProductBrand />
-                        <ProductBrand />
-                        <ProductBrand />
-                        <ProductBrand />
+                        {
+                            brandsQuery.data?.map((item) => (
+                                <ProductBrand
+                                    key={item._id}
+                                    data={item}
+                                />
+                            ))
+                        }
                         <ProductBrand />
                     </section>
                 </Grid>

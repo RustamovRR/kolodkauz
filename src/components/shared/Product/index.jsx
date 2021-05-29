@@ -22,7 +22,7 @@ export default function Product({
     const [showFavorite, setShowFavorite] = useState(false)
     const { sum, addToFavoriteCart, openFastBuyModal, setOpenFastBuyModal } = useContext(ContextRoot)
     const productsQuery = useProductsQuery({ page: 0 })
-
+    
     const handleClick = () => {
         setShowFavorite(!showFavorite)
     }
@@ -31,7 +31,7 @@ export default function Product({
         setOpenFastBuyModal(true)
     }
 
-    console.log(data)
+    // console.log(data)
     return (
         <div className={classes.product_root}>
             <Link
@@ -45,7 +45,7 @@ export default function Product({
                     <img
                         // src={image1}
                         src={`${BASE_URL}/${data?.image}`}
-                        alt={data?.uz.description}
+                        alt={data?.uz?.description}
                     />
                 </section>
 
@@ -55,7 +55,7 @@ export default function Product({
                         <p>{`${data?.discount} ${sum}`}</p>
                     </div>
                     <div className={classes.text}>
-                        <p>{data?.uz.title}</p>
+                        <p>{data?.uz?.title}</p>
                     </div>
                 </section>
                 {

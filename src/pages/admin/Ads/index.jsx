@@ -5,33 +5,21 @@ import { request } from '../../../services/api';
 import UploadImageForm from '../../../components/forms/UploadImageForm';
 import { ContextRoot } from '../../../contexts'
 import { useFormik } from 'formik';
+import axios from 'axios';
 // import * as yup from 'yup';
 
 export default function Ads() {
     const classes = useAdsStyles()
     const { imageUrl } = useContext(ContextRoot)
 
-    // const validationSchema = yup.object({
-    //     // uz: {
-    //     //     title: yup.string(),
-    //     //     description: yup.string()
-    //     // },
-    //     // ru: {
-    //     //     title: yup.string(),
-    //     //     description: yup.string()
-    //     // },
-    //     type: yup.string(),
-    //     image: yup.string()
-    // });
-
     const formik = useFormik({
         initialValues: {
             type: 'moy',
             image: 'url'
         },
-        // validationSchema,
-        onSubmit: async (values) => {
-            await request.post('/ads', values).then((res) => console.log(res.data.data))
+        onSubmit: (values) => {
+            request.post('/ads', values)
+                .then((res) => console.log(res.data.data))
         }
     })
 
@@ -71,7 +59,7 @@ export default function Ads() {
                         className={classes.button}
                     >
                         Post qilish
-                </Button>
+                    </Button>
                 </form>
             </div>
         </>

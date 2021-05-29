@@ -41,7 +41,9 @@ export default function Brands() {
         },
         // validationSchema,
         onSubmit: async (values) => {
-            await request.post('/brands', values).then((res) => console.log(res.data.data))
+            await request.post('/brands', values)
+                .then((res) => console.log(res.data.data))
+                .then((res) => alert('success'))
         }
     })
 
@@ -49,8 +51,18 @@ export default function Brands() {
         <>
             <div className={classes.form_root}>
                 <UploadImageForm />
+                <h2>{imageUrl}</h2>
                 <form onSubmit={formik.handleSubmit}>
                     <section className={classes.names}>
+                        <TextField
+                            name="image"
+                            label="Rasm manzili"
+                            variant="outlined"
+                            margin="normal"
+                            color="primary"
+                            value={formik.values.image}
+                            onChange={formik.handleChange}
+                        />
                         <TextField
                             name="uz[name]"
                             label="Nomi (uz)"
@@ -67,15 +79,6 @@ export default function Brands() {
                             margin="normal"
                             color="primary"
                             value={formik.values.ru.title}
-                            onChange={formik.handleChange}
-                        />
-                    </section>
-                    <h1>{imageUrl}</h1>
-                    <section className={classes.products}>
-                        <TextField
-                            name="image"
-                            label="Rasm"
-                            value={formik.values.image}
                             onChange={formik.handleChange}
                         />
                     </section>

@@ -1,13 +1,16 @@
 import React from 'react'
-import image from '../../../../assets/images/brands/castrol.png'
+import { BASE_URL } from '../../../../services/api'
 import { useProductBrandStyles } from './productBrandStyles'
 
-export default function ProductBrand() {
+export default function ProductBrand({ data }) {
     const classes = useProductBrandStyles()
 
     return (
         <div className={classes.brand_root}>
-            <img src={image} alt="" />
+            <img
+                src={`${BASE_URL}/${data?.image}`}
+                alt='brand'
+            />
         </div>
     )
 }

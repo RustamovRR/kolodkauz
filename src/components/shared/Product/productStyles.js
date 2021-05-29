@@ -29,7 +29,7 @@ export const useProductStyles = makeStyles({
         overflow: 'hidden',
         '& img': {
             width: '100%',
-            objectFit: 'contain'
+            objectFit: 'cover'
         }
     },
 

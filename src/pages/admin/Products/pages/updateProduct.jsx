@@ -38,12 +38,10 @@ export default function UpdateProduct() {
                 ]
             },
             type: '',
-            image: '',
             quantity: '',
             price: '',
             discount: '',
             artikul: '',
-            slug: '',
             buy_count: '',
             rating: {
                 data: [
@@ -57,9 +55,10 @@ export default function UpdateProduct() {
             },
         },
         onSubmit: (values) => {
-            request.post('/products', values)
-                .then((res) => console.log(res.data))
-                .then(() => alert('success posted'))
+            request.patch(`/products/${state}`, values)
+            .then((res) => console.log(res.data))
+            .then(() => alert('success posted'))
+            // console.log(`/products/${state}`)
         }
     })
 
@@ -74,10 +73,10 @@ export default function UpdateProduct() {
                 price,
                 discount,
                 artikul,
-                slug,
                 buy_count,
                 rating
             } = productQuery.data?.data.data
+
             formik.resetForm({
                 values: {
                     uz: {
@@ -96,14 +95,13 @@ export default function UpdateProduct() {
                     price: price,
                     discount: discount,
                     artikul: artikul,
-                    slug: slug,
                     buy_count: buy_count,
                     rating: {
                         data: rating.data,
                         overall: rating.overall,
                         count: rating.count
                     },
-                },
+                }
             })
         }
     }, [productQuery.isFetched])
@@ -116,15 +114,15 @@ export default function UpdateProduct() {
             <form onSubmit={formik.handleSubmit}>
                 <div className={classes.form_root}>
                     <section className={classes.names}>
-                        <TextField
-                            name="image"
+                        {/* <TextField
+                            name="slug"
                             label="Rasm manzili"
                             variant="outlined"
                             margin="normal"
                             color="primary"
-                            value={formik.values.image}
+                            value={formik.values.slug}
                             onChange={formik.handleChange}
-                        />
+                        /> */}
                         <TextField
                             name="uz[title]"
                             label="Sarlavha (uz)"

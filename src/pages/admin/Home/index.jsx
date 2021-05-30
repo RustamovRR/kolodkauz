@@ -15,6 +15,7 @@ import Cars from '../Cars'
 import Brands from '../Brands'
 import Ads from '../Ads'
 import ProductList from '../Products/pages/productList';
+import UpdateProduct from '../Products/pages/updateProduct';
 
 function AdminHome(props) {
     const classes = useHomeStyles();
@@ -61,8 +62,10 @@ function AdminHome(props) {
                 <div className={classes.toolbar} />
                 <Switch>
                     <Route path="/admin" component={Products} exact />
-                    <Route path="/admin/products" component={ProductList} />
+                    <Route path="/admin/products" component={ProductList} exact />
                     <Route path="/admin/products/add" component={Products} />
+                    <Route path="/admin/products/update/:id" component={UpdateProduct} />
+
                     <Route path="/admin/users" component={Users} />
                     <Route path="/admin/ads" component={Ads} />
                     <Route path="/admin/cars" component={Cars} />

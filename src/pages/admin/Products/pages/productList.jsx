@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -12,13 +13,14 @@ import { BASE_URL } from '../../../../services/api';
 import { Delete, Edit } from '@material-ui/icons';
 import { IconButton } from '@material-ui/core';
 
+
 const StyledTableCell = withStyles((theme) => ({
     head: {
         backgroundColor: theme.palette.common.black,
         color: theme.palette.common.white,
     },
     body: {
-        fontSize: 14,
+        fontSize: 14
     },
 }))(TableCell);
 
@@ -73,13 +75,19 @@ export default function PrductList() {
                             <StyledTableCell >{item?.price}</StyledTableCell>
                             <StyledTableCell >{item?.quantity}</StyledTableCell>
                             <StyledTableCell >
-                                <IconButton><Edit /></IconButton>
+                                <Link to={{
+                                    pathname: `/admin/products/update/${item?._id}`,
+                                    state: item?._id
+                                }}
+                                >
+                                    <IconButton><Edit /></IconButton>
+                                </Link>
                                 <IconButton><Delete /></IconButton>
                             </StyledTableCell>
                         </StyledTableRow>
                     ))}
                 </TableBody>
             </Table>
-        </TableContainer>
+        </TableContainer >
     );
 }

@@ -46,6 +46,7 @@ export default function RegisterPage() {
                             <label htmlFor='phone'>Контактный телефон</label>
                             <InputLogin
                                 id='phone'
+                                name='phone'
                                 value={formik.values.phone}
                                 handleChange={formik.handleChange}
                                 helperText={formik.touched.phone && formik.errors.phone}
@@ -57,6 +58,7 @@ export default function RegisterPage() {
                             <label htmlFor='fullname'>Имя</label>
                             <InputLogin
                                 id='fullname'
+                                name='fullname'
                                 value={formik.values.fullname}
                                 helperText={formik.touched.fullname && formik.errors.fullname}
                                 error={formik.touched.fullname && Boolean(formik.errors.fullname)}
@@ -67,6 +69,7 @@ export default function RegisterPage() {
                             <label htmlFor='password'>Придумайте пароль</label>
                             <InputLogin
                                 id='password'
+                                name='password'
                                 type="password"
                                 value={formik.values.password}
                                 helperText={formik.touched.password && formik.errors.password}
@@ -87,8 +90,8 @@ export default function RegisterPage() {
                     </form>
 
                     <section className={classes.link}>
-                        <Link to="#">
-                            Зарегистрация
+                        <Link to="/login">
+                            Войти
                         </Link>
                     </section>
                 </div>

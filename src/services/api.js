@@ -9,12 +9,12 @@ export const API_BASE_URL = `http://localhost:5000/api`
 
 export const request = axios.create({
     baseURL: API_BASE_URL,
-    // headers: {
-    //     "Content-Type": "application/json",
-    //     "Access-Control-Allow-Origin": "*",
-    //     "x-token": token,
-    //     "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
-    // }
+    headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+        // "x-token": token,
+        "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
+    }
 })
 
 export const queryClient = new QueryClient({

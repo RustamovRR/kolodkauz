@@ -64,8 +64,11 @@ export const useHomeStyles = makeStyles((theme) => ({
     activeLink: {
         color: "red",
         '& > *': {
-            backgroundColor: 'grey',
+            // backgroundColor: 'grey',
         }
     },
     toolbar: theme.mixins.toolbar,
+    nested: {
+        paddingLeft: theme.spacing(4),
+    }
 }))

@@ -19,8 +19,6 @@ export const request = axios.create({
 
 export const queryClient = new QueryClient({
     defaultOptions: {
-        queries: {
-            refetchOnWindowFocus: false
-        }
+        
     }
 })

@@ -56,8 +56,8 @@ export default function UpdateProduct() {
         },
         onSubmit: (values) => {
             request.patch(`/products/${state}`, values)
-            .then((res) => console.log(res.data))
-            .then(() => alert('success posted'))
+                .then((res) => console.log(res.data))
+                .then(() => alert('success posted'))
             // console.log(`/products/${state}`)
         }
     })

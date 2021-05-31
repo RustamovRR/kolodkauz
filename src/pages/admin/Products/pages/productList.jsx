@@ -9,7 +9,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import useProductsQuery from '../../../../hooks/queries/useProductsQuery';
-import { BASE_URL } from '../../../../services/api';
+import { BASE_URL, request } from '../../../../services/api';
 import { Delete, Edit } from '@material-ui/icons';
 import { IconButton } from '@material-ui/core';
 
@@ -48,6 +48,12 @@ export default function PrductList() {
     ]
     console.log(productsQuery)
 
+    const handleDelete = (e) => {
+        request.delete(`/products/${e}`)
+            .then((res) => console.log(res))
+            .then(() => alert('delete'))
+    }
+
     return (
         <TableContainer component={Paper} >
             <Table className={classes.table} aria-label="customized table" >
@@ -82,7 +88,9 @@ export default function PrductList() {
                                 >
                                     <IconButton><Edit /></IconButton>
                                 </Link>
-                                <IconButton><Delete /></IconButton>
+                                <IconButton onClick={() => handleDelete(item?._id)}>
+                                    <Delete />
+                                </IconButton>
                             </StyledTableCell>
                         </StyledTableRow>
                     ))}

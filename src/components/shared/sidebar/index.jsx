@@ -9,23 +9,18 @@ import { useHistory, useLocation } from 'react-router-dom'
 
 export default function Sidebar() {
     const classes = useSidebarStyles()
-    const { trans, sum, brand, setBrand, model, setModel } = useContext(ContextRoot)
     const history = useHistory()
     const { search, pathname } = useLocation()
+    const {
+        trans, sum,
+        brand, setBrand,
+        model, setModel,
+        sale, setSale,
+        price, setPrice
+    } = useContext(ContextRoot)
 
-    const [value, setValue] = useState([800000, 8000000]);
-    const [radio, setRadio] = useState('male');
-
-    const handleChange = (event, newValue) => {
-        setValue(newValue);
-    }
-
-    const radioChange = (event) => {
-        setRadio(event.target.value);
-    };
-
-    const num1 = String(value[0]).replace(/(?<!\..*)(\d)(?=(?:\d{3})+(?:\.|$))/g, '$1,')
-    const num2 = String(value[1]).replace(/(?<!\..*)(\d)(?=(?:\d{3})+(?:\.|$))/g, '$1,')
+    const num1 = String(price[0]).replace(/(?<!\..*)(\d)(?=(?:\d{3})+(?:\.|$))/g, '$1,')
+    const num2 = String(price[1]).replace(/(?<!\..*)(\d)(?=(?:\d{3})+(?:\.|$))/g, '$1,')
 
     const brands = [
         `Pirelli Formula`, `Landsail`, `Roadstone`, `VS-Garage`, `Yokohama`, `Viatti`
@@ -36,20 +31,20 @@ export default function Sidebar() {
     ]
 
     const radiosRu = [
-        { title: `от 10% и выше`, value: 10 },
-        { title: `от 30% и выше`, value: 30 },
-        { title: `от 50% и выше`, value: 50 },
-        { title: `от 70% и выше`, value: 70 }
+        { title: `от 10% и выше`, value: '10' },
+        { title: `от 30% и выше`, value: '30' },
+        { title: `от 50% и выше`, value: '50' },
+        { title: `от 70% и выше`, value: '70' }
     ]
 
     const radiosUz = [
-        { title: `10% va undan yuqori`, value: 10 },
-        { title: `30% va undan yuqori`, value: 30 },
-        { title: `50% va undan yuqori`, value: 50 },
-        { title: `70% va undan yuqori`, value: 70 }
+        { title: `10% va undan yuqori`, value: '10' },
+        { title: `30% va undan yuqori`, value: '30' },
+        { title: `50% va undan yuqori`, value: '50' },
+        { title: `70% va undan yuqori`, value: '70' }
     ]
 
-    console.log(model)
+    console.log(sale)
     return (
         <div className={classes.root}>
             <p className={classes.filter}>
@@ -101,11 +96,13 @@ export default function Sidebar() {
                     <span>({sum})</span>
                 </h4>
                 <Slider
-                    value={value}
-                    onChange={handleChange}
-                    min={100000}
+                    value={price}
+                    onChange={(event, newValue) => {
+                        setPrice(newValue);
+                    }}
+                    min={0}
                     max={10000000}
-                    step={10000}
+                    step={5000}
                     classes={{
                         root: classes.sliderRoot,
                         track: classes.thumb,
@@ -135,12 +132,12 @@ export default function Sidebar() {
                     {trans ? `Скидка` : `Chegirma`}
                 </h4>
 
-                <RadioGroup value={radio} onChange={radioChange}>
+                <RadioGroup value={sale} onChange={(e) => setSale(e.target.value)}>
                     {
                         (trans ? radiosRu : radiosUz).map((item) => (
                             <FormControlLabel
                                 key={item.title}
-                                value={item.title}
+                                value={item.value}
                                 control={
                                     <Radio
                                         color="primary"
@@ -153,6 +150,6 @@ export default function Sidebar() {
                     }
                 </RadioGroup>
             </section>
-        </div>
+        </div >
     )
 }

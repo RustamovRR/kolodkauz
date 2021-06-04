@@ -2,14 +2,14 @@ import { useQuery } from "react-query";
 import { request } from '../../services/api'
 
 
-const useProductsQuery = ({ page = 0, params }) => {
-    return useQuery(["products", { params }], async () => {
+const useProductsQuery = ({ page, brand, model, sort, sale, price }) => {
+    return useQuery(["products"], async () => {
         return await request.get(`/products`, {
             params: {
-                page
+                page, sort, sale, price: price.toString()
             }
         })
-    }, { keepPreviousData: true })
+    })
 };
 
 export default useProductsQuery

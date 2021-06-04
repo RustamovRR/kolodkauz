@@ -11,12 +11,20 @@ import { useParams, useLocation } from 'react-router-dom'
 
 export default function CategoriesPage({ medium, small }) {
     const classes = useCategoryPageStyles()
-    const { trans, sort, setSort } = useContext(ContextRoot)
     const { search } = useLocation()
     const [open, setOpen] = useState(false)
-    const [page, setPage] = useState(0)
     const [count, setCount] = useState(5)
-    const products = useProductsQuery({ page })
+    const {
+        trans, sum,
+        brand, setBrand,
+        model, setModel,
+        sort, setSort,
+        sale, setSale,
+        page, setPage,
+        price, setPrice
+    } = useContext(ContextRoot)
+
+    const products = useProductsQuery({ page, brand, model, sort, sale, price })
     const productsQuery = products.isSuccess && products.data?.data ? products.data?.data : []
 
     const drawerOpen = () => {
@@ -30,7 +38,7 @@ export default function CategoriesPage({ medium, small }) {
     const handleChangePage = (e, value) => {
         setPage(value === 0 ? value = 0 : value - 1)
     }
-    // console.log(search.split('='))
+    console.log(price.toString().split(',')[0])
 
     return (
         <Layout>

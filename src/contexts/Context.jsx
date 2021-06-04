@@ -11,6 +11,9 @@ export default function Provider({ children }) {
     const [sort, setSort] = useState('')
     const [brand, setBrand] = useState([])
     const [model, setModel] = useState([])
+    const [page, setPage] = useState(0)
+    const [sale, setSale] = useState('')
+    const [price, setPrice] = useState([0, 10000000])
 
     const [openBasket, setOpenBasket] = useState(false)
     const [openTabList, setOpenTabList] = useState(false)
@@ -63,6 +66,9 @@ export default function Provider({ children }) {
         sort, setSort,
         brand, setBrand,
         model, setModel,
+        sale, setSale,
+        page, setPage,
+        price, setPrice,
 
         productsData, setProductsData, fetchProducts,
         favoriteCart, setFavoriteCart, addToFavoriteCart, removeFromFavoriteCart,

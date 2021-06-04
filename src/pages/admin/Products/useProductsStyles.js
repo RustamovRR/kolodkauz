@@ -8,7 +8,7 @@ export const useProductsStyles = makeStyles({
         justifyContent: 'space-between',
         paddingBottom: 20,
         borderBottom: '1px dashed grey',
-        '&  input': {
+        '& input': {
             width: '35vw'
         }
     },

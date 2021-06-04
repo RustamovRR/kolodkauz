@@ -1,18 +1,35 @@
-import React, { useContext } from 'react'
-import { TextField, Button } from '@material-ui/core'
+import React, { useContext, useEffect, useState } from 'react'
+import { TextField, Button, MenuItem } from '@material-ui/core'
 import { useProductsStyles } from '../useProductsStyles'
 import UploadImageForm from '../../../../components/forms/UploadImageForm'
 import { ContextRoot } from '../../../../contexts';
 import { request } from '../../../../services/api';
+import { useCarsQuery } from '../../../../hooks/queries';
 import { useFormik } from 'formik';
-import axios from 'axios';
-// import * as yup from 'yup';
+import NestedMenuItem from "material-ui-nested-menu-item";
 
 export default function CreateProduct() {
     const classes = useProductsStyles()
     const { imageUrl } = useContext(ContextRoot)
+    const [carsName, setCarsName] = useState([])
+    const cars = useCarsQuery()
 
+    const carsQuery = cars.isSuccess ? cars.data?.data.data : []
 
+    const types = [
+        `marka`, `xodovoy`, `motor`, `zapchast`, `kuzov`, `akkumulyator`, `shina`, `moy`, `avtotovar`
+    ]
+
+    const carsModelsName = [
+        `matiz`, `spark`, `nexia`, `nexia 3`, `damas`, `cobalt`, `lacetti`, `epica`, `captiva`, `malibu`,
+        `trailblazer`, `tracker`, `equinox`, `orlando`
+    ]
+
+    useEffect(() => {
+        setCarsName(() => (
+            carsQuery.map((item) => item?.uz.name)
+        ))
+    }, [cars.isFetched])
 
     const formik = useFormik({
         initialValues: {
@@ -32,13 +49,15 @@ export default function CreateProduct() {
                     { option: `garantiya`, value: '2 goda' }
                 ]
             },
-            type: 'moy',
+            type: 'marka',
             image: 'url',
+            car: '',
+            carModel: '',
+            brand: '',
             quantity: 10,
             price: 20000,
             discount: 30000,
             artikul: '123',
-            slug: '',
             buy_count: 50,
             rating: {
                 data: [
@@ -54,10 +73,9 @@ export default function CreateProduct() {
         onSubmit: (values) => {
             request.post('/products', values)
                 .then((res) => console.log(res.data))
-                .then(() => alert('success posted'))
+                .then((res) => alert('success post'))
         }
     })
-
 
     return (
         <div>
@@ -72,7 +90,7 @@ export default function CreateProduct() {
                             variant="outlined"
                             margin="normal"
                             color="primary"
-                            value={formik.values.image}
+                            value={formik.values.image ?? ''}
                             onChange={formik.handleChange}
                         />
                         <TextField
@@ -81,7 +99,7 @@ export default function CreateProduct() {
                             variant="outlined"
                             margin="normal"
                             color="primary"
-                            value={formik.values.uz.title}
+                            value={formik.values.uz.title ?? ''}
                             onChange={formik.handleChange}
                         />
                         <TextField
@@ -90,7 +108,7 @@ export default function CreateProduct() {
                             variant="outlined"
                             margin="normal"
                             color="primary"
-                            value={formik.values.ru.title}
+                            value={formik.values.ru.title ?? ''}
                             onChange={formik.handleChange}
                         />
                         <TextField
@@ -99,7 +117,7 @@ export default function CreateProduct() {
                             variant="outlined"
                             margin="normal"
                             color="primary"
-                            value={formik.values.uz.description}
+                            value={formik.values.uz.description ?? ''}
                             onChange={formik.handleChange}
                         />
                         <TextField
@@ -108,37 +126,78 @@ export default function CreateProduct() {
                             variant="outlined"
                             margin="normal"
                             color="primary"
-                            value={formik.values.ru.description}
+                            value={formik.values.ru.description ?? ''}
                             onChange={formik.handleChange}
                         />
                     </section>
 
                     <section className={classes.products}>
                         <TextField
+                            select
                             name="type"
                             label="Turi"
                             variant="outlined"
                             margin="normal"
                             color="primary"
-                            value={formik.values.type}
+                            style={{ width: '37vw' }}
+                            value={formik.values.type ?? ''}
                             onChange={formik.handleChange}
-                        />
+                        >
+                            {
+                                types.map((option) => (
+                                    <MenuItem key={option} value={option}>
+                                        {option}
+                                    </MenuItem>
+                                ))
+                            }
+                        </TextField>
                         <TextField
+                            select
                             name="car"
-                            label="Avtomobil"
+                            label="Avtomobil turini tanlang"
                             variant="outlined"
                             margin="normal"
                             color="primary"
-                            value={formik.values.car}
+                            style={{ width: '37vw' }}
+                            items={carsName}
+                            value={formik.values.car ?? ''}
                             onChange={formik.handleChange}
-                        />
+                        >
+                            {
+                                carsName.map((option) => (
+                                    <MenuItem key={option} value={option}>
+                                        {option}
+                                    </MenuItem>
+                                ))
+                            }
+                        </TextField>
+                        <TextField
+                            select
+                            name="carModel"
+                            label="Avtomobil markasini tanlang"
+                            variant="outlined"
+                            margin="normal"
+                            color="primary"
+                            style={{ width: '37vw' }}
+                            items={carsName}
+                            value={formik.values.carModel ?? ''}
+                            onChange={formik.handleChange}
+                        >
+                            {
+                                carsModelsName.map((option) => (
+                                    <MenuItem key={option} value={option}>
+                                        {option}
+                                    </MenuItem>
+                                ))
+                            }
+                        </TextField>
                         <TextField
                             name="brand"
                             label="Brend"
                             variant="outlined"
                             margin="normal"
                             color="primary"
-                            value={formik.values.brand}
+                            value={formik.values.brand ?? ''}
                             onChange={formik.handleChange}
                         />
                         <TextField
@@ -147,7 +206,7 @@ export default function CreateProduct() {
                             variant="outlined"
                             margin="normal"
                             color="primary"
-                            value={formik.values.quantity}
+                            value={formik.values.quantity ?? ''}
                             onChange={formik.handleChange}
                         />
                         <TextField
@@ -156,7 +215,7 @@ export default function CreateProduct() {
                             variant="outlined"
                             margin="normal"
                             color="primary"
-                            value={formik.values.price}
+                            value={formik.values.price ?? ''}
                             onChange={formik.handleChange}
                         />
                         <TextField
@@ -165,7 +224,7 @@ export default function CreateProduct() {
                             variant="outlined"
                             margin="normal"
                             color="primary"
-                            value={formik.values.discount}
+                            value={formik.values.discount ?? ''}
                             onChange={formik.handleChange}
                         />
                         <TextField
@@ -174,7 +233,7 @@ export default function CreateProduct() {
                             variant="outlined"
                             margin="normal"
                             color="primary"
-                            value={formik.values.buy_count}
+                            value={formik.values.buy_count ?? ''}
                             onChange={formik.handleChange}
                         />
                     </section>
@@ -189,6 +248,6 @@ export default function CreateProduct() {
                     </Button>
                 </div>
             </form>
-        </div>
+        </div >
     )
 }

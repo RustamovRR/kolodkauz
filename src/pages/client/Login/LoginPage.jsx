@@ -25,7 +25,7 @@ export default function LoginPage() {
         onSubmit: async (values) => {
             await request.post('/users/login', values)
                 .then((res) => {
-                    console.log(values)
+                    console.log(res)
                     localStorage.setItem('token', res.data?.data['x-token'])
                 })
         }
@@ -65,8 +65,7 @@ export default function LoginPage() {
                     </section>
 
                     <section style={{ marginTop: 32 }} >
-                        <button type="submit">asdf</button>
-                        {/* <ButtonComponent title="Войти" type="submit" /> */}
+                        <ButtonComponent title="Войти" type="submit" />
                     </section>
 
                 </form>
@@ -74,7 +73,7 @@ export default function LoginPage() {
                 <section className={classes.link}>
                     <Link to="/register">
                         Зарегистрация
-                        </Link>
+                    </Link>
                 </section>
             </div>
         </div>

@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useLocation, useHistory } from 'react-router-dom'
 import { Button, Hidden, IconButton } from '@material-ui/core'
 import { useSortNavigationStyles } from './sortNavigationStyles'
 
@@ -12,6 +12,8 @@ export default function SortNavigation() {
     const classes = useSortNavigationStyles()
     const { trans, setTrans } = useContext(ContextRoot)
     const { width } = useWindowSize()
+    const history = useLocation()
+    const { pathname } = useLocation()
 
     const buttonsRu = [
         `Популярности`, `Рейтингу`, `Скидке`, `Обновлению`, `Название (А-Я)`
@@ -38,12 +40,12 @@ export default function SortNavigation() {
                         {
                             (trans ? buttonsRu : buttonsUz).map((item, index) => (
                                 <NavLink
-                                    key={item}
-                                    to={`/categories/medium/${index}`}
+                                    key={index}
+                                    to={{ search: `sort=${item}` }}
                                     className={classes.navlink}
                                     activeClassName={classes.active_navlink}
                                 >
-                                    <Button >{item}</Button>
+                                    <Button>{item}</Button>
                                 </NavLink>
                             ))
                         }
@@ -63,7 +65,7 @@ export default function SortNavigation() {
                 {
                     icons.map((item, index) => (
                         <NavLink
-                            key={item}
+                            key={index}
                             to={{ pathname: item.link }}
                         >
                             <IconButton size={width <= 600 && "small"}>

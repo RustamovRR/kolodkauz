@@ -7,10 +7,12 @@ import { ContextRoot } from '../../../contexts'
 import { FilterList } from '@material-ui/icons'
 import { Pagination } from '@material-ui/lab'
 import { useProductsQuery } from '../../../hooks/queries'
+import { useParams, useLocation } from 'react-router-dom'
 
 export default function CategoriesPage({ medium, small }) {
     const classes = useCategoryPageStyles()
-    const { trans } = useContext(ContextRoot)
+    const { trans, sort, setSort } = useContext(ContextRoot)
+    const { search } = useLocation()
     const [open, setOpen] = useState(false)
     const [page, setPage] = useState(0)
     const [count, setCount] = useState(5)
@@ -28,10 +30,7 @@ export default function CategoriesPage({ medium, small }) {
     const handleChangePage = (e, value) => {
         setPage(value === 0 ? value = 0 : value - 1)
     }
-
-    console.log(productsQuery.data?.length)
-
-
+    // console.log(search.split('='))
 
     return (
         <Layout>

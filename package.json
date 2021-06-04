@@ -16,6 +16,7 @@
     "formik": "^2.2.6",
     "framer-motion": "^4.1.10",
     "joi": "^17.4.0",
+    "material-ui-nested-menu-item": "^1.0.2",
     "namor": "^2.0.2",
     "notistack": "^1.0.6",
     "popmotion": "^9.3.5",

@@ -3,7 +3,7 @@ import { Checkbox, FormControlLabel } from '@material-ui/core'
 import { clr } from '../../../constants/colors'
 import { CheckedCheckbox, EmptyCheckbox } from '../../../assets/images/icons'
 
-export default function CheckboxComp({ label }) {
+export default function CheckboxComp({ label, onChange, checked, name }) {
     return (
         <div>
             <FormControlLabel
@@ -11,10 +11,12 @@ export default function CheckboxComp({ label }) {
                 label={label}
                 control={
                     <Checkbox
-                        name="checked"
+                        name={name}
                         color="primary"
+                        checked={checked}
                         disableTouchRipple
                         icon={<EmptyCheckbox />}
+                        onChange={onChange}
                         checkedIcon={<CheckedCheckbox />}
                     />
                 }

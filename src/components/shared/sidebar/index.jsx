@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { FormControlLabel, Radio, RadioGroup, Slider } from '@material-ui/core'
 import { useSidebarStyles } from './sidebarStyles'
 
@@ -9,9 +9,9 @@ import { useHistory, useLocation } from 'react-router-dom'
 
 export default function Sidebar() {
     const classes = useSidebarStyles()
-    const { trans, sum } = useContext(ContextRoot)
+    const { trans, sum, brand, setBrand, model, setModel } = useContext(ContextRoot)
     const history = useHistory()
-    const   {search, pathname} = useLocation()
+    const { search, pathname } = useLocation()
 
     const [value, setValue] = useState([800000, 8000000]);
     const [radio, setRadio] = useState('male');
@@ -49,11 +49,7 @@ export default function Sidebar() {
         { title: `70% va undan yuqori`, value: 70 }
     ]
 
-    console.log(`${pathname}${search}`)
-
-
-
-
+    console.log(model)
     return (
         <div className={classes.root}>
             <p className={classes.filter}>
@@ -64,9 +60,16 @@ export default function Sidebar() {
                     {trans ? `Бренд` : `Brend`}
                 </h4>
                 {
-                    brands.map(brand => (
-                        <div key={brand}>
-                            {/* <CheckBox label={brand} onChange={() => history.push({ pathname: pathname, search: 'model=qwer' })} /> */}
+                    brands.map(item => (
+                        <div key={item}>
+                            <CheckBox
+                                label={item}
+                                onChange={(e) =>
+                                    e.target.checked
+                                        ? setBrand([...brand, item])
+                                        : setBrand(brand.filter(e => e !== item))
+                                }
+                            />
                         </div>
                     ))
                 }
@@ -77,9 +80,16 @@ export default function Sidebar() {
                     {trans ? `Марка / модель машины` : `Marka / mashina modeli`}
                 </h4>
                 {
-                    models.map(brand => (
-                        <div key={brand}>
-                            <CheckBox label={brand} onChange={() => history.push(`${pathname}${search}&brand=asdf`)} />
+                    models.map(item => (
+                        <div key={item}>
+                            <CheckBox
+                                label={item}
+                                onChange={(e) =>
+                                    e.target.checked
+                                        ? setModel([...model, item])
+                                        : setModel(model.filter(e => e !== item))
+                                }
+                            />
                         </div>
                     ))
                 }

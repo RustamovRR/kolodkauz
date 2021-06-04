@@ -9,6 +9,8 @@ export default function Provider({ children }) {
     const [favoriteCart, setFavoriteCart] = useState([])
 
     const [sort, setSort] = useState('')
+    const [brand, setBrand] = useState([])
+    const [model, setModel] = useState([])
 
     const [openBasket, setOpenBasket] = useState(false)
     const [openTabList, setOpenTabList] = useState(false)
@@ -59,6 +61,8 @@ export default function Provider({ children }) {
     const [count, dispatch] = useReducer(reducer, initialValue)
     const state = {
         sort, setSort,
+        brand, setBrand,
+        model, setModel,
 
         productsData, setProductsData, fetchProducts,
         favoriteCart, setFavoriteCart, addToFavoriteCart, removeFromFavoriteCart,

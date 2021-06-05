@@ -12,7 +12,10 @@ import { useProductQuery } from '../../../../hooks/queries';
 
 export default function UpdateProduct() {
     const classes = useProductsStyles()
-    const { imageUrl } = useContext(ContextRoot)
+
+    const states = useContext(ContextRoot)
+    const { imageUrl, setImageUrl } = states.variables
+
     const { state } = useLocation()
     const productQuery = useProductQuery({ id: state })
     const data = productQuery.isSuccess && productQuery.data?.data ? productQuery.data?.data.data : []

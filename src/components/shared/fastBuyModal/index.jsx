@@ -10,7 +10,10 @@ import { useFastBuyModalStyles } from './fastBuyModalStyles'
 
 export default function FastBuyModal() {
     const classes = useFastBuyModalStyles()
-    const { trans, sum, openFastBuyModal, setOpenFastBuyModal } = useContext(ContextRoot)
+
+    const state = useContext(ContextRoot)
+    const { trans, sum } = useContext(ContextRoot)
+    const { openFastBuyModal, setOpenFastBuyModal } = state.variables
 
     const handleClickCloseModal = () => {
         setOpenFastBuyModal(false)

@@ -10,9 +10,10 @@ import { LoginBlack, FavoriteBlack, CompareBlack, BasketBlack } from '../../../a
 export default function Header() {
 
     const classes = useHeaderStyles()
-    const { openBasket, setOpenBasket } = useContext(ContextRoot)
+    const state = useContext(ContextRoot)
     const { trans, setTrans } = useContext(ContextRoot)
-    const { countState, countDispatch } = useContext(ContextRoot)
+    const { openBasket, setOpenBasket } = state.variables
+    const { countState, countDispatch } = state.count
 
     const handleOpen = () => {
         setOpenBasket(true);

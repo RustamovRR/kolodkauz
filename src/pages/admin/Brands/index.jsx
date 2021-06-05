@@ -9,7 +9,9 @@ import { useFormik } from 'formik';
 
 export default function Brands() {
     const classes = useBrandsStyles()
-    const { imageUrl } = useContext(ContextRoot)
+    
+    const state = useContext(ContextRoot)
+    const { imageUrl, setImageUrl } = state.variables
 
     // const onSubmit = handleSubmit(async (data) => {
     //     await request.post('/ads', data)

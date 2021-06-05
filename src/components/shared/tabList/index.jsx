@@ -10,7 +10,10 @@ import { marka, xodovoy, motor, zapchast, kuzov, akkumlator, shina, maslo, avtot
 
 export default function TabList({ data }) {
     const classes = useTabListStyles()
-    const { trans, activeTab, openTabList, setOpenTabList } = useContext(ContextRoot)
+    
+    const state = useContext(ContextRoot)
+    const { trans } = useContext(ContextRoot)
+    const { activeTab, openTabList, setOpenTabList } = state.variables
 
     const handleClose = () => {
         setOpenTabList(false)

@@ -10,10 +10,12 @@ import NestedMenuItem from "material-ui-nested-menu-item";
 
 export default function CreateProduct() {
     const classes = useProductsStyles()
-    const { imageUrl } = useContext(ContextRoot)
     const [carsName, setCarsName] = useState([])
     const cars = useCarsQuery()
 
+    const state = useContext(ContextRoot)
+    const { imageUrl, setImageUrl } = state.variables
+    
     const carsQuery = cars.isSuccess ? cars.data?.data.data : []
 
     const types = [

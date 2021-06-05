@@ -20,9 +20,13 @@ export default function Product({
 }) {
     const classes = useProductStyles();
     const [showFavorite, setShowFavorite] = useState(false)
-    const { sum, addToFavoriteCart, openFastBuyModal, setOpenFastBuyModal } = useContext(ContextRoot)
+
+    const state = useContext(ContextRoot)
+    const { sum } = useContext(ContextRoot)
+    const { addToFavoriteCart, openFastBuyModal, setOpenFastBuyModal } = state.variables
+
     const productsQuery = useProductsQuery({ page: 0 })
-    
+
     const handleClick = () => {
         setShowFavorite(!showFavorite)
     }

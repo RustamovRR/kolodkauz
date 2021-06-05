@@ -11,13 +11,16 @@ export default function Sidebar() {
     const classes = useSidebarStyles()
     const history = useHistory()
     const { search, pathname } = useLocation()
+    const state = useContext(ContextRoot)
+    const { trans, sum } = useContext(ContextRoot)
     const {
-        trans, sum,
+        sort, setSort,
         brand, setBrand,
         model, setModel,
         sale, setSale,
-        price, setPrice
-    } = useContext(ContextRoot)
+        page, setPage,
+        price, setPrice } = state.sort
+    console.log(price)
 
     const num1 = String(price[0]).replace(/(?<!\..*)(\d)(?=(?:\d{3})+(?:\.|$))/g, '$1,')
     const num2 = String(price[1]).replace(/(?<!\..*)(\d)(?=(?:\d{3})+(?:\.|$))/g, '$1,')
@@ -44,7 +47,6 @@ export default function Sidebar() {
         { title: `70% va undan yuqori`, value: '70' }
     ]
 
-    console.log(sale)
     return (
         <div className={classes.root}>
             <p className={classes.filter}>

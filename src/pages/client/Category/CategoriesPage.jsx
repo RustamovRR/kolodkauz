@@ -38,7 +38,6 @@ export default function CategoriesPage({ medium, small }) {
     const handleChangePage = (e, value) => {
         setPage(value === 0 ? value = 0 : value - 1)
     }
-    console.log(price.toString().split(',')[0])
 
     return (
         <Layout>

@@ -10,7 +10,7 @@ import { useWindowSize } from 'react-use'
 
 export default function SortNavigation() {
     const classes = useSortNavigationStyles()
-    const { trans, setTrans } = useContext(ContextRoot)
+    const { trans, setTrans, sort } = useContext(ContextRoot)
     const { width } = useWindowSize()
     const history = useLocation()
     const { pathname } = useLocation()
@@ -75,6 +75,6 @@ export default function SortNavigation() {
                     ))
                 }
             </section>
-        </div >
+        </div>
     )
 }

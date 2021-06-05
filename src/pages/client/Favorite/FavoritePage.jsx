@@ -45,14 +45,14 @@ export default function FavoritePage() {
 
                         <div className={classes.product_box}>
                             {
-                                productsData?.map((item) => (
+                                {/* productsData?.map((item) => (
                                     <Product
                                         key={item._id}
                                         id={item._id}
                                         data={item}
                                         favorite
                                     />
-                                ))
+                                )) */}
                             }
                         </div>
                     </section>

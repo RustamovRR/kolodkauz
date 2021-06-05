@@ -7,7 +7,9 @@ import { request, BASE_URL, API_BASE_URL } from '../../services/api';
 import { ContextRoot } from '../../contexts';
 
 const UploadImageForm = ({ children, label, className, multiple = true, ...inputProps }) => {
-    const { imageUrl, setImageUrl } = useContext(ContextRoot)
+    const state = useContext(ContextRoot)
+    const { imageUrl, setImageUrl } = state.variables
+
     const [openModal, setOpenModal] = useState(false);
     const [image, setImage] = useState('')
 

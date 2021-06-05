@@ -7,7 +7,8 @@ import { LinearProgress } from '@material-ui/core'
 import "./App.css";
 
 function App() {
-  const { openTabList } = useContext(ContextRoot)
+  const state = useContext(ContextRoot)
+  const { openTabList } = state.variables
 
 
   return (

@@ -10,7 +10,9 @@ import axios from 'axios';
 
 export default function Ads() {
     const classes = useAdsStyles()
-    const { imageUrl } = useContext(ContextRoot)
+    
+    const state = useContext(ContextRoot)
+    const { imageUrl, setImageUrl } = state.variables
 
     const formik = useFormik({
         initialValues: {

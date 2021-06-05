@@ -14,8 +14,9 @@ import bolgarka from '../../../../assets/images/products/bolgarka.png'
 
 export default function Basket() {
     const classes = useBasketModalStyles()
-    const { openBasket, setOpenBasket } = useContext(ContextRoot)
+    const state = useContext(ContextRoot)
     const { trans, sum } = useContext(ContextRoot)
+    const { openBasket, setOpenBasket } = state.variables
 
     const handleClose = () => {
         setOpenBasket(false);

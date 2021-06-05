@@ -8,7 +8,10 @@ import { tabLinksUz, tabLinksRu } from '../../../constants/tabListData';
 export default function TabMenu() {
     const classes = useTabMenuStyles();
     const [value, setValue] = useState(0);
-    const { trans, openTabList, setOpenTabList, activeTab, setActiveTab } = useContext(ContextRoot)
+
+    const state = useContext(ContextRoot)
+    const { trans } = useContext(ContextRoot)
+    const { openTabList, setOpenTabList, activeTab, setActiveTab } = state.variables
 
     const handleChange = (event, newValue) => {
         setValue(newValue);

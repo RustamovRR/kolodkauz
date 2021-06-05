@@ -25,7 +25,7 @@ export default function Product({
     const { sum } = useContext(ContextRoot)
     const { addToFavoriteCart, openFastBuyModal, setOpenFastBuyModal } = state.variables
 
-    const productsQuery = useProductsQuery({ page: 0 })
+    // const productsQuery = useProductsQuery({ page: 0 })
 
     const handleClick = () => {
         setShowFavorite(!showFavorite)

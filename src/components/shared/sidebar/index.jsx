@@ -19,8 +19,7 @@ export default function Sidebar() {
         model, setModel,
         sale, setSale,
         page, setPage,
-        price, setPrice } = state.sort
-    console.log(price)
+        price, setPrice } = state.product
 
     const num1 = String(price[0]).replace(/(?<!\..*)(\d)(?=(?:\d{3})+(?:\.|$))/g, '$1,')
     const num2 = String(price[1]).replace(/(?<!\..*)(\d)(?=(?:\d{3})+(?:\.|$))/g, '$1,')
@@ -47,6 +46,8 @@ export default function Sidebar() {
         { title: `70% va undan yuqori`, value: '70' }
     ]
 
+    console.log(brand)
+
     return (
         <div className={classes.root}>
             <p className={classes.filter}>
@@ -63,8 +64,8 @@ export default function Sidebar() {
                                 label={item}
                                 onChange={(e) =>
                                     e.target.checked
-                                        ? setBrand([...brand, item])
-                                        : setBrand(brand.filter(e => e !== item))
+                                        ? setBrand(item)
+                                        : setBrand('')
                                 }
                             />
                         </div>
@@ -83,8 +84,8 @@ export default function Sidebar() {
                                 label={item}
                                 onChange={(e) =>
                                     e.target.checked
-                                        ? setModel([...model, item])
-                                        : setModel(model.filter(e => e !== item))
+                                        ? setModel(item)
+                                        : setModel('')
                                 }
                             />
                         </div>

@@ -14,18 +14,13 @@ export default function CategoriesPage({ medium, small }) {
     const { search } = useLocation()
     const [open, setOpen] = useState(false)
     const [count, setCount] = useState(5)
-    const {
-        trans, sum,
-        brand, setBrand,
-        model, setModel,
-        sort, setSort,
-        sale, setSale,
-        page, setPage,
-        price, setPrice
-    } = useContext(ContextRoot)
 
-    const products = useProductsQuery({ page, brand, model, sort, sale, price })
-    const productsQuery = products.isSuccess && products.data?.data ? products.data?.data : []
+    const state = useContext(ContextRoot)
+    const { trans } = useContext(ContextRoot)
+    const { brand, model, sort, sale, page, setPage, price, productsData } = state.product
+
+    // const products = useProductsQuery({ page, brand, model, sort, sale, price })
+    // const productsQuery = products.isSuccess && products.data?.data ? products.data?.data : []
 
     const drawerOpen = () => {
         setOpen(true)
@@ -38,6 +33,8 @@ export default function CategoriesPage({ medium, small }) {
     const handleChangePage = (e, value) => {
         setPage(value === 0 ? value = 0 : value - 1)
     }
+
+    // console.log(productsData)
 
     return (
         <Layout>
@@ -103,7 +100,7 @@ export default function CategoriesPage({ medium, small }) {
 
                             <div className={classes.product_box}>
                                 {
-                                    productsQuery.data?.map((item, index) => {
+                                    productsData.data?.map((item, index) => {
                                         if (medium) {
                                             return (
                                                 <div className={classes.product_medium} key={item._id} >

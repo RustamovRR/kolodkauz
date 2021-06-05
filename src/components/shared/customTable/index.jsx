@@ -7,7 +7,7 @@ import { Cell } from 'react-table'
 import { useProductsQuery } from '../../../hooks/queries'
 
 const CustomTable = () => {
-  const query = useProductsQuery({ page: 0 })
+  // const query = useProductsQuery({ page: 0 })
 
   const rows = useMemo(() => {
     const columnTypes = {
@@ -22,7 +22,6 @@ const CustomTable = () => {
     return columnTypes
   })
 
-  console.log(query)
 
   const columns = React.useMemo(
     () => [

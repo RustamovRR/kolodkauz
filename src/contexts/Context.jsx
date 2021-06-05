@@ -2,6 +2,7 @@ import React, { createContext, useEffect, useReducer, useState } from 'react'
 import { request } from '../services/api'
 import Sort from './components/Sort'
 import Favorite from './components/Favorite'
+import Product from './components/Product'
 import Count from './components/Count'
 import VariableStates from './components/VariableStates'
 
@@ -17,9 +18,10 @@ export default function Provider({ children }) {
         trans,
         setTrans,
 
-        sort: Sort(),
-        favorite: Favorite(),
+        // queries: Sort(),
         count: Count(),
+        product: Product(),
+        favorite: Favorite(),
         variables: VariableStates()
 
     }

@@ -4,12 +4,9 @@ import { useProductStyles } from "./productStyles";
 
 import { CheckBox, ButtonYellow } from '../../shared'
 import { ContextRoot } from "../../../contexts";
-import { FavoriteGreyOutline, FavoriteBlack } from '../../../assets/images/icons'
-import image1 from "../../../assets/images/products/bagaj.png";
+import { FavoriteGreyOutline, FavoriteBlack, HeartDarkBlue } from '../../../assets/images/icons'
 import { Link } from "react-router-dom";
-import { Skeleton } from "@material-ui/lab";
 import ButtonComponent from "../ButtonComponent";
-import { useProductsQuery } from "../../../hooks/queries";
 import { BASE_URL } from "../../../services/api";
 
 export default function Product({
@@ -100,7 +97,7 @@ export default function Product({
                     <IconButton size="small" onClick={handleClick}>
                         {showFavorite
                             ? <FavoriteBlack />
-                            : <FavoriteGreyOutline />
+                            : <HeartDarkBlue />
                         }
                     </IconButton>
                 </section>

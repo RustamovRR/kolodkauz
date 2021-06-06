@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { Link, useHistory, useLocation } from 'react-router-dom'
 import { Button, IconButton } from '@material-ui/core'
 import { useProductInfoPageStyles } from './productInfoStyles'
@@ -6,7 +6,7 @@ import { useProductInfoPageStyles } from './productInfoStyles'
 import { clr } from '../../../constants/colors'
 import { Layout, RatingComp, CheckBox, Description, ButtonComponent, SimilarProduct } from '../../../components/shared'
 
-import { LeftGreyArrow, FavoriteBlack, CompareBlack } from '../../../assets/images/icons'
+import { LeftGreyArrow, FavoriteBlack, CompareBlack, CompareBlackOutline, HeartOutlineBlack } from '../../../assets/images/icons'
 import castrolImg from '../../../assets/images/brands/castrol.png'
 import { ContextRoot } from '../../../contexts'
 // import { request } from '../../../services/api'
@@ -15,6 +15,9 @@ import { BASE_URL } from '../../../services/api'
 
 export default function ProductInfoPage() {
     const classes = useProductInfoPageStyles()
+    const [showFavorite, setShowFavorite] = useState(false)
+    const [showCompare, setShowCompare] = useState(false)
+
     const { trans, sum } = useContext(ContextRoot)
     const { state } = useLocation()
     const { goBack } = useHistory()
@@ -36,6 +39,12 @@ export default function ProductInfoPage() {
     // const productCount = productRating?.count ? productRating?.count : 10
     const productOverall = productRating?.overall ? productRating?.overall : 10
 
+    const handleFavorite = () => {
+        setShowFavorite(!showFavorite)
+    }
+    const handleCompare = () => {
+        setShowCompare(!showCompare)
+    }
 
     const sortRu = [
         `Популярности`, `Рейтингу`, `Название (А-Я)`
@@ -99,11 +108,17 @@ export default function ProductInfoPage() {
                                         <div className={classes.order_button}>
                                             <ButtonComponent outlined title="Корзинка" />
                                         </div>
-                                        <IconButton>
-                                            <FavoriteBlack />
+                                        <IconButton onClick={handleFavorite}>
+                                            {showFavorite
+                                                ? <FavoriteBlack />
+                                                : <HeartOutlineBlack />
+                                            }
                                         </IconButton>
-                                        <IconButton>
-                                            <CompareBlack />
+                                        <IconButton onClick={handleCompare}>
+                                            {showCompare
+                                                ? <CompareBlack />
+                                                : <CompareBlackOutline />
+                                            }
                                         </IconButton>
                                     </div>
                                 </div>

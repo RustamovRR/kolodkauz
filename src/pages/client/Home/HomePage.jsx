@@ -23,7 +23,7 @@ export default function HomePage() {
     const brandsQuery = brands.isSuccess ? brands.data?.data : []
     const adsQuery = ads.isSuccess ? ads.data?.data : []
     const carsQuery = cars.isSuccess ? cars.data?.data : []
-    console.log(isLogged, isAdmin, userData)
+    console.log(productsQuery)
 
     return (
         <Layout>

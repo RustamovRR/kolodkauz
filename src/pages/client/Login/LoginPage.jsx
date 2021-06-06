@@ -29,6 +29,7 @@ export default function LoginPage() {
                         console.log(res)
 
                         localStorage.setItem('token', res.data?.data['x-token'])
+                        localStorage.setItem('userId', res.data?.data['_id'])
 
                         window.location.href = "/"
                     })

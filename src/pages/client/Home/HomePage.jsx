@@ -10,7 +10,9 @@ import { useAdsQuery, useBrandsQuery, useCarsQuery, useProductsQuery } from '../
 
 export default function HomePage() {
     const classes = useHomePageStyles()
-    const { trans } = useContext(ContextRoot)
+    const state = useContext(ContextRoot)
+    const { trans, token } = useContext(ContextRoot)
+    const { userData, isAdmin, isLogged } = state.user
 
     const products = useProductsQuery({ page: 0 })
     const brands = useBrandsQuery()
@@ -21,7 +23,7 @@ export default function HomePage() {
     const brandsQuery = brands.isSuccess ? brands.data?.data : []
     const adsQuery = ads.isSuccess ? ads.data?.data : []
     const carsQuery = cars.isSuccess ? cars.data?.data : []
-    console.log(carsQuery)
+    console.log(isLogged, isAdmin, userData)
 
     return (
         <Layout>

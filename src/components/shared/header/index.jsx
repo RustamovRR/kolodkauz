@@ -68,7 +68,7 @@ export default function Header() {
                                             >
                                                 <LoginBlack />
                                                 <p>
-                                                    {trans ? `Cabinet` : `Kabinet`}
+                                                    {trans ? `Кабинет` : `Kabinet`}
                                                 </p>
                                             </div>
                                             <CabinetModal anchorEl={anchorEl} setAnchorEl={setAnchorEl} />

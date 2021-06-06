@@ -19,7 +19,6 @@ export default function FastBuyModal() {
         setOpenFastBuyModal(false)
     }
 
-    console.log(openFastBuyModal)
 
     return (
         <Dialog

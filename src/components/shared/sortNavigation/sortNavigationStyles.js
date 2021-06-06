@@ -26,29 +26,20 @@ export const useSortNavigationStyles = makeStyles({
         textDecoration: 'none',
         '& *': {
             textTransform: 'none',
-            textTransform: 'none',
             color: clr.dark900,
             fontWeight: 'bold'
         },
-        '& > *:active': {
-            color: clr.secondaryDarkBlue,
-            backgroundColor: `rgba(18, 115, 235, 0.1)`
-        },
-        '& > *:hover': {
-            backgroundColor: `rgba(18, 115, 235, 0.1)`
-        }
     },
 
     active_navlink: {
-        '& > *': {
-            backgroundColor: clr.secondaryDarkBlue,
-            '&:hover': {
-                backgroundColor: clr.secondaryDarkBlue,
-            },
-            '& *': {
-                color: clr.primaryWhite
-            }
-        }
+        backgroundColor: clr.secondaryDarkBlue,
+        marginLeft: 16,
+        textDecoration: 'none',
+        color: 'white',
+        '& *': {
+            textTransform: 'none',
+            fontWeight: 'bold'
+        },
     },
 
     icon_box: {

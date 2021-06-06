@@ -46,7 +46,7 @@ export default function Sidebar() {
         { title: `70% va undan yuqori`, value: '70' }
     ]
 
-    console.log(brand)
+    console.log(sale)
 
     return (
         <div className={classes.root}>

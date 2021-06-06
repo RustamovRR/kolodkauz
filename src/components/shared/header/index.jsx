@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Badge, Grid, Hidden } from '@material-ui/core'
 import { useHeaderStyles } from './headerStyles'
@@ -6,18 +6,27 @@ import { useHeaderStyles } from './headerStyles'
 import { Currency, Language, BasketModal, Search } from '../index'
 import { ContextRoot } from "../../../contexts"
 import { LoginBlack, FavoriteBlack, CompareBlack, BasketBlack } from '../../../assets/images/icons'
+import CabinetModal from '../cabinetModal'
+import cn from 'classnames'
 
 export default function Header() {
 
     const classes = useHeaderStyles()
     const state = useContext(ContextRoot)
+    const [anchorEl, setAnchorEl] = useState(false)
+
     const { trans, setTrans } = useContext(ContextRoot)
     const { openBasket, setOpenBasket } = state.variables
     const { countState, countDispatch } = state.count
 
+    const handleCabinet = (event) => {
+        setAnchorEl(event.currentTarget);
+    }
+
     const handleOpen = () => {
         setOpenBasket(true);
     };
+    const token = localStorage.getItem('token')
 
     return (
         <div className={classes.header_root}>
@@ -49,12 +58,30 @@ export default function Header() {
 
                     <Hidden xsDown >
                         <div className={classes.function_items}>
-                            <Link to='/login' className={classes.link}>
-                                <LoginBlack />
-                                <p>
-                                    {trans ? `Войти` : `Kirish`}
-                                </p>
-                            </Link>
+                            {
+                                token
+                                    ? (
+                                        <>
+                                            <div
+                                                className={cn(classes.link, classes.cabinet)}
+                                                onClick={handleCabinet}
+                                            >
+                                                <LoginBlack />
+                                                <p>
+                                                    {trans ? `Cabinet` : `Kabinet`}
+                                                </p>
+                                            </div>
+                                            <CabinetModal anchorEl={anchorEl} setAnchorEl={setAnchorEl} />
+                                        </>
+                                    ) : (
+                                        <Link to='/login' className={classes.link}>
+                                            <LoginBlack />
+                                            <p>
+                                                {trans ? `Войти` : `Kirish`}
+                                            </p>
+                                        </Link>
+                                    )
+                            }
                             <Link to='/favorite' className={classes.link}>
                                 <Badge color="primary" badgeContent={countState} invisible={countState < 1 ? true : false}>
                                     <FavoriteBlack />

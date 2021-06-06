@@ -12,7 +12,7 @@ export default function LoginPage() {
     const classes = useLoginStyles()
 
     const validationSchema = yup.object({
-        phone: yup.string().required('majburiy maydon nomer'),
+        phone: yup.string().required('telefon raqam kiritilishi shart!'),
         password: yup.string().required('majburiy')
     })
 
@@ -22,19 +22,30 @@ export default function LoginPage() {
             password: ''
         },
         validationSchema,
-        onSubmit: async (values) => {
-            await request.post('/users/login', values)
-                .then((res) => {
-                    console.log(res)
-                    localStorage.setItem('token', res.data?.data['x-token'])
-                })
+        onSubmit: async (values, { setErrors, setStatus }) => {
+            try {
+                await request.post('/users/login', values)
+                    .then((res) => {
+                        console.log(res)
+
+                        localStorage.setItem('token', res.data?.data['x-token'])
+
+                        window.location.href = "/"
+                    })
+            } catch (error) {
+                console.log('asf')
+            }
         }
     })
+
+    const { handleSubmit, isValid } = formik
 
     return (
         <div className={classes.root}>
             <div className={classes.card_box}>
-                <form onSubmit={formik.handleSubmit} >
+                <form
+                    onSubmit={handleSubmit}
+                >
                     <h1>Войти профиль</h1>
                     <div className={classes.input_box}>
                         <label htmlFor='phone'>Контактный телефон</label>

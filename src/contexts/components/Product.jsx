@@ -8,13 +8,18 @@ const Product = () => {
     const [brand, setBrand] = useState()
     const [model, setModel] = useState()
     const [page, setPage] = useState(0)
-    const [sale, setSale] = useState('')
+    const [sale, setSale] = useState()
     const [price, setPrice] = useState([0, 10000000])
 
     const fetchProducts = async () => {
         await request.get('/products', {
             params: {
-                page, brand, model, sort, price: price.toString()
+                page,
+                sort,
+                price: price.toString(),
+                sale,
+                brand,
+                car_model: model,
             }
         })
             .then((res) => setProductsData(res.data))

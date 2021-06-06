@@ -1,19 +1,14 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
-import { useLanguageStyles } from './languageStyles';
+import { useCabinetModalStyles } from './cabinetModalStyles.js';
 import { ExpandMore } from '@material-ui/icons';
 import { ContextRoot } from '../../../contexts';
 
-export default function Language() {
-    const [anchorEl, setAnchorEl] = useState(false)
+export default function CabinetModal({ anchorEl, setAnchorEl }) {
     const { trans, setTrans } = useContext(ContextRoot)
-    const classes = useLanguageStyles()
-
-    const handleClick = (event) => {
-        setAnchorEl(event.currentTarget);
-    }
+    const classes = useCabinetModalStyles()
 
     const handleClose = () => {
         setAnchorEl(false);
@@ -23,19 +18,13 @@ export default function Language() {
         setTrans(true)
     }
 
-    const handleUz = () => {
-        setTrans(false)
+    const handleLogout = () => {
+        localStorage.removeItem('token')
+        window.location.reload()
     }
 
     return (
         <div className={classes.language_root}>
-            <Button onClick={handleClick}
-                className={classes.button}
-                size="small"
-                endIcon={<ExpandMore />}
-            >
-                {trans ? ` RUS` : `UZ`}
-            </Button>
             <Menu
                 className={classes.menu}
                 anchorEl={anchorEl}
@@ -46,20 +35,19 @@ export default function Language() {
                 <MenuItem
                     className={classes.menu_item}
                     onClick={() => {
-                        handleUz()
                         handleClose()
                     }}
                 >
-                    UZ
+                    aksdf
                  </MenuItem>
                 <MenuItem
                     className={classes.menu_item}
                     onClick={() => {
-                        handleRu()
+                        handleLogout()
                         handleClose()
                     }}
                 >
-                    RUS
+                    Logout
                       </MenuItem>
             </Menu>
         </div>

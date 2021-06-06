@@ -4,6 +4,7 @@ import { IconButton } from '@material-ui/core';
 import { useProductSmallStyles } from './productSmallStyles';
 
 import { ContextRoot } from '../../../../contexts';
+import { BASE_URL } from '../../../../services/api'
 import { Quantity, ButtonYellow } from '../..'
 import { FavoriteBlueOutline, CompareBlueOutline } from '../../../../assets/images/icons'
 import karcher from "../../../../assets/images/products/karcher.png";
@@ -11,13 +12,11 @@ import karcher from "../../../../assets/images/products/karcher.png";
 export default function ProductSmall({ data }) {
     const classes = useProductSmallStyles()
     const { trans, sum } = useContext(ContextRoot)
-
-    const url = `http://zap.uz`
     return (
         <div className={classes.root}>
             <section className={classes.image_box}>
                 <img
-                    src={`${url}/${data?.image}`}
+                    src={`${BASE_URL}/${data?.image}`}
                     alt={data?.uz.description}
                     width={110}
                     height={110}

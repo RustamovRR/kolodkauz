@@ -12,7 +12,7 @@ export default function HomePage() {
     const classes = useHomePageStyles()
     const state = useContext(ContextRoot)
     const { trans, token } = useContext(ContextRoot)
-    const { userData, isAdmin, isLogged } = state.user
+    const { userData, isAdmin, isLogged, cart } = state.user
     const { productsData } = state.product
 
     const products = useProductsQuery({ page: 0 })
@@ -25,6 +25,7 @@ export default function HomePage() {
     const adsQuery = ads.isSuccess ? ads.data?.data : []
     const carsQuery = cars.isSuccess ? cars.data?.data : []
     console.log(productsQuery)
+    
 
     return (
         <Layout>

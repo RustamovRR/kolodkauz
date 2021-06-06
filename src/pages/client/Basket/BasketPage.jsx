@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { Grid } from '@material-ui/core'
 import { useBasketPageStyles } from './basketPageStyles'
 
@@ -8,8 +8,14 @@ import { TabMenu, BasketList, BasketPay, InputBasket, BreadCrumbs, Layout } from
 
 export default function BasketPage() {
     const classes = useBasketPageStyles()
-    const { trans } = useContext(ContextRoot)
 
+    const state = useContext(ContextRoot)
+    const { trans } = useContext(ContextRoot)
+    const { cart } = state.user
+
+    const cartProducts = JSON.parse(localStorage.getItem('cart'))
+    console.log(cartProducts)
+    
     const labelsRu = [
         `Контактный телефон`, `Ф.И.О`, `Область`, `Город / Район`, `Адрес`, `Индекс`
     ]
@@ -48,9 +54,11 @@ export default function BasketPage() {
                                 {trans ? `Корзина` : `Xaridlar savati`}
                             </h1>
                             <div className={classes.basket_list}>
-                                <BasketList />
-                                <BasketList />
-                                <BasketList />
+                                {cartProducts.length !== 0 && (
+                                    cartProducts.map((item) => (
+                                        <BasketList key={item} data={item} />
+                                    ))
+                                )}
                             </div>
                         </div>
 

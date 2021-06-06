@@ -7,21 +7,29 @@ import { Quantity } from '../../../shared'
 import { useBasketListStyles } from './basketListStyles'
 import sidina from '../../../../assets/images/products/Rectangle 14.png'
 import { ContextRoot } from '../../../../contexts'
+import { BASE_URL } from '../../../../services/api'
 
-export default function BasketList() {
+export default function BasketList({ data }) {
 
     const classes = useBasketListStyles()
-    const { sum } = useContext(ContextRoot)
+    const { sum, trans } = useContext(ContextRoot)
 
     return (
         <div className={classes.root}>
             <div className={classes.left_box} >
                 <section className={classes.image_box}>
-                    <img src={sidina} alt="" width={110} height={110} />
+                    <img
+                        src={`${BASE_URL}/${data?.image}`}
+                        alt=""
+                        width={110}
+                        height={110}
+                    />
                 </section>
 
                 <section className={classes.text_box}>
-                    <p>Мойка высокого давления</p>
+                    <p>
+                        {trans ? data?.ru.title : data?.uz.title}
+                    </p>
                     <Rating defaultValue={4} size="small" />
                 </section>
             </div>
@@ -32,8 +40,8 @@ export default function BasketList() {
                 </section>
 
                 <section className={classes.price_box}>
-                    <p>{`7,850,000 ${sum}`}</p>
-                    <span>{`9,876,000 ${sum}`}</span>
+                    <p>{`${data?.price} ${sum}`}</p>
+                    <span>{`${data?.discount} ${sum}`}</span>
                 </section>
 
                 <section className={classes.action_box}>

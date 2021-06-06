@@ -52,10 +52,6 @@ export default function ProductInfoPage() {
         setShowCompare(!showCompare)
     }
 
-    const handleAddCart = () => {
-        addCart(detailProduct)
-    }
-
     useEffect(() => {
         if (productId) {
 
@@ -68,6 +64,10 @@ export default function ProductInfoPage() {
     useEffect(() => {
         localStorage.setItem('cart', JSON.stringify(cart))
     }, [cart])
+
+    const handleAddCart = () => {
+        addCart(detailProduct)
+    }
 
     const sortRu = [
         `Популярности`, `Рейтингу`, `Название (А-Я)`
@@ -112,7 +112,10 @@ export default function ProductInfoPage() {
                                     отзывов</p>
                             </div>
                             <div><p style={{ color: clr.dark900 }} >
-                                {trans ? `Купили более ${productBuyCount} раз` : `${productBuyCount} martadan ortiq sotilgan`}
+                                {trans ?
+                                    `Купили более ${productBuyCount} раз`
+                                    : `${productBuyCount} martadan ortiq sotilgan`
+                                }
                             </p></div>
                         </div>
 
@@ -124,17 +127,19 @@ export default function ProductInfoPage() {
 
                             <section className={classes.inputs} >
                                 <div className={classes.checkbox}>
-                                    <CheckBox label="Обратитесь к мастеру службы" />
+                                    <CheckBox
+                                        label={trans ? `Обратитесь к мастеру службы` : `Usta xizmati bilan`}
+                                    />
                                 </div>
 
                                 <div className={classes.action_box}>
-                                    <ButtonComponent title="Быстрый заказ " />
+                                    <ButtonComponent title={trans ? `Быстрый заказ` : `Tezkor buyurtma`} />
 
                                     <div className={classes.buttons}>
                                         <div className={classes.order_button}>
                                             <ButtonComponent
                                                 outlined
-                                                title="Корзинка"
+                                                title={trans ? `Корзинка` : `Savatcha`}
                                                 onClick={handleAddCart}
                                             />
                                         </div>
@@ -155,7 +160,9 @@ export default function ProductInfoPage() {
                             </section>
                         </section>
 
-                        <p className={classes.text}>Обратитесь к мастеру службы</p>
+                        <p className={classes.text}>
+                            {trans ? `Обратитесь к мастеру службы` : `Usta xizmati bilan`}
+                        </p>
                         <img src={castrolImg} alt="" className={classes.photo} />
                     </section>
                 </section>

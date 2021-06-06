@@ -6,10 +6,14 @@ const User = (token) => {
     const [isLogged, setIsLogged] = useState(false)
     const [isAdmin, setIsAdmin] = useState(false)
     const [userData, setUserData] = useState([])
-    const [cart, setCart] = useState([])
+    const [cart, setCart] = useState(JSON.parse(localStorage.getItem('cart')) || [])
     const [history, setHistory] = useState([])
 
     const userId = localStorage.getItem('userId')
+
+    useEffect(() => {
+        localStorage.setItem('cart', JSON.stringify(cart))
+    }, [cart])
 
     useEffect(() => {
         if (token) {
@@ -42,11 +46,11 @@ const User = (token) => {
         })
 
         if (check) {
-            setCart([...cart, { ...product }])
+            setCart([...cart, product])
 
-            await request.patch('/users/changeCart', { cart: [...cart, { ...product }] }, {
-                headers: { Authorization: token }
-            })
+            // await request.patch('/users/changeCart', { cart: [...cart, { ...product }] }, {
+            //     headers: { Authorization: token }
+            // })
 
         } else {
             alert("This product has been added to cart.")

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Button, IconButton } from "@material-ui/core";
 import { useProductStyles } from "./productStyles";
 
@@ -17,10 +17,14 @@ export default function Product({
 }) {
     const classes = useProductStyles();
     const [showFavorite, setShowFavorite] = useState(false)
+    const [detailProduct, setDetailProduct] = useState([])
 
     const state = useContext(ContextRoot)
-    const { sum } = useContext(ContextRoot)
+    const { sum, trans } = useContext(ContextRoot)
+    const { userData, addCart, cart } = state.user
+    const { productsData } = state.product
     const { addToFavoriteCart, openFastBuyModal, setOpenFastBuyModal } = state.variables
+    const productId = data?._id
 
     // const productsQuery = useProductsQuery({ page: 0 })
 
@@ -32,7 +36,23 @@ export default function Product({
         setOpenFastBuyModal(true)
     }
 
-    // console.log(data)
+    useEffect(() => {
+        if (productId) {
+
+            productsData.data?.forEach(product => {
+                if (product._id === productId) setDetailProduct(product)
+            })
+        }
+    }, [productId, productsData])
+
+    useEffect(() => {
+        localStorage.setItem('cart', JSON.stringify(cart))
+    }, [cart])
+
+    const handleAddCart = () => {
+        addCart(detailProduct)
+    }
+
     return (
         <div className={classes.product_root}>
             <Link
@@ -79,8 +99,8 @@ export default function Product({
             <section style={{ display: 'flex', alignItems: 'center' }}>
                 <div className={classes.button}>
                     <ButtonYellow
-                        title={`В корзину`}
-                        onClick={() => addToFavoriteCart(data)}
+                        title={trans ? `В корзину` : `Savatga qo'shish`}
+                        onClick={handleAddCart}
                     />
                 </div>
                 <div>

@@ -1,5 +1,5 @@
-import React, { useContext, useState } from 'react'
-import { Link, useHistory, useLocation } from 'react-router-dom'
+import React, { useContext, useEffect, useState } from 'react'
+import { Link, useHistory, useLocation, useParams } from 'react-router-dom'
 import { Button, IconButton } from '@material-ui/core'
 import { useProductInfoPageStyles } from './productInfoStyles'
 
@@ -11,16 +11,20 @@ import castrolImg from '../../../assets/images/brands/castrol.png'
 import { ContextRoot } from '../../../contexts'
 // import { request } from '../../../services/api'
 import { useProductQuery } from '../../../hooks/queries'
-import { BASE_URL } from '../../../services/api'
+import { BASE_URL, request } from '../../../services/api'
 
 export default function ProductInfoPage() {
     const classes = useProductInfoPageStyles()
     const [showFavorite, setShowFavorite] = useState(false)
     const [showCompare, setShowCompare] = useState(false)
-
-    const { trans, sum } = useContext(ContextRoot)
-    const { state } = useLocation()
+    const [detailProduct, setDetailProduct] = useState([])
     const { goBack } = useHistory()
+    const { state } = useLocation()
+
+    const context = useContext(ContextRoot)
+    const { trans, sum } = useContext(ContextRoot)
+    const { userData, addCart, cart } = context.user
+    const { productsData } = context.product
 
     const productQuery = useProductQuery({ id: state })
     const data = productQuery.isSuccess && productQuery.data?.data ? productQuery.data?.data : []
@@ -30,14 +34,16 @@ export default function ProductInfoPage() {
     const productDiscount = data.data?.discount
     const productQuantity = data.data?.quantity
     const productArtikul = data.data?.artikul
+    const productId = data.data?._id
 
     const productUz = data.data?.uz
     const productRu = data.data?.ru
-    console.log(data?.data?.image)
 
     const productRating = data.data?.rating
     // const productCount = productRating?.count ? productRating?.count : 10
     const productOverall = productRating?.overall ? productRating?.overall : 10
+
+    console.log(cart)
 
     const handleFavorite = () => {
         setShowFavorite(!showFavorite)
@@ -45,6 +51,21 @@ export default function ProductInfoPage() {
     const handleCompare = () => {
         setShowCompare(!showCompare)
     }
+
+    const handleAddCart = () => {
+        addCart(detailProduct)
+    }
+
+    useEffect(() => {
+        if (productId) {
+
+            productsData.data?.forEach(product => {
+                if (product._id === productId) setDetailProduct(product)
+            })
+        }
+        handleAddCart()
+        localStorage.setItem('cart', JSON.stringify(cart))
+    }, [productId, productsData])
 
     const sortRu = [
         `Популярности`, `Рейтингу`, `Название (А-Я)`
@@ -54,6 +75,9 @@ export default function ProductInfoPage() {
         `Ommaboplik`, `Reyting`, `Nom (A-Z)`
     ]
 
+    const changeLike = async () => {
+        await request.patch('/users/changeCart', {})
+    }
 
     return (
         <Layout>
@@ -106,7 +130,11 @@ export default function ProductInfoPage() {
 
                                     <div className={classes.buttons}>
                                         <div className={classes.order_button}>
-                                            <ButtonComponent outlined title="Корзинка" />
+                                            <ButtonComponent
+                                                outlined
+                                                title="Корзинка"
+                                                onClick={handleAddCart}
+                                            />
                                         </div>
                                         <IconButton onClick={handleFavorite}>
                                             {showFavorite

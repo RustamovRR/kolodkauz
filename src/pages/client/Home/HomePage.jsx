@@ -13,6 +13,7 @@ export default function HomePage() {
     const state = useContext(ContextRoot)
     const { trans, token } = useContext(ContextRoot)
     const { userData, isAdmin, isLogged } = state.user
+    const { productsData } = state.product
 
     const products = useProductsQuery({ page: 0 })
     const brands = useBrandsQuery()

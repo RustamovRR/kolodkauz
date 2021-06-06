@@ -42,9 +42,9 @@ const User = (token) => {
         })
 
         if (check) {
-            setCart([...cart, { ...product, quantity: 1 }])
+            setCart([...cart, { ...product }])
 
-            await axios.patch('/user/addcart', { cart: [...cart, { ...product, quantity: 1 }] }, {
+            await request.patch('/users/changeCart', { cart: [...cart, { ...product }] }, {
                 headers: { Authorization: token }
             })
 
@@ -56,7 +56,9 @@ const User = (token) => {
     return {
         isLogged, setIsLogged,
         isAdmin, setIsAdmin,
-        userData, setUserData
+        userData, setUserData,
+        cart, setCart,
+        addCart
     }
 }
 

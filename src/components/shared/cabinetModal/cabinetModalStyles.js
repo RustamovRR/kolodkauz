@@ -11,13 +11,37 @@ export const useCabinetModalStyles = makeStyles({
     },
 
     menu: {
-        marginTop: 25,
-        padding: 0,
-        width: 100
+        marginTop: 50,
+        '& *': {
+            padding: 0
+        },
+        padding: 20
+    },
+
+    paper: {
+        padding: '10px 0'
     },
 
     menu_item: {
-        width: 70,
-        fontSize: 14
+        width: 180,
+        fontSize: 14,
+    },
+
+    avatar: {
+        width: 30,
+        height: 30
+    },
+
+    listItemAvatar: {
+        paddingLeft: 10
+    },
+
+    listItem: {
+        padding: '5px 0',
+        paddingLeft: 10,
+    },
+
+    listItemText: {
+        marginLeft: 10
     }
 });

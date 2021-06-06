@@ -3,13 +3,9 @@ import { request } from '../../services/api'
 
 
 const useProductsQuery = ({ page }) => {
-    return useQuery(["products"], async () => {
-        return await request.get(`/products`, {
-            params: {
-                page
-            }
-        })
-    })
+    return useQuery(["products", page], async () => {
+        return await request.get(`/products`, { params: { page } });
+    }, { refetchOnMount: false })
 };
 
 export default useProductsQuery

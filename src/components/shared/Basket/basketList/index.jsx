@@ -12,7 +12,9 @@ import { BASE_URL } from '../../../../services/api'
 export default function BasketList({ data }) {
 
     const classes = useBasketListStyles()
+    const state = useContext(ContextRoot)
     const { sum, trans } = useContext(ContextRoot)
+    const { removeCart } = state.user
 
     return (
         <div className={classes.root}>
@@ -45,7 +47,7 @@ export default function BasketList({ data }) {
                 </section>
 
                 <section className={classes.action_box}>
-                    <IconButton className={classes.icon}>
+                    <IconButton className={classes.icon} onClick={() => removeCart(data?._id)}>
                         <Close fontSize="small" />
                     </IconButton>
                 </section>

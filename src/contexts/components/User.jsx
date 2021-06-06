@@ -39,7 +39,7 @@ const User = (token) => {
 
 
     const addCart = async (product) => {
-        if (!isLogged) return alert("Please login to continue buying")
+        if (!isLogged) return toast("Iltimos avval ro'yxatdan o'ting")
 
         const check = cart.every(item => {
             return item._id !== product._id
@@ -54,12 +54,22 @@ const User = (token) => {
         }
     }
 
+    const removeCart = async (id) => {
+        cart.map((item, index) => {
+            if (item._id === id) {
+                cart.splice(index, 1)
+            }
+        })
+        setCart([...cart])
+    }
+
     return {
         isLogged, setIsLogged,
         isAdmin, setIsAdmin,
         userData, setUserData,
         cart, setCart,
-        addCart
+        addCart,
+        removeCart
     }
 }
 

@@ -7,7 +7,6 @@ import './homePageStyles.js'
 import { TabMenu, Carousel, CarBrand, Product, ProductBrand, Ads, Layout, FastBuyModal } from '../../../components/shared'
 import { ContextRoot } from '../../../contexts'
 import { useAdsQuery, useBrandsQuery, useCarsQuery, useProductsQuery } from '../../../hooks/queries'
-import SuccessCart from '../../../utils/Toasts/SuccessCart.jsx'
 
 export default function HomePage() {
     const classes = useHomePageStyles()

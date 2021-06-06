@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { useLoginStyles } from './loginPageStyles'
+import toast from 'react-hot-toast'
 
 import { InputLogin, CheckBox, ButtonComponent } from '../../../components/shared'
 import { useFormik } from 'formik';
@@ -30,6 +31,7 @@ export default function LoginPage() {
 
                         localStorage.setItem('token', res.data?.data['x-token'])
                         localStorage.setItem('userId', res.data?.data['_id'])
+                        toast.success(`tizimga muvaffaqiyatli kirdingiz`)
 
                         window.location.href = "/"
                     })

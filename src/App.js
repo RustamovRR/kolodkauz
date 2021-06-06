@@ -3,7 +3,7 @@ import { Route } from "react-router-dom";
 import routes from "./routes";
 import { ContextRoot } from "./contexts";
 import { LinearProgress } from '@material-ui/core'
-import { Toaster } from "react-hot-toast";
+import { Toaster,ToastBar } from "react-hot-toast";
 
 import "./App.css";
 

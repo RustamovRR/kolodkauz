@@ -54,7 +54,9 @@ export default function BasketPage() {
                                 {trans ? `Корзина` : `Xaridlar savati`}
                             </h1>
                             <div className={classes.basket_list}>
-                                {cartProducts.length !== 0 && (
+                                {cart.length == 0 ? (
+                                    <div>Savatda hech narsa yo'q</div>
+                                ) : (
                                     cartProducts.map((item) => (
                                         <BasketList key={item} data={item} />
                                     ))

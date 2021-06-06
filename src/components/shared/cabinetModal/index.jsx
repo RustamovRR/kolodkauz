@@ -25,6 +25,7 @@ export default function CabinetModal({ anchorEl, setAnchorEl }) {
 
     const handleLogout = () => {
         localStorage.removeItem('token')
+        localStorage.removeItem('cart')
         window.location.reload()
     }
 

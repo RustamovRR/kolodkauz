@@ -63,9 +63,11 @@ export default function ProductInfoPage() {
                 if (product._id === productId) setDetailProduct(product)
             })
         }
-        handleAddCart()
-        localStorage.setItem('cart', JSON.stringify(cart))
     }, [productId, productsData])
+
+    useEffect(() => {
+        localStorage.setItem('cart', JSON.stringify(cart))
+    }, [cart])
 
     const sortRu = [
         `Популярности`, `Рейтингу`, `Название (А-Я)`
@@ -75,9 +77,9 @@ export default function ProductInfoPage() {
         `Ommaboplik`, `Reyting`, `Nom (A-Z)`
     ]
 
-    const changeLike = async () => {
-        await request.patch('/users/changeCart', {})
-    }
+    // const changeLike = async () => {
+    //     await request.patch('/users/changeCart', {})
+    // }
 
     return (
         <Layout>

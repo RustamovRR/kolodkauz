@@ -99,18 +99,18 @@ export default function Header() {
                             <Link
                                 to='/basket'
                                 className={classes.link}
-                                onMouseEnter={() => {
-                                    setTimeout(() => {
-                                        handleOpen()
-                                    }, 200)
-                                }}
+                                // onMouseEnter={() => {
+                                //     setTimeout(() => {
+                                //         handleOpen()
+                                //     }, 200)
+                                // }}
                             >
                                 <BasketBlack />
                                 <p>
                                     {trans ? `Корзина` : `Xaridlar savati`}
                                 </p>
                             </Link>
-                            <BasketModal />
+                            {/* <BasketModal /> */}
                         </div>
                     </Hidden>
 

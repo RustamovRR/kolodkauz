@@ -15,7 +15,7 @@ export default function BasketPage() {
 
     const cartProducts = JSON.parse(localStorage.getItem('cart'))
     console.log(cartProducts)
-    
+
     const labelsRu = [
         `Контактный телефон`, `Ф.И.О`, `Область`, `Город / Район`, `Адрес`, `Индекс`
     ]

@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Button, IconButton } from "@material-ui/core";
+import toast from 'react-hot-toast';
 import { useProductStyles } from "./productStyles";
 
 import { CheckBox, ButtonYellow } from '../../shared'

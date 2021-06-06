@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import axios from 'axios'
+import toast from 'react-hot-toast';
 import { request } from '../../services/api'
 
 const User = (token) => {
@@ -7,7 +8,6 @@ const User = (token) => {
     const [isAdmin, setIsAdmin] = useState(false)
     const [userData, setUserData] = useState([])
     const [cart, setCart] = useState(JSON.parse(localStorage.getItem('cart')) || [])
-    const [history, setHistory] = useState([])
 
     const userId = localStorage.getItem('userId')
 
@@ -47,13 +47,10 @@ const User = (token) => {
 
         if (check) {
             setCart([...cart, product])
-
-            // await request.patch('/users/changeCart', { cart: [...cart, { ...product }] }, {
-            //     headers: { Authorization: token }
-            // })
+            toast.success(`Savatchaga muvaffaqiyatli qo'shildi`)
 
         } else {
-            alert("This product has been added to cart.")
+            toast.error(`Mahsulot allaqachon savatga qo'shilgan`)
         }
     }
 

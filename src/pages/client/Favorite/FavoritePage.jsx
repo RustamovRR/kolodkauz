@@ -7,12 +7,13 @@ import { ContextRoot } from '../../../contexts'
 
 export default function FavoritePage() {
     const classes = useFavoriteStyles()
-    const { trans, productsData } = useContext(ContextRoot)
 
-    // function handleClick(event) {
-    //     event.preventDefault();
-    //     console.info('You clicked a breadcrumb.');
-    // }
+    const state = useContext(ContextRoot)
+    const { trans } = useContext(ContextRoot)
+    const { userFavorite, removeFavorite } = state.user
+
+    const favoriteProducts = JSON.parse(localStorage.getItem('userFavorite'))
+    console.log(removeFavorite)
 
     return (
         <Layout>
@@ -45,14 +46,14 @@ export default function FavoritePage() {
 
                         <div className={classes.product_box}>
                             {
-                                {/* productsData?.map((item) => (
+                                favoriteProducts?.map((item) => (
                                     <Product
                                         key={item._id}
                                         id={item._id}
                                         data={item}
                                         favorite
                                     />
-                                )) */}
+                                ))
                             }
                         </div>
                     </section>

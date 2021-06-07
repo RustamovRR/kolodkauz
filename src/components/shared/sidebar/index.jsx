@@ -20,6 +20,9 @@ export default function Sidebar() {
         sale, setSale,
         page, setPage,
         price, setPrice } = state.product
+            // history.push(`?brand=${state.sum}`)
+        console.warn("histo", history)
+        console.warn("state", state)
 
     const num1 = String(price[0]).replace(/(?<!\..*)(\d)(?=(?:\d{3})+(?:\.|$))/g, '$1,')
     const num2 = String(price[1]).replace(/(?<!\..*)(\d)(?=(?:\d{3})+(?:\.|$))/g, '$1,')

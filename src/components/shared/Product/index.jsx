@@ -22,7 +22,7 @@ export default function Product({
 
     const state = useContext(ContextRoot)
     const { sum, trans } = useContext(ContextRoot)
-    const { userData, addCart, cart } = state.user
+    const { userData, addCart, cart, removeCart, addFavorite, userFavorite, removeFavorite } = state.user
     const { productsData } = state.product
     const { addToFavoriteCart, openFastBuyModal, setOpenFastBuyModal } = state.variables
     const productId = data?._id
@@ -48,12 +48,22 @@ export default function Product({
 
     useEffect(() => {
         localStorage.setItem('cart', JSON.stringify(cart))
-    }, [cart])
+        localStorage.setItem('userFavorite', JSON.stringify(userFavorite))
+    }, [cart, userFavorite])
+
+    // useEffect(() => {
+    // }, [userFavorite])
 
     const handleAddCart = () => {
         addCart(detailProduct)
     }
 
+    const handleFavorite = () => {
+        setShowFavorite(!showFavorite)
+        showFavorite
+            ? removeFavorite(data?._id)
+            : addFavorite(detailProduct)
+    }
     return (
         <div className={classes.product_root}>
             <Link
@@ -115,7 +125,10 @@ export default function Product({
 
             {
                 favorite && <section className={classes.icon_box} >
-                    <IconButton size="small" onClick={handleClick}>
+                    <IconButton
+                        size="small"
+                        onClick={handleFavorite}
+                    >
                         {showFavorite
                             ? <FavoriteBlack />
                             : <HeartDarkBlue />

@@ -57,7 +57,7 @@ export default function BasketPage() {
                                 {cart.length == 0 ? (
                                     <div>Savatda hech narsa yo'q</div>
                                 ) : (
-                                    cartProducts.map((item) => (
+                                    cartProducts?.map((item) => (
                                         <BasketList key={item} data={item} />
                                     ))
                                 )}

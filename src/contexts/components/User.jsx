@@ -8,12 +8,17 @@ const User = (token) => {
     const [isAdmin, setIsAdmin] = useState(false)
     const [userData, setUserData] = useState([])
     const [cart, setCart] = useState(JSON.parse(localStorage.getItem('cart')) || [])
+    const [userFavorite, setUserFavorite] = useState(JSON.parse(localStorage.getItem('userFavorite')) || [])
 
     const userId = localStorage.getItem('userId')
 
     useEffect(() => {
         localStorage.setItem('cart', JSON.stringify(cart))
     }, [cart])
+
+    useEffect(() => {
+        localStorage.setItem('userFavorite', JSON.stringify(userFavorite))
+    }, [userFavorite])
 
     useEffect(() => {
         if (token) {
@@ -37,7 +42,7 @@ const User = (token) => {
     }, [token, userId])
 
 
-
+    //********************************* */ User cart functions**************************************//
     const addCart = async (product) => {
         if (!isLogged) return toast("Iltimos avval ro'yxatdan o'ting")
 
@@ -63,13 +68,37 @@ const User = (token) => {
         setCart([...cart])
     }
 
+    // *************************User userFavorite functions******************************************//
+    const addFavorite = async (product) => {
+        if (!isLogged) return toast("Iltimos avval ro'yxatdan o'ting")
+
+        const check = userFavorite.every(item => {
+            return item._id !== product._id
+        })
+
+        if (check) {
+            setUserFavorite([...userFavorite, product])
+            toast.success(`Tanlanganlarga qo'shildi`)
+        }
+    }
+
+    const removeFavorite = async (id) => {
+        userFavorite.map((item, index) => {
+            if (item._id === id) {
+                userFavorite.splice(index, 1)
+            }
+        })
+        setUserFavorite([...userFavorite])
+    }
+
     return {
         isLogged, setIsLogged,
         isAdmin, setIsAdmin,
         userData, setUserData,
         cart, setCart,
-        addCart,
-        removeCart
+        userFavorite, setUserFavorite,
+        addCart, removeCart,
+        addFavorite, removeFavorite
     }
 }
 

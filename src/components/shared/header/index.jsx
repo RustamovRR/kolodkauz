@@ -17,6 +17,7 @@ export default function Header() {
 
     const { trans, setTrans } = useContext(ContextRoot)
     const { openBasket, setOpenBasket } = state.variables
+    const { cart, userFavorite } = state.user
     const { countState, countDispatch } = state.count
 
     const handleCabinet = (event) => {
@@ -83,7 +84,11 @@ export default function Header() {
                                     )
                             }
                             <Link to='/favorite' className={classes.link}>
-                                <Badge color="primary" badgeContent={countState} invisible={countState < 1 ? true : false}>
+                                <Badge
+                                    color="primary"
+                                    badgeContent={userFavorite.length}
+                                    invisible={userFavorite.length == 0}
+                                >
                                     <FavoriteBlack />
                                 </Badge>
                                 <p>
@@ -99,13 +104,14 @@ export default function Header() {
                             <Link
                                 to='/basket'
                                 className={classes.link}
-                                // onMouseEnter={() => {
-                                //     setTimeout(() => {
-                                //         handleOpen()
-                                //     }, 200)
-                                // }}
                             >
-                                <BasketBlack />
+                                <Badge
+                                    color="primary"
+                                    badgeContent={cart.length}
+                                    invisible={cart.length == 0}
+                                >
+                                    <BasketBlack />
+                                </Badge>
                                 <p>
                                     {trans ? `Корзина` : `Xaridlar savati`}
                                 </p>

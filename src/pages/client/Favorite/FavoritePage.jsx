@@ -52,6 +52,7 @@ export default function FavoritePage() {
                                         id={item._id}
                                         data={item}
                                         favorite
+                                        favoritePage
                                     />
                                 ))
                             }

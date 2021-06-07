@@ -13,6 +13,7 @@ import { BASE_URL } from "../../../services/api";
 export default function Product({
     data,
     favorite,
+    favoritePage,
     compare,
     homePage,
 }) {
@@ -29,12 +30,22 @@ export default function Product({
 
     // const productsQuery = useProductsQuery({ page: 0 })
 
-    const handleClick = () => {
+    const handleClickOpenModal = () => {
+        setOpenFastBuyModal(true)
+    }
+
+    const changeFavorite = () => {
         setShowFavorite(!showFavorite)
     }
 
-    const handleClickOpenModal = () => {
-        setOpenFastBuyModal(true)
+    const handleAddCart = () => {
+        addCart(detailProduct)
+    }
+
+    const handleFavorite = () => {
+        showFavorite
+            ? removeFavorite(data?._id)
+            : addFavorite(detailProduct)
     }
 
     useEffect(() => {
@@ -51,19 +62,6 @@ export default function Product({
         localStorage.setItem('userFavorite', JSON.stringify(userFavorite))
     }, [cart, userFavorite])
 
-    // useEffect(() => {
-    // }, [userFavorite])
-
-    const handleAddCart = () => {
-        addCart(detailProduct)
-    }
-
-    const handleFavorite = () => {
-        setShowFavorite(!showFavorite)
-        showFavorite
-            ? removeFavorite(data?._id)
-            : addFavorite(detailProduct)
-    }
     return (
         <div className={classes.product_root}>
             <Link
@@ -127,12 +125,25 @@ export default function Product({
                 favorite && <section className={classes.icon_box} >
                     <IconButton
                         size="small"
-                        onClick={handleFavorite}
+                        onClick={() => {
+                            changeFavorite()
+                            handleFavorite()
+                        }}
                     >
                         {showFavorite
                             ? <FavoriteBlack />
                             : <HeartDarkBlue />
                         }
+                    </IconButton>
+                </section>
+            }
+            {
+                favoritePage && <section className={classes.icon_box} >
+                    <IconButton
+                        size="small"
+                        onClick={() => removeFavorite(data?._id)}
+                    >
+                        <FavoriteBlack />
                     </IconButton>
                 </section>
             }

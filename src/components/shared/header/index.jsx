@@ -17,8 +17,7 @@ export default function Header() {
 
     const { trans, setTrans } = useContext(ContextRoot)
     const { openBasket, setOpenBasket } = state.variables
-    const { cart, userFavorite } = state.user
-    const { countState, countDispatch } = state.count
+    const { cart, userFavorite, compare } = state.user
 
     const handleCabinet = (event) => {
         setAnchorEl(event.currentTarget);
@@ -83,6 +82,7 @@ export default function Header() {
                                         </Link>
                                     )
                             }
+
                             <Link to='/favorite' className={classes.link}>
                                 <Badge
                                     color="primary"
@@ -95,12 +95,20 @@ export default function Header() {
                                     {trans ? `Избранные` : `Sevimlilar`}
                                 </p>
                             </Link>
+
                             <Link to='/compare' className={classes.link}>
-                                <CompareBlack />
+                                <Badge
+                                    color="primary"
+                                    badgeContent={compare.length}
+                                    invisible={compare.length == 0}
+                                >
+                                    <CompareBlack />
+                                </Badge>
                                 <p>
                                     {trans ? `Сравнение` : `Taqqoslash`}
                                 </p>
                             </Link>
+
                             <Link
                                 to='/basket'
                                 className={classes.link}

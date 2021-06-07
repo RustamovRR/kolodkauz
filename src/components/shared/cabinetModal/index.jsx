@@ -13,7 +13,7 @@ export default function CabinetModal({ anchorEl, setAnchorEl }) {
     const state = useContext(ContextRoot)
     const { trans, setTrans } = useContext(ContextRoot)
     const { userData } = state.user
-    console.log(userData)
+    // console.log(userData)
 
     const handleClose = () => {
         setAnchorEl(false);

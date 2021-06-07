@@ -12,9 +12,12 @@ import { AntTabs, AntTab } from '../../../components/shared/tabmenu/tabMenuStyle
 
 export default function ComparePage() {
     const classes = useComparePageStyles()
-    const { trans } = useContext(ContextRoot)
     const [controlSlide, setControlSlide] = useState()
-    const [value, setValue] = useState(0);
+    const [value, setValue] = useState(0)
+
+    const state = useContext(ContextRoot)
+    const { trans } = useContext(ContextRoot)
+    const { compare } = state.user
 
     const onNext = () => {
         controlSlide?.slideNext();
@@ -102,7 +105,7 @@ export default function ComparePage() {
                             }}
                         >
                             {
-                                [1, 2, 3, 4, 5, 6, 7, 8, 9].map((item, index) => (
+                               compare?.map((item, index) => (
                                     <SwiperSlide className={classes.swiper_slide} key={item} >
                                         <ProductCompare primary={index === 0 ? true : false} />
                                     </SwiperSlide>

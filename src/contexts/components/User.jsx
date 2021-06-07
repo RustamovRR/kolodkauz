@@ -9,6 +9,7 @@ const User = (token) => {
     const [userData, setUserData] = useState([])
     const [cart, setCart] = useState(JSON.parse(localStorage.getItem('cart')) || [])
     const [userFavorite, setUserFavorite] = useState(JSON.parse(localStorage.getItem('userFavorite')) || [])
+    const [compare, setCompare] = useState(JSON.parse(localStorage.getItem('compare')) || [])
 
     const userId = localStorage.getItem('userId')
 
@@ -21,11 +22,14 @@ const User = (token) => {
     }, [userFavorite])
 
     useEffect(() => {
+        localStorage.setItem('compare', JSON.stringify(compare))
+    }, [compare])
+
+    useEffect(() => {
         if (token) {
             const getUser = async () => {
                 try {
                     const res = await request.get(`/users/${userId}`)
-                    console.log(res)
 
                     setIsLogged(true)
                     res.data?.data['role'] === 'admin' ? setIsAdmin(true) : setIsAdmin(false)
@@ -91,14 +95,40 @@ const User = (token) => {
         setUserFavorite([...userFavorite])
     }
 
+
+    // *************************User Comparison functions******************************************//
+    const addCompare = async (product) => {
+        if (!isLogged) return toast("Iltimos avval ro'yxatdan o'ting")
+
+        const check = compare.every(item => {
+            return item._id !== product._id
+        })
+
+        if (check) {
+            setCompare([...compare, product])
+            toast.success(`Taqqoslash uchun qo'shildi`)
+        }
+    }
+
+    const removeCompare = async (id) => {
+        compare.map((item, index) => {
+            if (item._id === id) {
+                compare.splice(index, 1)
+            }
+        })
+        setCompare([...compare])
+    }
+
     return {
         isLogged, setIsLogged,
         isAdmin, setIsAdmin,
         userData, setUserData,
         cart, setCart,
         userFavorite, setUserFavorite,
+        compare, setCompare,
         addCart, removeCart,
-        addFavorite, removeFavorite
+        addFavorite, removeFavorite,
+        addCompare, removeCompare
     }
 }
 

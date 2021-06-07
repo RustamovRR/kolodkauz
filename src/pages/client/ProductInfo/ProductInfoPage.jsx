@@ -6,7 +6,7 @@ import { useProductInfoPageStyles } from './productInfoStyles'
 import { clr } from '../../../constants/colors'
 import { Layout, RatingComp, CheckBox, Description, ButtonComponent, SimilarProduct } from '../../../components/shared'
 
-import { LeftGreyArrow, FavoriteBlack, CompareBlack, CompareBlackOutline, HeartOutlineBlack } from '../../../assets/images/icons'
+import { LeftGreyArrow, FavoriteBlack, CompareBlack, CompareBlackOutline, HeartDarkBlue } from '../../../assets/images/icons'
 import castrolImg from '../../../assets/images/brands/castrol.png'
 import { ContextRoot } from '../../../contexts'
 // import { request } from '../../../services/api'
@@ -23,8 +23,13 @@ export default function ProductInfoPage() {
 
     const context = useContext(ContextRoot)
     const { trans, sum } = useContext(ContextRoot)
-    const { userData, addCart, cart } = context.user
     const { productsData } = context.product
+    const {
+        userData,
+        cart, addCart,
+        userFavorite, addFavorite, removeFavorite,
+        compare, addCompare, removeCompare
+    } = context.user
 
     const productQuery = useProductQuery({ id: state })
     const data = productQuery.isSuccess && productQuery.data?.data ? productQuery.data?.data : []
@@ -43,14 +48,34 @@ export default function ProductInfoPage() {
     // const productCount = productRating?.count ? productRating?.count : 10
     const productOverall = productRating?.overall ? productRating?.overall : 10
 
-    console.log(cart)
 
-    const handleFavorite = () => {
+  // ******************************** Favorite functions ************************************//
+    const handleAddCart = () => {
+        addCart(detailProduct)
+    }
+
+    // ******************************** Favorite functions ************************************//
+    const changeFavorite = () => {
         setShowFavorite(!showFavorite)
     }
-    const handleCompare = () => {
+
+    const handleFavorite = () => {
+        showFavorite
+            ? removeFavorite(productId)
+            : addFavorite(detailProduct)
+    }
+
+    // ******************************** Comparison functions ************************************//
+    const changeCompare = () => {
         setShowCompare(!showCompare)
     }
+
+    const handleCompare = () => {
+        showCompare
+            ? removeCompare(productId)
+            : addCompare(detailProduct)
+    }
+
 
     useEffect(() => {
         if (productId) {
@@ -63,11 +88,9 @@ export default function ProductInfoPage() {
 
     useEffect(() => {
         localStorage.setItem('cart', JSON.stringify(cart))
-    }, [cart])
-
-    const handleAddCart = () => {
-        addCart(detailProduct)
-    }
+        localStorage.setItem('userFavorite', JSON.stringify(userFavorite))
+        // localStorage.setItem('compare', JSON.stringify(compare))
+    }, [cart, userFavorite, compare])
 
     const sortRu = [
         `Популярности`, `Рейтингу`, `Название (А-Я)`
@@ -143,18 +166,30 @@ export default function ProductInfoPage() {
                                                 onClick={handleAddCart}
                                             />
                                         </div>
-                                        <IconButton onClick={handleFavorite}>
+                                        <IconButton
+                                            onClick={() => {
+                                                changeFavorite()
+                                                handleFavorite()
+                                            }}
+                                        >
                                             {showFavorite
                                                 ? <FavoriteBlack />
-                                                : <HeartOutlineBlack />
+                                                : <HeartDarkBlue />
                                             }
                                         </IconButton>
-                                        <IconButton onClick={handleCompare}>
+
+                                        <IconButton
+                                            onClick={() => {
+                                                changeCompare()
+                                                handleCompare()
+                                            }}
+                                        >
                                             {showCompare
                                                 ? <CompareBlack />
                                                 : <CompareBlackOutline />
                                             }
                                         </IconButton>
+
                                     </div>
                                 </div>
                             </section>

@@ -15,7 +15,7 @@ export default function Product({
     favorite,
     favoritePage,
     compare,
-    homePage,
+    homePage
 }) {
     const classes = useProductStyles();
     const [showFavorite, setShowFavorite] = useState(false)
@@ -23,7 +23,7 @@ export default function Product({
 
     const state = useContext(ContextRoot)
     const { sum, trans } = useContext(ContextRoot)
-    const { userData, addCart, cart, removeCart, addFavorite, userFavorite, removeFavorite } = state.user
+    const { userData, addCart, cart, addFavorite, removeFavorite, userFavorite } = state.user
     const { productsData } = state.product
     const { addToFavoriteCart, openFastBuyModal, setOpenFastBuyModal } = state.variables
     const productId = data?._id

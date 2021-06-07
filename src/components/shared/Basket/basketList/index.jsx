@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { IconButton } from '@material-ui/core'
 import { Close } from '@material-ui/icons'
 import { Rating } from '@material-ui/lab'
@@ -14,7 +14,7 @@ export default function BasketList({ data }) {
     const classes = useBasketListStyles()
     const state = useContext(ContextRoot)
     const { sum, trans } = useContext(ContextRoot)
-    const { removeCart } = state.user
+    const { cart, removeCart } = state.user
 
     return (
         <div className={classes.root}>

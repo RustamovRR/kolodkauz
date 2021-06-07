@@ -13,9 +13,6 @@ export default function BasketPage() {
     const { trans } = useContext(ContextRoot)
     const { cart } = state.user
 
-    const cartProducts = JSON.parse(localStorage.getItem('cart'))
-    console.log(cartProducts)
-
     const labelsRu = [
         `Контактный телефон`, `Ф.И.О`, `Область`, `Город / Район`, `Адрес`, `Индекс`
     ]
@@ -57,7 +54,7 @@ export default function BasketPage() {
                                 {cart.length == 0 ? (
                                     <div>Savatda hech narsa yo'q</div>
                                 ) : (
-                                    cartProducts?.map((item) => (
+                                    cart?.map((item) => (
                                         <BasketList key={item} data={item} />
                                     ))
                                 )}

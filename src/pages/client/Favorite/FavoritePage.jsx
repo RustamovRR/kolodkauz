@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { Grid } from '@material-ui/core'
 import { useFavoriteStyles } from './FavoriteStyles'
 
@@ -10,10 +10,7 @@ export default function FavoritePage() {
 
     const state = useContext(ContextRoot)
     const { trans } = useContext(ContextRoot)
-    const { userFavorite, removeFavorite } = state.user
-
-    const favoriteProducts = JSON.parse(localStorage.getItem('userFavorite'))
-    console.log(removeFavorite)
+    const { userFavorite } = state.user
 
     return (
         <Layout>
@@ -46,7 +43,7 @@ export default function FavoritePage() {
 
                         <div className={classes.product_box}>
                             {
-                                favoriteProducts?.map((item) => (
+                                userFavorite?.map((item) => (
                                     <Product
                                         key={item._id}
                                         id={item._id}

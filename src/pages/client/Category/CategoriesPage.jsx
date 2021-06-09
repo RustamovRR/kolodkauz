@@ -1,4 +1,4 @@
-import React, { useContext, useState, } from 'react'
+import React, { useContext, useEffect, useState, } from 'react'
 import { Grid, Hidden } from '@material-ui/core'
 import { useCategoryPageStyles } from './categoryPageStyles'
 
@@ -13,11 +13,11 @@ export default function CategoriesPage({ medium, small }) {
     const classes = useCategoryPageStyles()
     const { search } = useLocation()
     const [open, setOpen] = useState(false)
-    const [count, setCount] = useState(5)
+    const [count, setCount] = useState(0)
 
     const state = useContext(ContextRoot)
     const { trans } = useContext(ContextRoot)
-    const { brand, model, sort, sale, page, setPage, price, productsData } = state.product
+    const { brand, model, sort, sale, page, setPage, price, productsData, allProduct } = state.product
 
     // const products = useProductsQuery({ page, brand, model, sort, sale, price })
     // const productsQuery = products.isSuccess && products.data?.data ? products.data?.data : []
@@ -34,7 +34,16 @@ export default function CategoriesPage({ medium, small }) {
         setPage(value === 0 ? value = 0 : value - 1)
     }
 
-    // console.log(productsData)
+    const productLength = allProduct.data?.length
+
+    useEffect(() => {
+        if (productLength <= 20) {
+            setCount(1)
+        } else {
+            setCount(() => Math.ceil(55 / 20))
+        }
+    }, [])
+
 
     return (
         <Layout>

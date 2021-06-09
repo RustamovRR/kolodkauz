@@ -4,6 +4,7 @@ import { ContextRoot } from '../Context'
 
 const Product = () => {
     const [productsData, setProductsData] = useState([])
+    const [allProduct, setAllProduct] = useState([])
     const [sort, setSort] = useState()
     const [brand, setBrand] = useState()
     const [model, setModel] = useState()
@@ -24,8 +25,16 @@ const Product = () => {
             }
         })
             .then((res) => setProductsData(res.data))
-
     }
+
+    const getAllProducts = async () => {
+        await request.get('/products/all')
+            .then(res => setAllProduct(res.data))
+    }
+
+    useEffect(() => {
+        getAllProducts()
+    }, [])
 
     useEffect(() => {
         fetchProducts()
@@ -35,6 +44,7 @@ const Product = () => {
         productsData,
         setProductsData,
         fetchProducts,
+        allProduct,
         sort, setSort,
         brand, setBrand,
         model, setModel,

@@ -45,7 +45,7 @@ export const useSearchStyles = makeStyles({
         position: 'absolute',
         zIndex: 1000,
         width: 668,
-        height: 1000,
+        height: '55vh',
         overflowY: 'scroll',
         '& img': {
             width: 50,
@@ -69,9 +69,12 @@ export const useSearchStyles = makeStyles({
         height: '50vh',
     },
 
-
+    link: {
+        textDecoration: 'none ',
+        color: 'unset'
+    },
 
     listItemText: {
-        marginLeft: 20
+        marginLeft: 20,
     }
 });

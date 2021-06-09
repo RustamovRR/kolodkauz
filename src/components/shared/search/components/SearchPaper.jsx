@@ -6,30 +6,32 @@ import cn from 'classnames'
 
 import balon from '../../../../assets/images/products/karcher.png'
 import { Link } from 'react-router-dom'
+import { BASE_URL } from '../../../../services/api'
 
-const SearchPaper = ({ classes, text, data }) => {
-    console.log(data?.data.length)
-    const classNames = cn(
-        data?.data.length === 0 || undefined ? classes.emptySearchPaper : classes.searchPaperRoot
-    )
+const SearchPaper = ({ classes, text, data, visible, setVisible }) => {
+    console.log(data)
 
     return (
-        <Paper className={classNames}>
-            <List component="nav" className={classes.list}>
-                {data?.data.map((item) => (
-                    <ListItem button>
-                        <ListItemAvatar>
-                            <img src={item?.image} alt="" />
-                        </ListItemAvatar>
-                        <ListItemText
-                            className={classes.listItemText}
-                            primary={item?.uz?.title}
-                            secondary={item?.price}
+        <>
+            <Link
+                to={{ pathname: `/product/${data?.slug}`, state: data?._id }}
+                className={classes.link}
+            >
+                <ListItem button>
+                    <ListItemAvatar>
+                        <img
+                            src={`${BASE_URL}/${data?.image}`}
+                            alt=""
                         />
-                    </ListItem>
-                ))}
-            </List>
-        </Paper>
+                    </ListItemAvatar>
+                    <ListItemText
+                        className={classes.listItemText}
+                        primary={data?.uz?.title}
+                        secondary={`${data?.price} so'm`}
+                    />
+                </ListItem>
+            </Link>
+        </>
     )
 }
 

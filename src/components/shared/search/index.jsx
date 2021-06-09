@@ -6,6 +6,7 @@ import IconButton from '@material-ui/core/IconButton';
 import { Button, Divider } from '@material-ui/core';
 import { List, ListItem, ListItemIcon, ListItemText } from '@material-ui/core'
 import { useSearchStyles } from './searchStyles';
+import cn from 'classnames'
 
 import { SearchIcon } from '../../../assets/images/icons'
 import { ContextRoot } from '../../../contexts';
@@ -16,12 +17,19 @@ export default function Search() {
     const classes = useSearchStyles()
     const { trans, setTrans } = useContext(ContextRoot)
 
+    const [visible, setVisible] = useState(true)
     const [text, setText] = useState("");
     const [debouncedText, setDebouncedText] = useState("");
 
     useDebounce(() => text && setDebouncedText(text), 300, [text]);
 
     const searchQuery = useSearchQuery({ search_text: debouncedText });
+    const data = searchQuery.data?.data
+
+    const classNames = cn(
+        data?.data.length === 0 || undefined ? classes.emptySearchPaper : classes.searchPaperRoot
+    )
+
 
     return (
         <>
@@ -35,13 +43,27 @@ export default function Search() {
                         onChange={useCallback((e) => setText(e.target.value), [])}
                         placeholder={trans ? `Найдите нужный предмет` : `Kerakli mahsulotni qidirish`}
                     />
-                    <Button type="submit" aria-label="search" className={classes.button}>
+                    <Button className={classes.button}>
                         Найти
                     </Button>
                 </Paper>
                 {
                     text && (
-                        <SearchPaper classes={classes} text={text} data={searchQuery.data?.data} />
+                        <>
+                            <Paper className={classNames}>
+                                <List component="div" className={classes.list}>
+                                    {data?.data.map((item) => (
+                                        <SearchPaper
+                                            text={text}
+                                            classes={classes}
+                                            data={item}
+                                            visible={visible}
+                                            setVisible={setVisible}
+                                        />
+                                    ))}
+                                </List>
+                            </Paper>
+                        </>
                     )
                 }
             </div>

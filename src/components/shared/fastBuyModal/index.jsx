@@ -1,24 +1,54 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { Dialog, DialogActions, DialogContent, DialogTitle, IconButton, Typography } from '@material-ui/core'
 
 import { ContextRoot } from '../../../contexts'
 import { RatingComp, CheckBox, ProductBrand, ButtonComponent } from '../../../components/shared'
-import { Close, FavoriteBlack } from '../../../assets/images/icons'
+import { Close, FavoriteBlack, HeartDarkBlue } from '../../../assets/images/icons'
 import oilImg from '../../../assets/images/products/oil.png'
 import { useFastBuyModalStyles } from './fastBuyModalStyles'
+import { BASE_URL } from '../../../services/api'
 
-export default function FastBuyModal() {
+export default function FastBuyModal({ data }) {
     const classes = useFastBuyModalStyles()
+    const [detailProduct, setDetailProduct] = useState([])
+    const [showFavorite, setShowFavorite] = useState(false)
 
     const state = useContext(ContextRoot)
     const { trans, sum } = useContext(ContextRoot)
     const { openFastBuyModal, setOpenFastBuyModal } = state.variables
+    const { productsData } = state.product
+    const { userFavorite, addFavorite, removeFavorite } = state.user
+
+    const productId = data?._id
 
     const handleClickCloseModal = () => {
         setOpenFastBuyModal(false)
     }
 
+    // ******************************** Favorite functions ************************************//
+    const changeFavorite = () => {
+        setShowFavorite(!showFavorite)
+    }
+
+    const handleFavorite = () => {
+        showFavorite
+            ? removeFavorite(productId)
+            : addFavorite(detailProduct)
+    }
+
+    useEffect(() => {
+        if (productId) {
+
+            productsData.data?.forEach(product => {
+                if (product._id === productId) setDetailProduct(product)
+            })
+        }
+    }, [productId, productsData])
+
+    useEffect(() => {
+        localStorage.setItem('userFavorite', JSON.stringify(userFavorite))
+    }, [userFavorite])
 
     return (
         <Dialog
@@ -31,15 +61,24 @@ export default function FastBuyModal() {
             <main className={classes.card_box}>
                 <section className={classes.text_box}>
                     <div>
-                        <h1>Castrol/Автомобильная масло</h1>
+                        <h1>{trans ? data?.ru.title : data?.uz.title}</h1>
+
                         <div className={classes.secondary_box}>
-                            <p className={classes.artikul}>Артикул: 123277394</p>
+                            <p className={classes.artikul}>Артикул: {data?.artikul}</p>
                             <RatingComp value={5} />
-                            <p className={classes.review}> 2339 отзывов</p>
-                            <IconButton size="small" className={classes.icon}>
-                                <FavoriteBlack />
+                            <p className={classes.review}> {data?.rating.overall} отзывов</p>
+                            <IconButton
+                                className={classes.icon}
+                                onClick={() => {
+                                    changeFavorite()
+                                    handleFavorite()
+                                }}
+                            >
+                                {showFavorite
+                                    ? <FavoriteBlack />
+                                    : <HeartDarkBlue />
+                                }
                             </IconButton>
-                            <p className={classes.favorite}>В избранное</p>
                         </div>
                     </div>
 
@@ -50,13 +89,16 @@ export default function FastBuyModal() {
 
                 <section className={classes.content_box}>
                     <section className={classes.image_box}>
-                        <img src={oilImg} alt="" />
+                        <img
+                            src={`${BASE_URL}/${data?.image}`}
+                            alt={data?.uz.description}
+                        />
                     </section>
 
                     <section className={classes.right_box}>
                         <div className={classes.price}>
-                            <h2>{`7,850,000 ${sum}`}</h2>
-                            <p>{`9,876,000 ${sum}`}</p>
+                            <h2>{`${data?.price} ${sum}`}</h2>
+                            <p>{`${data?.discount} ${sum}`}</p>
                         </div>
 
                         <div className={classes.checkbox}>
@@ -78,7 +120,7 @@ export default function FastBuyModal() {
                 </section>
 
                 <section className={classes.link}>
-                    <Link> Больше информации о товаре</Link>
+                    <Link to={{ pathname: `product/${data?.slug}`, state: data?._id }}> Больше информации о товаре</Link>
                 </section>
             </main>
 

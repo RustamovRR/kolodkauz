@@ -9,6 +9,7 @@ const Product = () => {
     const [model, setModel] = useState()
     const [page, setPage] = useState(0)
     const [sale, setSale] = useState()
+    const [productId, setProductId] = useState()
     const [price, setPrice] = useState([0, 10000000])
 
     const fetchProducts = async () => {
@@ -39,6 +40,7 @@ const Product = () => {
         model, setModel,
         sale, setSale,
         page, setPage,
+        productId, setProductId,
         price, setPrice,
     }
 }

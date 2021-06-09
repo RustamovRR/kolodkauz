@@ -6,7 +6,7 @@ import { useProductStyles } from "./productStyles";
 import { CheckBox, ButtonYellow } from '../../shared'
 import { ContextRoot } from "../../../contexts";
 import { FavoriteGreyOutline, FavoriteBlack, HeartDarkBlue } from '../../../assets/images/icons'
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import ButtonComponent from "../ButtonComponent";
 import { BASE_URL } from "../../../services/api";
 
@@ -20,17 +20,20 @@ export default function Product({
     const classes = useProductStyles();
     const [showFavorite, setShowFavorite] = useState(false)
     const [detailProduct, setDetailProduct] = useState([])
+    const params = useParams()
 
     const state = useContext(ContextRoot)
     const { sum, trans } = useContext(ContextRoot)
     const { userData, addCart, cart, addFavorite, removeFavorite, userFavorite } = state.user
-    const { productsData } = state.product
+    const { productsData, productId, setProductId } = state.product
     const { addToFavoriteCart, openFastBuyModal, setOpenFastBuyModal } = state.variables
-    const productId = data?._id
+    const productDataId = data?._id
 
     // const productsQuery = useProductsQuery({ page: 0 })
+    console.log(params)
 
     const handleClickOpenModal = () => {
+        setProductId(productDataId)
         setOpenFastBuyModal(true)
     }
 
@@ -49,13 +52,13 @@ export default function Product({
     }
 
     useEffect(() => {
-        if (productId) {
+        if (productDataId) {
 
             productsData.data?.forEach(product => {
-                if (product._id === productId) setDetailProduct(product)
+                if (product._id === productDataId) setDetailProduct(product)
             })
         }
-    }, [productId, productsData])
+    }, [productDataId, productsData])
 
     useEffect(() => {
         localStorage.setItem('cart', JSON.stringify(cart))

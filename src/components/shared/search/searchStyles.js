@@ -2,6 +2,9 @@ import { makeStyles } from "@material-ui/core/styles";
 import { clr } from "../../../constants/colors";
 
 export const useSearchStyles = makeStyles({
+    root: {
+        position: 'relative !important',
+    },
     search_root: {
         width: 668,
         height: 48,
@@ -19,7 +22,7 @@ export const useSearchStyles = makeStyles({
     input: {
         width: '92%',
         color: clr.white,
-        fontWeight: 'light'
+        fontWeight: 'light',
     },
     button: {
         width: 96,
@@ -36,5 +39,39 @@ export const useSearchStyles = makeStyles({
     divider: {
         marginLeft: 12,
         marginRight: 8
+    },
+
+    searchPaperRoot: {
+        position: 'absolute',
+        zIndex: 1000,
+        width: 668,
+        height: 1000,
+        overflowY: 'scroll',
+        '& img': {
+            width: 50,
+            height: 50
+        }
+    },
+
+    emptySearchPaper: {
+        position: 'absolute',
+        zIndex: 1000,
+        width: 668,
+        height: 100,
+        overflowY: 'hidden',
+        '& img': {
+            width: 50,
+            height: 50
+        }
+    },
+
+    list: {
+        height: '50vh',
+    },
+
+
+
+    listItemText: {
+        marginLeft: 20
     }
 });

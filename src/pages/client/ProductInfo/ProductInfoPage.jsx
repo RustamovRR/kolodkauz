@@ -17,6 +17,7 @@ export default function ProductInfoPage() {
     const classes = useProductInfoPageStyles()
     const [showFavorite, setShowFavorite] = useState(false)
     const [showCompare, setShowCompare] = useState(false)
+    const [similarData, setSimilarData] = useState([])
     const [detailProduct, setDetailProduct] = useState([])
     const { goBack } = useHistory()
     const { state } = useLocation()
@@ -40,6 +41,7 @@ export default function ProductInfoPage() {
     const productQuantity = data.data?.quantity
     const productArtikul = data.data?.artikul
     const productId = data.data?._id
+    const productType = data.data?.type
 
     const productUz = data.data?.uz
     const productRu = data.data?.ru
@@ -49,7 +51,7 @@ export default function ProductInfoPage() {
     const productOverall = productRating?.overall ? productRating?.overall : 10
 
 
-  // ******************************** Favorite functions ************************************//
+    // ******************************** Favorite functions ************************************//
     const handleAddCart = () => {
         addCart(detailProduct)
     }
@@ -79,7 +81,6 @@ export default function ProductInfoPage() {
 
     useEffect(() => {
         if (productId) {
-
             productsData.data?.forEach(product => {
                 if (product._id === productId) setDetailProduct(product)
             })
@@ -89,8 +90,18 @@ export default function ProductInfoPage() {
     useEffect(() => {
         localStorage.setItem('cart', JSON.stringify(cart))
         localStorage.setItem('userFavorite', JSON.stringify(userFavorite))
-        // localStorage.setItem('compare', JSON.stringify(compare))
+        localStorage.setItem('compare', JSON.stringify(compare))
     }, [cart, userFavorite, compare])
+
+    useEffect(() => {
+        if (productType) {
+            productsData.data?.forEach(product => {
+                if (product.type === productType) setSimilarData(product)
+            })
+        }
+    }, [productType, productsData])
+
+    console.log(similarData)
 
     const sortRu = [
         `Популярности`, `Рейтингу`, `Название (А-Я)`
@@ -99,10 +110,6 @@ export default function ProductInfoPage() {
     const sortUz = [
         `Ommaboplik`, `Reyting`, `Nom (A-Z)`
     ]
-
-    // const changeLike = async () => {
-    //     await request.patch('/users/changeCart', {})
-    // }
 
     return (
         <Layout>
@@ -213,6 +220,7 @@ export default function ProductInfoPage() {
                     <h1>
                         {trans ? `Похожие товары` : `O'xshash mahsulotlar`}
                     </h1>
+                    {similarData.data?.map((item) => console.log(item))}
                     <SimilarProduct />
                 </section>
 

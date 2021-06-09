@@ -6,25 +6,27 @@ import './homePageStyles.js'
 
 import { TabMenu, Carousel, CarBrand, Product, ProductBrand, Ads, Layout, FastBuyModal } from '../../../components/shared'
 import { ContextRoot } from '../../../contexts'
-import { useAdsQuery, useBrandsQuery, useCarsQuery, useProductsQuery } from '../../../hooks/queries'
+import { useAdsQuery, useBrandsQuery, useCarsQuery, useProductQuery, useProductsQuery } from '../../../hooks/queries'
 
 export default function HomePage() {
     const classes = useHomePageStyles()
     const state = useContext(ContextRoot)
     const { trans, token } = useContext(ContextRoot)
     const { userData, isAdmin, isLogged, cart } = state.user
-    const { productsData } = state.product
+    const { productsData, productId } = state.product
 
     const products = useProductsQuery({ page: 0 })
     const brands = useBrandsQuery()
     const ads = useAdsQuery()
     const cars = useCarsQuery()
+    const productDataById = useProductQuery({ id: productId })
 
     const productsQuery = products.isSuccess ? products.data?.data : []
+    const productDataByIdQuery = productDataById.isSuccess ? productDataById.data?.data : []
     const brandsQuery = brands.isSuccess ? brands.data?.data : []
     const adsQuery = ads.isSuccess ? ads.data?.data : []
     const carsQuery = cars.isSuccess ? cars.data?.data : []
-    // console.log(productsQuery)
+    console.log(productDataByIdQuery)
 
 
     return (
@@ -57,7 +59,7 @@ export default function HomePage() {
                         </h1>
                     </div>
 
-                    <FastBuyModal />
+                    <FastBuyModal data={productDataByIdQuery?.data} />
 
                     <Grid className={classes.bestSeller_box}>
                         {

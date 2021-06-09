@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Product } from '../../../shared'
 import { useSimilarProductStyles } from './similarProductStyles';
 
-export default function SImilarProduct() {
+export default function SImilarProduct({ similarProduct }) {
     const classes = useSimilarProductStyles()
 
     return (

@@ -8,12 +8,12 @@ import balon from '../../../../assets/images/products/karcher.png'
 import { Link } from 'react-router-dom'
 import { BASE_URL } from '../../../../services/api'
 
-const SearchPaper = ({ classes, text, data, visible, setVisible }) => {
-    console.log(data)
+const SearchPaper = ({ classes, data, onClick }) => {
 
     return (
         <>
             <Link
+                onClick={onClick}
                 to={{ pathname: `/product/${data?.slug}`, state: data?._id }}
                 className={classes.link}
             >

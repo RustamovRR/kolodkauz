@@ -29,7 +29,7 @@ export default function InfoSidebar() {
                             activeClassName={classes.active}
                             to={path}
                         >
-                            {trans ? titleRu : titleUz}
+                            {trans == 'ru' ? titleRu : titleUz}
                         </NavLink>
                     ))
                 }

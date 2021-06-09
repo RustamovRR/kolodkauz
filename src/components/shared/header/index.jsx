@@ -37,16 +37,16 @@ export default function Header() {
                 <Hidden xsDown>
                     <div className={classes.services}>
                         <Link to="/categories">
-                            {trans ? `Скидки` : `Chegirmalar`}
+                            {trans == 'ru' ? `Скидки` : `Chegirmalar`}
                         </Link>
                         <Link to="/fast_delivery">
-                            {trans ? `Доставка` : `Yetkazib berish`}
+                            {trans == 'ru' ? `Доставка` : `Yetkazib berish`}
                         </Link>
                         <Link to="/product_info">
-                            {trans ? `Услуга мастера` : `Usta xizmati`}
+                            {trans == 'ru' ? `Услуга мастера` : `Usta xizmati`}
                         </Link>
                         <Link to="/info">
-                            {trans ? `Гарантия` : `Kafolat`}
+                            {trans == 'ru' ? `Гарантия` : `Kafolat`}
                         </Link>
                     </div>
                 </Hidden>
@@ -68,7 +68,7 @@ export default function Header() {
                                             >
                                                 <LoginBlack />
                                                 <p>
-                                                    {trans ? `Кабинет` : `Kabinet`}
+                                                    {trans == 'ru' ? `Кабинет` : `Kabinet`}
                                                 </p>
                                             </div>
                                             <CabinetModal anchorEl={anchorEl} setAnchorEl={setAnchorEl} />
@@ -77,7 +77,7 @@ export default function Header() {
                                         <Link to='/login' className={classes.link}>
                                             <LoginBlack />
                                             <p>
-                                                {trans ? `Войти` : `Kirish`}
+                                                {trans == 'ru' ? `Войти` : `Kirish`}
                                             </p>
                                         </Link>
                                     )
@@ -92,7 +92,7 @@ export default function Header() {
                                     <FavoriteBlack />
                                 </Badge>
                                 <p>
-                                    {trans ? `Избранные` : `Sevimlilar`}
+                                    {trans == 'ru' ? `Избранные` : `Sevimlilar`}
                                 </p>
                             </Link>
 
@@ -105,7 +105,7 @@ export default function Header() {
                                     <CompareBlack />
                                 </Badge>
                                 <p>
-                                    {trans ? `Сравнение` : `Taqqoslash`}
+                                    {trans == 'ru' ? `Сравнение` : `Taqqoslash`}
                                 </p>
                             </Link>
 
@@ -121,7 +121,7 @@ export default function Header() {
                                     <BasketBlack />
                                 </Badge>
                                 <p>
-                                    {trans ? `Корзина` : `Xaridlar savati`}
+                                    {trans == 'ru' ? `Корзина` : `Xaridlar savati`}
                                 </p>
                             </Link>
                             {/* <BasketModal /> */}

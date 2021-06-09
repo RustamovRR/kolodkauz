@@ -49,16 +49,15 @@ export default function Sidebar() {
         { title: `70% va undan yuqori`, value: '70' }
     ]
 
-    console.log(sale)
 
     return (
         <div className={classes.root}>
             <p className={classes.filter}>
-                {trans ? `Филтер` : `Filtr`}
+                {trans == 'ru' ? `Филтер` : `Filtr`}
             </p>
             <section className={classes.brands_box}>
                 <h4>
-                    {trans ? `Бренд` : `Brend`}
+                    {trans == 'ru' ? `Бренд` : `Brend`}
                 </h4>
                 {
                     brands.map(item => (
@@ -78,7 +77,7 @@ export default function Sidebar() {
 
             <section className={classes.models_box}>
                 <h4>
-                    {trans ? `Марка / модель машины` : `Marka / mashina modeli`}
+                    {trans == 'ru' ? `Марка / модель машины` : `Marka / mashina modeli`}
                 </h4>
                 {
                     models.map(item => (
@@ -98,7 +97,7 @@ export default function Sidebar() {
 
             <section className={classes.range_box}>
                 <h4>
-                    {trans ? `Цена` : `Narx`} &nbsp;
+                    {trans == 'ru' ? `Цена` : `Narx`} &nbsp;
                     <span>({sum})</span>
                 </h4>
                 <Slider
@@ -135,12 +134,12 @@ export default function Sidebar() {
 
             <section className={classes.discount_box}>
                 <h4>
-                    {trans ? `Скидка` : `Chegirma`}
+                    {trans == 'ru' ? `Скидка` : `Chegirma`}
                 </h4>
 
                 <RadioGroup value={sale} onChange={(e) => setSale(e.target.value)}>
                     {
-                        (trans ? radiosRu : radiosUz).map((item) => (
+                        (trans == 'ru' ? radiosRu : radiosUz).map((item) => (
                             <FormControlLabel
                                 key={item.title}
                                 value={item.value}

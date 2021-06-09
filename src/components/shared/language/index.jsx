@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -20,12 +20,16 @@ export default function Language() {
     }
 
     const handleRu = () => {
-        setTrans(true)
+        setTrans('ru')
     }
 
     const handleUz = () => {
-        setTrans(false)
+        setTrans('uz')
     }
+
+    useEffect(() => {
+        localStorage.setItem('lang', trans)
+    }, [trans])
 
     return (
         <div className={classes.language_root}>
@@ -34,7 +38,7 @@ export default function Language() {
                 size="small"
                 endIcon={<ExpandMore />}
             >
-                {trans ? ` RUS` : `UZ`}
+                {trans == 'ru' ? ` RUS` : `UZ`}
             </Button>
             <Menu
                 className={classes.menu}

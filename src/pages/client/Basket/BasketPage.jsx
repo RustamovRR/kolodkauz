@@ -48,7 +48,7 @@ export default function BasketPage() {
                             />
 
                             <h1>
-                                {trans ? `Корзина` : `Xaridlar savati`}
+                                {trans == 'ru' ? `Корзина` : `Xaridlar savati`}
                             </h1>
                             <div className={classes.basket_list}>
                                 {cart.length == 0 ? (
@@ -68,7 +68,7 @@ export default function BasketPage() {
 
                     <section className={classes.billing_box}>
                         <h1>
-                            {trans ? `Информация биллинга` : `To'lov ma'lumotlari`}
+                            {trans == 'ru' ? `Информация биллинга` : `To'lov ma'lumotlari`}
                         </h1>
                         <p>
                             {
@@ -79,7 +79,7 @@ export default function BasketPage() {
                         </p>
                         <section className={classes.input_box}>
                             {
-                                (trans ? labelsRu : labelsUz).map((label, index) => (
+                                (trans == 'ru' ? labelsRu : labelsUz).map((label, index) => (
                                     <div className={classes.input_label} key={label}>
                                         <label htmlFor={label}>{label}</label>
                                         <div className={classes.input}>

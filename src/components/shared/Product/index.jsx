@@ -30,7 +30,7 @@ export default function Product({
     const productDataId = data?._id
 
     // const productsQuery = useProductsQuery({ page: 0 })
-    console.log(params)
+
 
     const handleClickOpenModal = () => {
         setProductId(productDataId)
@@ -111,7 +111,7 @@ export default function Product({
             <section style={{ display: 'flex', alignItems: 'center' }}>
                 <div className={classes.button}>
                     <ButtonYellow
-                        title={trans ? `В корзину` : `Savatga qo'shish`}
+                        title={trans == 'ru' ? `В корзину` : `Savatga qo'shish`}
                         onClick={handleAddCart}
                     />
                 </div>

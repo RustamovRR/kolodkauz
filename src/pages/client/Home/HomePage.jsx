@@ -55,7 +55,7 @@ export default function HomePage() {
 
                     <div className={classes.bestSeller}>
                         <h1 className={classes.bestSeller_title}>
-                            {trans ? `Хиты продаж` : `Eng ko'p sotilgan mahsulotlar`}
+                            {trans == 'ru' ? `Хиты продаж` : `Eng ko'p sotilgan mahsulotlar`}
                         </h1>
                     </div>
 
@@ -80,7 +80,7 @@ export default function HomePage() {
 
                     <div className={classes.bestSeller}>
                         <h1 className={classes.bestSeller_title}>
-                            {trans ? `Хиты продаж` : `Eng ko'p sotilgan mahsulotlar`}
+                            {trans == 'ru' ? `Хиты продаж` : `Eng ko'p sotilgan mahsulotlar`}
                         </h1>
                     </div>
                     <section className={classes.bestSeller_box}>
@@ -98,10 +98,10 @@ export default function HomePage() {
 
                     <div className={classes.brands_box}>
                         <h1 className={classes.bestSeller_title}>
-                            {trans ? `Популярные бренды` : `Mashhur brendlar`}
+                            {trans == 'ru' ? `Популярные бренды` : `Mashhur brendlar`}
                         </h1>
                         <Link>
-                            {trans ? `Все бренды` : `Barcha brendlar`}
+                            {trans == 'ru' ? `Все бренды` : `Barcha brendlar`}
                         </Link>
                     </div>
                     <section className={classes.productBrand_box}>

@@ -53,7 +53,7 @@ export default function ProductMedium({ data }) {
                     </div>
                     <div className={classes.button}>
                         <ButtonYellow
-                            title={trans ? `Быстрый заказ` : `Tezkor buyurtma`}
+                            title={trans == 'ru' ? `Быстрый заказ` : `Tezkor buyurtma`}
                         />
                     </div>
                 </div>

@@ -23,7 +23,7 @@ export default function TabMenu() {
                 <div className={openTabList ? classes.tabmenu : classes.borderedTabmenu}>
                     <AntTabs value={value} onChange={handleChange}>
                         {
-                            (trans ? tabLinksRu : tabLinksUz).map((item, index) => (
+                            (trans == 'ru' ? tabLinksRu : tabLinksUz).map((item, index) => (
                                 <AntTab
                                     label={item}
                                     onClick={() => {

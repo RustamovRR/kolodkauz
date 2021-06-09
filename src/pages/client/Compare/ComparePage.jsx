@@ -64,7 +64,7 @@ export default function ComparePage() {
                     />
 
                     <h1>
-                        {trans ? `Сравнение` : `Taqqoslash`}
+                        {trans == 'ru' ? `Сравнение` : `Taqqoslash`}
                     </h1>
 
                     <div className={classes.compareTabContainer} >

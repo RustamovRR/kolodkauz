@@ -53,23 +53,23 @@ export default function TabList({ data }) {
     const renderHeader = () => {
         switch (activeTab) {
             case 0:
-                return trans ? `Марки автомобилей` : `Avtomobil markalari`
+                return trans == 'ru' ? `Марки автомобилей` : `Avtomobil markalari`
             case 1:
-                return trans ? `Ходовая часть` : `Shassi qismi`
+                return trans == 'ru' ? `Ходовая часть` : `Shassi qismi`
             case 2:
-                return trans ? `Моторная часть` : `Motor qismi`
+                return trans == 'ru' ? `Моторная часть` : `Motor qismi`
             case 3:
-                return trans ? `Запчасти ТО` : `Ehtiyot qismlar`
+                return trans == 'ru' ? `Запчасти ТО` : `Ehtiyot qismlar`
             case 4:
-                return trans ? `Кузов и оптика` : `Kuzov va optika`
+                return trans == 'ru' ? `Кузов и оптика` : `Kuzov va optika`
             case 5:
-                return trans ? `Аккумуляторы` : `Akkumulyatorlar`
+                return trans == 'ru' ? `Аккумуляторы` : `Akkumulyatorlar`
             case 6:
-                return trans ? `Шины` : `Shinalar`
+                return trans == 'ru' ? `Шины` : `Shinalar`
             case 7:
-                return trans ? `Масла и автохимия` : `Moy va avtokimyo`
+                return trans == 'ru' ? `Масла и автохимия` : `Moy va avtokimyo`
             case 8:
-                return trans ? `Автотовары` : `Avtomahsulotlar`
+                return trans == 'ru' ? `Автотовары` : `Avtomahsulotlar`
         }
     }
 
@@ -83,12 +83,12 @@ export default function TabList({ data }) {
                     {
                         renderList().map(({ field, titleUz, titleRu }, index) => (
                             <section className={classes.content} key={index} >
-                                <h3 className={classes.title}>{trans ? titleRu : titleUz}</h3>
+                                <h3 className={classes.title}>{trans == 'ru' ? titleRu : titleUz}</h3>
                                 <div>
                                     {
                                         field.map(({ valueUz, valueRu, link }, index) => (
                                             <div className={classes.link} key={index + 100} >
-                                                <Link to={{ pathname: link }}>{trans ? valueRu : valueUz}</Link>
+                                                <Link to={{ pathname: link }}>{trans == 'ru' ? valueRu : valueUz}</Link>
                                             </div>
                                         ))
                                     }

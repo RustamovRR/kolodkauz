@@ -61,7 +61,7 @@ export default function FastBuyModal({ data }) {
             <main className={classes.card_box}>
                 <section className={classes.text_box}>
                     <div>
-                        <h1>{trans ? data?.ru.title : data?.uz.title}</h1>
+                        <h1>{trans == 'ru' ? data?.ru.title : data?.uz.title}</h1>
 
                         <div className={classes.secondary_box}>
                             <p className={classes.artikul}>Артикул: {data?.artikul}</p>

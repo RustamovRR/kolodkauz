@@ -13,11 +13,12 @@ export default function Provider({ children }) {
 
     const [userId, setUserId] = useState(false)
     const [token, setToken] = useState(false)
-    const [trans, setTrans] = useState(false)
-    const sum = trans ? `сум` : `so'm`
+    const [trans, setTrans] = useState(localStorage.getItem('lang'))
+    const sum = trans == 'ru' ? `сум` : `so'm`
 
     const storageToken = localStorage.getItem('token')
     const storageUserId = localStorage.getItem('userId')
+    // const storageLang = localStorage.getItem('lang')
 
     useEffect(() => {
         setToken(storageToken)
@@ -26,6 +27,10 @@ export default function Provider({ children }) {
     useEffect(() => {
         setUserId(storageUserId)
     }, [storageUserId])
+
+    // useEffect(() => {
+    //     setTrans(storageLang)
+    // }, [storageLang])
 
     const state = {
         sum,

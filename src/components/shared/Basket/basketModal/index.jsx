@@ -47,10 +47,10 @@ export default function Basket() {
             >
                 <section className={classes.title}>
                     <h1>
-                        {trans ? `Корзинка` : `Xaridlar savati`}
+                        {trans == 'ru' ? `Корзинка` : `Xaridlar savati`}
                     </h1>
                     <Link className={classes.link} to="/basket">
-                        {trans ? `Посмотреть сумку` : `Xaridlar savatini ko'rish`}
+                        {trans == 'ru' ? `Посмотреть сумку` : `Xaridlar savatini ko'rish`}
                     </Link>
                     <IconButton className={classes.close} onClick={handleClose}>
                         <Close />
@@ -59,7 +59,7 @@ export default function Basket() {
 
                 <List className={classes.list}>
                     {
-                        (trans ? basketsRu : basketsUz).map(item => (
+                        (trans == 'ru' ? basketsRu : basketsUz).map(item => (
                             <div key={item.price}>
                                 <ListItem className={classes.list_item}>
                                     <ListItemAvatar className={classes.avatar}>
@@ -88,13 +88,13 @@ export default function Basket() {
 
                 <section className={classes.price_box}>
                     <h4>
-                        {trans ? `Итого:` : `Jami:`}
+                        {trans == 'ru' ? `Итого:` : `Jami:`}
                     </h4>
                     <p>{`21,678,400 ${sum}`}</p>
                 </section>
 
                 <div className={classes.button}>
-                    <ButtonComponent title={trans ? `Войти` : `Kirish`} />
+                    <ButtonComponent title={trans == 'ru' ? `Войти` : `Kirish`} />
                 </div>
             </Dialog>
         </div>

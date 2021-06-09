@@ -30,7 +30,7 @@ export default function BasketList({ data }) {
 
                 <section className={classes.text_box}>
                     <p>
-                        {trans ? data?.ru?.title : data?.uz?.title}
+                        {trans == 'ru' ? data?.ru?.title : data?.uz?.title}
                     </p>
                     <Rating defaultValue={4} size="small" />
                 </section>

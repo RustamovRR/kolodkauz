@@ -76,5 +76,11 @@ export const useSearchStyles = makeStyles({
 
     listItemText: {
         marginLeft: 20,
+    },
+
+    loader: {
+        position: 'absolute',
+        left: '50%',
+        top: '45%'
     }
 });

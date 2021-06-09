@@ -212,7 +212,9 @@ export default function ProductInfoPage() {
                     <h1>
                         {trans == 'ru' ? `Описание` : `Tavsif`}
                     </h1>
-                    <Description data={trans == 'ru' ? productRu?.characteristics : productUz?.characteristics} />
+                    <Description
+                        data={trans == 'ru' ? productRu?.characteristics : productUz?.characteristics}
+                    />
                 </section>
 
                 <section className={classes.similar_box}>

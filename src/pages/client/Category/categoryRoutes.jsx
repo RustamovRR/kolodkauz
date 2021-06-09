@@ -10,10 +10,6 @@ const routes = [
         component: CategoriesPage
     },
     {
-        path: "/categories",
-        component: CategoriesPage
-    },
-    {
         path: "/categories/medium",
         component: (() => <CategoriesPage medium />)
     },

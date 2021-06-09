@@ -120,7 +120,7 @@ export default function FastBuyModal({ data }) {
                 </section>
 
                 <section className={classes.link}>
-                    <Link to={{ pathname: `product/${data?.slug}`, state: data?._id }}> Больше информации о товаре</Link>
+                    <Link to={{ pathname: `/product/${data?.slug}`, state: data?._id }}> Больше информации о товаре</Link>
                 </section>
             </main>
 

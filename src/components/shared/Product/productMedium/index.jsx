@@ -1,23 +1,81 @@
-import React, { useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import { IconButton } from '@material-ui/core'
 import { useProductMediumStyles } from './productMediumStyles'
 
 import { ButtonYellow, RatingComp } from '../..';
 import { ContextRoot } from '../../../../contexts';
-import { FavoriteGreyOutline, CompareDisableOutline } from '../../../../assets/images/icons'
-import image1 from "../../../../assets/images/products/Rectangle 14.png";
+import { FavoriteBlack, HeartDarkBlue, CompareBlack, CompareBlackOutline } from '../../../../assets/images/icons'
+
+import { BASE_URL } from '../../../../services/api';
 
 export default function ProductMedium({ data }) {
     const classes = useProductMediumStyles()
-    const { trans, sum } = useContext(ContextRoot)
 
-    const url = `http://zap.uz`
+    const [showFavorite, setShowFavorite] = useState(false)
+    const [showCompare, setShowCompare] = useState(false)
+    const [detailProduct, setDetailProduct] = useState([])
+
+    const state = useContext(ContextRoot)
+    const { sum, trans } = useContext(ContextRoot)
+    const { productsData } = state.product
+    const {
+        cart, addCart,
+        userFavorite, addFavorite, removeFavorite,
+        compare, addCompare, removeCompare
+    } = state.user
+
+    const productId = data?._id
+
+    // ******************************** Favorite functions ************************************//
+    const handleAddCart = () => {
+        addCart(detailProduct)
+    }
+
+    // ******************************** Favorite functions ************************************//
+    const changeFavorite = () => {
+        setShowFavorite(!showFavorite)
+    }
+
+    const handleFavorite = () => {
+        showFavorite
+            ? removeFavorite(productId)
+            : addFavorite(detailProduct)
+    }
+
+    // ******************************** Comparison functions ************************************//
+    const changeCompare = () => {
+        setShowCompare(!showCompare)
+    }
+
+    const handleCompare = () => {
+        showCompare
+            ? removeCompare(productId)
+            : addCompare(detailProduct)
+    }
+
+
+    useEffect(() => {
+        if (productId) {
+            productsData.data?.forEach(product => {
+                if (product._id === productId) setDetailProduct(product)
+            })
+        }
+    }, [productId, productsData])
+
+    useEffect(() => {
+        localStorage.setItem('cart', JSON.stringify(cart))
+        localStorage.setItem('userFavorite', JSON.stringify(userFavorite))
+        localStorage.setItem('compare', JSON.stringify(compare))
+    }, [cart, userFavorite, compare])
+
+
+
     return (
         <div className={classes.root}>
             <section className={classes.card}>
                 <img
-                    src={`${url}/${data?.image}`}
-                    alt={data?.uz.description}
+                    src={`${BASE_URL}/${data?.image}`}
+                    alt={data?.uz?.description}
                 />
             </section>
 
@@ -26,21 +84,16 @@ export default function ProductMedium({ data }) {
                 <RatingComp value={4} />
                 <section className={classes.info}>
                     <div className={classes.left_text}>
-                        <p>Материал поршней:&nbsp;
-                            <span>нержавеющая сталь</span>
-                        </p>
-                        <p>Материал корпуса насоса:&nbsp;
-                            <span>алюминий; пластик</span>
-                        </p>
-                        <p>Система привода мойки:&nbsp;
-                            <span>аксиальный</span>
-                        </p>
-                        <p>Вес с упаковкой (кг):&nbsp;
-                            <span>15.08 кг</span>
-                        </p>
-                        <p>Давление максимальное:&nbsp;
-                            <span>145 бар</span>
-                        </p>
+                        {
+                            (trans == 'ru'
+                                ? data?.ru?.characteristics
+                                : data?.uz?.characteristics
+                            ).map((item) => (
+                                <p key={item.value}>{item.option}:&nbsp;
+                                    <span>{item.value}</span>
+                                </p>
+                            ))
+                        }
                     </div>
                 </section>
             </section>
@@ -54,20 +107,38 @@ export default function ProductMedium({ data }) {
                     <div className={classes.button}>
                         <ButtonYellow
                             title={trans == 'ru' ? `Быстрый заказ` : `Tezkor buyurtma`}
+                            onClick={handleAddCart}
                         />
                     </div>
                 </div>
 
                 <div className={classes.action_box}>
-                    <IconButton size="small">
-                        <FavoriteGreyOutline />
+                    <IconButton
+                        onClick={() => {
+                            changeFavorite()
+                            handleFavorite()
+                        }}
+                    >
+                        {showFavorite
+                            ? <FavoriteBlack />
+                            : <HeartDarkBlue />
+                        }
                     </IconButton>
-                    <IconButton size="small">
-                        <CompareDisableOutline />
+
+                    <IconButton
+                        onClick={() => {
+                            changeCompare()
+                            handleCompare()
+                        }}
+                    >
+                        {showCompare
+                            ? <CompareBlack />
+                            : <CompareBlackOutline />
+                        }
                     </IconButton>
                 </div>
             </section>
 
-        </div>
+        </div >
     )
 }

@@ -10,21 +10,20 @@ export default function Footer() {
     const { trans, setTrans } = useContext(ContextRoot)
 
     const infoRu = [
-        `Как сделать заказ`,
-        `Доставка и оплата`,
-        `Услуга мастера`,
-        `Возврат и обмен`,
-        `Пользовательское соглашение`,
-        `О компании`
+        { text: `Как сделать заказ`, href: `/info/how_to_order` },
+        { text: `Доставка и оплата`, href: `/info/delivery_to_apartment` },
+        { text: `Услуга мастера`, href: `/info/method_of_service` },
+        { text: `Возврат и обмен`, href: `/info/return_and_exchange` },
+        { text: `Пользовательское соглашение`, href: `/info/terms_of_use` },
+        { text: `О компании`, href: `/info/guaranty` },
     ]
-
     const infoUz = [
-        `Qanday buyurtma qilinadi`,
-        `Yetkazish va to'lov`,
-        `Usta xizmati`,
-        `Qaytarish va almashtirish`,
-        `Foydalanish shartlari`,
-        `Kompaniya haqida`
+        { text: `Qanday buyurtma qilinadi`, href: `/info/how_to_order` },
+        { text: `Yetkazish va to'lov`, href: `/info/delivery_to_apartment` },
+        { text: `Usta xizmati`, href: `/info/method_of_service` },
+        { text: `Qaytarish va almashtirish`, href: `/info/return_and_exchange` },
+        { text: `Foydalanish shartlari`, href: `/info/terms_of_use` },
+        { text: `Kompaniya haqida`, href: `/info/guaranty` },
     ]
 
     const partnersRu = [
@@ -57,11 +56,12 @@ export default function Footer() {
                         </h4>
                         {
                             (trans == 'ru' ? infoRu : infoUz).map((item) => (
-                                <Link to={item.href}
-                                    key={item}
+                                <Link
+                                    key={item.text}
+                                    to={item.href}
                                     className={classes.link}
                                 >
-                                    {item}
+                                    {item.text}
                                 </Link>
                             ))
                         }

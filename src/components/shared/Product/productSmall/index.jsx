@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { Rating } from '@material-ui/lab';
 import { IconButton } from '@material-ui/core';
 import { useProductSmallStyles } from './productSmallStyles';
@@ -6,12 +6,68 @@ import { useProductSmallStyles } from './productSmallStyles';
 import { ContextRoot } from '../../../../contexts';
 import { BASE_URL } from '../../../../services/api'
 import { Quantity, ButtonYellow } from '../..'
-import { FavoriteBlueOutline, CompareBlueOutline } from '../../../../assets/images/icons'
-import karcher from "../../../../assets/images/products/karcher.png";
+import { FavoriteBlack, HeartDarkBlue, CompareBlack, CompareBlackOutline } from '../../../../assets/images/icons'
 
 export default function ProductSmall({ data }) {
     const classes = useProductSmallStyles()
-    const { trans, sum } = useContext(ContextRoot)
+
+    const [showFavorite, setShowFavorite] = useState(false)
+    const [showCompare, setShowCompare] = useState(false)
+    const [detailProduct, setDetailProduct] = useState([])
+
+    const state = useContext(ContextRoot)
+    const { sum, trans } = useContext(ContextRoot)
+    const { productsData } = state.product
+    const {
+        cart, addCart,
+        userFavorite, addFavorite, removeFavorite,
+        compare, addCompare, removeCompare
+    } = state.user
+
+    const productId = data?._id
+
+    // ******************************** Favorite functions ************************************//
+    const handleAddCart = () => {
+        addCart(detailProduct)
+    }
+
+    // ******************************** Favorite functions ************************************//
+    const changeFavorite = () => {
+        setShowFavorite(!showFavorite)
+    }
+
+    const handleFavorite = () => {
+        showFavorite
+            ? removeFavorite(productId)
+            : addFavorite(detailProduct)
+    }
+
+    // ******************************** Comparison functions ************************************//
+    const changeCompare = () => {
+        setShowCompare(!showCompare)
+    }
+
+    const handleCompare = () => {
+        showCompare
+            ? removeCompare(productId)
+            : addCompare(detailProduct)
+    }
+
+
+    useEffect(() => {
+        if (productId) {
+            productsData.data?.forEach(product => {
+                if (product._id === productId) setDetailProduct(product)
+            })
+        }
+    }, [productId, productsData])
+
+    useEffect(() => {
+        localStorage.setItem('cart', JSON.stringify(cart))
+        localStorage.setItem('userFavorite', JSON.stringify(userFavorite))
+        localStorage.setItem('compare', JSON.stringify(compare))
+    }, [cart, userFavorite, compare])
+
     return (
         <div className={classes.root}>
             <section className={classes.image_box}>
@@ -40,18 +96,36 @@ export default function ProductSmall({ data }) {
 
                 <div className={classes.action_box}>
                     <div className={classes.fast_order}>
-                        <ButtonYellow title="Быстрый заказ" />
+                        <ButtonYellow
+                            onClick={handleAddCart}
+                            title={trans == 'ru' ? "Быстрый заказ" : "Tezkor buyurtma"}
+                        />
                     </div>
                     <div className={classes.buttons}>
-                        <IconButton>
-                            <FavoriteBlueOutline />
+                        <IconButton
+                            onClick={() => {
+                                changeFavorite()
+                                handleFavorite()
+                            }}
+                        >
+                            {showFavorite
+                                ? <FavoriteBlack />
+                                : <HeartDarkBlue />
+                            }
                         </IconButton>
-                        <IconButton>
-                            <CompareBlueOutline />
+
+                        <IconButton
+                            onClick={() => {
+                                changeCompare()
+                                handleCompare()
+                            }}
+                        >
+                            {showCompare
+                                ? <CompareBlack />
+                                : <CompareBlackOutline />
+                            }
                         </IconButton>
-                        <IconButton>
-                            <CompareBlueOutline />
-                        </IconButton>
+
                     </div>
                 </div>
             </section>

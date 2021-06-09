@@ -68,15 +68,12 @@ export default function Product({
     return (
         <div className={classes.product_root}>
             <Link
-                to={{ pathname: `product/${data?.slug}`, state: data?._id }}
+                to={{ pathname: `/product/${data?.slug}`, state: data?._id }}
                 className={classes.product_link}
-            // onMouseEnter={() => setShowFastBuyModal(true)}
-            // onMouseLeave={() => setShowFastBuyModal(false)}
             >
 
                 <section className={classes.card}>
                     <img
-                        // src={image1}
                         src={`${BASE_URL}/${data?.image}`}
                         alt={data?.uz?.description}
                     />
@@ -125,7 +122,8 @@ export default function Product({
             </section>
 
             {
-                favorite && <section className={classes.icon_box} >
+                favorite &&
+                <section className={classes.icon_box} >
                     <IconButton
                         size="small"
                         onClick={() => {

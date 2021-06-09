@@ -39,13 +39,13 @@ export default function Header() {
                         <Link to="/categories">
                             {trans == 'ru' ? `Скидки` : `Chegirmalar`}
                         </Link>
-                        <Link to="/fast_delivery">
+                        <Link to="/info/how_to_order">
                             {trans == 'ru' ? `Доставка` : `Yetkazib berish`}
                         </Link>
-                        <Link to="/product_info">
+                        <Link to="/info/method_of_service">
                             {trans == 'ru' ? `Услуга мастера` : `Usta xizmati`}
                         </Link>
-                        <Link to="/info">
+                        <Link to="/info/guaranty">
                             {trans == 'ru' ? `Гарантия` : `Kafolat`}
                         </Link>
                     </div>

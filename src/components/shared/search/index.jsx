@@ -29,7 +29,7 @@ export default function Search() {
     const data = searchQuery.data?.data
     const isLoading = searchQuery.isLoading
     
-    console.log(searchQuery)
+    // console.log(searchQuery)
 
 
     useEffect(() => {
@@ -59,7 +59,7 @@ export default function Search() {
                         className={classes.input}
                         onChange={useCallback((e) => setText(e.target.value), [])}
                         onClick={() => setVisible(true)}
-                        placeholder={trans == 'ru' ? `Найдите нужный предмет` : `Kerakli mahsulotni qidirish`}
+                        placeholder={trans === 'ru' ? `Найдите нужный предмет` : `Kerakli mahsulotni qidirish`}
                     />
                     <Button className={classes.button}>
                         Найти

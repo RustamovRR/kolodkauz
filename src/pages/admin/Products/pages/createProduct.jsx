@@ -7,6 +7,7 @@ import { request } from '../../../../services/api';
 import { useCarsQuery } from '../../../../hooks/queries';
 import { useFormik } from 'formik';
 import NestedMenuItem from "material-ui-nested-menu-item";
+import toast from 'react-hot-toast';
 
 export default function CreateProduct() {
     const classes = useProductsStyles()
@@ -15,7 +16,7 @@ export default function CreateProduct() {
 
     const state = useContext(ContextRoot)
     const { imageUrl, setImageUrl } = state.variables
-    
+
     const carsQuery = cars.isSuccess ? cars.data?.data.data : []
 
     const types = [
@@ -39,16 +40,22 @@ export default function CreateProduct() {
                 title: 'Castrol Edge Supercar TURBOMAX',
                 description: 'description uz',
                 characteristics: [
-                    { option: `sifati`, value: `a'lo` },
-                    { option: `kafolat`, value: `2 yil` }
+                    { option: `marka`, value: `Chevrolet` },
+                    { option: `dvigatel hajmi`, value: `1.6 | 80 kw | 109 hp | 07.2008 -` },
+                    { option: `model`, value: `R4 (COBALT) 10.2015` },
+                    { option: `davlat`, value: `xitoy` },
+                    { option: `kategoriya`, value: `granata` },
                 ]
             },
             ru: {
                 title: 'Автомобильная шина Hankook Tire Ventus Prime',
                 description: 'description ru',
                 characteristics: [
-                    { option: `kachestva`, value: 'xorosho' },
-                    { option: `garantiya`, value: '2 goda' }
+                    { option: `Марка`, value: `Chevrolet` },
+                    { option: `Объем двигателя`, value: `1.6 | 80 kw | 109 hp | 07.2008 -` },
+                    { option: `Модель`, value: `R4 (COBALT) 10.2015` },
+                    { option: `Страна`, value: `КИТАЙ` },
+                    { option: `Категория на сайте`, value: `Шрусы (гранаты)` },
                 ]
             },
             type: 'marka',
@@ -75,7 +82,7 @@ export default function CreateProduct() {
         onSubmit: (values) => {
             request.post('/products', values)
                 .then((res) => console.log(res.data))
-                .then((res) => alert('success post'))
+                .then((res) => toast.success('success created'))
         }
     })
 

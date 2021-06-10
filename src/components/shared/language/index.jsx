@@ -38,7 +38,7 @@ export default function Language() {
                 size="small"
                 endIcon={<ExpandMore />}
             >
-                {trans == 'ru' ? ` RUS` : `UZ`}
+                {trans === 'ru' ? ` RUS` : `UZ`}
             </Button>
             <Menu
                 className={classes.menu}

@@ -17,17 +17,17 @@ export default function BreadCrumbs({ items }) {
                     items.map(({ link, titleRu, titleUz }, key) => (
                         key === last ? (
                             <p >
-                                {trans == 'ru' ? titleRu : titleUz}
+                                {trans === 'ru' ? titleRu : titleUz}
                             </p>
                         ) : (
                             <Link to={link} className={classes.link}>
-                                {trans == 'ru' ? titleRu : titleUz}
+                                {trans === 'ru' ? titleRu : titleUz}
                             </Link>
                         )
                     ))
                 }
                 {/* <Link to="/" className={classes.link}>
-                    {trans == 'ru' ? `Автотовары` : `Avtotovarlar`}
+                    {trans === 'ru' ? `Автотовары` : `Avtotovarlar`}
                 </Link> */}
             </Breadcrumbs>
         </div>

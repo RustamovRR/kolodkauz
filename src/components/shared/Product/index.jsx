@@ -9,8 +9,10 @@ import { FavoriteGreyOutline, FavoriteBlack, HeartDarkBlue } from '../../../asse
 import { Link, useParams } from "react-router-dom";
 import ButtonComponent from "../ButtonComponent";
 import { BASE_URL } from "../../../services/api";
+import { useProductQuery } from "../../../hooks/queries";
 
 export default function Product({
+    id,
     data,
     favorite,
     favoritePage,
@@ -22,15 +24,15 @@ export default function Product({
     const [detailProduct, setDetailProduct] = useState([])
     const params = useParams()
 
-    const state = useContext(ContextRoot)
+    const context = useContext(ContextRoot)
     const { sum, trans } = useContext(ContextRoot)
-    const { userData, addCart, cart, addFavorite, removeFavorite, userFavorite } = state.user
-    const { productsData, productId, setProductId } = state.product
-    const { addToFavoriteCart, openFastBuyModal, setOpenFastBuyModal } = state.variables
+    const { userData, addCart, cart, addFavorite, removeFavorite, userFavorite } = context.user
+    const { productsData, productId, setProductId } = context.product
+    const { addToFavoriteCart, openFastBuyModal, setOpenFastBuyModal } = context.variables
+    
+    // const data = useProductQuery({ id: id })
+    
     const productDataId = data?._id
-
-    // const productsQuery = useProductsQuery({ page: 0 })
-
 
     const handleClickOpenModal = () => {
         setProductId(productDataId)
@@ -108,7 +110,7 @@ export default function Product({
             <section style={{ display: 'flex', alignItems: 'center' }}>
                 <div className={classes.button}>
                     <ButtonYellow
-                        title={trans == 'ru' ? `В корзину` : `Savatga qo'shish`}
+                        title={trans === 'ru' ? `В корзину` : `Savatga qo'shish`}
                         onClick={handleAddCart}
                     />
                 </div>

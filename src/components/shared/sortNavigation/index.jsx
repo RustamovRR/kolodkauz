@@ -33,7 +33,7 @@ export default function SortNavigation() {
             <Hidden xsDown >
                 <section className={classes.navigation}>
                     <p>
-                        {trans == 'ru' ? `Сортировать по:` : `Saralash:`}
+                        {trans === 'ru' ? `Сортировать по:` : `Saralash:`}
                     </p>
                     <div className={classes.buttons}>
                         {
@@ -54,7 +54,7 @@ export default function SortNavigation() {
             <Hidden smUp >
                 <div className={classes.select}>
                     <Select
-                        items={trans == 'ru' ? buttonsRu : buttonsUz}
+                        items={trans === 'ru' ? buttonsRu : buttonsUz}
                     />
                 </div>
             </Hidden>

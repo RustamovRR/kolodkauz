@@ -26,8 +26,8 @@ export default function HomePage() {
     const brandsQuery = brands.isSuccess ? brands.data?.data : []
     const adsQuery = ads.isSuccess ? ads.data?.data : []
     const carsQuery = cars.isSuccess ? cars.data?.data : []
-    console.log(productDataByIdQuery)
 
+    console.log(productsQuery.data)
 
     return (
         <Layout>
@@ -55,11 +55,11 @@ export default function HomePage() {
 
                     <div className={classes.bestSeller}>
                         <h1 className={classes.bestSeller_title}>
-                            {trans == 'ru' ? `Хиты продаж` : `Eng ko'p sotilgan mahsulotlar`}
+                            {trans === 'ru' ? `Хиты продаж` : `Eng ko'p sotilgan mahsulotlar`}
                         </h1>
                     </div>
 
-                    <FastBuyModal data={productDataByIdQuery?.data} />
+                    <FastBuyModal/>
 
                     <Grid className={classes.bestSeller_box}>
                         {
@@ -80,7 +80,7 @@ export default function HomePage() {
 
                     <div className={classes.bestSeller}>
                         <h1 className={classes.bestSeller_title}>
-                            {trans == 'ru' ? `Хиты продаж` : `Eng ko'p sotilgan mahsulotlar`}
+                            {trans === 'ru' ? `Хиты продаж` : `Eng ko'p sotilgan mahsulotlar`}
                         </h1>
                     </div>
                     <section className={classes.bestSeller_box}>
@@ -98,10 +98,10 @@ export default function HomePage() {
 
                     <div className={classes.brands_box}>
                         <h1 className={classes.bestSeller_title}>
-                            {trans == 'ru' ? `Популярные бренды` : `Mashhur brendlar`}
+                            {trans === 'ru' ? `Популярные бренды` : `Mashhur brendlar`}
                         </h1>
                         <Link>
-                            {trans == 'ru' ? `Все бренды` : `Barcha brendlar`}
+                            {trans === 'ru' ? `Все бренды` : `Barcha brendlar`}
                         </Link>
                     </div>
                     <section className={classes.productBrand_box}>

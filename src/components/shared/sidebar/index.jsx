@@ -53,11 +53,11 @@ export default function Sidebar() {
     return (
         <div className={classes.root}>
             <p className={classes.filter}>
-                {trans == 'ru' ? `Филтер` : `Filtr`}
+                {trans === 'ru' ? `Филтер` : `Filtr`}
             </p>
             <section className={classes.brands_box}>
                 <h4>
-                    {trans == 'ru' ? `Бренд` : `Brend`}
+                    {trans === 'ru' ? `Бренд` : `Brend`}
                 </h4>
                 {
                     brands.map(item => (
@@ -77,7 +77,7 @@ export default function Sidebar() {
 
             <section className={classes.models_box}>
                 <h4>
-                    {trans == 'ru' ? `Марка / модель машины` : `Marka / mashina modeli`}
+                    {trans === 'ru' ? `Марка / модель машины` : `Marka / mashina modeli`}
                 </h4>
                 {
                     models.map(item => (
@@ -97,7 +97,7 @@ export default function Sidebar() {
 
             <section className={classes.range_box}>
                 <h4>
-                    {trans == 'ru' ? `Цена` : `Narx`} &nbsp;
+                    {trans === 'ru' ? `Цена` : `Narx`} &nbsp;
                     <span>({sum})</span>
                 </h4>
                 <Slider
@@ -134,7 +134,7 @@ export default function Sidebar() {
 
             <section className={classes.discount_box}>
                 <h4>
-                    {trans == 'ru' ? `Скидка` : `Chegirma`}
+                    {trans === 'ru' ? `Скидка` : `Chegirma`}
                 </h4>
 
                 <RadioGroup value={sale} onChange={(e) => setSale(e.target.value)}>

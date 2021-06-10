@@ -50,6 +50,7 @@ export default function ProductInfoPage() {
     // const productCount = productRating?.count ? productRating?.count : 10
     const productOverall = productRating?.overall ? productRating?.overall : 10
 
+    console.log(productQuery)
 
     // ******************************** Favorite functions ************************************//
     const handleAddCart = () => {
@@ -126,7 +127,7 @@ export default function ProductInfoPage() {
                     </section>
 
                     <section className={classes.info_box}>
-                        <h1>{trans == 'ru' ? productRu?.title : productUz?.title}</h1>
+                        <h1>{trans === 'ru' ? productRu?.title : productUz?.title}</h1>
                         <div className={classes.secondary}>
                             <div>
                                 <p>Артикул:&nbsp;
@@ -141,7 +142,7 @@ export default function ProductInfoPage() {
                                     отзывов</p>
                             </div>
                             <div><p style={{ color: clr.dark900 }} >
-                                {trans == 'ru' ?
+                                {trans === 'ru' ?
                                     `Купили более ${productBuyCount} раз`
                                     : `${productBuyCount} martadan ortiq sotilgan`
                                 }
@@ -157,18 +158,18 @@ export default function ProductInfoPage() {
                             <section className={classes.inputs} >
                                 <div className={classes.checkbox}>
                                     <CheckBox
-                                        label={trans == 'ru' ? `Обратитесь к мастеру службы` : `Usta xizmati bilan`}
+                                        label={trans === 'ru' ? `Обратитесь к мастеру службы` : `Usta xizmati bilan`}
                                     />
                                 </div>
 
                                 <div className={classes.action_box}>
-                                    <ButtonComponent title={trans == 'ru' ? `Быстрый заказ` : `Tezkor buyurtma`} />
+                                    <ButtonComponent title={trans === 'ru' ? `Быстрый заказ` : `Tezkor buyurtma`} />
 
                                     <div className={classes.buttons}>
                                         <div className={classes.order_button}>
                                             <ButtonComponent
                                                 outlined
-                                                title={trans == 'ru' ? `Корзинка` : `Savatcha`}
+                                                title={trans === 'ru' ? `Корзинка` : `Savatcha`}
                                                 onClick={handleAddCart}
                                             />
                                         </div>
@@ -202,7 +203,7 @@ export default function ProductInfoPage() {
                         </section>
 
                         <p className={classes.text}>
-                            {trans == 'ru' ? `Обратитесь к мастеру службы` : `Usta xizmati bilan`}
+                            {trans === 'ru' ? `Обратитесь к мастеру службы` : `Usta xizmati bilan`}
                         </p>
                         <img src={castrolImg} alt="" className={classes.photo} />
                     </section>
@@ -210,16 +211,16 @@ export default function ProductInfoPage() {
 
                 <section className={classes.description_box}>
                     <h1>
-                        {trans == 'ru' ? `Описание` : `Tavsif`}
+                        {trans === 'ru' ? `Описание` : `Tavsif`}
                     </h1>
                     <Description
-                        data={trans == 'ru' ? productRu?.characteristics : productUz?.characteristics}
+                        data={trans === 'ru' ? productRu?.characteristics : productUz?.characteristics}
                     />
                 </section>
 
                 <section className={classes.similar_box}>
                     <h1>
-                        {trans == 'ru' ? `Похожие товары` : `O'xshash mahsulotlar`}
+                        {trans === 'ru' ? `Похожие товары` : `O'xshash mahsulotlar`}
                     </h1>
                     {similarData.data?.map((item) => console.log(item))}
                     <SimilarProduct />
@@ -227,18 +228,18 @@ export default function ProductInfoPage() {
 
                 <section className={classes.comment_box}>
                     <h1>
-                        {trans == 'ru' ? `Комментарий` : `Izoh`}
+                        {trans === 'ru' ? `Комментарий` : `Izoh`}
                     </h1>
                     <div className={classes.sign_button}>
-                        <ButtonComponent title={trans == 'ru' ? `Войти` : `Kirish`} />
+                        <ButtonComponent title={trans === 'ru' ? `Войти` : `Kirish`} />
                     </div>
 
                     <div className={classes.navigation}>
                         <p>
-                            {trans == 'ru' ? `Сортировать по:` : `Saralash turi:`}
+                            {trans === 'ru' ? `Сортировать по:` : `Saralash turi:`}
                         </p>
                         {
-                            trans == 'ru' ? sortRu : sortUz.map((item, index) => (
+                            trans === 'ru' ? sortRu : sortUz.map((item, index) => (
                                 <Link className={classes.links} key={item} >
                                     <Button>
                                         {item}
@@ -264,7 +265,7 @@ export default function ProductInfoPage() {
                     </div>
                     <div className={classes.expand}>
                         <Link>
-                            {trans == 'ru' ? `Развернуть` : `Kengaytirish`}
+                            {trans === 'ru' ? `Развернуть` : `Kengaytirish`}
                         </Link>
                     </div>
                 </section>

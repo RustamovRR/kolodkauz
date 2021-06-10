@@ -38,7 +38,7 @@ export default function FavoritePage() {
                         />
 
                         <h1>
-                            {trans == 'ru' ? `Избранные` : `Sevimlilar`}
+                            {trans === 'ru' ? `Избранные` : `Sevimlilar`}
                         </h1>
 
                         <div className={classes.product_box}>

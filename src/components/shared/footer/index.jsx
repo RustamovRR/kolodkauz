@@ -52,7 +52,7 @@ export default function Footer() {
                     {/* Information box///////////////////////////////////////////////// */}
                     <section className={classes.information_box}>
                         <h4>
-                            {trans == 'ru' ? `Информация` : `Ma'lumot`}
+                            {trans === 'ru' ? `Информация` : `Ma'lumot`}
                         </h4>
                         {
                             (trans == 'ru' ? infoRu : infoUz).map((item) => (
@@ -69,7 +69,7 @@ export default function Footer() {
 
                     <section className={classes.information_box}>
                         <h4>
-                            {trans == 'ru' ? `Партнерам` : `Hamkorlar uchun`}
+                            {trans === 'ru' ? `Партнерам` : `Hamkorlar uchun`}
                         </h4>
                         {
                             (trans == 'ru' ? partnersRu : partnersUz).map((item) => (
@@ -85,7 +85,7 @@ export default function Footer() {
 
                     <section className={classes.information_box}>
                         <h4>
-                            {trans == 'ru' ? `Мы в соцсетях` : `Biz ijtimoiy tarmoqlarda`}
+                            {trans === 'ru' ? `Мы в соцсетях` : `Biz ijtimoiy tarmoqlarda`}
                         </h4>
                         {
                             socials.map((item) => (
@@ -104,10 +104,10 @@ export default function Footer() {
                         {/* Domain informations///////////////////////////////////////////// */}
                         <section className={classes.zap_box}>
                             <p>
-                                {trans == 'ru' ? `Интернет магазин автозапчастей.` : `Avto ehtiyot qismlarning internet do'koni`}
+                                {trans === 'ru' ? `Интернет магазин автозапчастей.` : `Avto ehtiyot qismlarning internet do'koni`}
                             </p>
                             <p>
-                                {trans == 'ru' ? `Доставка по всему Узбекистану` : `O'zbekiston bo'ylab yetkazib berish`}
+                                {trans === 'ru' ? `Доставка по всему Узбекистану` : `O'zbekiston bo'ylab yetkazib berish`}
                             </p>
                         </section>
 
@@ -115,27 +115,27 @@ export default function Footer() {
                         <section className={classes.phone_box}>
                             <h4>+998 90 678 65 57</h4>
                             <p>
-                                {trans == 'ru' ? `для звонков по всему миру, стоимость` : `butun dunyo bo'ylab qo'ng'iroqlar uchun `}
+                                {trans === 'ru' ? `для звонков по всему миру, стоимость` : `butun dunyo bo'ylab qo'ng'iroqlar uchun `}
                             </p>
                             <p>
-                                {trans == 'ru' ? `звонка - по тарифам вашего` : `narx - sizning tariflaringiz bo'yicha`}
+                                {trans === 'ru' ? `звонка - по тарифам вашего` : `narx - sizning tariflaringiz bo'yicha`}
                             </p>
                         </section>
 
                         {/* Work box//////////////////////////////////////////////////////// */}
                         <section className={classes.work_box}>
                             <p>
-                                {trans == 'ru' ? `Время работа` : `Ish vaqti`}
+                                {trans === 'ru' ? `Время работа` : `Ish vaqti`}
                             </p>
                             <div>
                                 <h4>
-                                    {trans == 'ru' ? `Пн-Пт` : `Du-Ju`} &nbsp;&nbsp;
+                                    {trans === 'ru' ? `Пн-Пт` : `Du-Ju`} &nbsp;&nbsp;
                                     <span>9:00 - 20:00</span>
                                 </h4>
                             </div>
                             <div>
                                 <h4>
-                                    {trans == 'ru' ? `Сб-Вс` : `Sha-Ya`} &nbsp;&nbsp;
+                                    {trans === 'ru' ? `Сб-Вс` : `Sha-Ya`} &nbsp;&nbsp;
                                     <span>9:00 - 15:00</span>
                                 </h4>
                             </div>
@@ -148,7 +148,7 @@ export default function Footer() {
 
                 <section className={classes.license_box}>
                     <p>
-                        {trans == 'ru' ? `2016-2020 © ZAP. Все права защищены.` : `2016-2020 © ZAP. Barcha huquqlar himoyalangan.`}
+                        {trans === 'ru' ? `2016-2020 © ZAP. Все права защищены.` : `2016-2020 © ZAP. Barcha huquqlar himoyalangan.`}
                     </p>
                     <div className={classes.pay_box}>
                         <div>

@@ -12,6 +12,7 @@ import useProductsQuery from '../../../../hooks/queries/useProductsQuery';
 import { BASE_URL, request } from '../../../../services/api';
 import { Delete, Edit } from '@material-ui/icons';
 import { IconButton } from '@material-ui/core';
+import toast from 'react-hot-toast';
 
 
 const StyledTableCell = withStyles((theme) => ({
@@ -51,7 +52,7 @@ export default function PrductList() {
     const handleDelete = (e) => {
         request.delete(`/products/${e}`)
             .then((res) => console.log(res))
-            .then(() => alert('delete'))
+            .then(() => toast.success(`o'chirildi`))
     }
 
     return (
@@ -96,6 +97,6 @@ export default function PrductList() {
                     ))}
                 </TableBody>
             </Table>
-        </TableContainer >
+        </TableContainer>
     );
 }

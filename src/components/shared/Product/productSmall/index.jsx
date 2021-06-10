@@ -98,7 +98,7 @@ export default function ProductSmall({ data }) {
                     <div className={classes.fast_order}>
                         <ButtonYellow
                             onClick={handleAddCart}
-                            title={trans == 'ru' ? "Быстрый заказ" : "Tezkor buyurtma"}
+                            title={trans === 'ru' ? "Быстрый заказ" : "Tezkor buyurtma"}
                         />
                     </div>
                     <div className={classes.buttons}>

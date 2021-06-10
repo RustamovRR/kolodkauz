@@ -13,14 +13,14 @@ export default function BasketPay() {
         <Paper className={classes.paper} elevation={2} >
             <section className={classes.product}>
                 <p>
-                    {trans == 'ru' ? `Товары` : `Tovarlar`}
+                    {trans === 'ru' ? `Товары` : `Tovarlar`}
                 </p>
                 <p>{`7,850,000 ${sum}`}</p>
             </section>
 
             <section className={classes.product}>
                 <p>
-                    {trans == 'ru' ? `Мастер` : `Usta`}
+                    {trans === 'ru' ? `Мастер` : `Usta`}
                 </p>
                 <p>{`68,000 ${sum}`}</p>
             </section>
@@ -39,14 +39,14 @@ export default function BasketPay() {
 
             <section className={classes.total}>
                 <p>
-                    {trans == 'ru' ? `Итого:` : `Jami:`}
+                    {trans === 'ru' ? `Итого:` : `Jami:`}
                 </p>
                 <h4>{`8,678,400 ${sum}`}</h4>
             </section>
 
             <section className={classes.button}>
                 <ButtonComponent
-                    title={trans == 'ru' ? `Войти` : `Kirish`}
+                    title={trans === 'ru' ? `Войти` : `Kirish`}
                 />
             </section>
         </Paper>

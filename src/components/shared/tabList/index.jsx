@@ -10,7 +10,7 @@ import { marka, xodovoy, motor, zapchast, kuzov, akkumlator, shina, maslo, avtot
 
 export default function TabList({ data }) {
     const classes = useTabListStyles()
-    
+
     const state = useContext(ContextRoot)
     const { trans } = useContext(ContextRoot)
     const { activeTab, openTabList, setOpenTabList } = state.variables
@@ -53,23 +53,23 @@ export default function TabList({ data }) {
     const renderHeader = () => {
         switch (activeTab) {
             case 0:
-                return trans == 'ru' ? `Марки автомобилей` : `Avtomobil markalari`
+                return trans === 'ru' ? `Марки автомобилей` : `Avtomobil markalari`
             case 1:
-                return trans == 'ru' ? `Ходовая часть` : `Shassi qismi`
+                return trans === 'ru' ? `Ходовая часть` : `Shassi qismi`
             case 2:
-                return trans == 'ru' ? `Моторная часть` : `Motor qismi`
+                return trans === 'ru' ? `Моторная часть` : `Motor qismi`
             case 3:
-                return trans == 'ru' ? `Запчасти ТО` : `Ehtiyot qismlar`
+                return trans === 'ru' ? `Запчасти ТО` : `Ehtiyot qismlar`
             case 4:
-                return trans == 'ru' ? `Кузов и оптика` : `Kuzov va optika`
+                return trans === 'ru' ? `Кузов и оптика` : `Kuzov va optika`
             case 5:
-                return trans == 'ru' ? `Аккумуляторы` : `Akkumulyatorlar`
+                return trans === 'ru' ? `Аккумуляторы` : `Akkumulyatorlar`
             case 6:
-                return trans == 'ru' ? `Шины` : `Shinalar`
+                return trans === 'ru' ? `Шины` : `Shinalar`
             case 7:
-                return trans == 'ru' ? `Масла и автохимия` : `Moy va avtokimyo`
+                return trans === 'ru' ? `Масла и автохимия` : `Moy va avtokimyo`
             case 8:
-                return trans == 'ru' ? `Автотовары` : `Avtomahsulotlar`
+                return trans === 'ru' ? `Автотовары` : `Avtomahsulotlar`
         }
     }
 

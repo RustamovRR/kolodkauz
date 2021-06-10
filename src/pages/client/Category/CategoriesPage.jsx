@@ -75,7 +75,7 @@ export default function CategoriesPage({ medium, small }) {
                         />
 
                         <h1>
-                            {trans == 'ru' ? `Шины и Диски` : `Shinalar va disklar`}
+                            {trans === 'ru' ? `Шины и Диски` : `Shinalar va disklar`}
                         </h1>
                     </section>
 

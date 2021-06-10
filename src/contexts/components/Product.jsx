@@ -5,6 +5,7 @@ import { ContextRoot } from '../Context'
 const Product = () => {
     const [productsData, setProductsData] = useState([])
     const [allProduct, setAllProduct] = useState([])
+    const [productCount, setProductCount] = useState(1)
     const [sort, setSort] = useState()
     const [brand, setBrand] = useState()
     const [model, setModel] = useState()
@@ -45,6 +46,7 @@ const Product = () => {
         setProductsData,
         fetchProducts,
         allProduct,
+        productCount, setProductCount,
         sort, setSort,
         brand, setBrand,
         model, setModel,

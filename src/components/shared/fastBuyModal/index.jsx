@@ -8,6 +8,7 @@ import { Close, FavoriteBlack, HeartDarkBlue } from '../../../assets/images/icon
 import oilImg from '../../../assets/images/products/oil.png'
 import { useFastBuyModalStyles } from './fastBuyModalStyles'
 import { BASE_URL } from '../../../services/api'
+import { useProductQuery } from '../../../hooks/queries'
 
 export default function FastBuyModal({ data }) {
     const classes = useFastBuyModalStyles()
@@ -17,10 +18,11 @@ export default function FastBuyModal({ data }) {
     const state = useContext(ContextRoot)
     const { trans, sum } = useContext(ContextRoot)
     const { openFastBuyModal, setOpenFastBuyModal } = state.variables
-    const { productsData } = state.product
+    const { productsData, productId } = state.product
     const { userFavorite, addFavorite, removeFavorite } = state.user
 
-    const productId = data?._id
+    const productQuery = useProductQuery({ id: productId })
+    // console.log(productQuery?.data?.data)
 
     const handleClickCloseModal = () => {
         setOpenFastBuyModal(false)
@@ -61,7 +63,7 @@ export default function FastBuyModal({ data }) {
             <main className={classes.card_box}>
                 <section className={classes.text_box}>
                     <div>
-                        <h1>{trans == 'ru' ? data?.ru.title : data?.uz.title}</h1>
+                        <h1>{trans === 'ru' ? data?.ru.title : data?.uz.title}</h1>
 
                         <div className={classes.secondary_box}>
                             <p className={classes.artikul}>Артикул: {data?.artikul}</p>

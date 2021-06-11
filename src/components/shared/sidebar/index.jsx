@@ -5,24 +5,56 @@ import { useSidebarStyles } from './sidebarStyles'
 import { CheckBox } from '../../shared'
 import { ContextRoot } from '../../../contexts'
 import { EmptyRatio } from '../../../assets/images/icons'
-import { useHistory, useLocation } from 'react-router-dom'
+import { useHistory, useLocation, useParams } from 'react-router-dom'
 
 export default function Sidebar() {
     const classes = useSidebarStyles()
     const history = useHistory()
     const { search, pathname } = useLocation()
+    const params = useParams()
     const state = useContext(ContextRoot)
     const { trans, sum } = useContext(ContextRoot)
     const {
+        productsData,
         sort, setSort,
         brand, setBrand,
         model, setModel,
         sale, setSale,
         page, setPage,
         price, setPrice } = state.product
-            // history.push(`?brand=${state.sum}`)
-        console.warn("histo", history)
-        console.warn("state", state)
+    console.log(history.location)
+    console.log(brand)
+
+    const brandHistory = (e) => {
+        setBrand([...brand, e])
+        history.push
+            (
+                brand.length == 0
+                    ? `?brand=${e}`
+                    : `?brand=${e}&${brand.map((item, index) => `brand${index + 1}=${item}`)}`
+            )
+    }
+
+
+    const removeBrand = (e) => {
+        brand.map((item, index) => {
+            if (item == e) {
+                brand.splice(index, 1)
+
+                setBrand([...brand])
+            }
+        })
+    }
+
+    const modelHistory = (e) => {
+        setModel(e)
+        history.push(`?${brand}&model=${e}`)
+    }
+
+    const removeModel = (e) => {
+        setModel('')
+        history.push(`?${brand}&model=${e}`)
+    }
 
     const num1 = String(price[0]).replace(/(?<!\..*)(\d)(?=(?:\d{3})+(?:\.|$))/g, '$1,')
     const num2 = String(price[1]).replace(/(?<!\..*)(\d)(?=(?:\d{3})+(?:\.|$))/g, '$1,')
@@ -66,8 +98,8 @@ export default function Sidebar() {
                                 label={item}
                                 onChange={(e) =>
                                     e.target.checked
-                                        ? setBrand(item)
-                                        : setBrand('')
+                                        ? brandHistory(item)
+                                        : removeBrand(item)
                                 }
                             />
                         </div>
@@ -86,8 +118,8 @@ export default function Sidebar() {
                                 label={item}
                                 onChange={(e) =>
                                     e.target.checked
-                                        ? setModel(item)
-                                        : setModel('')
+                                        ? modelHistory(item)
+                                        : removeModel()
                                 }
                             />
                         </div>
@@ -155,6 +187,6 @@ export default function Sidebar() {
                     }
                 </RadioGroup>
             </section>
-        </div >
+        </div>
     )
 }

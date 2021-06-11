@@ -7,7 +7,7 @@ const Product = () => {
     const [allProduct, setAllProduct] = useState([])
     const [productCount, setProductCount] = useState(1)
     const [sort, setSort] = useState()
-    const [brand, setBrand] = useState()
+    const [brand, setBrand] = useState([])
     const [model, setModel] = useState()
     const [page, setPage] = useState(0)
     const [sale, setSale] = useState()
@@ -21,7 +21,7 @@ const Product = () => {
                 sort,
                 price: price.toString(),
                 sale,
-                brand,
+                brand: brand.toString(),
                 car_model: model,
             }
         })

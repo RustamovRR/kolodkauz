@@ -10,16 +10,18 @@ import { useWindowSize } from 'react-use'
 
 export default function SortNavigation() {
     const classes = useSortNavigationStyles()
-    const [activeButton, setActiveButton] = useState(false)
+    const [active, setActive] = useState(false)
+
+
     const { trans } = useContext(ContextRoot)
     const { width } = useWindowSize()
 
     const buttonsRu = [
-        `Популярности`, `Рейтингу`, `Скидке`, `Обновлению`, `Название (А-Я)`
+        `Популярности`, `Рейтингу`, `Скидке`, `Обновлению`
     ]
 
     const buttonsUz = [
-        `Ommaboplik`, `Reyting`, `Chegirma`, `So'nggi`, `Nom (А-Z)`
+        `Ommaboplik`, `Reyting`, `Chegirma`, `So'nggi`
     ]
 
     const icons = [
@@ -27,6 +29,10 @@ export default function SortNavigation() {
         { icon: <ProductSort2 />, link: '/categories/medium' },
         { icon: <ProductSort3 />, link: '/categories/small' }
     ]
+
+    const handleActive = (e) => {
+        console.log(e.target.name)
+    }
 
     return (
         <div className={classes.root}>
@@ -40,8 +46,12 @@ export default function SortNavigation() {
                             (trans == 'ru' ? buttonsRu : buttonsUz).map((item, index) => (
                                 <Button
                                     key={index}
-                                    className={activeButton ? classes.active_navlink : classes.navlink}
-                                    onClick={() => setActiveButton(!activeButton)}
+                                    className={active ? classes.active_navlink : classes.navlink}
+                                    onClick={
+                                        () => (
+                                            setActive(!active)
+                                        )
+                                    }
                                 >
                                     {item}
                                 </Button>

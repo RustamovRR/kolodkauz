@@ -2,15 +2,19 @@ import React, { useState } from 'react'
 import { Product } from '../../../shared'
 import { useSimilarProductStyles } from './similarProductStyles';
 
-export default function SImilarProduct({ similarProduct }) {
+export default function SimilarProduct({ data }) {
     const classes = useSimilarProductStyles()
-
+    console.log(data)
     return (
         <div className={classes.root}>
             <section className={classes.product_box}>
                 {
-                    [1, 2, 3, 4, 5].map(item => (
-                        <Product key={item} />
+                    data?.map(item => (
+                        <Product
+                            key={item}
+                            data={item}
+                            id={item._id}
+                        />
                     ))
                 }
             </section>

@@ -29,9 +29,9 @@ export default function Product({
     const { userData, addCart, cart, addFavorite, removeFavorite, userFavorite } = context.user
     const { productsData, productId, setProductId } = context.product
     const { addToFavoriteCart, openFastBuyModal, setOpenFastBuyModal } = context.variables
-    
+
     // const data = useProductQuery({ id: id })
-    
+
     const productDataId = data?._id
 
     const handleClickOpenModal = () => {
@@ -72,6 +72,7 @@ export default function Product({
             <Link
                 to={{ pathname: `/product/${data?.slug}`, state: data?._id }}
                 className={classes.product_link}
+                onClick={() => window.scrollTo(0, 0)}
             >
 
                 <section className={classes.card}>

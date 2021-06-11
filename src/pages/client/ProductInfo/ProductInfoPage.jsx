@@ -50,7 +50,6 @@ export default function ProductInfoPage() {
     // const productCount = productRating?.count ? productRating?.count : 10
     const productOverall = productRating?.overall ? productRating?.overall : 10
 
-    console.log(productQuery)
 
     // ******************************** Favorite functions ************************************//
     const handleAddCart = () => {
@@ -96,9 +95,10 @@ export default function ProductInfoPage() {
 
     useEffect(() => {
         if (productType) {
-            productsData.data?.forEach(product => {
-                if (product.type === productType) setSimilarData(product)
-            })
+            const filteredProduct = productsData.data?.filter(product => (
+                product.type == productType && product._id !== productId
+            ))
+            setSimilarData(filteredProduct)
         }
     }, [productType, productsData])
 
@@ -222,8 +222,7 @@ export default function ProductInfoPage() {
                     <h1>
                         {trans === 'ru' ? `Похожие товары` : `O'xshash mahsulotlar`}
                     </h1>
-                    {similarData.data?.map((item) => console.log(item))}
-                    <SimilarProduct />
+                    <SimilarProduct data={similarData} />
                 </section>
 
                 <section className={classes.comment_box}>

@@ -28,10 +28,12 @@ export const useDescriptionStyles = makeStyles({
         display: 'flex',
         '& p': {
             color: clr.dark700,
-            width: '90%',
+            width: '60%',
+            // background: 'green'
         },
         '& span': {
-            width: '10%'
+            // width: '40%',
+            // background: 'red'
         }
     }
 })

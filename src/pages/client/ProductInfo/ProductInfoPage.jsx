@@ -214,6 +214,7 @@ export default function ProductInfoPage() {
                         {trans === 'ru' ? `Описание` : `Tavsif`}
                     </h1>
                     <Description
+                        description={trans === 'ru' ? productRu?.description : productUz?.description}
                         data={trans === 'ru' ? productRu?.characteristics : productUz?.characteristics}
                     />
                 </section>
@@ -227,45 +228,21 @@ export default function ProductInfoPage() {
 
                 <section className={classes.comment_box}>
                     <h1>
-                        {trans === 'ru' ? `Комментарий` : `Izoh`}
+                        {trans === 'ru' ? `Отзывы` : `Sharhlar`}
                     </h1>
                     <div className={classes.sign_button}>
-                        <ButtonComponent title={trans === 'ru' ? `Войти` : `Kirish`} />
-                    </div>
-
-                    <div className={classes.navigation}>
-                        <p>
-                            {trans === 'ru' ? `Сортировать по:` : `Saralash turi:`}
-                        </p>
-                        {
-                            trans === 'ru' ? sortRu : sortUz.map((item, index) => (
-                                <Link className={classes.links} key={item} >
-                                    <Button>
-                                        {item}
-                                    </Button>
-                                </Link>
-                            ))
-                        }
+                        <Link to="/login" className={classes.loginLink}>
+                            <ButtonComponent title={trans === 'ru' ? `Войти` : `Kirish`} />
+                        </Link>
                     </div>
 
                     <div className={classes.comments}>
-                        {
-                            [1, 2, 3, 4, 5].map((item, index) => (
-                                <div className={classes.users} key={item} >
-                                    <p className={classes.comment_name}>Абдусаттор</p>
-                                    <RatingComp value={4} />
-                                    <p className={classes.comment_text}>
-                                        Добрый день! Благодарим Вас за отзыв. Приятного пользования и удачных покупок в дальнейшем. С уважением, Служба поддержки Black+Decker
-                                    </p>
-                                    <p className={classes.comment_date}>4 Дек, 2020</p>
-                                </div>
-                            ))
-                        }
-                    </div>
-                    <div className={classes.expand}>
-                        <Link>
-                            {trans === 'ru' ? `Развернуть` : `Kengaytirish`}
-                        </Link>
+                        <p>
+                            {trans === 'ru'
+                                ? `У этого продукта нет отзывов`
+                                : `Ushbu mahsulotda sharhlar mavjud emas`
+                            }
+                        </p>
                     </div>
                 </section>
             </div>

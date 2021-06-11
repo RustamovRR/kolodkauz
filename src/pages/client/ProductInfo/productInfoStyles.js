@@ -224,32 +224,10 @@ export const useProductInfoPageStyles = makeStyles({
 
     comments: {
         width: 705,
-        marginTop: 16,
+        marginTop: 30,
         '@media (max-width: 780px)': {
             width: '100%'
         },
-    },
-
-    users: {
-        marginTop: 24
-    },
-
-    comment_name: {
-        fontSize: 16,
-        fontWeight: 'bold',
-        marginBottom: 4
-    },
-
-    comment_text: {
-        marginTop: 8,
-        fontSize: 16,
-        lineHeight: '22px'
-    },
-
-    comment_date: {
-        marginTop: 8,
-        fontSize: 12,
-        color: clr.dark500
     },
 
     expand: {
@@ -259,5 +237,9 @@ export const useProductInfoPageStyles = makeStyles({
             fontWeight: 'bold',
             color: clr.secondaryDarkBlue,
         }
+    },
+
+    loginLink: {
+        textDecoration: 'none'
     }
 })

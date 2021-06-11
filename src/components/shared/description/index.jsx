@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useDescriptionStyles } from './descriptionStyles'
 
-export default function Description({ data }) {
+export default function Description({ data, description }) {
     const classes = useDescriptionStyles()
     const infos = [
         { title: `Класс вязкости`, value: `5W-30` },
@@ -12,10 +12,11 @@ export default function Description({ data }) {
         { title: `Щелочное число, мг КОН/г`, value: 8.6 },
         { title: `Испаряемость по NOACK, %`, value: 8.9 }
     ]
+    console.log(description)
 
     return (
         <div className={classes.root}>
-            <p>Быстрое и легкое подключение к бортовой сети автомобиля через розетку прикуривателя 12V. </p>
+            <p>{description}</p>
             <h2>Общие характеристики</h2>
             <section className={classes.info_box}>
                 {

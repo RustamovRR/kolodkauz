@@ -73,17 +73,45 @@ export default function TabList({ data }) {
         }
     }
 
+    const renderLink = () => {
+        switch (activeTab) {
+            case 0:
+                return `/categories/brand`
+            case 1:
+                return `/categories/chasssis`
+            case 2:
+                return `/categories/motor`
+            case 3:
+                return `/categories/spare-part`
+            case 4:
+                return `/categories/body-and-optics`
+            case 5:
+                return `/categories/accumulator`
+            case 6:
+                return `/categories/tire`
+            case 7:
+                return `/categories/oil-and-chemical`
+            case 8:
+                return `/categories/car-product`
+        }
+    }
 
     return (
         <div className={classes.container} >
             <div className={openTabList ? classes.tabPanel : classes.hidden}>
-                <header className={classes.header}>{renderHeader()}</header>
+                <Link
+                    to={renderLink}
+                    className={classes.header}
+                    onClick={handleClose}
+                >
+                    {renderHeader()}
+                </Link>
 
                 <Grid className={classes.content_box}>
                     {
                         renderList().map(({ field, titleUz, titleRu }, index) => (
                             <section className={classes.content} key={index} >
-                                <h3 className={classes.title}>{trans == 'ru' ? titleRu : titleUz}</h3>
+                                <h3 className={classes.title}>{trans === 'ru' ? titleRu : titleUz}</h3>
                                 <div>
                                     {
                                         field.map(({ valueUz, valueRu, link }, index) => (

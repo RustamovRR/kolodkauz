@@ -14,6 +14,7 @@ export default function CategoriesPage({ medium, small }) {
     const { search } = useLocation()
     const [open, setOpen] = useState(false)
     const [count, setCount] = useState(0)
+    const params = useParams()
 
     const state = useContext(ContextRoot)
     const { trans } = useContext(ContextRoot)
@@ -44,6 +45,7 @@ export default function CategoriesPage({ medium, small }) {
         }
     }, [])
 
+    console.log(params)
 
     return (
         <Layout>

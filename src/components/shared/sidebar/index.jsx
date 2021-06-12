@@ -39,7 +39,7 @@ export default function Sidebar() {
     const removeBrand = (e) => {
         brand.map((item, index) => {
             if (item == e) {
-                brand.splice(index, 1)
+                brand.pop(item)
 
                 setBrand([...brand])
             }

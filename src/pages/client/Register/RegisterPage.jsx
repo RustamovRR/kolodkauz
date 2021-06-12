@@ -6,6 +6,7 @@ import { InputLogin, CheckBox, ButtonComponent } from '../../../components/share
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import { request } from '../../../services/api';
+import toast from 'react-hot-toast';
 
 export default function RegisterPage() {
     const classes = useRegisterStyles()
@@ -31,7 +32,11 @@ export default function RegisterPage() {
             await request.post('/users/register', values)
                 .then((res) => {
                     console.log(res)
-                    // localStorage.setItem('x-token', res.config.headers['x-token'])
+                    localStorage.setItem('token', res.data?.data['x-token'])
+                    localStorage.setItem('userId', res.data?.data['_id'])
+                    toast.success(`ro'yxatdan o'tish muvaffaqqiyatli amalga oshirildi`)
+
+                    window.location.href = "/"
                 })
         }
     })

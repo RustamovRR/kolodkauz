@@ -40,6 +40,9 @@ export const useSortNavigationStyles = makeStyles({
             textTransform: 'none',
             fontWeight: 'bold'
         },
+        '&:hover': {
+            backgroundColor: clr.secondaryDarkBlue
+        }
     },
 
     icon_box: {

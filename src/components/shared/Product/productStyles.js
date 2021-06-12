@@ -7,6 +7,7 @@ export const useProductStyles = makeStyles({
         position: 'relative',
         display: 'flex',
         flexDirection: 'column',
+        justifyContent: 'space-between',
         width: 220,
         minWidth: 220,
     },

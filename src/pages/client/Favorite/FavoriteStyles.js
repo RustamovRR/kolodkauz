@@ -47,13 +47,22 @@ export const useFavoriteStyles = makeStyles({
     },
 
     product_box: {
-        display: 'flex',
-        flexWrap: 'wrap',
-        justifyContent: 'space-between',
-        padding: paddingRoot,
+        // display: 'flex',
+        // flexWrap: 'wrap',
+        // padding: paddingRoot,
+        // display: 'grid',
+        // gridTemplateColumns: 'repeat(5, 1fr)',
+        // width: '100%',
+        // justifyContent: 'space-between',
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+        columnGap: '24px',
+        rowGap: '40px',
+        justifyContent: 'center',
         '& > div': {
-            width: 220,
-            marginTop: 32
+            // width: 250,
+            // marginTop: 32
+            // flex: ` 0 1 calc(20% - 8px)`
         },
         '@media (max-width: 500px)': {
             '& > div': {

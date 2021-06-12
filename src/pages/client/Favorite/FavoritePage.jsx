@@ -41,19 +41,24 @@ export default function FavoritePage() {
                             {trans === 'ru' ? `Избранные` : `Sevimlilar`}
                         </h1>
 
-                        <div className={classes.product_box}>
-                            {
-                                userFavorite?.map((item) => (
-                                    <Product
-                                        key={item._id}
-                                        id={item._id}
-                                        data={item}
-                                        favorite
-                                        favoritePage
-                                    />
-                                ))
-                            }
-                        </div>
+                        {
+                            userFavorite.length !== 0
+                                ? <div className={classes.product_box}>
+                                    {
+                                        userFavorite?.map((item) => (
+                                            <Product
+                                                key={item._id}
+                                                id={item._id}
+                                                data={item}
+                                                favorite
+                                                favoritePage
+                                            />
+                                        ))
+                                    }
+                                </div>
+                                : <p>Sevimli mahsulotlar mavjud emas</p>
+                        }
+
                     </section>
                 </Grid>
             </div>

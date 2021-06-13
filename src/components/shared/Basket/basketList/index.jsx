@@ -9,7 +9,7 @@ import sidina from '../../../../assets/images/products/Rectangle 14.png'
 import { ContextRoot } from '../../../../contexts'
 import { BASE_URL } from '../../../../services/api'
 
-export default function BasketList({ data, decrement, increment }) {
+export default function BasketList({ data, decrement, increment, renderSum }) {
 
     const classes = useBasketListStyles()
     const state = useContext(ContextRoot)
@@ -23,6 +23,9 @@ export default function BasketList({ data, decrement, increment }) {
     const handleDecrement = () => {
         decrement(data?._id)
     }
+
+    const discountSum = data?.cart_quantity * data?.discount
+    const productSum = data?.cart_quantity * data?.price
 
     return (
         <div className={classes.root}>
@@ -54,8 +57,8 @@ export default function BasketList({ data, decrement, increment }) {
                 </section>
 
                 <section className={classes.price_box}>
-                    <p>{`${data?.cart_quantity * data?.discount} ${sum}`}</p>
-                    <span>{`${data?.cart_quantity * data?.price} ${sum}`}</span>
+                    <p>{`${renderSum(discountSum)} ${sum}`}</p>
+                    <span>{`${renderSum(productSum)} ${sum}`}</span>
                 </section>
 
                 <section className={classes.action_box}>

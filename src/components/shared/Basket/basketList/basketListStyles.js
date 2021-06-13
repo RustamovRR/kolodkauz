@@ -88,7 +88,7 @@ export const useBasketListStyles = makeStyles({
     },
 
     right_box: {
-        width: '45%',
+        width: '47%',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
@@ -109,9 +109,9 @@ export const useBasketListStyles = makeStyles({
             marginTop: 16
         },
     },
-
+    
     price_box: {
-        marginLeft: '10%',
+        marginLeft: '5%',
         '& p': {
             fontSize: 20,
             color: clr.red,

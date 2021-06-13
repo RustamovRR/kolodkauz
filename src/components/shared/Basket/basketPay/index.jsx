@@ -6,7 +6,7 @@ import { CheckBox, ButtonComponent } from '../../../shared'
 import { useBasketPayStyles } from './basketPayStyles'
 import { useHistory } from 'react-router'
 
-export default function BasketPay({ total, totalDiscount }) {
+export default function BasketPay({ total, totalDiscount, renderSum, type }) {
     const classes = useBasketPayStyles()
     const history = useHistory()
 
@@ -20,12 +20,6 @@ export default function BasketPay({ total, totalDiscount }) {
 
     const handleLogin = () => {
         history.push(`/login`)
-    }
-
-    const renderSum = (e) => {
-        return (
-            String(e).replace(/(?<!\..*)(\d)(?=(?:\d{3})+(?:\.|$))/g, '$1 ')
-        )
     }
 
     return (
@@ -65,6 +59,7 @@ export default function BasketPay({ total, totalDiscount }) {
 
             <section className={classes.button}>
                 <ButtonComponent
+                    type={type}
                     onClick={isLogged ? handleOrder : handleLogin}
                     title={
                         isLogged

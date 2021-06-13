@@ -1,149 +1,169 @@
-import React, { useContext, useEffect,useState } from 'react'
-import { Grid } from '@material-ui/core'
-import { useBasketPageStyles } from './basketPageStyles'
+import React, { useContext, useEffect, useState } from "react";
+import { Grid } from "@material-ui/core";
+import { useBasketPageStyles } from "./basketPageStyles";
 
-import { ContextRoot } from '../../../contexts'
-import { TabMenu, BasketList, BasketPay, InputBasket, BreadCrumbs, Layout } from '../../../components/shared'
-
+import { ContextRoot } from "../../../contexts";
+import {
+  TabMenu,
+  BasketList,
+  BasketPay,
+  InputBasket,
+  BreadCrumbs,
+  Layout,
+} from "../../../components/shared";
 
 export default function BasketPage() {
-    const classes = useBasketPageStyles()
-    const [total, setTotal] = useState(0)
-    const [totalDiscount, setTotalDiscount] = useState(0)
+  const classes = useBasketPageStyles();
+  const [total, setTotal] = useState(0);
+  const [totalDiscount, setTotalDiscount] = useState(0);
 
+  const state = useContext(ContextRoot);
+  const { trans } = useContext(ContextRoot);
+  const { cart, setCart } = state.user;
 
-    const state = useContext(ContextRoot)
-    const { trans } = useContext(ContextRoot)
-    const { cart,setCart } = state.user
+  const increment = (id) => {
+    cart.forEach((item) => {
+      if (item._id === id) {
+        item.cart_quantity += 1;
+      }
+    });
 
-    const increment = (id) => {
-        cart.forEach(item => {
-            if (item._id === id) {
-                item.cart_quantity += 1
-            }
-        })
+    setCart([...cart]);
+  };
 
-        setCart([...cart])
-    }
+  const decrement = (id) => {
+    cart.forEach((item) => {
+      if (item._id === id) {
+        item.cart_quantity === 1
+          ? (item.cart_quantity = 1)
+          : (item.cart_quantity -= 1);
+      }
+    });
 
-    const decrement = (id) => {
-        cart.forEach(item => {
-            if (item._id === id) {
-                item.cart_quantity === 1 ? item.cart_quantity = 1 : item.cart_quantity -= 1
-            }
-        })
+    setCart([...cart]);
+  };
 
-        setCart([...cart])
-    }
+  useEffect(() => {
+    const getTotal = () => {
+      const total = cart.reduce((prev, item) => {
+        return prev + item.price * item.cart_quantity;
+      }, 0);
 
-    useEffect(() => {
-        const getTotal = () => {
-            const total = cart.reduce((prev, item) => {
-                return prev + (item.price * item.cart_quantity)
-            }, 0)
+      setTotal(total);
+    };
 
-            setTotal(total)
-        }
+    const getTotalDiscount = () => {
+      const discount = cart.reduce((prev, item) => {
+        return prev + item.discount * item.cart_quantity;
+      }, 0);
 
-        const getTotalDiscount = () => {
-            const discount = cart.reduce((prev, item) => {
-                return prev + (item.discount * item.cart_quantity)
-            }, 0)
+      setTotalDiscount(discount);
+    };
 
-            setTotalDiscount(discount)
-        }
+    getTotal();
+    getTotalDiscount();
+  }, [cart]);
 
-        getTotal()
-        getTotalDiscount()
+  const labelsRu = [
+    `Контактный телефон`,
+    `Ф.И.О`,
+    `Область`,
+    `Город / Район`,
+    `Адрес`,
+    `Индекс`,
+  ];
 
-    }, [cart])
+  const labelsUz = [
+    `Telefon raqami`,
+    `F.I.Sh`,
+    `Mamlakat`,
+    `Shahar / Tuman`,
+    `Manzil`,
+    `Indeks`,
+  ];
 
+  const renderSum = (e) => {
+    return String(e).replace(/(?<!\..*)(\d)(?=(?:\d{3})+(?:\.|$))/g, "$1 ");
+  };
 
-    const labelsRu = [
-        `Контактный телефон`, `Ф.И.О`, `Область`, `Город / Район`, `Адрес`, `Индекс`
-    ]
+  return (
+    <Layout>
+      <div className={classes.root}>
+        <section className={classes.tabs_box}>
+          <TabMenu />
+        </section>
 
-    const labelsUz = [
-        `Telefon raqami`, `F.I.Sh`, `Mamlakat`, `Shahar / Tuman`, `Manzil`, `Indeks`
-    ]
+        <Grid className={classes.container}>
+          <form>
+            <section className={classes.basket_box}>
+              <div className={classes.left_box}>
+                <BreadCrumbs
+                  items={[
+                    {
+                      link: `/`,
+                      titleRu: `Главная`,
+                      titleUz: `Asosiy`,
+                    },
+                    {
+                      link: `/`,
+                      titleRu: `Корзина`,
+                      titleUz: `Xaridlar savati`,
+                    },
+                  ]}
+                />
 
-    return (
-        <Layout>
-            <div className={classes.root}>
+                <h1>{trans === "ru" ? `Корзина` : `Xaridlar savati`}</h1>
+                <div className={classes.basket_list}>
+                  {cart.length == 0 ? (
+                    <div>Savatda hech narsa yo'q</div>
+                  ) : (
+                    cart?.map((item) => (
+                      <BasketList
+                        key={item}
+                        data={item}
+                        increment={increment}
+                        decrement={decrement}
+                        total={total}
+                        renderSum={renderSum}
+                      />
+                    ))
+                  )}
+                </div>
+              </div>
 
-                <section className={classes.tabs_box}>
-                    <TabMenu />
-                </section>
+              <div className={classes.modal_box}>
+                <BasketPay
+                  total={total}
+                  totalDiscount={totalDiscount}
+                  renderSum={renderSum}
+                  type="submit"
+                />
+              </div>
+            </section>
 
-                <Grid className={classes.container}>
-                    <section className={classes.basket_box}>
-                        <div className={classes.left_box}>
-                            <BreadCrumbs
-                                items={[
-                                    {
-                                        link: `/`,
-                                        titleRu: `Главная`,
-                                        titleUz: `Asosiy`
-                                    },
-                                    {
-                                        link: `/`,
-                                        titleRu: `Корзина`,
-                                        titleUz: `Xaridlar savati`
-                                    },
-                                ]}
-                            />
-
-                            <h1>
-                                {trans === 'ru' ? `Корзина` : `Xaridlar savati`}
-                            </h1>
-                            <div className={classes.basket_list}>
-                                {cart.length == 0 ? (
-                                    <div>Savatda hech narsa yo'q</div>
-                                ) : (
-                                    cart?.map((item) => (
-                                        <BasketList 
-                                            key={item}
-                                            data={item} 
-                                            increment={increment}
-                                            decrement={decrement}
-                                            total={total}
-                                        />
-                                    ))
-                                )}
-                            </div>
-                        </div>
-
-                        <div className={classes.modal_box}>
-                            <BasketPay total={total} totalDiscount={totalDiscount} />
-                        </div>
-                    </section>
-
-                    <section className={classes.billing_box}>
-                        <h1>
-                            {trans === 'ru' ? `Информация биллинга` : `To'lov ma'lumotlari`}
-                        </h1>
-                        <p>
-                            {
-                                trans
-                                    ? ` Для заказа товаров требуется регистрация.Если вы уже зарегистрированы, войдите в свою учетную запись`
-                                    : `Mahsulotlarga buyurtma berish uchun ro'yxatdan o'tish kerak. Agar siz allaqachon ro'yxatdan o'tgan bo'lsangiz, iltimos, o'z hisobingizga kiring`
-                            }
-                        </p>
-                        <section className={classes.input_box}>
-                            {
-                                (trans == 'ru' ? labelsRu : labelsUz).map((label, index) => (
-                                    <div className={classes.input_label} key={label}>
-                                        <label htmlFor={label}>{label}</label>
-                                        <div className={classes.input}>
-                                            <InputBasket id={label} index={index} />
-                                        </div>
-                                    </div>
-                                ))
-                            }
-                        </section>
-                    </section>
-                </Grid>
-            </div>
-        </Layout>
-    )
+            <section className={classes.billing_box}>
+              <h1>
+                {trans === "ru" ? `Информация биллинга` : `To'lov ma'lumotlari`}
+              </h1>
+              <p>
+                {trans
+                  ? ` Для заказа товаров требуется регистрация.Если вы уже зарегистрированы, войдите в свою учетную запись`
+                  : `Mahsulotlarga buyurtma berish uchun ro'yxatdan o'tish kerak. Agar siz allaqachon ro'yxatdan o'tgan bo'lsangiz, iltimos, o'z hisobingizga kiring`}
+              </p>
+              <section className={classes.input_box}>
+                {(trans == "ru" ? labelsRu : labelsUz).map((label, index) => (
+                  <div className={classes.input_label} key={label}>
+                    <label htmlFor={label}>{label}</label>
+                    <div className={classes.input}>
+                      <InputBasket id={label} index={index} />
+                    </div>
+                  </div>
+                ))}
+              </section>
+            </section>
+          </form>
+        </Grid>
+      </div>
+    </Layout>
+  );
 }

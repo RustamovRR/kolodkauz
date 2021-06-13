@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { FormControlLabel, Radio, RadioGroup, Slider } from '@material-ui/core'
+import cn from 'classnames'
 import { useSidebarStyles } from './sidebarStyles'
 
 import { CheckBox } from '../../shared'
@@ -177,8 +178,10 @@ export default function Sidebar() {
                                 value={item.value}
                                 control={
                                     <Radio
+                                    className={classes.check_root}
                                         color="primary"
-                                        icon={<EmptyRatio />}
+                                        icon={<span className={classes.check_icon} />}
+                                        checkedIcon={<span className={cn(classes.check_icon, classes.checkedIcon)} />}
                                     />
                                 }
                                 label={item.title}

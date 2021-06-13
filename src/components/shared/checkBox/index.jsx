@@ -1,9 +1,13 @@
 import React from 'react'
 import { Checkbox, FormControlLabel } from '@material-ui/core'
 import { clr } from '../../../constants/colors'
+import { useCheckboxStyles } from './checkboxStyles'
+import cn from 'classnames'
 import { CheckedCheckbox, EmptyCheckbox } from '../../../assets/images/icons'
 
 export default function CheckboxComp({ label, onChange, checked, name }) {
+    const classes = useCheckboxStyles()
+
     return (
         <div>
             <FormControlLabel
@@ -15,9 +19,12 @@ export default function CheckboxComp({ label, onChange, checked, name }) {
                         color="primary"
                         checked={checked}
                         disableTouchRipple
-                        icon={<EmptyCheckbox />}
+                        // icon={<EmptyCheckbox />}
+                        className={classes.root}
+                        icon={<span className={classes.icon} />}
+                        checkedIcon={<span className={cn(classes.icon, classes.checkedIcon)} />}
                         onChange={onChange}
-                        checkedIcon={<CheckedCheckbox />}
+                    // checkedIcon={<CheckedCheckbox />}
                     />
                 }
             />

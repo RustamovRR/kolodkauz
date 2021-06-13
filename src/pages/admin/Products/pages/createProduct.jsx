@@ -64,6 +64,7 @@ export default function CreateProduct() {
             carModel: '',
             brand: '',
             quantity: 10,
+            cart_quantity: 1,
             price: 20000,
             discount: 30000,
             artikul: '123',

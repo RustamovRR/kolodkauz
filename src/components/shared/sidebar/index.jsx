@@ -178,7 +178,7 @@ export default function Sidebar() {
                                 value={item.value}
                                 control={
                                     <Radio
-                                    className={classes.check_root}
+                                        className={classes.check_root}
                                         color="primary"
                                         icon={<span className={classes.check_icon} />}
                                         checkedIcon={<span className={cn(classes.check_icon, classes.checkedIcon)} />}

@@ -9,12 +9,20 @@ import sidina from '../../../../assets/images/products/Rectangle 14.png'
 import { ContextRoot } from '../../../../contexts'
 import { BASE_URL } from '../../../../services/api'
 
-export default function BasketList({ data }) {
+export default function BasketList({ data, decrement, increment }) {
 
     const classes = useBasketListStyles()
     const state = useContext(ContextRoot)
     const { sum, trans } = useContext(ContextRoot)
-    const { cart, removeCart } = state.user
+    const { cart, removeCart, quantity, setQuantity } = state.user
+
+    const handleIncrement = () => {
+        increment(data?._id)
+    }
+
+    const handleDecrement = () => {
+        decrement(data?._id)
+    }
 
     return (
         <div className={classes.root}>
@@ -38,12 +46,16 @@ export default function BasketList({ data }) {
 
             <div className={classes.right_box} >
                 <section className={classes.count_box}>
-                    <Quantity />
+                    <Quantity
+                        quantity={data?.cart_quantity}
+                        handleIncrement={handleIncrement}
+                        handleDecrement={handleDecrement}
+                    />
                 </section>
 
                 <section className={classes.price_box}>
-                    <p>{`${data?.price} ${sum}`}</p>
-                    <span>{`${data?.discount} ${sum}`}</span>
+                    <p>{`${data?.cart_quantity * data?.discount} ${sum}`}</p>
+                    <span>{`${data?.cart_quantity * data?.price} ${sum}`}</span>
                 </section>
 
                 <section className={classes.action_box}>

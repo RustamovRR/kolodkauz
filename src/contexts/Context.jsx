@@ -3,7 +3,6 @@ import { request } from '../services/api'
 
 import Sort from './components/Sort'
 import Product from './components/Product'
-import Count from './components/Count'
 import VariableStates from './components/VariableStates'
 import User from './components/User'
 
@@ -43,7 +42,6 @@ export default function Provider({ children }) {
 
         // queries: Sort(),
 
-        count: Count(),
         product: Product(),
         user: User(token),
         variables: VariableStates()

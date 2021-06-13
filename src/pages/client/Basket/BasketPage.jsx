@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect,useState } from 'react'
 import { Grid } from '@material-ui/core'
 import { useBasketPageStyles } from './basketPageStyles'
 
@@ -8,10 +8,56 @@ import { TabMenu, BasketList, BasketPay, InputBasket, BreadCrumbs, Layout } from
 
 export default function BasketPage() {
     const classes = useBasketPageStyles()
+    const [total, setTotal] = useState(0)
+    const [totalDiscount, setTotalDiscount] = useState(0)
+
 
     const state = useContext(ContextRoot)
     const { trans } = useContext(ContextRoot)
-    const { cart } = state.user
+    const { cart,setCart } = state.user
+
+    const increment = (id) => {
+        cart.forEach(item => {
+            if (item._id === id) {
+                item.cart_quantity += 1
+            }
+        })
+
+        setCart([...cart])
+    }
+
+    const decrement = (id) => {
+        cart.forEach(item => {
+            if (item._id === id) {
+                item.cart_quantity === 1 ? item.cart_quantity = 1 : item.cart_quantity -= 1
+            }
+        })
+
+        setCart([...cart])
+    }
+
+    useEffect(() => {
+        const getTotal = () => {
+            const total = cart.reduce((prev, item) => {
+                return prev + (item.price * item.cart_quantity)
+            }, 0)
+
+            setTotal(total)
+        }
+
+        const getTotalDiscount = () => {
+            const discount = cart.reduce((prev, item) => {
+                return prev + (item.discount * item.cart_quantity)
+            }, 0)
+
+            setTotalDiscount(discount)
+        }
+
+        getTotal()
+        getTotalDiscount()
+
+    }, [cart])
+
 
     const labelsRu = [
         `Контактный телефон`, `Ф.И.О`, `Область`, `Город / Район`, `Адрес`, `Индекс`
@@ -55,14 +101,20 @@ export default function BasketPage() {
                                     <div>Savatda hech narsa yo'q</div>
                                 ) : (
                                     cart?.map((item) => (
-                                        <BasketList key={item} data={item} />
+                                        <BasketList 
+                                            key={item}
+                                            data={item} 
+                                            increment={increment}
+                                            decrement={decrement}
+                                            total={total}
+                                        />
                                     ))
                                 )}
                             </div>
                         </div>
 
                         <div className={classes.modal_box}>
-                            <BasketPay />
+                            <BasketPay total={total} totalDiscount={totalDiscount} />
                         </div>
                     </section>
 

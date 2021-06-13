@@ -10,6 +10,7 @@ const User = (token) => {
     const [cart, setCart] = useState(JSON.parse(localStorage.getItem('cart')) || [])
     const [userFavorite, setUserFavorite] = useState(JSON.parse(localStorage.getItem('userFavorite')) || [])
     const [compare, setCompare] = useState(JSON.parse(localStorage.getItem('compare')) || [])
+    const [quantity, setQuantity] = useState(1)
 
     const userId = localStorage.getItem('userId')
 
@@ -127,6 +128,7 @@ const User = (token) => {
         userFavorite, setUserFavorite,
         compare, setCompare,
         addCart, removeCart,
+        quantity, setQuantity,
         addFavorite, removeFavorite,
         addCompare, removeCompare
     }

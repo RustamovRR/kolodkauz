@@ -6,7 +6,7 @@ import { CheckBox, ButtonComponent } from '../../../shared'
 import { useBasketPayStyles } from './basketPayStyles'
 import { useHistory } from 'react-router'
 
-export default function BasketPay() {
+export default function BasketPay({ total, totalDiscount }) {
     const classes = useBasketPayStyles()
     const history = useHistory()
 
@@ -17,9 +17,15 @@ export default function BasketPay() {
     const handleOrder = () => {
         console.log('zakaz')
     }
-    
+
     const handleLogin = () => {
         history.push(`/login`)
+    }
+
+    const renderSum = (e) => {
+        return (
+            String(e).replace(/(?<!\..*)(\d)(?=(?:\d{3})+(?:\.|$))/g, '$1 ')
+        )
     }
 
     return (
@@ -28,14 +34,14 @@ export default function BasketPay() {
                 <p>
                     {trans === 'ru' ? `Товары, ${cart.length} шт.` : `Tovarlar, ${cart.length} dona`}
                 </p>
-                <p>{`7,850,000 ${sum}`}</p>
+                <p>{`${renderSum(totalDiscount)} ${sum}`}</p>
             </section>
 
             <section className={classes.product}>
                 <p>
                     {trans === 'ru' ? `Скидка` : `Chegirma`}
                 </p>
-                <p>{`-68,000 ${sum}`}</p>
+                <p>{`-${renderSum(total)} ${sum}`}</p>
             </section>
 
             <section className={classes.rule}>
@@ -54,7 +60,7 @@ export default function BasketPay() {
                 <p>
                     {trans === 'ru' ? `Итого:` : `Jami:`}
                 </p>
-                <h4>{`8,678,400 ${sum}`}</h4>
+                <h4>{`${renderSum(totalDiscount)} ${sum}`}</h4>
             </section>
 
             <section className={classes.button}>

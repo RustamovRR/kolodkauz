@@ -6,7 +6,6 @@ export const useTabListStyles = makeStyles(theme => ({
     container: {
         margin: 'auto',
         marginTop: 5,
-        paddingTop: 32
     },
     tabPanel: {
         maxWidth: 1440,
@@ -20,6 +19,10 @@ export const useTabListStyles = makeStyles(theme => ({
 
     hidden: {
         display: 'none'
+    },
+
+    headerBox: {
+        marginTop: 32
     },
 
     header: {

@@ -10,7 +10,7 @@ import { useFastBuyModalStyles } from './fastBuyModalStyles'
 import { BASE_URL } from '../../../services/api'
 import { useProductQuery } from '../../../hooks/queries'
 
-export default function FastBuyModal({ data }) {
+export default function FastBuyModal() {
     const classes = useFastBuyModalStyles()
     const [detailProduct, setDetailProduct] = useState([])
     const [showFavorite, setShowFavorite] = useState(false)
@@ -22,7 +22,8 @@ export default function FastBuyModal({ data }) {
     const { userFavorite, addFavorite, removeFavorite } = state.user
 
     const productQuery = useProductQuery({ id: productId })
-    // console.log(productQuery?.data?.data)
+    const data = productQuery.isSuccess ? productQuery.data?.data.data : []
+    console.log(data)
 
     const handleClickCloseModal = () => {
         setOpenFastBuyModal(false)
@@ -63,12 +64,12 @@ export default function FastBuyModal({ data }) {
             <main className={classes.card_box}>
                 <section className={classes.text_box}>
                     <div>
-                        <h1>{trans === 'ru' ? data?.ru.title : data?.uz.title}</h1>
+                        <h1>{trans === 'ru' ? data.ru?.title : data.uz?.title}</h1>
 
                         <div className={classes.secondary_box}>
                             <p className={classes.artikul}>Артикул: {data?.artikul}</p>
                             <RatingComp value={5} />
-                            <p className={classes.review}> {data?.rating.overall} отзывов</p>
+                            <p className={classes.review}> {data.rating?.overall} отзывов</p>
                             <IconButton
                                 className={classes.icon}
                                 onClick={() => {
@@ -93,7 +94,7 @@ export default function FastBuyModal({ data }) {
                     <section className={classes.image_box}>
                         <img
                             src={`${BASE_URL}/${data?.image}`}
-                            alt={data?.uz.description}
+                            alt={data.uz?.description}
                         />
                     </section>
 

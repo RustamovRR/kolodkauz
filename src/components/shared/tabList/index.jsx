@@ -99,13 +99,15 @@ export default function TabList({ data }) {
     return (
         <div className={classes.container} >
             <div className={openTabList ? classes.tabPanel : classes.hidden}>
-                <Link
-                    to={renderLink}
-                    className={classes.header}
-                    onClick={handleClose}
-                >
-                    {renderHeader()}
-                </Link>
+                <div className={classes.headerBox}>
+                    <Link
+                        to={renderLink}
+                        className={classes.header}
+                        onClick={handleClose}
+                    >
+                        {renderHeader()}
+                    </Link>
+                </div>
 
                 <Grid className={classes.content_box}>
                     {

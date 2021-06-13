@@ -9,7 +9,7 @@ export default function Ads({ data }) {
     return (
         <div className={classes.ads_root}>
             {
-                data.data?.slice(0, 2).map((item) => (
+                data.data?.slice(2,4).map((item) => (
                     <div key={item._id} >
                         <img
                             src={`${BASE_URL}/${item.image}`}

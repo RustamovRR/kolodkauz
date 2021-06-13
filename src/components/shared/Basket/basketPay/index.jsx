@@ -4,33 +4,46 @@ import { ContextRoot } from '../../../../contexts'
 
 import { CheckBox, ButtonComponent } from '../../../shared'
 import { useBasketPayStyles } from './basketPayStyles'
+import { useHistory } from 'react-router'
 
 export default function BasketPay() {
     const classes = useBasketPayStyles()
+    const history = useHistory()
+
+    const state = useContext(ContextRoot)
     const { trans, sum } = useContext(ContextRoot)
+    const { cart, isLogged } = state.user
+
+    const handleOrder = () => {
+        console.log('zakaz')
+    }
+    
+    const handleLogin = () => {
+        history.push(`/login`)
+    }
 
     return (
         <Paper className={classes.paper} elevation={2} >
             <section className={classes.product}>
                 <p>
-                    {trans === 'ru' ? `Товары` : `Tovarlar`}
+                    {trans === 'ru' ? `Товары, ${cart.length} шт.` : `Tovarlar, ${cart.length} dona`}
                 </p>
                 <p>{`7,850,000 ${sum}`}</p>
             </section>
 
             <section className={classes.product}>
                 <p>
-                    {trans === 'ru' ? `Мастер` : `Usta`}
+                    {trans === 'ru' ? `Скидка` : `Chegirma`}
                 </p>
-                <p>{`68,000 ${sum}`}</p>
+                <p>{`-68,000 ${sum}`}</p>
             </section>
 
             <section className={classes.rule}>
                 <CheckBox
                     label={
                         trans
-                            ? `Согласен с условиями Правил пользования торговой площадкой и правилами возврата`
-                            : `Savdo maydonchasidan foydalanish shartlari va qaytish qoidalari bilan roziman`
+                            ? `Согласен с условиями`
+                            : `Shartlarga roziman`
                     }
                 />
             </section>
@@ -46,7 +59,12 @@ export default function BasketPay() {
 
             <section className={classes.button}>
                 <ButtonComponent
-                    title={trans === 'ru' ? `Войти` : `Kirish`}
+                    onClick={isLogged ? handleOrder : handleLogin}
+                    title={
+                        isLogged
+                            ? trans === 'ru' ? `Заказать` : `Buyurtma berish`
+                            : trans === 'ru' ? `Войти` : `Kirish`
+                    }
                 />
             </section>
         </Paper>

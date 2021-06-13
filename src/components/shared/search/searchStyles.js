@@ -6,18 +6,23 @@ export const useSearchStyles = makeStyles({
         position: 'relative !important',
     },
     search_root: {
-        width: 668,
+        width: '43vw',
         height: 48,
         display: 'flex',
         padding: 12,
         paddingRight: 0,
         alignItems: 'center',
         border: `2px solid ${clr.orange}`,
-        backgroundColor: clr.search,
         '& > *': {
             fontSize: 16,
             color: clr.text2
-        }
+        },
+        '@media ( max-width: 600px)': {
+            width: '90vw',
+        },
+        '@media ( max-width: 450px)': {
+            width: '82vw',
+        },
     },
     input: {
         width: '92%',

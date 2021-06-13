@@ -8,7 +8,8 @@ export const useBasketPayStyles = makeStyles({
         padding: 24,
         width: '100%',
         maxWidth: 350,
-        minHeight: 332,
+        position: 'sticky',
+        top: 70,
         margin: 'auto',
         overflow: 'hidden',
     },
@@ -22,7 +23,7 @@ export const useBasketPayStyles = makeStyles({
             color: clr.primary
         },
         '& p:first-child': {
-            marginBottom: 12,
+            marginBottom: 16,
             color: clr.infoText,
         }
     },
@@ -30,6 +31,7 @@ export const useBasketPayStyles = makeStyles({
     rule: {
         display: 'flex',
         justifyContent: 'space-between',
+        marginTop: 16,
         '& p': {
             fontSize: 13,
             fontWeight: 400
@@ -43,7 +45,7 @@ export const useBasketPayStyles = makeStyles({
     },
 
     divider: {
-        marginTop: 24
+        marginTop: 12
     },
 
     total: {

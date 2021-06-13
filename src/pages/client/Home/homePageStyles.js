@@ -13,17 +13,6 @@ export const useHomePageStyles = makeStyles({
         margin: 'auto'
     },
 
-    backgroundContainer: {
-        maxWidth: 1440,
-        margin: 'auto',
-        background: 'rgba(0,0,0,0.7)',
-    },
-
-    // carousel_box: {
-    //     padding: paddingRoot,
-    //     marginTop: 48
-    // },
-
     carousel_box: {
         padding: paddingRoot,
         marginTop: 48,
@@ -34,15 +23,13 @@ export const useHomePageStyles = makeStyles({
     },
 
     carBrand_box: {
-        padding: paddingRoot,
-        marginTop: 64,
         display: 'grid',
-        gridTemplateColumns: 'repeat(5, 1fr)',
-        // justifyItems: 'stretch ',
-        // display:'flex',
-        justifyContent: 'space-between',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(106px, 1fr))',
+        columnGap: 80,
+        marginTop: 32,
+        padding: paddingRoot,
         '& > div': {
-            width: 220,
+            maxWidth: 220,
             height: 80,
             marginTop: 32
         }
@@ -70,15 +57,17 @@ export const useHomePageStyles = makeStyles({
     },
 
     bestSeller_box: {
-        display: 'flex',
-        flexWrap: 'wrap',
-        justifyContent: 'space-between',
-        // display: 'grid',
-        // gridTemplateColumns: 'repeat(5, 1fr)',
+        // display: 'flex',
+        // flexWrap: 'wrap',
+        // justifyContent: 'space-between',
         padding: paddingRoot,
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+        columnGap: 24,
+        rowGap: 32,
+        marginTop: 32,
         '& > div': {
-            width: 220,
-            marginTop: 32
+            // width: 220,
         },
         '@media (max-width: 500px)': {
             '& > div': {
@@ -128,24 +117,27 @@ export const useHomePageStyles = makeStyles({
     },
 
     productBrand_box: {
-        // display: 'grid',
-        // gridTemplateColumns: 'repeat(8, 1fr)',
-        display: 'flex',
-        flexWrap: 'wrap',
-        justifyContent: 'space-between',
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))',
+        gridGap: 24,
+        marginTop: 32,
+        // display: 'flex',
+        // flexWrap: 'wrap',
+        // justifyContent: 'space-between',
         padding: paddingRoot,
-        '& > div ': {
-            width: '12%'
-        },
-        '@media (max-width: 700px)': {
-            '& > div ': {
-                width: '20%'
-            },
-        },
-        '@media (max-width: 500px)': {
-            '& > div ': {
-                width: '30%'
-            },
-        },
+        // '& > div ': {
+        //     width: '12%',
+        //     marginTop: 32,
+        // },
+        // '@media (max-width: 700px)': {
+        //     '& > div ': {
+        //         width: '20%'
+        //     },
+        // },
+        // '@media (max-width: 500px)': {
+        //     '& > div ': {
+        //         width: '30%'
+        //     },
+        // },
     }
 })

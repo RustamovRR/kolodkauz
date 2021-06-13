@@ -41,11 +41,11 @@ export default function Carousel({ data }) {
             // swiper
             >
                 {
-                    images.map(item => (
-                        <SwiperSlide className={classes.swiper_slide} key={item}>
+                    data?.map(item => (
+                        <SwiperSlide className={classes.swiper_slide} key={item._id}>
                             <div className={classes.carousel} >
                                 <img
-                                    src={item}
+                                    src={`${BASE_URL}/${item.image}`}
                                     alt=""
                                 />
                             </div>

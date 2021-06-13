@@ -27,7 +27,7 @@ export default function HomePage() {
     const adsQuery = ads.isSuccess ? ads.data?.data : []
     const carsQuery = cars.isSuccess ? cars.data?.data : []
 
-    console.log(productsQuery.data)
+    // console.log(productDataByIdQuery)
 
     return (
         <Layout>
@@ -39,7 +39,7 @@ export default function HomePage() {
 
                 <Grid className={classes.container}>
                     <section className={classes.carousel_box}>
-                        <Carousel data={adsQuery} />
+                        <Carousel data={adsQuery.data} />
                     </section>
 
                     <Grid className={classes.carBrand_box}>
@@ -59,7 +59,7 @@ export default function HomePage() {
                         </h1>
                     </div>
 
-                    <FastBuyModal/>
+                    <FastBuyModal />
 
                     <Grid className={classes.bestSeller_box}>
                         {

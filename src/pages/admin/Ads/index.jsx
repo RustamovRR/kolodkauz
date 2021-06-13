@@ -6,6 +6,7 @@ import UploadImageForm from '../../../components/forms/UploadImageForm';
 import { ContextRoot } from '../../../contexts'
 import { useFormik } from 'formik';
 import axios from 'axios';
+import toast from 'react-hot-toast';
 // import * as yup from 'yup';
 
 export default function Ads() {
@@ -21,7 +22,8 @@ export default function Ads() {
         },
         onSubmit: (values) => {
             request.post('/ads', values)
-                .then((res) => console.log(res.data.data))
+                // .then((res) => console.log(res.data.data))
+                toast.success('success post')
         }
     })
 

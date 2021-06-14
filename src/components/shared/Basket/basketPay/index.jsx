@@ -6,7 +6,7 @@ import { CheckBox, ButtonComponent } from '../../../shared'
 import { useBasketPayStyles } from './basketPayStyles'
 import { useHistory } from 'react-router'
 
-export default function BasketPay({ total, totalDiscount, renderSum, type }) {
+export default function BasketPay({ total, totalDiscount, renderSum, type, handleSubmit }) {
     const classes = useBasketPayStyles()
     const history = useHistory()
 
@@ -14,11 +14,13 @@ export default function BasketPay({ total, totalDiscount, renderSum, type }) {
     const { trans, sum } = useContext(ContextRoot)
     const { cart, isLogged } = state.user
 
-    const handleOrder = () => {
-        console.log('zakaz')
+    const handleOrder = (e) => {
+        e.preventDefault()
+        handleSubmit()
     }
 
-    const handleLogin = () => {
+    const handleLogin = (e) => {
+        e.preventDefault()
         history.push(`/login`)
     }
 

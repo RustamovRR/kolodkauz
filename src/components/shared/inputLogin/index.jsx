@@ -5,7 +5,7 @@ import { IconButton, InputAdornment, MenuItem, TextField } from '@material-ui/co
 import { useInputLoginStyles } from './inputLoginStyles'
 import { Visibility, VisibilityOff } from '@material-ui/icons'
 
-const NumberFormatCustom = (props) => {
+export const NumberFormatCustom = (props) => {
     const { inputRef, onChange, value, ...other } = props;
 
     return (
@@ -45,25 +45,6 @@ export default function InputLogin({ id, numberFormat, value, handleChange, type
                 }}
             >
             </TextField>
-
-            {/* <InputMask
-                mask="999-999-9999"
-                onChange={handleChange}
-                onBlur={handleBlur}
-                value={values.billing_phone}
-                error={errors.billing_phone && touched.billing_phone}
-                helperText={(errors.billing_phone && touched.billing_phone) && errors.billing_phone}>
-                {(inputProps) =>
-                    <TextField
-                        {...inputProps}
-                        className={classes.MuiInputBase}
-                        id="billing_phone"
-                        variant="outlined"
-                        name="billing_phone"
-                        placeholder={addressObj.phone}
-
-                    />}
-            </InputMask> */}
         </>
     )
 }

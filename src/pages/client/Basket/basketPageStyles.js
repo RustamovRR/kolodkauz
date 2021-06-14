@@ -91,5 +91,23 @@ export const useBasketPageStyles = makeStyles({
         '@media ( max-width: 500px)': {
             width: '85vw'
         },
+    },
+    fieldset: {
+        backgroundColor: "red",
+        color: 'green'
+    },
+
+    textfield: {
+        width: '100%',
+        height: 48,
+        '& .MuiOutlinedInput-root': {
+            borderRadius: 0,
+            '& fieldset': {
+                border: `1px solid ${clr.productPrimary}`
+            },
+            '&.Mui-focused fieldset': {
+                border: `1px solid ${clr.tab}`
+            },
+        },
     }
 });

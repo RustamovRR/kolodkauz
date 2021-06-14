@@ -3,7 +3,7 @@ import { MenuItem, TextField } from '@material-ui/core'
 
 import { useInputBasketStyles } from './inputBasketStyles'
 
-export default function InputBasket({ id, selected, index }) {
+export default function InputBasket({ id, index, name, value, onChange }) {
     const classes = useInputBasketStyles()
     const menu = [
         `Контактный телефон`, `Ф.И.О`, `Область`, `Город / Район`, `Адрес`, `Индекс`
@@ -14,6 +14,9 @@ export default function InputBasket({ id, selected, index }) {
             id={id}
             select={(index == 2 || index == 3) ? true : false}
             variant="outlined"
+            name={name}
+            value={value}
+            onChange={onChange}
             className={classes.textfield}
         >
             {

@@ -32,7 +32,7 @@ export default function Header() {
         <div className={classes.header_root}>
             <nav className={classes.nav}>
                 <Language />
-                <Currency />
+                {/* <Currency /> */}
 
                 <Hidden xsDown>
                     <div className={classes.services}>

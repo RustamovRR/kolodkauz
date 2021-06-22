@@ -4,22 +4,17 @@ import { Route } from 'react-router-dom';
 const CategoriesPage = lazy(() => import("./CategoriesPage"))
 
 const routes = [
-    // {
-    //     exact: true,
-    //     path: "/categories",
-    //     component: CategoriesPage
-    // },
     {
         exact: true,
-        path: "/categories/:category",
+        path: "/categories",
         component: CategoriesPage
     },
     {
-        path: "/categories/:category/medium",
+        path: "/categories/medium",
         component: (() => <CategoriesPage medium />)
     },
     {
-        path: "/categories/:category/small",
+        path: "/categories/small",
         component: (() => <CategoriesPage small />)
     },
 ]

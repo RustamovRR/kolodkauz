@@ -116,7 +116,7 @@ export default function Header() {
                                 <Badge
                                     color="primary"
                                     badgeContent={cart.length}
-                                    invisible={cart.length == 0}
+                                    invisible={cart.length === 0}
                                 >
                                     <BasketBlack />
                                 </Badge>

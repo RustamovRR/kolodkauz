@@ -35,6 +35,7 @@ export default function Sidebar({ open, handleDrawerClose }) {
         { name: 'Mashina', path: '/admin/cars', icon: <InboxIcon /> },
         { name: 'Foydalanuvchilar', path: '/admin/users', icon: <InboxIcon /> },
         { name: 'Brendlar', path: '/admin/brands', icon: <InboxIcon /> },
+        { name: 'Buyurtmalar', path: '/admin/order', icon: <InboxIcon /> },
     ]
 
     const drawer = (

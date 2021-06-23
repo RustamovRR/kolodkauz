@@ -9,11 +9,13 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Sidebar from './_components/Sidebar';
 import { useHomeStyles } from './homeStyles';
+
 import Products from '../Products'
 import Users from '../Users'
 import Cars from '../Cars'
 import Brands from '../Brands'
 import Ads from '../Ads'
+import OrderList from '../Order'
 import ProductList from '../Products/pages/productList';
 import UpdateProduct from '../Products/pages/updateProduct';
 import CreateProduct from '../Products/pages/createProduct';
@@ -71,6 +73,7 @@ function AdminHome(props) {
                     <Route path="/admin/ads" component={Ads} />
                     <Route path="/admin/cars" component={Cars} />
                     <Route path="/admin/brands" component={Brands} />
+                    <Route path="/admin/order" component={OrderList} />
                 </Switch>
             </main>
         </div>
